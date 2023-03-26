@@ -1,18 +1,33 @@
 import * as React from "react";
-import { Product } from "../../app";
 import { Link, useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { ProductContext} from '../../contexts/Product'
 
 type Props = {
-    data: Product[];
     className?: string;
     children?: React.ReactNode;
   };  
 
-const ProductInfo = ({ data, children }: Props) => {
-    let { id } = useParams();
-    const product: Product = data[parseInt(id)]
+const ProductInfo = ({ children }: Props) => {
+  const [product, setProduct] = useState(null)
+  const { items } = React.useContext(ProductContext)
+  let { id } = useParams();
 
-    return (<p>{product.name}</p>);
+  useEffect(() => {
+    setProduct(items[parseInt(id)])
+  }, [useParams(), items])
+
+
+return (
+  <>
+    { product != null 
+    ? <p>{product.name}</p> 
+    : <p>loading</p>
+    }
+  </>
+
+  );
 }
 
 export default ProductInfo;
+
