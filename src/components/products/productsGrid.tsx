@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Product } from "../../app/app";
+import { Product } from "../../app";
 import placeholder from "/public/placeholder.png";
 import styles from "./productsGrid.module.css";
 import { Link } from "react-router-dom";

@@ -1,16 +1,14 @@
 import * as React from "react";
 import { useEffect, useState } from "react";
-import { Accordion, AccordionSection } from "../components/accordionMenu/accordionMenu";
-import Header from "../components/header";
-import data from "../data/products.json";
-import categories from "../data/categories.json"
-import ProductsGrid from "../components/products/productsGrid";
-import { RouterProvider, createHashRouter, Link, createBrowserRouter, BrowserRouter } from "react-router-dom";
-import { Router, Route, useResolvedPath, useMatch, Routes } from 'react-router'
-import ErrorPage from "./errorPage";
-import * as ReactDOM from "react-dom";
-import { MenuItem } from "../components/meu/menuItem";
-import ProductInfo from "../components/products/productInfo";
+import Header from "./components/header";
+import data from "./data/products.json";
+import categories from "./data/categories.json"
+import ProductsGrid from "./components/products/productsGrid";
+import { Link, BrowserRouter } from "react-router-dom";
+import { Route,  Routes } from 'react-router'
+import ErrorPage from "./app/errorPage";
+import { MenuItem } from "./components/meu/menuItem";
+import ProductInfo from "./components/products/productInfo";
 
 export type Product = {
   name: string,
