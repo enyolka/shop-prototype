@@ -1,6 +1,16 @@
+import { pushStateLocationPlugin, UIRouter } from "@uirouter/react";
+import * as React from "react";
 import { createRoot } from "react-dom/client";
-import App from "./app/App";
+import { BrowserRouter } from "react-router-dom";
+import App from "./app/app";
+import ProductsGrid from "./components/products/productsGrid";
 
 const container = document.getElementById("root");
 const root = createRoot(container);
-root.render(<App />);
+
+root.render(
+    <React.StrictMode>
+        <App />
+    </React.StrictMode>
+);
+

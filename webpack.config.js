@@ -6,7 +6,9 @@ module.exports = {
   output: {
     filename: "main.js",
     path: path.resolve(__dirname, "build"),
+    publicPath: '/',
   },
+  devtool: 'inline-source-map',
   module: {
     rules: [
       {
@@ -18,10 +20,29 @@ module.exports = {
         test: /\.(ts|tsx)$/,
         loader: "ts-loader",
       },
+      {
+        test: /\.geojson$/,
+        type: 'json',
+      },
+      {
+        test: /\.(png|jpe?g|gif)$/i,
+        use: [
+          {
+            loader: 'file-loader',
+          },
+        ],
+      },
+      {
+        test: /\.css$/,
+        use: [
+          'style-loader',
+          'css-loader'
+        ]
+      }
     ],
   },
   resolve: {
-    extensions: ["*", ".js", ".jsx", ".ts", ".tsx"],
+    extensions: ["*", ".js", ".jsx", ".ts", ".tsx", ".json", ".png"],
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -33,5 +54,6 @@ module.exports = {
       directory: path.join(__dirname, "build"),
     },
     port: 3000,
+    historyApiFallback: true,
   },
 };
