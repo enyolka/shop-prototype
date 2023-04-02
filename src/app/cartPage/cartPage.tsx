@@ -1,5 +1,6 @@
 import * as React from "react";
 import { useContext } from "react";
+import Button from "../../components/button/button";
 import { ProductContext } from "../../contexts/GlobalState";
 
 const CartPage =( props: any) => {
@@ -17,14 +18,14 @@ const CartPage =( props: any) => {
                   {cartItem.quantity})
                 </div>
                 <div>
-                  <button
+                  <Button
                     onClick={context.removeProductFromCart.bind(
                       this,
                       cartItem.id
                     )}
                   >
                     Remove from Cart
-                  </button>
+                  </Button>
                 </div>
               </li>
             ))}

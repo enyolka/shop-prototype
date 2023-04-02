@@ -1,0 +1,122 @@
+.header {
+  /* background-color: rgb(215, 215, 215); */
+  display: grid;
+  grid-template-columns: 2fr 3fr 3fr;
+  padding: 45px 0 30px 0;
+  margin: 0;
+  background-color: white;
+  position: fixed;
+  top: 0px;
+  left: 0;
+  width: 100%;
+  z-index: 10; 
+}
+
+
+.logo {
+  grid-column: 2;
+  margin: auto;
+}
+
+.header_bar {
+  grid-column: 3;
+  margin: auto;
+  margin-right: 0;
+}
+
+.menu__toggler {
+  grid-column: 1;
+  outline: none;
+  cursor: pointer;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  top: 30px;
+  left: 20px;
+  z-index: 101;
+  height: 28px;
+  width: 28px;
+  padding: 10px;
+  background-color: white;
+}
+
+.menu__toggler > span,
+.menu__toggler > span::before,
+.menu__toggler > span::after {
+  position: absolute;
+  content: '';
+  width: 28px;
+  height: 3px;
+  background: #2f2f2f;
+  border-radius: 10px;
+  transition: 500ms cubic-bezier(0.75, 0, 0.15, 1);
+}
+
+.menu__toggler > span::before {
+  top: -8px;
+}
+
+.menu__toggler > span::after {
+  top: 8px;
+}
+
+.menu__toggler.active > span  {
+  background: transparent;
+}
+
+.menu__toggler.active > span::before,
+.menu__toggler.active > span::after {
+  /* background: #005c9c; */
+  top: 0px;
+}
+
+.menu__toggler.active > span::before  {
+  transform: rotate(-225deg);
+}
+
+.menu__toggler.active > span::after  {
+  transform: rotate(225deg);
+}
+  
+
+.menu {
+  position: absolute;
+  z-index: 100;
+  color: #005c9c;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transition: 300ms left cubic-bezier(0.77, 0, 0.175, 1);
+  width: 250px;
+  top: 99px;
+  left: -250px;
+  height: 100vh;
+}
+
+@media only screen and (min-width: 600px) {
+  .menu{
+    width: 330px;
+    left: -330px;
+
+  }
+}
+
+.menu.active {
+  left: 0;
+}
+
+.menu li {
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+}
+
+
+/* *,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+} */
+  

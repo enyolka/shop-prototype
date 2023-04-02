@@ -1,5 +1,7 @@
-import * as React from "react"
-import { Link, useMatch, useResolvedPath } from "react-router-dom"
+import * as classnames from "classnames";
+import * as React from "react";
+import { Link, useMatch, useResolvedPath } from "react-router-dom";
+import styles from "./menuItem.module.css"
 
 
 export const MenuItem = ({ to, children, ...props }: any) => {
@@ -7,10 +9,8 @@ export const MenuItem = ({ to, children, ...props }: any) => {
     const isActive = useMatch({ path: resolvedPath.pathname, end: true })
 
     return (
-        <li className={isActive ? "active" : ""}>
-            <Link to={to} {...props}>
-                {children}
-            </Link>
-        </li>
+        <Link to={to} className={classnames(styles.menu_link, isActive ? styles.active : "")} {...props}>
+            {children}
+        </Link>
     )
 }

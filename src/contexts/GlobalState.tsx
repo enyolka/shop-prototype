@@ -41,6 +41,8 @@ export const ProductContext =  React.createContext<ProductContextInterface>({
 
 const GlobalState = ({ children }: Props) => {
   const[products, setProducts] = useState<Product[]>([])
+  const [cartState, dispatchCart] = useReducer(shopReducer, { cart: sessionStorage.getItem("cartItems") != null ? JSON.parse(sessionStorage.getItem("cartItems")) : []  });
+  const [likedState, dispatchLiked] = useReducer(shopReducer, { liked: sessionStorage.getItem("likedItems") != null ? JSON.parse(sessionStorage.getItem("likedItems")) : [] });
 
   const translateProduct = (product: any) => {
     return {
@@ -54,37 +56,33 @@ const GlobalState = ({ children }: Props) => {
     }
   }
 
-  useEffect(() => 
-    setProducts(data.products.data.items.map(translateProduct)), [data])
+  useEffect(() => setProducts(data.products.data.items.map(translateProduct)), [data])  
 
-    const [cartState, dispatchCart] = useReducer(shopReducer, { cart: [] });
-    const [likedState, dispatchLiked] = useReducer(shopReducer, { liked: [] });
+  const addProductToCart = (product: Product) => {
+      dispatchCart({ type: ADD_PRODUCT, product: product });
+  };
 
-    const addProductToCart = (product: Product) => {
-        dispatchCart({ type: ADD_PRODUCT, product: product });
-    };
+  const removeProductFromCart = (productId: string) => {
+      dispatchCart({ type: REMOVE_PRODUCT, productId: productId });
+  };
 
-    const removeProductFromCart = (productId: string) => {
-        dispatchCart({ type: REMOVE_PRODUCT, productId: productId });
-    };
+  const addProductToLiked = (product: Product) => {
+    dispatchLiked({ type: ADD_LIKED, product: product });
+  };
 
-    const addProductToLiked = (product: Product) => {
-      dispatchLiked({ type: ADD_LIKED, product: product });
-    };
+  const removeProductFromLiked = (productId: String) => {
+    dispatchLiked({ type: REMOVE_LIKED, productId: productId });
+  };
 
-    const removeProductFromLiked = (productId: String) => {
-      dispatchLiked({ type: REMOVE_LIKED, productId: productId });
-    };
-
-    const context = {
-      products,
-      cart: cartState.cart,
-      liked: likedState.liked,
-      addProductToCart,
-      removeProductFromCart,
-      addProductToLiked,
-      removeProductFromLiked,
-    }
+  const context = {
+    products,
+    cart: cartState.cart,
+    liked: likedState.liked,
+    addProductToCart,
+    removeProductFromCart,
+    addProductToLiked,
+    removeProductFromLiked,
+  }
 
   return <ProductContext.Provider value={context}>{children}</ProductContext.Provider>
 };

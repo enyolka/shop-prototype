@@ -2,6 +2,7 @@ import * as React from "react";
 import { Link, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { ProductContext } from "../../contexts/GlobalState";
+import Button from "../../components/button/button";
 
 type Props = {
     className?: string;
@@ -14,31 +15,30 @@ const ProductInfo = ({ children }: Props) => {
   let { id } = useParams();
 
   useEffect(() => {
-    setProduct(context.products[parseInt(id)])
+    setProduct(context.products.find(product => product.id === id))
   }, [useParams(), context])
 
-
-return (
-  <>
-    { product != null 
-    ? <main>
-        <p>{product.name}</p> 
-        <div>
-                <button
-                  onClick={() => context.addProductToCart(product)}
-                >
-                  Add to Cart
-                </button>
-                <button
-                  onClick={() => context.addProductToLiked(product)}
-                >
-                  Add to Liked
-                </button>
-              </div>
-      </main>
-    : <p>loading</p>
-    }
-  </>
+  return (
+    <>
+      { product != null 
+      ? <main>
+          <p>{product.name}</p> 
+          <div>
+                  <Button
+                    onClick={() => context.addProductToCart(product)}
+                  >
+                    Add to Cart
+                  </Button>
+                  <Button
+                    onClick={() => context.addProductToLiked(product)}
+                  >
+                    Add to Liked
+                  </Button>
+                </div>
+        </main>
+      : <p>loading</p>
+      }
+    </>
 
   );
 }

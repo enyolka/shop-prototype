@@ -1,11 +1,10 @@
 import * as React from "react";
 import { useEffect, useState } from "react";
-import Header from "./components/header";
+import Header from "./components/header/header";
 import categories from "./data/categories.json"
 import { Link, BrowserRouter } from "react-router-dom";
 import { Route,  Routes } from 'react-router'
 import ErrorPage from "./app/errorPage";
-import { MenuItem } from "./components/meu/menuItem";
 import ProductInfo from "./app/productsPage/productInfo";
 import GlobalState from "./contexts/GlobalState";
 import ProductsPage from "./app/productsPage/productsPage";
@@ -15,23 +14,16 @@ import LikedPage from "./app/likedPage/likedPage";
 const App = () => {
   // const [selectedProduct, setSelectedProduct] = useState(0)
 
+
   return (
     <GlobalState>
       <BrowserRouter>
-        <Header
-          menuItems={
-            [<MenuItem to="/produkty">Produkty</MenuItem>,
-            <MenuItem to="/ulubione">Ulubione</MenuItem>,
-            <MenuItem to="/koszyk">Koszyk</MenuItem>
-          ]
-
-          }
-        >
-          <Link to="/" className="site-title">
+        <Header>
+          {/* <Link to="/" className="site-title">
             Site Name
-          </Link>
+          </Link> */}
         </Header>
-        <div className="container">
+        <main className="container">
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/produkty" element={<ProductsPage/>} />
@@ -41,7 +33,7 @@ const App = () => {
               <Route path="/konto" element={<Account/>} />
               <Route path="/*" element={<ErrorPage/>} />
             </Routes>
-        </div>
+        </main>
       </BrowserRouter>
     </GlobalState>
   );   

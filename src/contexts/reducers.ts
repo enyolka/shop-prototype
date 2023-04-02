@@ -20,6 +20,8 @@ const addProductToCart = (product: Product, state: any) => {
     updatedItem.quantity++;
     updatedCart[updatedItemIndex] = updatedItem;
   }
+  sessionStorage.setItem('cartItems', JSON.stringify(updatedCart))
+  
   return { ...state, cart: updatedCart };
 };
 
@@ -36,6 +38,8 @@ const removeProductFromCart = (productId: string, state: any) => {
   } else {
     updatedCart[updatedItemIndex] = updatedItem;
   }
+  sessionStorage.setItem('cartItems', JSON.stringify(updatedCart))
+
   return { ...state, cart: updatedCart };
 };
 
@@ -47,6 +51,8 @@ const addProductToLiked = (product: Product, state: any) => {
 
   if(updatedItemIndex < 0)
     updatedLiked.push({ ...product, liked: true });
+
+  sessionStorage.setItem('likedItems', JSON.stringify(updatedLiked))
 
   return { ...state, liked: updatedLiked };
 };
@@ -61,6 +67,8 @@ const removeProductFromLiked = (productId: string, state: any) => {
   };
   updatedItem.isLiked = false;
   updatedLiked.splice(updatedItemIndex, 1);
+
+  sessionStorage.setItem('likedItems', JSON.stringify(updatedLiked))
 
   return { ...state, liked: updatedLiked };
 };

@@ -1,5 +1,6 @@
 import * as React from "react";
 import { useContext } from "react";
+import Button from "../../components/button/button";
 import { ProductContext } from "../../contexts/GlobalState";
 
 const LikedPage =( props: any) => {
@@ -16,12 +17,12 @@ const LikedPage =( props: any) => {
                  {item.name} - ${item.price}
                 </div>
                 <div>
-                  <button
+                  <Button
                     onClick={() =>
                       context.removeProductFromLiked(item.id)}
                   >
                     Remove from Liked
-                  </button>
+                  </Button>
                 </div>
               </li>
             ))}
