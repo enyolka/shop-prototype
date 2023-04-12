@@ -2,14 +2,16 @@
 import { useEffect, useMemo, useState } from "react";
 import * as React from "react";
 import * as classNames from "classnames";
+import "./accordionMenu.css"
 
 type SectionProps = {
   header: string;
   subHeader?: string;
-  children: React.ReactNode;
+  children?: React.ReactNode;
   expanded?: boolean;
   className?: string;
   onClick?: () => void;
+  onAdditionalClick?:() => void;
 };
 
 export type Props = {
@@ -28,36 +30,42 @@ export type Props = {
 function AccordionSection({
   expanded,
   onClick,
+  onAdditionalClick,
   header,
   children,
   subHeader,
   className,
 }: SectionProps): React.ReactElement {
   const accordionSectionId =  0;//useUniqueId("accordionSection");
-
+  
   return (
-    <section className="">
+    <section className="accordion__drawer">
       <header
-        className=""
+        className="accordion__header"
         tabIndex={0}
         // aria-controls={accordionSectionId}
         aria-expanded={expanded}
         onClick={onClick}
       >
-        <h4>{header}</h4>
+        <h4 onClick={(event) => {
+            if(event.target == event.currentTarget)
+              event.stopPropagation();
+            onAdditionalClick();
+          }}>{header}</h4>
       </header>
-
-      <div
-        className="spark-accordion__content"
-        // id={accordionSectionId}
-        style={{
-          visibility: expanded ? "visible" : "hidden",
-          height: expanded ? "auto" : "0px",
-        }}
-      >
-        {subHeader && <h5>{subHeader}</h5>}
-        <div>{children}</div>
-      </div>
+      {children ?
+        <div
+          className="accordion__content"
+          // id={accordionSectionId}
+          style={{
+            visibility: expanded ? "visible" : "hidden",
+            height: expanded ? "auto" : "0px",
+          }}
+        >
+          {subHeader && <h5>{subHeader}</h5>}
+          <div>{children}</div>
+        </div> 
+        : null }
     </section>
   );
 }
@@ -91,7 +99,7 @@ function AccordionSection({
     }, [sensibleChildren, expanded]);
   
     return (
-      <div className={classNames("", className)}>
+      <div className={classNames("accordion", className)}>
         {clonedChildren}
       </div>
     );

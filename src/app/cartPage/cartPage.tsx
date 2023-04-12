@@ -1,5 +1,6 @@
 import * as React from "react";
 import { useContext } from "react";
+import { Link } from "react-router-dom";
 import Button from "../../components/button/button";
 import { ProductContext } from "../../contexts/GlobalState";
 
@@ -14,7 +15,7 @@ const CartPage =( props: any) => {
             {context.cart.map(cartItem => (
               <li key={cartItem.id}>
                 <div>
-                  <strong>{cartItem.name}</strong> - ${cartItem.price} (
+                  <Link to={`/${cartItem.id}`}>{cartItem.name}</Link> - ${cartItem.price} (
                   {cartItem.quantity})
                 </div>
                 <div>

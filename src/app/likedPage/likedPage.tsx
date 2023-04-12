@@ -1,5 +1,6 @@
 import * as React from "react";
 import { useContext } from "react";
+import { Link } from "react-router-dom";
 import Button from "../../components/button/button";
 import { ProductContext } from "../../contexts/GlobalState";
 
@@ -14,7 +15,7 @@ const LikedPage =( props: any) => {
             {context.liked.map(item => (
               <li key={item.id}>
                 <div>
-                 {item.name} - ${item.price}
+                  <Link to={`/${item.id}`}>{item.name}</Link>
                 </div>
                 <div>
                   <Button

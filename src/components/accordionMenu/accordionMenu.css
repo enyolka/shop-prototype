@@ -1,0 +1,162 @@
+.accordion, .accordion--radio {
+    background: #fff;
+    border-radius: 1rem;
+    list-style-type: none;
+    margin: 0;
+    overflow: hidden;
+    padding: 0; }
+    .accordion--radio .accordion__header {
+      padding: 0; }
+      .accordion--radio .accordion__header .radio {
+        cursor: pointer;
+        margin-bottom: 0;
+        padding: 1.5rem 2rem 1.5rem 1.5rem; }
+      .accordion--radio .accordion__header .label {
+        font-size: 1.66666667rem;
+        font-weight: 400;
+        color: #6d7178; }
+      .accordion--radio .accordion__header::after {
+        content: '';
+        display: none; }
+    [dir="rtl"] .accordion--radio .radio, .accordion--radio[dir="rtl"] .radio {
+      padding: 1.5rem 1.5rem 1.5rem 2rem; }
+    [dir="rtl"] .accordion--radio .accordion__header .label, .accordion--radio[dir="rtl"] .accordion__header .label {
+      margin: 0 1rem 0 0; }
+  
+  .accordion__drawer {
+    border: 0 none transparent;
+    border-bottom-width: 0;
+    border-collapse: collapse;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    position: relative; }
+    .accordion__drawer:first-of-type {
+      border-top-left-radius: 1rem;
+      border-top-right-radius: 1rem; }
+      .accordion__drawer:first-of-type .accordion__header {
+        border-top-left-radius: 1rem;
+        border-top-right-radius: 1rem; }
+    .accordion__drawer:last-of-type {
+      border-bottom-left-radius: 1rem;
+      border-bottom-right-radius: 1rem;
+      border-bottom-width: 0; }
+      .accordion__drawer:last-of-type .accordion__header {
+        border-bottom-left-radius: 1rem;
+        border-bottom-right-radius: 1rem; }
+        .accordion__drawer:last-of-type .accordion__header[aria-expanded="true"] {
+          border-bottom-left-radius: 0;
+          border-bottom-right-radius: 0; }
+      .accordion__drawer:last-of-type .accordion__content {
+        border-bottom-left-radius: 1rem;
+        border-bottom-right-radius: 1rem; }
+        .accordion__drawer:last-of-type .accordion__content::after {
+          background: #fff;
+          border-bottom-left-radius: 1rem;
+          border-bottom-right-radius: 1rem; }
+  
+  .accordion__header {
+    background-color: #fff;
+    color: #6d7178;
+    cursor: pointer;
+    outline: none;
+    padding: 1.5rem 4.25rem 1.5rem 2rem;
+    position: relative;
+    text-overflow: ellipsis;
+    transition: color 250ms cubic-bezier(0.86, 0, 0.07, 1);
+            user-select: none; }
+    .accordion__header h1, .accordion__header h2, .accordion__header h3, .accordion__header h4, .accordion__header h5, .accordion__header h6 {
+      font-size: 1.66666667rem;
+      font-weight: 400;
+      color: inherit;
+      margin-bottom: 0;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap; }
+    .accordion__header[aria-expanded="false"] {
+      border-bottom-width: 0; }
+      .accordion__header[aria-expanded="false"] ~ .accordion__content {
+        height: 0;
+        opacity: 0;
+        overflow: hidden; }
+    .accordion__header[aria-expanded="true"] {
+      border-bottom: 0 none #ccc; }
+      .accordion__header[aria-expanded="true"] ~ .accordion__content {
+        height: auto;
+        opacity: 1;
+        visibility: visible; }
+      .accordion__header[aria-expanded="true"]::after {
+                transform: translateY(-50%) rotate(180.001deg); }
+        [dir="rtl"] .accordion__header[aria-expanded="true"]::after {
+                  transform: translateY(-50%) rotate(-180.001deg); }
+    .accordion__header:hover {
+      border-color: transparent;
+      border-bottom-color: transparent;
+      outline: 1px solid transparent;
+      z-index: 1; }
+    .accordion__header:focus, .accordion__header.focus {
+      border-color: transparent;
+      border-bottom-color: transparent;
+      outline: 1px solid transparent;
+      z-index: 2; }
+    .accordion__header:focus, .accordion__header:focus-within {
+      border-color: transparent;
+      border-bottom-color: transparent;
+      outline: 1px solid transparent;
+      z-index: 2; }
+  
+  :not(.accordion--radio) > .accordion__drawer > .accordion__header::after {
+    content: '\f10f';
+    display: block;
+    font-family: "icon-line";
+    font-size: 2rem;
+    height: 2rem;
+    line-height: 2rem;
+    position: absolute;
+    right: 1.75rem;
+    top: 50%;
+            transform: translateY(-50%) rotate(0deg);
+            transform-origin: center center;
+    transition: -webkit-transform 250ms cubic-bezier(0.86, 0, 0.07, 1);
+    transition: transform 250ms cubic-bezier(0.86, 0, 0.07, 1);
+    transition: transform 250ms cubic-bezier(0.86, 0, 0.07, 1), -webkit-transform 250ms cubic-bezier(0.86, 0, 0.07, 1);
+    width: 2rem; }
+  
+  :not(.accordion--radio) > .accordion__drawer > .accordion__header[aria-expanded="true"]::after {
+            transform: translateY(-50%) rotate(180.001deg); }
+  
+  [dir="rtl"]:not(.accordion--radio) > .accordion__drawer > .accordion__header,
+  [dir="rtl"] :not(.accordion--radio) > .accordion__drawer > .accordion__header {
+    padding: 1.5rem 2rem 1.5rem 4.25rem; }
+    [dir="rtl"]:not(.accordion--radio) > .accordion__drawer > .accordion__header::after,
+    [dir="rtl"] :not(.accordion--radio) > .accordion__drawer > .accordion__header::after {
+      left: 1.75rem !important;
+      right: auto; }
+    [dir="rtl"]:not(.accordion--radio) > .accordion__drawer > .accordion__header[aria-expanded="true"]::after,
+    [dir="rtl"] :not(.accordion--radio) > .accordion__drawer > .accordion__header[aria-expanded="true"]::after {
+              transform: translateY(-50%) rotate(-180.001deg); }
+  
+  .accordion__content {
+    background: #fff;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    height: 0;
+    overflow: hidden;
+    padding: 0 2rem;
+    position: relative;
+    transition: height 250ms cubic-bezier(0.86, 0, 0.07, 1) 0s, opacity 175ms ease-in 100ms;
+    visibility: hidden; }
+    .accordion__content::before, .accordion__content::after {
+      content: '';
+      display: block;
+      height: 1rem;
+      margin-left: -2rem;
+      margin-right: -2rem;
+      width: calc(100% + 2rem * 2); }
+    .accordion__content::before {
+      background: linear-gradient(to bottom, transparent 0%, transparent 100%);
+      margin-bottom: 1rem; }
+    .accordion__content::after {
+      background: linear-gradient(to top, transparent 0%, transparent 100%);
+      clear: both;
+      margin-top: 1rem; }

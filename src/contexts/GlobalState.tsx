@@ -1,7 +1,8 @@
 import { useState, useReducer, useEffect, ReactElement } from "react";
 import * as React from "react";
 import { shopReducer, ADD_PRODUCT, REMOVE_PRODUCT, ADD_LIKED, REMOVE_LIKED } from "./reducers";
-import data from "../data/products.json";
+import productsData from "../data/products.json";
+import categoriesData from "../data/categories.json"
 
 export type Product = {
     id: string;
@@ -15,10 +16,20 @@ export type Product = {
     isLiked: boolean;
 }
 
+export type Category = {
+  name: string;
+  subcategories: Subcategory[];
+}
+
+export type Subcategory = {
+  name: string;
+}
+
 interface ProductContextInterface {
   products: Product[],
   cart: Product[],
   liked: Product[],
+  categories: Category[],
   addProductToCart(product: Product): void,
   removeProductFromCart(id: string): void,
   addProductToLiked(product: Product): void,
@@ -33,6 +44,7 @@ export const ProductContext =  React.createContext<ProductContextInterface>({
   products: [],
   cart: [],
   liked: [],
+  categories: [],
   addProductToCart: (product: Product) => {},
   removeProductFromCart: (productId: string) => {},
   addProductToLiked: (product: Product) => {},
@@ -41,6 +53,7 @@ export const ProductContext =  React.createContext<ProductContextInterface>({
 
 const GlobalState = ({ children }: Props) => {
   const[products, setProducts] = useState<Product[]>([])
+  const[categories, setCategories] = useState<Category[]>([])
   const [cartState, dispatchCart] = useReducer(shopReducer, { cart: sessionStorage.getItem("cartItems") != null ? JSON.parse(sessionStorage.getItem("cartItems")) : []  });
   const [likedState, dispatchLiked] = useReducer(shopReducer, { liked: sessionStorage.getItem("likedItems") != null ? JSON.parse(sessionStorage.getItem("likedItems")) : [] });
 
@@ -56,7 +69,22 @@ const GlobalState = ({ children }: Props) => {
     }
   }
 
-  useEffect(() => setProducts(data.products.data.items.map(translateProduct)), [data])  
+  
+  const translateCategory = (category: any) => {
+    return {
+      name: category.name,
+      subcategories: category.subcategories//(subcategory => subcategory.name)
+    }
+  }
+
+  useEffect(() => {
+    const ungroupedProducts = productsData.products.data.items.map(translateProduct);
+    setProducts(ungroupedProducts);
+    // const x = groupBy(ungroupedProducts, (product : Product) => product.category);
+    // console.log([... x.bags, ...x.office]);
+  }, [productsData])  
+
+  useEffect(() => setCategories(categoriesData.map(translateCategory)), [categoriesData])
 
   const addProductToCart = (product: Product) => {
       dispatchCart({ type: ADD_PRODUCT, product: product });
@@ -78,6 +106,7 @@ const GlobalState = ({ children }: Props) => {
     products,
     cart: cartState.cart,
     liked: likedState.liked,
+    categories,
     addProductToCart,
     removeProductFromCart,
     addProductToLiked,
@@ -86,5 +115,14 @@ const GlobalState = ({ children }: Props) => {
 
   return <ProductContext.Provider value={context}>{children}</ProductContext.Provider>
 };
+
+function groupBy<T>(arr: T[], fn: (item: T) => any) {
+  return arr.reduce<Record<string, T[]>>((prev, curr) => {
+      const groupKey = fn(curr);
+      const group = prev[groupKey] || [];
+      group.push(curr);
+      return { ...prev, [groupKey]: group };
+  }, {});
+}
 
 export default GlobalState;

@@ -61,7 +61,6 @@ const removeProductFromLiked = (productId: string, state: any) => {
   const updatedLiked = [...state.liked];
   const updatedItemIndex = updatedLiked.findIndex(item => item.id === productId);
 
-  console.log(updatedItemIndex)
   const updatedItem = {
     ...updatedLiked[updatedItemIndex]
   };

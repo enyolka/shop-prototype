@@ -40,12 +40,12 @@ function ScrollToTop({
         if (
           !prev &&
           containerBoundingRect.bottom > window.innerHeight &&
-          containerBoundingRect.top < -20
+          containerBoundingRect.top < 0
         ) {
           return true;
         } else if (
           prev &&
-          (containerBoundingRect.top >= -20 ||
+          (containerBoundingRect.top >= 0 ||
             containerBoundingRect.bottom < window.innerHeight)
         ) {
           return false;

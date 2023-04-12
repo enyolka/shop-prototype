@@ -36,7 +36,7 @@ const ProductInfo = ({ children }: Props) => {
                   </Button>
                 </div>
         </main>
-      : <p>loading</p>
+      : <p>loading product</p>
       }
     </>
 
