@@ -1,0 +1,18 @@
+.menu_link {
+    text-decoration: none;
+    color:rgb(38, 38, 38);
+    padding: 4px;
+    font-size: 20px;
+}
+
+.menu_link:hover {
+    color: rgb(99, 99, 99);
+}
+
+.active {
+    color: rgb(79, 157, 193);
+}
+
+.active:hover {
+    color: rgb(88, 180, 223);
+}

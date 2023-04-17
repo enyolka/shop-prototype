@@ -1,0 +1,23 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+    margin: 140px 30px;
+    min-width: 250px;
+}
+
+@media only screen and (min-width: 600px) {
+  .container {
+    margin: 110px 40px; 
+  }
+}
+
+.form_input {
+  padding: 6px 8px;
+  border: 0.1px solid rgb(208, 208, 208);
+  border-radius: 6px;
+  box-shadow: 0 1px 2px 1px rgb(215, 215, 215);
+}

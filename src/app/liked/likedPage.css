@@ -1,0 +1,78 @@
+.liked {
+
+}
+
+.liked_header {
+    color: rgb(41, 80, 98);
+    margin: 0 0 20px;
+}
+
+.liked_link {
+
+}
+
+.liked_list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    list-style: none;
+}
+
+.liked_item {
+    width: 100%;
+    box-shadow: 0 0 8px 1px rgb(216, 216, 216);
+    padding: 10px;
+    display: grid;
+    grid-template-columns: 100px 2fr 1fr;
+}
+
+.liked_item__img {
+    height: 70px;
+}
+
+.liked_item__link {
+    text-decoration: none;
+    color:rgb(41, 80, 98);
+    text-transform: uppercase;
+    font-size: 14px;
+    align-self: center;
+    margin: 10px;
+}
+
+.liked_item__link:hover {
+    color:rgb(41, 80, 98);
+    color: rgb(178, 122, 24);
+}
+
+.button_remove {
+    background-color: white;
+    outline: none;
+    border: 0.5px solid rgb(216, 216, 216);
+    box-shadow: 0 0 2px 0.5px rgb(216, 216, 216);
+    height: 30px;
+    width: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    justify-self: right;
+    align-self: center;
+    margin: 10px;
+}
+
+.button_remove:hover {
+    box-shadow: 0 0 4px 0.5px rgb(216, 216, 216);
+}
+
+.button_remove:hover > .button_remove__icon {
+    color: rgb(50, 50, 50);
+}
+
+.button_remove__icon {
+    font-size: 20px;
+    color: rgb(92, 92, 92);
+}
+/* 
+.button_remove__icon:hover {
+    color: rgb(50, 50, 50);
+} */
+

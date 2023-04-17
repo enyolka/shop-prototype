@@ -1,19 +1,22 @@
 import * as React from "react";
 import * as classNames from "classnames";
-import styles from "./button.module.css"
+import "./button.css"
+
+type Role = "default" | "secondary" | "important" | "error" 
 
 type PropsButton = {
     className?: string;
+    role?: Role;
     children?: React.ReactNode;
 };  
   
 type Props = PropsButton &  React.ButtonHTMLAttributes<HTMLButtonElement>;
 
-const Button = ({className, children, ...props}: Props) => {
+const Button = ({ role = "default", className, children, ...props}: Props) => {
 
     return (
         <button 
-            className={classNames(styles.button, className)}
+            className={classNames("button", role, className)}
             {...props}
         >
             {children}

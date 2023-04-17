@@ -1,0 +1,14 @@
+.breadcrumb {
+    text-decoration: none;
+    color: rgb(104, 104, 104);
+}
+
+.breadcrumb:hover {
+    cursor: pointer;
+    color: rgb(10, 10, 10);
+}
+
+.breadcrumb__icon {
+    width: 14px;
+    font-size: 10px;
+}

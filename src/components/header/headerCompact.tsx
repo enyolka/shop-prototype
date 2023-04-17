@@ -35,9 +35,9 @@ const HeaderCompact = ({ categories, options, children, groupedProducts}: Props)
     }
 
     const headerItems = [
-        <MenuItem to="/ulubione"><FaHeart/></MenuItem>,
-        <MenuItem to="/koszyk"><FaShoppingCart/></MenuItem>,
-        <MenuItem to="/konto"><FaUser/></MenuItem>
+        <MenuItem to="/ulubione"><FaHeart className="header_bar__icon"/></MenuItem>,
+        <MenuItem to="/koszyk"><FaShoppingCart className="header_bar__icon"/></MenuItem>,
+        <MenuItem to="/konto"><FaUser className="header_bar__icon"/></MenuItem>
     ]
     
     const menuItems = [
@@ -58,7 +58,7 @@ const HeaderCompact = ({ categories, options, children, groupedProducts}: Props)
             <Accordion>
                 {menuItems.concat(categories.map((item: Category) => {
                     return (!!groupedProducts[item.name] 
-                        ? <AccordionSection header={item.name} onAdditionalClick={() => naviagateAndClose(`/produkty/${item.name}`)}>{
+                        ? <AccordionSection className="item_name" header={item.name} onAdditionalClick={() => naviagateAndClose(`/produkty/${item.name}`)}>{
                             item.subcategories.map(({ name }: Subcategory) => 
                                 <div onClick={()=> naviagateAndClose(`/produkty/${item.name}/${name}`)} className={"item_link"}>{name}</div>)
                         }
@@ -73,10 +73,9 @@ const HeaderCompact = ({ categories, options, children, groupedProducts}: Props)
             <span className={classNames("logo")}>
                 <i className={classNames("logo_item")}>LOGO</i>
             </span>
-            
 
-            <nav className={classNames("header_bar")} role="navigation">
             <AutoSuggest
+                className="search"
                 autoSuggestTerms={options}
                 value={value}
                 onChange={setValue}
@@ -86,9 +85,11 @@ const HeaderCompact = ({ categories, options, children, groupedProducts}: Props)
                 }}
                 label=""
             />
-                <div className={classNames("bar_menu")}>
+
+            <nav className={classNames("header_bar")} role="navigation">
+                {/* <div className={classNames("bar_menu")}> */}
                     {headerItems.map(item => item)}
-                </div>
+                {/* </div> */}
             </nav>
                 {children}
         </header>

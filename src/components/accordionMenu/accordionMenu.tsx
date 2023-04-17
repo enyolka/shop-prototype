@@ -47,11 +47,15 @@ function AccordionSection({
         aria-expanded={expanded}
         onClick={onClick}
       >
-        <h4 onClick={(event) => {
+        <h4 
+          onClick={(event) => {
             if(event.target == event.currentTarget)
               event.stopPropagation();
             onAdditionalClick();
-          }}>{header}</h4>
+          }}>
+            {header}
+          </h4>
+          <div className={classNames(expanded ? "button-up" : "button-down")}></div>
       </header>
       {children ?
         <div

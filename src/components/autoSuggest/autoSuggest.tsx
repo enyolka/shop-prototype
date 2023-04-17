@@ -15,8 +15,6 @@ export type ObjectTerm<K extends string = string> = {
   category?: string;
 };
 
-
-
 export type Props<K extends string, O extends SuggestTerm<K>> = {
   className?: string;
   label: string;
