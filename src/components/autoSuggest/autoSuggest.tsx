@@ -1,6 +1,7 @@
 import * as classNames from "classnames";
 import * as React from 'react';
 import { useEffect, useRef, useState } from "react";
+import { FaSearch } from "react-icons/fa";
 import "./autoSuggest.css"
 
 const useUniqueId = (x: string) => x
@@ -32,7 +33,8 @@ export type Props<K extends string, O extends SuggestTerm<K>> = {
   disabled?: boolean;
   messageType?: "error" | "warning" | "success" | "info";
   message?: string;
-  icon?: React.ReactNode;
+  // icon?: React.ReactNode;
+  icon?: boolean;
   loading?: boolean;
   name?: string;
   placeholder?: string;
@@ -69,7 +71,7 @@ function AutoSuggest<
   const [expanded, setExpanded] = useState(false);
   const [closeable, setCloseable] = useState(true);
 
-  const hasInput = value.valueOf.length > 0;
+  const hasInput = !!value;
   const termsToShow = showAllTerms && !hasInput
     ? autoSuggestTerms
     : getFilteredTerms(value, minLength, autoSuggestTerms, maxSuggestions);
@@ -161,11 +163,12 @@ function AutoSuggest<
       {... messageType !== undefined && message !== undefined ? { [`data-${messageType}`]: true } : {}}
     >
       <label>
-        <>
+        <div className="autoSuggest__field">
         <input
           ref={inputRef}
-          className={classNames("autoSuggest__field", {
+          className={classNames("autoSuggest__input", {
             focus: focusedWithin,
+            borderRight: !props.icon
           })}
           onFocus={() => {
             onFocusOnChange();
@@ -187,11 +190,12 @@ function AutoSuggest<
             onFocusOnChange();
           }}
           disabled={disabled}
+          placeholder={props.placeholder}
         />
         <span id={labelId} className="spark-label">
           {label}
         </span>
-        <button
+        {/* <button
           type="button"
           className={classNames(
             "autoSuggest__clear-btn", "closIcon",
@@ -203,8 +207,16 @@ function AutoSuggest<
             inputRef.current?.focus();
           }}
           disabled={disabled}
-        />
-        </>
+        >usuń</button> */}
+          {props.icon ?? 
+            <button 
+            className={classNames("autoSuggest__searchButton" , {
+              focus: focusedWithin })}
+            onClick={() => activeTermIdx !== -1 && onSelection?.(termsToShow[activeTermIdx])}
+            >
+              <FaSearch className="autoSuggest__icon"/>
+            </button>}
+        </div>
       </label>
       <ul
         id={listboxId}

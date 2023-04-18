@@ -44,7 +44,7 @@
 }
 
 .item_link:hover{
-  color: rgb(178, 122, 24);
+  color: var(--focus-text);
 }
 
 .item_price {

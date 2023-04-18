@@ -66,14 +66,14 @@
 
 .summary_item__link {
     text-decoration: none;
-    color:rgb(41, 80, 98);
+    color: var(--main);
     text-transform: uppercase;
     font-size: 14px;
     align-self: center;
 }
 
 .summary_item__price {
-    color:rgb(41, 80, 98);
+    color: var(--main);
     font-size: 14px;
     align-self: center;
     justify-self: right;

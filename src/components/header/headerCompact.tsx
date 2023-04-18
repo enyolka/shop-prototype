@@ -84,6 +84,7 @@ const HeaderCompact = ({ categories, options, children, groupedProducts}: Props)
                     navigate(`/${newValue.value}`)
                 }}
                 label=""
+                placeholder="Szukaj..."
             />
 
             <nav className={classNames("header_bar")} role="navigation">

@@ -1,21 +1,28 @@
 .button {
     background-color: rgb(232, 242, 242);
-    box-shadow: 0 1px 2px 1px rgb(216, 216, 216);
+    box-shadow: 0 1px 2px 1px var(--light-shadow);
     padding: 10px;
-    border: 0.1px solid rgb(216, 216, 216);
+    border: 0.1px solid var(--light-shadow);
     border-radius: 6px;
+    filter: brightness(95%);
 }
 
 .button.secondary {
-    background-color: rgb(23, 116, 139);
+    background-color: var(--secondary);
     color: rgb(240, 240, 240);
 }
 
 .button.important {
-    background-color: rgb(255, 158, 72);
+    background-color: var(--important);
 }
 
 .button.error {
-    background-color: rgb(237, 2, 2);
+    background-color: var(--error-red);
     color: rgb(240, 240, 240);
+}
+
+
+.button:hover {
+    cursor: pointer;
+    filter: brightness(100%);
 }

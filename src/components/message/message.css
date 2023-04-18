@@ -4,7 +4,7 @@
 }
 
 .message.info {
-    color: rgb(79, 157, 193);
+    color: var(--secondary);
 }
 
 .message.error {

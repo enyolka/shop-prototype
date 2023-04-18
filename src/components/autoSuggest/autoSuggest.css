@@ -7,33 +7,33 @@
     position: relative;
     z-index: 10; 
   }
-  /* .autoSuggest:hover[data-error] .autoSuggest__field {
+  /* .autoSuggest:hover[data-error] .autoSuggest__input {
     border: 1px solid #d13630; }
-    .autoSuggest:hover[data-error] .autoSuggest__field:focus, .autoSuggest:hover[data-error] .autoSuggest__field.focus {
+    .autoSuggest:hover[data-error] .autoSuggest__input:focus, .autoSuggest:hover[data-error] .autoSuggest__input.focus {
       border: 1px solid #d13630; }
   .autoSuggest:hover[data-error] .spark-input__message {
     background-color: #d13630; }
-  .autoSuggest:hover[data-warning] .autoSuggest__field {
+  .autoSuggest:hover[data-warning] .autoSuggest__input {
     border: 1px solid #a75f00; }
-    .autoSuggest:hover[data-warning] .autoSuggest__field:focus, .autoSuggest:hover[data-warning] .autoSuggest__field.focus {
+    .autoSuggest:hover[data-warning] .autoSuggest__input:focus, .autoSuggest:hover[data-warning] .autoSuggest__input.focus {
       border: 1px solid #a75f00; }
   .autoSuggest:hover[data-warning] .spark-input__message {
     background-color: #fff;
     -webkit-box-shadow: none;
             box-shadow: none; }
-  .autoSuggest:hover[data-success] .autoSuggest__field {
+  .autoSuggest:hover[data-success] .autoSuggest__input {
     border: 1px solid #008247; }
-    .autoSuggest:hover[data-success] .autoSuggest__field:focus, .autoSuggest:hover[data-success] .autoSuggest__field.focus {
+    .autoSuggest:hover[data-success] .autoSuggest__input:focus, .autoSuggest:hover[data-success] .autoSuggest__input.focus {
       border: 1px solid #008247; }
   .autoSuggest:hover[data-success] .spark-input__message {
     background-color: #008247; }
-  .autoSuggest:hover[data-info] .autoSuggest__field {
+  .autoSuggest:hover[data-info] .autoSuggest__input {
     border: 1px solid #309ab5; }
-    .autoSuggest:hover[data-info] .autoSuggest__field:focus, .autoSuggest:hover[data-info] .autoSuggest__field.focus {
+    .autoSuggest:hover[data-info] .autoSuggest__input:focus, .autoSuggest:hover[data-info] .autoSuggest__input.focus {
       border: 1px solid #309ab5; }
   .autoSuggest:hover[data-info] .spark-input__message {
     background-color: #309ab5; }
-  .autoSuggest[data-error] .autoSuggest__field, .autoSuggest[data-info] .autoSuggest__field, .autoSuggest[data-warning] .autoSuggest__field, .autoSuggest[data-success] .autoSuggest__field {
+  .autoSuggest[data-error] .autoSuggest__input, .autoSuggest[data-info] .autoSuggest__input, .autoSuggest[data-warning] .autoSuggest__input, .autoSuggest[data-success] .autoSuggest__input {
     border-radius: 1rem 1rem 0 0; }
   .autoSuggest[data-error] .spark-input__message, .autoSuggest[data-info] .spark-input__message, .autoSuggest[data-warning] .spark-input__message, .autoSuggest[data-success] .spark-input__message {
     display: block; }
@@ -49,27 +49,27 @@
   .autoSuggest[data-info] .spark-input__message {
     background-color: #e9f9ff;
     color: #007b94; }
-  .autoSuggest[data-error] .autoSuggest__field {
+  .autoSuggest[data-error] .autoSuggest__input {
     border-color: #fff4f1; }
-    .autoSuggest[data-error] .autoSuggest__field:focus, .autoSuggest[data-error] .autoSuggest__field.focus {
+    .autoSuggest[data-error] .autoSuggest__input:focus, .autoSuggest[data-error] .autoSuggest__input.focus {
       border-color: #fff4f1; }
-  .autoSuggest[data-warning] .autoSuggest__field {
+  .autoSuggest[data-warning] .autoSuggest__input {
     border-color: #e7cc00; }
-    .autoSuggest[data-warning] .autoSuggest__field:focus, .autoSuggest[data-warning] .autoSuggest__field.focus {
+    .autoSuggest[data-warning] .autoSuggest__input:focus, .autoSuggest[data-warning] .autoSuggest__input.focus {
       border-color: #e7cc00; }
   .autoSuggest[data-warning] .spark-input__message {
     -webkit-box-shadow: none;
             box-shadow: none; }
-  .autoSuggest[data-success] .autoSuggest__field {
+  .autoSuggest[data-success] .autoSuggest__input {
     border-color: #dcffe6; }
-    .autoSuggest[data-success] .autoSuggest__field:focus, .autoSuggest[data-success] .autoSuggest__field.focus {
+    .autoSuggest[data-success] .autoSuggest__input:focus, .autoSuggest[data-success] .autoSuggest__input.focus {
       border-color: #dcffe6; }
-  .autoSuggest[data-info] .autoSuggest__field {
+  .autoSuggest[data-info] .autoSuggest__input {
     border-color: #e9f9ff; }
-    .autoSuggest[data-info] .autoSuggest__field:focus, .autoSuggest[data-info] .autoSuggest__field.focus {
+    .autoSuggest[data-info] .autoSuggest__input:focus, .autoSuggest[data-info] .autoSuggest__input.focus {
       border-color: #e9f9ff; } */
   .autoSuggest.active .spark-label,
-  .autoSuggest .autoSuggest__field:focus ~ .spark-label {
+  .autoSuggest .autoSuggest__input:focus ~ .spark-label {
     /* font-size: 0.7rem; */
     /* top: .5rem;  */
 }
@@ -90,13 +90,13 @@
   }
     .autoSuggest .spark-label .spark-thin {
       font-weight: 300; }
-  .autoSuggest .autoSuggest__field {
+  .autoSuggest .autoSuggest__input {
     padding: 1rem 0.5rem; }
   .autoSuggest:last-child {
     margin-bottom: 0; }
 
-.autoSuggest__field {
-  font-size: 1rem;
+.autoSuggest__input {
+  font-size: 0.8rem;
   font-family: Roboto, sans-serif;
   appearance: none;
   background-color: rgb(251, 251, 251);
@@ -110,34 +110,38 @@
   transition: background-color 100ms cubic-bezier(0.86, 0, 0.07, 1), border 100ms cubic-bezier(0.86, 0, 0.07, 1), border-radius 100ms cubic-bezier(0.86, 0, 0.07, 1);
   width: 100%;
   z-index: 5;
-  border: 0.1px solid rgb(208, 208, 208);
+  border: 0.1px solid var(--light-shadow);
   border-radius: 6px;
-  box-shadow: 0 1px 2px 1px rgb(215, 215, 215);
+  box-shadow: 0 1px 2px 1px var(--light-shadow);
 
 }
-  .autoSuggest__field:focus, .autoSuggest__field.focus {
-    background-color: #fff;
-    border: 1px solid transparent;
-    outline: 1.2px solid #7197bf; 
-  }
-    /* .autoSuggest__field:focus ~ .spark-label, .autoSuggest__field.focus ~ .spark-label {
+
+.autoSuggest__input:focus, .autoSuggest__input.focus {
+  background-color: #fff;
+}
+
+.autoSuggest__input:focus, .autoSuggest__input.focus,  .autoSuggest__searchButton.focus{
+  border: 1px solid transparent;
+  outline: 1.2px solid var(--secondary); 
+}
+    /* .autoSuggest__input:focus ~ .spark-label, .autoSuggest__input.focus ~ .spark-label {
       color: #007b94; } */
-  .autoSuggest:hover .autoSuggest__field {
+  .autoSuggest:hover .autoSuggest__input {
     border: 1.1px solid #b0b6bf; }
 
-  /* .autoSuggest__field::-ms-clear {
+  /* .autoSuggest__input::-ms-clear {
     display: none; } */
-.autoSuggest__field:disabled {
+.autoSuggest__input:disabled {
   background-color: transparent;
-  border: 1px solid #adb1b8;
-  color: #adb1b8;
+  border: 1px solid var(--light-gray);
+  color: var(--light-gray);
   cursor: not-allowed; 
 }
-    /* .autoSuggest__field:disabled ~ .spark-label {
+    /* .autoSuggest__input:disabled ~ .spark-label {
       color: #adb1b8;
       cursor: not-allowed; } */
-.autoSuggest:hover .autoSuggest__field:disabled {
-  border: 1px solid #adb1b8; 
+.autoSuggest:hover .autoSuggest__input:disabled {
+  border: 1px solid var(--light-gray); 
 }
 
 .autoSuggest__listbox {
@@ -163,7 +167,7 @@
 .autoSuggest__listItem {
   color: #404247;
   cursor: pointer;
-  font-size: 1rem;
+  font-size: 0.8rem;
   font-weight: 700;
   list-style: none;
   margin: 0;
@@ -229,7 +233,7 @@
   text-overflow: ellipsis;
   white-space: nowrap; }
 
-.autoSuggest__clear-btn {
+/* .autoSuggest__clear-btn {
   background: transparent;
   border: 0;
   border-radius: 1rem;
@@ -251,4 +255,32 @@
   .autoSuggest__clear-btn:disabled {
     cursor: not-allowed; }
   .autoSuggest__clear-btn.visible {
-    display: block; }
+    display: block; } */
+
+.autoSuggest__field {
+  position: relative;
+  display: flex;
+}
+
+.autoSuggest__icon {
+  width: 18px;
+  height: 18px;
+}
+
+.autoSuggest__searchButton {
+  width: 40px;
+  height: 34px;
+  border: 1px solid var(--main-medium);
+  background: var(--main-medium);
+  text-align: center;
+  color: #fff;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  font-size: 16px;
+  border: 0.1px solid var(--light-shadow);
+  box-shadow: 0 1px 2px 1px var(--light-shadow);
+}
+
+.borderRight {
+  border-radius: 10px 0 0 10px;
+}

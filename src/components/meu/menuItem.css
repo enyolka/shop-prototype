@@ -10,9 +10,9 @@
 }
 
 .active {
-    color: rgb(79, 157, 193);
+    color: var(--secondary);
 }
 
 .active:hover {
-    color: rgb(88, 180, 223);
+    color: var(--main-medium);
 }
