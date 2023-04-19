@@ -69,13 +69,12 @@ const BuyPage =( props: any) => {
       name: Yup.string()
         .max(30, "Must be 30 characters or less")
         .required("Required"),
-      phone: Yup.string().matches(phoneRegExp, "Phone number is not valid"),
-      email: Yup.string().email("Email is not valid"),
-      streetName: Yup.string()
+      phone: Yup.string().matches(phoneRegExp, "Phone number is not valid")
+      .required("Required"),
+      email: Yup.string().email("Email is not valid")
+      .required("Required"),
+      street: Yup.string()
         .max(20, "Must be 20 characters or less")
-        .required("Required"),
-      streetNumber: Yup.string()
-        .matches(streetRegExp, "Street number is not valid")
         .required("Required"),
       zipCode: Yup.string().required("Required"),
       city: Yup.string()
@@ -88,34 +87,7 @@ const BuyPage =( props: any) => {
   
     return (
       <>
-        <main className="buy">
-          {/* <section className="form">
-            <form>
-              <h4>Adres dostawy</h4>
-
-              <label htmlFor="name">Imię</label>
-              <input type="text" required name="name"/>
-              <label htmlFor="surname">Nazwisko</label>
-              <input type="text" required name="surname"/>
-              <label htmlFor="street">Ulica</label>
-              <input type="text" required name="street"/>
-              <label htmlFor="zipCode">Kod pocztowy</label>
-              <input type="text" required name="zipCode"/>
-              <label htmlFor="city">Miejscowość</label>
-              <input type="text" required name="city"/>
-
-              <h4>Dane kontaktowe</h4>
-
-              <label htmlFor="phone">Numer telefonu</label>
-              <input type="tel" required name="phone"/>
-              <label htmlFor="email">E-mail</label>
-              <input type="email" required name="email"/>
-              
-            <input type="submit" onClick={() => sumUp()} disabled={context.cart.length == 0} />
-            </form>
-          </section> */}
-
-
+        <article className="buy">
           <Formik<ClientFormModel>
           initialValues={props.initialValues ?? initialModel}
           enableReinitialize={true}
@@ -225,7 +197,7 @@ const BuyPage =( props: any) => {
 
                 </div>
                 
-                <section className="summary">
+                <div className="summary">
                   <h3>Podsumowanie zamówienia</h3>
                   <ul className="summary_list">
                     {context.cart.map(cartItem => (
@@ -239,7 +211,7 @@ const BuyPage =( props: any) => {
                   <div >
                     <p className="summary_cost">Do zapłaty: {cost}$</p>
                   </div>
-                </section>
+                </div>
 
                 <div className={"submit_button"}>
                   <Button role="secondary">
@@ -252,7 +224,7 @@ const BuyPage =( props: any) => {
 
 
 
-        </main>
+        </article>
       </>
     );
   };

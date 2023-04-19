@@ -27,8 +27,8 @@ const BuyPage =( props: any) => {
   
     return (
       <>
-        <main className="buy">
-          <section className="form">
+        <article className="buy">
+          <div className="form">
             <form>
               <h4>Adres dostawy</h4>
 
@@ -50,8 +50,8 @@ const BuyPage =( props: any) => {
               <label htmlFor="email">E-mail</label>
               <input type="email" name="email"/>
             </form>
-          </section>
-          <section className="summary">
+          </div>
+          <div className="summary">
             <h3>Podsumowanie zamówienia</h3>
             <ul>
               {context.cart.map(cartItem => (
@@ -63,12 +63,12 @@ const BuyPage =( props: any) => {
                 </li>
               ))}
             </ul>
-          </section>
+          </div>
           <div>
             <p>Do zapłaty: {cost}$</p>
             <Button onClick={() => sumUp()} disabled={!!context.cart}>Kup produkty</Button>
           </div>
-        </main>
+        </article>
       </>
     );
   };

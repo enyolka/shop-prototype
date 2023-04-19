@@ -21,7 +21,7 @@ const CartPage =( props: any) => {
   
     return (
       <>
-        <main className="cart">
+        <article className="cart">
           <h2 className="cart_header">Twój koszyk</h2>
           {context.cart.length <= 0 && (
               <>
@@ -58,7 +58,7 @@ const CartPage =( props: any) => {
             <p>Do zapłaty: {cost}$</p>
             <Button onClick={() => navigate("/realizuj-zamowienie")} disabled={context.cart.length == 0}>Przejdź do kasy</Button>
           </div>
-        </main>
+        </article>
       </>
     );
   };

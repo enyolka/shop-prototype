@@ -13,7 +13,7 @@ const LikedPage =( props: any) => {
   
     return (
       <>
-        <main className="liked">
+        <article className="liked">
           <h2 className="liked_header">Polubione produkty</h2>
           {context.liked.length <= 0 && (
               <>
@@ -36,7 +36,7 @@ const LikedPage =( props: any) => {
               </li>
             ))}
           </ul>
-        </main>
+        </article>
       </>
     );
   };

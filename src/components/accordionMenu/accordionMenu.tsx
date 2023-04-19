@@ -9,6 +9,8 @@ type SectionProps = {
   subHeader?: string;
   children?: React.ReactNode;
   expanded?: boolean;
+  expandable?: boolean;
+  color?: "default" | string;
   className?: string;
   onClick?: () => void;
   onAdditionalClick?:() => void;
@@ -18,7 +20,7 @@ export type Props = {
     className?: string;
     multiExpand?: boolean;
     collapsible?: boolean;
-    children: Array<React.ReactElement<ChildrenProps> | null | false>;
+    children?: Array<React.ReactElement<ChildrenProps>>;// | null | false>;
   };
   
   type ChildrenProps = {
@@ -34,7 +36,9 @@ function AccordionSection({
   header,
   children,
   subHeader,
+  expandable = true,
   className,
+  ...props
 }: SectionProps): React.ReactElement {
   const accordionSectionId =  0;//useUniqueId("accordionSection");
   
@@ -44,7 +48,7 @@ function AccordionSection({
         className="accordion__header"
         tabIndex={0}
         // aria-controls={accordionSectionId}
-        aria-expanded={expanded}
+        aria-expanded={expandable && expanded}
         onClick={onClick}
       >
         <h4 
@@ -55,15 +59,19 @@ function AccordionSection({
           }}>
             {header}
           </h4>
-          <div className={classNames(expanded ? "button-up" : "button-down")}></div>
+         {expandable && <div className={classNames(expanded ? "button-up" : "button-down")}></div>}
       </header>
-      {children ?
+      {children && expandable ?
         <div
-          className="accordion__content"
+          className={classNames(
+            "accordion__content",{ 
+            colored:  !!props.color
+          })}
           // id={accordionSectionId}
           style={{
             visibility: expanded ? "visible" : "hidden",
             height: expanded ? "auto" : "0px",
+            backgroundColor: props.color == "default" ? "rgb(240, 252, 250)" : props.color,
           }}
         >
           {subHeader && <h5>{subHeader}</h5>}
@@ -82,9 +90,10 @@ function AccordionSection({
     children,
   }: Props): React.ReactElement {
     const sensibleChildren = useMemo(
-      () => children.filter(isSensibleChild),
+      () => children.filter(child => !!child),
       [children],
     );
+
     const [expanded, onToggle] = useAccordion(
       sensibleChildren.length,
       collapsible,
@@ -156,6 +165,7 @@ function AccordionSection({
     if (!collapsible && !multiExpand) {
       const newExpanded = getBooleanArray(expanded.length);
       newExpanded[idx] = !expanded[idx];
+
       if (newExpanded.every((isExpanded) => !isExpanded)) {
         return expanded;
       }
@@ -163,6 +173,7 @@ function AccordionSection({
     } else if (!collapsible) {
       const newExpanded = [...expanded];
       newExpanded[idx] = !expanded[idx];
+      
       if (newExpanded.every((isExpanded) => !isExpanded)) {
         return expanded;
       }

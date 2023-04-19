@@ -52,6 +52,55 @@
   margin-top: 0.7rem;
 }
 
+.popup {
+  display: none;
+  flex-direction: column;
+  position: fixed;
+  background-color: white;
+  box-shadow: 0 2px 6px 6px var(--light-shadow);
+  bottom: 32px;
+  height: 110px;
+  width: 260px;
+  left: 50%;
+  margin-left: -130px;
+  z-index: 100;
+  animation: fadeIn 1s, slideIn .8s linear;
+}
+
+.popup.displayed {
+  display: flex;
+}
+
+.popup_closeIcon {
+  margin:  5px 10px 0;
+  margin-left: auto;
+  font-size: 20px;
+  color: rgb(85, 84, 84);
+}
+
+.popup_info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+@keyframes slideIn {
+  0% {
+    transform: translateY(100px);
+    animation-timing-function: ease-out;
+  }
+  60% {
+    transform: translateY(-30px);
+    animation-timing-function: ease-in;
+  }
+  100% {
+    transform: translateY(0px);
+    animation-timing-function: ease-in;
+  }
+}
+
 @media screen and (min-width: 450px) {
   .grid {
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));

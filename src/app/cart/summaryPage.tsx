@@ -14,12 +14,10 @@ const SummaryPage =( props: any) => {
       setCost(sum)
     }, [context.cart]) 
   
-    return (
-      <>
-        <main className="buy">
-         <div>Dziękujemy za zakupy!</div>
-        </main>
-      </>
+    return ( 
+      <div className="buy">
+         <h2>Dziękujemy za zakupy!</h2>
+      </div>
     );
   };
 

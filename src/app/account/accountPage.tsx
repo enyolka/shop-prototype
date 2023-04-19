@@ -16,7 +16,7 @@ const AccountPage =( props: any) => {
 
     return (
       <>
-        <main className="account">
+        <article className="account">
           {logged 
           ? <>
             <h3>Witaj!</h3>
@@ -37,7 +37,7 @@ const AccountPage =( props: any) => {
             </form>
           </>
         }
-        </main>
+        </article>
       </>
     );
   };

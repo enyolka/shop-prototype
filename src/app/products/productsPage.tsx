@@ -1,10 +1,14 @@
 import * as React from "react";
 import placeholder from "/public/placeholder.png";
 import "./productsPage.css";
-import { Link, useParams } from "react-router-dom";
+import { Link, Params, useNavigate, useParams } from "react-router-dom";
 import { ProductContext } from "../../contexts/GlobalState";
 import { ScrollToTop } from "../../components/scroll/scroll";
 import Breadcrumbs from "../../components/breadcrumbs/breadcrumbs";
+import Button from "../../components/button/button";
+import { RiCloseCircleLine } from "react-icons/ri";
+import { useState } from "react";
+import * as classNames from "classnames";
 
 type Props = {
   className?: string;
@@ -14,11 +18,16 @@ type Props = {
 const ProductsPage = ({  children }: Props) => {
   const context = React.useContext(ProductContext)
   let params = useParams();
+  const navigate = useNavigate();
+
+  const [popupDisplay, setPopupDisplay] = useState(true) 
   
   let linked = "/produkty/"
   const breadcrumbs = Object.values(params).map(item => {
     linked += item + "/"
-    return {name: item, link: linked }}) 
+    return {name: item, link: linked }})
+  
+  breadcrumbs.unshift({name: "produkty", link: "/produkty/"});
 
   return (
     <ScrollToTop className={"products"}>
@@ -35,7 +44,21 @@ const ProductsPage = ({  children }: Props) => {
                 </div>
             </section>
         )}
+       {Math.floor(Math.random()*4) == 2  ? <div className={classNames("popup", {displayed: popupDisplay})} id="myForm">
+          <RiCloseCircleLine className="popup_closeIcon" onClick={() =>  setPopupDisplay(false)}/>
+          <div className="popup_info">
+            <p>Wyjątkowa okazja!</p>
+            <Button 
+              role="important" 
+              onClick={() => 
+                navigate(`/${context.products[Math.floor(Math.random()*context.products.length)].id}`)
+              }
+            >
+                Sprawdź tutaj
+            </Button>
           </div>
+          </div> : null}
+      </div>
   </ScrollToTop>
   );
 }

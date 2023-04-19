@@ -9,6 +9,8 @@
   --light-shadow: rgb(0, 0, 0, 0.1);
   --error-red: rgb(196, 2, 2);
   --important: rgb(255, 158, 72);
+  --important-text: rgb(195, 136, 34);
+  --header-color: rgb(232, 244, 244);
 }
 
 * {
@@ -18,13 +20,16 @@
 }
 
 .container {
-    margin: 140px 30px;
+    margin: 140px auto;
     min-width: 250px;
+    max-width: 1400px;
+    padding: 20px;
 }
+
 
 @media only screen and (min-width: 600px) {
   .container {
-    margin: 110px 40px; 
+    margin: 130px auto; 
   }
 }
 

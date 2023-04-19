@@ -9,16 +9,17 @@
 
 .button.secondary {
     background-color: var(--secondary);
-    color: rgb(240, 240, 240);
+    color: white;
 }
 
 .button.important {
     background-color: var(--important);
+    color: white;
 }
 
 .button.error {
     background-color: var(--error-red);
-    color: rgb(240, 240, 240);
+    color: white;
 }
 
 

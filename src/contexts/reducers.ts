@@ -50,7 +50,7 @@ const addProductToLiked = (product: Product, state: any) => {
   );
 
   if(updatedItemIndex < 0)
-    updatedLiked.push({ ...product, liked: true });
+    updatedLiked.push({ ...product, isLiked: true });
 
   sessionStorage.setItem('likedItems', JSON.stringify(updatedLiked))
 

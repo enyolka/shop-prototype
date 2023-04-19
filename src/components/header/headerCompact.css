@@ -13,6 +13,7 @@
   z-index: 10;
   gap: 5px;
   background-color: white;
+  background-color: var(--header-color);
 }
 
 .logo {
@@ -44,12 +45,12 @@
   position: absolute;
   display: flex;
   align-items: center;
-  top: 30px;
+  top: 28px;
   left: 20px;
   z-index: 101;
   height: 28px;
   width: 28px;
-  background-color: white;
+  background-color: var(--header-color);
 }
 
 
@@ -96,11 +97,11 @@
   position: absolute;
   z-index: 100;
   color: var(--secondary);
-  background-color: white;
+  background-color: var(--header-color);
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 10px 20px;
+  /* padding: 10px 20px; */
   transition: 300ms left cubic-bezier(0.77, 0, 0.175, 1);
   width: 250px;
   top: 0px;
@@ -120,20 +121,27 @@
   text-transform: uppercase;
 }
 
+.menu .item_link {
+  /* background-color: rgb(221, 236, 238); */
+}
+
 .item_link:hover {
   cursor: pointer;
 }
 
 @media only screen and (min-width: 600px) {
   .header {
-    grid-template-columns: 2fr 2fr 1fr 120px;  
+    grid-template-columns: 2fr 2fr 1fr 140px;  
     grid-template-rows: 1fr;
-    padding: 30px;
+    padding: 35px 30px 30px;
   }
   .menu { 
     width: 300px;
     left: -300px;
 
+  }
+  .menu__toggler {
+    top: 40px;
   }
   .search {
     grid-row: 1;
