@@ -44,7 +44,7 @@
 .accordion__header {
   background-color: #fff;
   color: rgb(99, 99, 99);
-  background: var(--header-color);
+  background: var(--main-light-max);
   cursor: pointer;
   outline: none;
   padding: 15px 45px 15px 15px;

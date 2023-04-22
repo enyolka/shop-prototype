@@ -1,6 +1,6 @@
 import { useState, useReducer, useEffect, ReactElement } from "react";
 import * as React from "react";
-import { shopReducer, ADD_PRODUCT, REMOVE_PRODUCT, ADD_LIKED, REMOVE_LIKED } from "./reducers";
+import { shopReducer, ADD_PRODUCT, REMOVE_PRODUCT, ADD_LIKED, REMOVE_LIKED, REMOVE_PRODUCT_ALL } from "./reducers";
 import productsData from "../data/products.json";
 import categoriesData from "../data/categories.json"
 
@@ -32,6 +32,7 @@ interface ProductContextInterface {
   categories: Category[],
   addProductToCart(product: Product): void,
   removeProductFromCart(id: string): void,
+  removeAllProductFromCart(id: string): void,
   addProductToLiked(product: Product): void,
   removeProductFromLiked(id: string): void,
 }
@@ -47,6 +48,7 @@ export const ProductContext =  React.createContext<ProductContextInterface>({
   categories: [],
   addProductToCart: (product: Product) => {},
   removeProductFromCart: (productId: string) => {},
+  removeAllProductFromCart: (productId: string) => {},
   addProductToLiked: (product: Product) => {},
   removeProductFromLiked: (productId: string) => {},
 });
@@ -86,31 +88,16 @@ const GlobalState = ({ children }: Props) => {
 
   useEffect(() => setCategories(categoriesData.map(translateCategory)), [categoriesData])
 
-  const addProductToCart = (product: Product) => {
-      dispatchCart({ type: ADD_PRODUCT, product: product });
-  };
-
-  const removeProductFromCart = (productId: string) => {
-      dispatchCart({ type: REMOVE_PRODUCT, productId: productId });
-  };
-
-  const addProductToLiked = (product: Product) => {
-    dispatchLiked({ type: ADD_LIKED, product: product });
-  };
-
-  const removeProductFromLiked = (productId: String) => {
-    dispatchLiked({ type: REMOVE_LIKED, productId: productId });
-  };
-
   const context = {
     products,
     cart: cartState.cart,
     liked: likedState.liked,
     categories,
-    addProductToCart,
-    removeProductFromCart,
-    addProductToLiked,
-    removeProductFromLiked,
+    addProductToCart: (product: Product) => dispatchCart({ type: ADD_PRODUCT, product: product }),
+    removeProductFromCart: (productId: string) => dispatchCart({ type: REMOVE_PRODUCT, productId: productId }),
+    removeAllProductFromCart: (productId: string) => dispatchCart({ type: REMOVE_PRODUCT_ALL, productId: productId }),
+    addProductToLiked: (product: Product) => dispatchLiked({ type: ADD_LIKED, product: product }),
+    removeProductFromLiked: (productId: string) => dispatchLiked({ type: REMOVE_LIKED, productId: productId }),
   }
 
   return <ProductContext.Provider value={context}>{children}</ProductContext.Provider>

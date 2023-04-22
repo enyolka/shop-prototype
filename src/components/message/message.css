@@ -1,6 +1,15 @@
 .message {
-    font-size: 12px;
+    font-size: 16px;
     color: gray;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    gap: 4px;
+    padding: 4px 0;
+}
+
+.message_icon {
+    grid-column: 1;
 }
 
 .message.info {
@@ -12,5 +21,42 @@
 }
 
 .message.important {
-    font-size: 16px;
+    color: var(--secondary);
+    font-weight: 600;
+}
+
+.message.small { 
+    font-size: 12px;
+}
+
+.message.medium {
+    font-size: 10px;
+}
+
+.message.big {
+    font-size: 20px;
+}
+
+.message.wrapped {
+    /* box-shadow: 0 0 8px 2px var(--shadow-light); */
+    background-color: var(--gray-light);
+    border: 1px solid var(--gray);
+    border-radius: 4px;
+    padding: 8px;
+    margin: 8px 0;
+}
+
+@media only screen and (min-width: 600px) {
+    .message.small { 
+        font-size: 12px;
+    }
+    
+    .message.medium {
+        font-size: 16px;
+    }
+    
+    .message.big {
+        font-size: 24px;
+    }
+    
 }

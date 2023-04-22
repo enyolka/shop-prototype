@@ -13,7 +13,7 @@
   z-index: 10;
   gap: 5px;
   background-color: white;
-  background-color: var(--header-color);
+  background-color: var(--main-light-max);
 }
 
 .logo {
@@ -34,7 +34,7 @@
   margin: auto;
   margin-right: 0;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: 5px;
 }
 
@@ -50,7 +50,7 @@
   z-index: 101;
   height: 28px;
   width: 28px;
-  background-color: var(--header-color);
+  background-color: var(--main-light-max);
 }
 
 
@@ -97,7 +97,7 @@
   position: absolute;
   z-index: 100;
   color: var(--secondary);
-  background-color: var(--header-color);
+  background-color: var(--main-light-max);
   display: flex;
   flex-direction: column;
   justify-content: center;

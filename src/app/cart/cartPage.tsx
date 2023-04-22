@@ -1,12 +1,13 @@
 import * as React from "react";
 import { useContext, useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Button from "../../components/button/button";
 import Message from "../../components/message/message";
 import { Product, ProductContext } from "../../contexts/GlobalState";
 import placeholder from "/public/placeholder.png";
 import "./cartPage.css";
-import { RiDeleteBin2Fill } from "react-icons/ri";
+import { IoTrashBinSharp } from "react-icons/io5";
+import Link from "../../components/link/link";
 
 const CartPage =( props: any) => {
     const context = useContext(ProductContext);
@@ -25,7 +26,7 @@ const CartPage =( props: any) => {
           <h2 className="cart_header">Twój koszyk</h2>
           {context.cart.length <= 0 && (
               <>
-                <Message type="error">Brak elementów w koszyku.</Message>
+                <Message type="info" size="big" wrapped>Brak elementów w koszyku.</Message>
                 <Link to={`/produkty`} className="cart_link">Przeglądaj produkty i dodawaj do swojej listy zakupowej.</Link>
               </>
             )}
@@ -36,28 +37,33 @@ const CartPage =( props: any) => {
                 <Link to={`/${cartItem.id}`} className="cart_item__link">{cartItem.name}</Link>
                 
                 <Button
-                  onClick={context.removeProductFromCart.bind(
-                    this,
-                    cartItem.id
-                  )}
+                  onClick={() => context.removeAllProductFromCart(cartItem.id)}
                   className="button_remove"
                 >
-                  <RiDeleteBin2Fill className="button_remove__icon"/>
+
+                  <IoTrashBinSharp className="button_remove__icon"/>
+
                 </Button>
                 <div className="counter">
-                  <Button className="counter__button">-</Button>
+                  <Button 
+                    className="counter__button" 
+                    onClick={() => context.removeProductFromCart(cartItem.id)}
+                  >-</Button>
                   <p className="counter__value">{cartItem.quantity}</p>
-                  <Button className="counter__button">+</Button>
+                  <Button 
+                    className="counter__button" 
+                    onClick={() => context.addProductToCart(cartItem)}
+                  >+</Button>
                 </div>
 
-                <p>{cartItem.price * cartItem.quantity}$</p>
+                <p className="cart_item__price">{(cartItem.price * cartItem.quantity).toFixed(2)}$</p>
               </li>
             ))}
           </ul>
-          <div className="cart_summary">
-            <p>Do zapłaty: {cost}$</p>
+          { context.cart.length > 0 ? <div className="cart_summary">
+            <p>Do zapłaty: {cost.toFixed(2)}$</p>
             <Button onClick={() => navigate("/realizuj-zamowienie")} disabled={context.cart.length == 0}>Przejdź do kasy</Button>
-          </div>
+          </div> : null}
         </article>
       </>
     );

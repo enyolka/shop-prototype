@@ -5,7 +5,7 @@ import Button from "../../components/button/button";
 import Message from "../../components/message/message";
 import { ProductContext } from "../../contexts/GlobalState";
 import placeholder from "/public/placeholder.png";
-import { RiDeleteBin2Fill } from "react-icons/ri";
+import { IoTrashBinSharp } from "react-icons/io5";
 import "./likedPage.css"
 
 const LikedPage =( props: any) => {
@@ -17,7 +17,7 @@ const LikedPage =( props: any) => {
           <h2 className="liked_header">Polubione produkty</h2>
           {context.liked.length <= 0 && (
               <>
-                <Message type="error">Brak elementów w sekcji ulubionych.</Message>
+                <Message type="info">Brak elementów w sekcji ulubionych.</Message>
                 <Link to={`/produkty`} className="liked_link">Przeglądaj produkty i dodawaj do swojej listy.</Link>
               </>
             )}
@@ -31,7 +31,7 @@ const LikedPage =( props: any) => {
                       context.removeProductFromLiked(item.id)}
                       className="button_remove"
                   >
-                    <RiDeleteBin2Fill className="button_remove__icon"/>
+                    <IoTrashBinSharp className="button_remove__icon"/>
                   </Button>
               </li>
             ))}

@@ -3,7 +3,7 @@ import { useContext, useEffect, useState } from "react";
 import { FaHeart, FaShoppingCart, FaUser } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { Product, ProductContext } from "../../contexts/GlobalState";
-import { MenuItem } from "../meu/menuItem";
+import MenuItem from "../menuItem/menuItem";
 import HeaderCompact from "./headerCompact";
 import categories from "../../data/categories.json"
 
@@ -54,7 +54,13 @@ const Header = ({  children }: Props) => {
     return (
         <>
             {option == "compact" 
-            ? <HeaderCompact categories={context.categories} options={productOptions} groupedProducts={groupedProducts}/>
+            ? <HeaderCompact 
+                categories={context.categories} 
+                options={productOptions} 
+                groupedProducts={groupedProducts}
+                settingOptions={options}
+                onSettingOptionSelect={setOption}
+            />
             : null}
         
         </>  

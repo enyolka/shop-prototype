@@ -1,10 +1,11 @@
 import * as React from "react";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./headerCompact.css";
 import * as classNames from "classnames";
 import { FaHeart, FaShoppingCart, FaUser } from "react-icons/fa";
-import { MenuItem } from "../meu/menuItem";
+import { IoSettings } from "react-icons/io5";
+import MenuItem from "../menuItem/menuItem";
 import * as classnames from "classnames";
 import { ReactComponent } from "@uirouter/react";
 import { AutoSuggest } from "../autoSuggest/autoSuggest";
@@ -16,25 +17,52 @@ type Props = {
     options: Option[];
     categories: Category[];
     groupedProducts: any;
+    settingOptions: string[];
+    onSettingOptionSelect: (value: string) => void;
     className?: string;
     menuItems?: React.ReactElement[];
     children?: React.ReactNode;
   };
   
-const HeaderCompact = ({ categories, options, children, groupedProducts}: Props) => {
+const HeaderCompact = ({ 
+    categories, 
+    options, 
+    groupedProducts, 
+    settingOptions, 
+    onSettingOptionSelect,
+    children
+}: Props) => {
     const [active, setActive] = useState(false)
     const [grouped, setGrouped] = useState(groupedProducts)
     const [value, setValue] = useState<string | any>("");
     const navigate = useNavigate();
-
-    useEffect(() => setGrouped(groupedProducts),[groupedProducts])
+    const menuRef = useRef(null);
+    const togglerRef = useRef(null);
 
     const naviagateAndClose = (url: string) => {
          navigate(url);
          setActive(false)
     }
 
+    const handleClickOutside = (event: any) => {
+        if (menuRef.current 
+            && !menuRef.current.contains(event.target) 
+            && !togglerRef.current.contains(event.target)) {
+            setActive(false);
+        }
+    };
+
+    useEffect(() => setGrouped(groupedProducts),[groupedProducts])
+
+    useEffect(() => {
+        document.addEventListener('click', handleClickOutside, true);
+        return () => {
+            document.removeEventListener('click', handleClickOutside, true);
+        };
+    }, []);
+
     const headerItems = [
+        <MenuItem role="popup" options={settingOptions} onOptionSelect={onSettingOptionSelect}><IoSettings className="header_bar__icon"/></MenuItem>,
         <MenuItem to="/ulubione"><FaHeart className="header_bar__icon"/></MenuItem>,
         <MenuItem to="/koszyk"><FaShoppingCart className="header_bar__icon"/></MenuItem>,
         <MenuItem to="/konto"><FaUser className="header_bar__icon"/></MenuItem>
@@ -51,10 +79,12 @@ const HeaderCompact = ({ categories, options, children, groupedProducts}: Props)
             <div 
                 className={classnames("menu__toggler", active ? "active" : null)}
                 onClick={() => setActive(!active)}
+                ref={togglerRef}
             >
                 <span></span>
             </div>
-            <div className={classnames("menu", active ? "active" : null)}> 
+            <div className={classnames("menu", active ? "active" : null)}
+                ref={menuRef}> 
             <Accordion>
                 {menuItems.concat(categories.map((item: Category) => {
                     return (!!groupedProducts[item.name] 

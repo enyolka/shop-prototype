@@ -1,16 +1,18 @@
 :root {
-  --light-gray: #dddddd;
-  --white: #ffffff;
+  --white: rgb(255, 255, 255);
+  --gray-light: rgb(241, 241, 241);
+  --gray: rgb(221, 221, 221);
   --main: rgb(41, 80, 98);
   --secondary: rgb(23, 116, 139);
   --main-light: rgb(125, 171, 183);
   --main-medium: rgb(65, 164, 177);
   --focus-text: rgb(178, 122, 24);
-  --light-shadow: rgb(0, 0, 0, 0.1);
+  --shadow-light: rgb(0, 0, 0, 0.1);
   --error-red: rgb(196, 2, 2);
   --important: rgb(255, 158, 72);
+  --important-hover: rgb(208, 133, 66);
   --important-text: rgb(195, 136, 34);
-  --header-color: rgb(232, 244, 244);
+  --main-light-max: rgb(232, 244, 244);
 }
 
 * {
@@ -35,7 +37,7 @@
 
 .form_input {
   padding: 6px 8px;
-  border: 0.1px solid var(--light-shadow);
+  border: 0.1px solid var(--shadow-light);
   border-radius: 6px;
-  box-shadow: 0 1px 2px 1px var(--light-shadow);
+  box-shadow: 0 1px 2px 1px var(--shadow-light);
 }

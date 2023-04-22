@@ -6,22 +6,22 @@ import "./autoSuggest.css"
 
 const useUniqueId = (x: string) => x
 
-type SuggestTerm<K extends string> = K | ObjectTerm<K>;
+type SuggestTerm = string | ObjectTerm;
 
-export type ObjectTerm<K extends string = string> = {
-  value: K;
+export type ObjectTerm = {
+  value: string;
   icon?: React.ReactNode;
   label?: string;
   description?: string;
   category?: string;
 };
 
-export type Props<K extends string, O extends SuggestTerm<K>> = {
+export type Props<O extends SuggestTerm> = {
   className?: string;
   label: string;
   minLength?: number;
   maxSuggestions?: number;
-  autoSuggestTerms: O[];
+  autoSuggestTerms: [] | O[];
   showNoResultsFound?: boolean;
   noResultsFoundText?: string;
   showAllTerms?: boolean;
@@ -31,10 +31,8 @@ export type Props<K extends string, O extends SuggestTerm<K>> = {
   onBlur?: React.FocusEventHandler<HTMLElement>;
   onFocus?: React.FocusEventHandler<HTMLElement>;
   disabled?: boolean;
-  messageType?: "error" | "warning" | "success" | "info";
-  message?: string;
-  // icon?: React.ReactNode;
-  icon?: boolean;
+  buttonIcon?: React.ReactNode;
+  button?: boolean;
   loading?: boolean;
   name?: string;
   placeholder?: string;
@@ -42,8 +40,7 @@ export type Props<K extends string, O extends SuggestTerm<K>> = {
 };
 
 function AutoSuggest<
-  K extends string = string,
-  O extends SuggestTerm<K> = SuggestTerm<K>,
+  O extends SuggestTerm
 >({
   className,
   label,
@@ -54,13 +51,13 @@ function AutoSuggest<
   value,
   onChange,
   onSelection,
-  showAllTerms = false,
-  showNoResultsFound,
+  showAllTerms = true,
+  showNoResultsFound = true,
   disabled,
-  message,
-  messageType,
+  buttonIcon,
+  button = true,
   ... props
-}: Props<K, O>): React.ReactElement {
+}: Props<O>): React.ReactElement {
   const labelId = useUniqueId("autosuggest-label");
   const listboxId = useUniqueId("autosuggest-listbox");
   const inputRef = useRef<HTMLInputElement>(null);
@@ -70,12 +67,9 @@ function AutoSuggest<
   const [activeTermIdx, setActiveTermIdx] = useState(-1);
   const [expanded, setExpanded] = useState(false);
   const [closeable, setCloseable] = useState(true);
+  const [termsToShow, setTermsToShow] = useState([])
 
   const hasInput = !!value;
-  const termsToShow = showAllTerms && !hasInput
-    ? autoSuggestTerms
-    : getFilteredTerms(value, minLength, autoSuggestTerms, maxSuggestions);
-
 
   const onBlur = (callback?: any) => {
     if (!!props.onBlur) {
@@ -88,7 +82,7 @@ function AutoSuggest<
   }
 
   const onFocusOnChange = () => {
-    if (termsToShow.length > 0){
+    if (termsToShow.length > 0 && typeof value === "string" && value.length >= minLength){
       setExpanded(true);
     }
     setCloseable(true);
@@ -102,6 +96,12 @@ function AutoSuggest<
   useEffect(() => {
     setQuery(getQuery(value));
   }, [value]);
+
+  useEffect(() => {
+    setTermsToShow(showAllTerms && !hasInput
+    ? autoSuggestTerms
+    : getFilteredTerms(value, minLength, autoSuggestTerms, maxSuggestions))}, 
+    [showAllTerms, hasInput, autoSuggestTerms, maxSuggestions, length, value])
 
   useEffect(() => {
     if (activeTermIdx === -1) {
@@ -119,13 +119,15 @@ function AutoSuggest<
   }, [termsToShow.length]);
 
   const onKeyDown: React.KeyboardEventHandler = (e) => {
-    if (e.target !== inputRef.current) {
+    if (
+      e.target !== inputRef.current && !e.shiftKey) {
       inputRef.current?.focus();
-    }  else if (termsToShow.length < 1) {
-      setExpanded(false);
+    } 
+    if (termsToShow.length < 1 ) {
+      () => setExpanded(false);
       return;
     }
-    if (e.key === "Enter" && e.target === inputRef.current && activeTermIdx !== -1) {
+    else if (e.key === "Enter" && e.target === inputRef.current && activeTermIdx !== -1) {
       onSelection?.(termsToShow[activeTermIdx]);
       onSelect();
     } else  if (e.key === "Escape") {
@@ -160,7 +162,6 @@ function AutoSuggest<
         onBlur();
       }}
       onKeyDown={onKeyDown}
-      {... messageType !== undefined && message !== undefined ? { [`data-${messageType}`]: true } : {}}
     >
       <label>
         <div className="autoSuggest__field">
@@ -168,7 +169,7 @@ function AutoSuggest<
           ref={inputRef}
           className={classNames("autoSuggest__input", {
             focus: focusedWithin,
-            borderRight: !props.icon
+            borderRight: !!buttonIcon || button
           })}
           onFocus={() => {
             onFocusOnChange();
@@ -192,7 +193,7 @@ function AutoSuggest<
           disabled={disabled}
           placeholder={props.placeholder}
         />
-        <span id={labelId} className="spark-label">
+        <span id={labelId} className="label">
           {label}
         </span>
         {/* <button
@@ -208,26 +209,31 @@ function AutoSuggest<
           }}
           disabled={disabled}
         >usuń</button> */}
-          {props.icon ?? 
+          {(buttonIcon || button) ?
             <button 
-            className={classNames("autoSuggest__searchButton" , {
+            className={classNames(
+              "autoSuggest__searchButton" , {
               focus: focusedWithin })}
             onClick={() => activeTermIdx !== -1 && onSelection?.(termsToShow[activeTermIdx])}
+            disabled={disabled}
             >
-              <FaSearch className="autoSuggest__icon"/>
-            </button>}
+              {buttonIcon != undefined ? buttonIcon : <FaSearch className="autoSuggest__buttonIcon"/>}
+            </button> : null}
         </div>
       </label>
       <ul
         id={listboxId}
-        className={classNames("autoSuggest__listbox", 
-          expanded ? "visible" : "",
-           expanded && showAllTerms && !hasInput ? "show_all_terms" : "",
+        className={classNames(
+          "autoSuggest__listbox", 
+          {
+            visible: expanded ,
+            show_all_terms: expanded && showAllTerms && !hasInput
+          }
         )}
         role="listbox"
         onMouseDown={() => setCloseable(false)}
       >
-        {expanded &&
+        {expanded  &&
           termsToShow.map((it, idx) => (
             <li
               key={idx}
@@ -258,7 +264,7 @@ function AutoSuggest<
           ))}
         {showNoResultsFound &&
           expanded &&
-          termsToShow.length < 1 &&
+          termsToShow.length === 0 &&
           typeof value === "string" &&
           value.length >= minLength && (
             <li
@@ -269,16 +275,15 @@ function AutoSuggest<
             </li>
           )}
       </ul>
-      {messageType !== undefined && message !== undefined && <span className="spark-input__message">{message}</span>}
     </div>
   );
 }
 
-function getQuery<O extends SuggestTerm<string>>(value: string | O): string {
+function getQuery<O extends SuggestTerm>(value: string | O): string {
   return typeof value === "string" ? value : value.label ?? value.value;
 }
 
-function getFilteredTerms<K extends string, O extends SuggestTerm<K>>(
+function getFilteredTerms< O extends SuggestTerm>(
   value: string | O,
   minLength: number,
   autoSuggestTerms: O[],
@@ -311,8 +316,8 @@ function getFilteredTerms<K extends string, O extends SuggestTerm<K>>(
   return result;
 }
 
-function getLabel<O extends SuggestTerm<string>>(
-  suggestTerm: SuggestTerm<string>,
+function getLabel<O extends SuggestTerm>(
+  suggestTerm: SuggestTerm,
   value: string | O,
   termIdx: number,
 ): React.ReactNode {

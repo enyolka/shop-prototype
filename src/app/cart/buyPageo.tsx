@@ -17,7 +17,6 @@ export interface FieldProps<V = any> {
 export type ClientFormModel = {
   id: number;
   name: string;
-  nip: string;
   phone?: string;
   email?: string;
   city: string;
@@ -52,7 +51,6 @@ const BuyPage =( props: any) => {
     const initialModel: ClientFormModel = {
       id: 0,
       name: "",
-      nip: "",
       city: "",
       street: "",
       zipCode: "",
@@ -62,9 +60,7 @@ const BuyPage =( props: any) => {
   
     const phoneRegExp =
       /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
-    const streetRegExp = /^([0-9]+|([0-9]+[/][0-9]+))$/;
-  
-  
+
     const validationSchema = Yup.object({
       name: Yup.string()
         .max(30, "Must be 30 characters or less")
@@ -82,9 +78,6 @@ const BuyPage =( props: any) => {
         .required("Required"),
     });
 
-
-
-  
     return (
       <>
         <article className="buy">
@@ -113,7 +106,7 @@ const BuyPage =( props: any) => {
                     error={errors.name && touched.name}
                   />
                   <ErrorMessage name="name">
-                    {(msg: string) => <Message className={"error_message"}>{msg}</Message>}
+                    {(msg: string) => <Message  type="error" size="small" className={"error_message"}>{msg}</Message>}
                   </ErrorMessage>
                 </div>
                 <div className={"field"}>
@@ -127,7 +120,7 @@ const BuyPage =( props: any) => {
                   />
                   <ErrorMessage name="phone">
                     {(msg: string) => (
-                      <Message className={"error_message"}>{msg}</Message>
+                      <Message  type="error" size="small" className={"error_message"}>{msg}</Message>
                     )}
                   </ErrorMessage>
                 </div>
@@ -143,7 +136,7 @@ const BuyPage =( props: any) => {
                   />
                   <ErrorMessage name="email">
                     {(msg: string) => (
-                      <Message className={"error_message"}>{msg}</Message>
+                      <Message  type="error" size="small" className={"error_message"}>{msg}</Message>
                     )}
                   </ErrorMessage>
                 </div>
@@ -158,7 +151,7 @@ const BuyPage =( props: any) => {
                   />
                   <ErrorMessage name="street">
                     {(msg: string) => (
-                      <Message className={"error_message"}>{msg}</Message>
+                      <Message  type="error" size="small" className={"error_message"}>{msg}</Message>
                     )}
                   </ErrorMessage>
                 </div>
@@ -174,7 +167,7 @@ const BuyPage =( props: any) => {
                     />
                     <ErrorMessage name="zipCode">
                       {(msg: string) => (
-                        <Message className={"error_message"}>{msg}</Message>
+                        <Message  type="error" size="small" className={"error_message"}>{msg}</Message>
                       )}
                     </ErrorMessage>
                   </div>
@@ -189,7 +182,7 @@ const BuyPage =( props: any) => {
                     />
                     <ErrorMessage name="city">
                       {(msg: string) => (
-                        <Message className={"error_message"}>{msg}</Message>
+                        <Message  type="error" size="small" className={"error_message"}>{msg}</Message>
                       )}
                     </ErrorMessage>
                   </div>
@@ -204,12 +197,12 @@ const BuyPage =( props: any) => {
                       <li key={cartItem.id} className="summary_item">
                           <img alt="" src={placeholder} className="summary_item__img"/>
                           <Link to={`/${cartItem.id}`} className="summary_item__link">{cartItem.name}</Link>
-                          <p className="summary_item__price">{cartItem.price * cartItem.quantity}$</p>
+                          <p className="summary_item__price">{(cartItem.price * cartItem.quantity).toFixed(2)}$</p>
                       </li>
                     ))}
                   </ul>
                   <div >
-                    <p className="summary_cost">Do zapłaty: {cost}$</p>
+                    <p className="summary_cost">Do zapłaty: {cost.toFixed(2)}$</p>
                   </div>
                 </div>
 

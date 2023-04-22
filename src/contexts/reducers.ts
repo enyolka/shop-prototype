@@ -2,6 +2,7 @@ import { Product } from "./GlobalState";
 
 export const ADD_PRODUCT = "ADD_PRODUCT";
 export const REMOVE_PRODUCT = "REMOVE_PRODUCT";
+export const REMOVE_PRODUCT_ALL = "REMOVE_PRODUCT_ALL";
 export const ADD_LIKED = "ADD_LIKED";
 export const REMOVE_LIKED = "REMOVE_LIKED";
 
@@ -43,6 +44,16 @@ const removeProductFromCart = (productId: string, state: any) => {
   return { ...state, cart: updatedCart };
 };
 
+const removeAllProductFromCart = (productId: string, state: any) => {
+  const updatedCart = [...state.cart];
+  const updatedItemIndex = updatedCart.findIndex(item => item.id === productId);
+  updatedCart.splice(updatedItemIndex, 1);
+
+  sessionStorage.setItem('cartItems', JSON.stringify(updatedCart))
+
+  return { ...state, cart: updatedCart };
+};
+
 const addProductToLiked = (product: Product, state: any) => {
   const updatedLiked = [...state.liked];
   const updatedItemIndex = updatedLiked.findIndex(
@@ -78,6 +89,8 @@ export const shopReducer = (state: any, action: any) => {
       return addProductToCart(action.product, state);
     case REMOVE_PRODUCT:
       return removeProductFromCart(action.productId, state);
+    case REMOVE_PRODUCT_ALL:
+      return removeAllProductFromCart(action.productId, state);
     case ADD_LIKED:
       return addProductToLiked(action.product, state);
     case REMOVE_LIKED:

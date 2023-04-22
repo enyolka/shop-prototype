@@ -1,0 +1,45 @@
+.menuLink {
+    text-decoration: none;
+    color:rgb(38, 38, 38);
+    padding: 4px;
+    font-size: 20px;
+    position: relative;
+}
+
+.menuLink:hover {
+    color: var(--main);
+    cursor: pointer;
+}
+
+.active {
+    color: var(--secondary);
+}
+
+.active:hover {
+    color: var(--main-medium);
+}
+
+.menuLink__listbox {
+    display: none;
+    position: absolute;
+    width: auto;
+    z-index: 11; 
+    background: white;
+    border-radius: 4px;
+    box-shadow: 0 0 8px 2px var(--shadow-light);
+    padding: 0.3rem 0;
+    list-style: none;
+}
+
+.menuLink__listItem {
+    font-size: 16px;
+    padding: 4px 1rem;
+}
+
+.menuLink__listItem:hover {
+    background-color: var(--main-light-max);
+}
+
+.menuLink__listbox.open {
+    display: block;
+}
