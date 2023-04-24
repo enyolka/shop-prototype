@@ -1,17 +1,16 @@
 import * as React from "react";
 import { useEffect, useRef, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import "./headerCompact.css";
 import * as classNames from "classnames";
 import { FaHeart, FaShoppingCart, FaUser } from "react-icons/fa";
 import { IoSettings } from "react-icons/io5";
-import MenuItem from "../menuItem/menuItem";
-import * as classnames from "classnames";
+import MenuItem from "../../menuItem/menuItem";
 import { ReactComponent } from "@uirouter/react";
-import { AutoSuggest } from "../autoSuggest/autoSuggest";
-import { Accordion, AccordionSection } from "../accordionMenu/accordionMenu";
-import { Option } from "./header";
-import { Category, Subcategory } from "../../contexts/GlobalState";
+import { AutoSuggest } from "../../autoSuggest/autoSuggest";
+import { Accordion, AccordionSection } from "../../accordionMenu/accordionMenu";
+import { Option } from "../header";
+import { Category, Subcategory } from "../../../contexts/GlobalState";
+import "./headerLeftside.css";
 
 type Props = {
     options: Option[];
@@ -24,7 +23,7 @@ type Props = {
     children?: React.ReactNode;
   };
   
-const HeaderCompact = ({ 
+const HeaderLeftside = ({ 
     categories, 
     options, 
     groupedProducts, 
@@ -77,13 +76,13 @@ const HeaderCompact = ({
         <header className={classNames("header")}>
 
             <div 
-                className={classnames("menu__toggler", active ? "active" : null)}
+                className={classNames("menu__toggler", active ? "active" : null)}
                 onClick={() => setActive(!active)}
                 ref={togglerRef}
             >
                 <span></span>
             </div>
-            <div className={classnames("menu", active ? "active" : null)}
+            <div className={classNames("menu", active ? "active" : null)}
                 ref={menuRef}> 
             <Accordion>
                 {menuItems.concat(categories.map((item: Category) => {
@@ -127,4 +126,4 @@ const HeaderCompact = ({
     )
 }
 
-export default HeaderCompact;
+export default HeaderLeftside;

@@ -4,8 +4,9 @@ import { FaHeart, FaShoppingCart, FaUser } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { Product, ProductContext } from "../../contexts/GlobalState";
 import MenuItem from "../menuItem/menuItem";
-import HeaderCompact from "./headerCompact";
+import HeaderLeftside from "./leftside/headerLeftside";
 import categories from "../../data/categories.json"
+import HeaderRightside from "./rightside/headerRightside";
 
 export type Option = {
     value: string;
@@ -24,8 +25,8 @@ type Props = {
   
 const Header = ({  children }: Props) => {
     const context = useContext(ProductContext);
-    const options = ["compact", "icon", "wide", "right"]
-    const [option, setOption] = useState(options[0])    
+    const options = ["leftside", "simple", "extensive", "rightside"]
+    const [option, setOption] = useState(options[3])    
     const productOptions = context.products.map(({name, category, subcategory, id}: Product) => {
         return {
             value: id,
@@ -51,17 +52,44 @@ const Header = ({  children }: Props) => {
         <MenuItem to="/produkty">Produkty</MenuItem>
     ]
     
+
     return (
         <>
-            {option == "compact" 
-            ? <HeaderCompact 
+        {
+            
+            option === "leftside" 
+            ? <HeaderLeftside
                 categories={context.categories} 
                 options={productOptions} 
                 groupedProducts={groupedProducts}
                 settingOptions={options}
                 onSettingOptionSelect={setOption}
             />
-            : null}
+            : 
+            option === "simple" 
+            ? <HeaderLeftside
+                categories={context.categories} 
+                options={productOptions} 
+                groupedProducts={groupedProducts}
+                settingOptions={options}
+                onSettingOptionSelect={setOption}
+                /> : 
+            option === "extensive" 
+            ? <HeaderLeftside
+                categories={context.categories} 
+                options={productOptions} 
+                groupedProducts={groupedProducts}
+                settingOptions={options}
+                onSettingOptionSelect={setOption}
+            /> : 
+            <HeaderRightside
+                categories={context.categories} 
+                options={productOptions} 
+                groupedProducts={groupedProducts}
+                settingOptions={options}
+                onSettingOptionSelect={setOption}
+            />
+        }
         
         </>  
     )

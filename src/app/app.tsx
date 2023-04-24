@@ -14,6 +14,7 @@ import "./app.css"
 import BuyPage from "./cart/buyPageo";
 import SummaryPage from "./cart/summaryPage";
 import AccountPage from "./account/accountPage";
+import PromotionsPage from "./products/promotionsPage";
 
 const App = () => {
   return (
@@ -24,6 +25,7 @@ const App = () => {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/produkty" element={<ProductsPage/>} />
+              <Route path="/promocje" element={<PromotionsPage/>} />
               <Route path={`/:id`} element={<ProductInfo/>} />
               <Route path={`produkty/:category`} element={<ProductsPage/>} />
               <Route path={`produkty/:category/:subcategory`} element={<ProductsPage/>} />

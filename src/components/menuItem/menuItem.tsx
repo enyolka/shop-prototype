@@ -9,9 +9,10 @@ type MenuItemRole = "redirect" | "popup";
 type Props = {
     role?: MenuItemRole;
     to?: string;
-    children?: React.ReactNode;
     options?: string[];
     onOptionSelect?: (value: string) => void;
+    children?: React.ReactNode;
+    className?: string;
 }
 
 const MenuItem = ({ 
@@ -20,6 +21,7 @@ const MenuItem = ({
     options,
     onOptionSelect,
     children, 
+    className,
     ...props 
 }: Props) => {
     const [open, setOpen] = useState(false);
@@ -31,7 +33,7 @@ const MenuItem = ({
        <>
         { options && options.length > 1 
         ? <div 
-            className={classnames("menuLink")} 
+            className={classnames("menuLink", className)} 
             onClick={() => navigate(to)} 
             onMouseEnter={() => setOpen(true)} 
             onMouseLeave={() => setOpen(false)}
@@ -48,7 +50,7 @@ const MenuItem = ({
                     )}
                 </ul>
             </div>
-        : <div onClick={() => navigate(to)} className={classnames("menuLink", isActive && "active" )} {...props}>
+        : <div onClick={() => navigate(to)} className={classnames("menuLink", isActive && "active", className )} {...props}>
             {children}
         </div> 
         }

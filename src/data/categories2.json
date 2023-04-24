@@ -1,0 +1,60 @@
+[
+    {
+        "name": "Komputery i tablety",
+        "subcategories": [
+            {
+                "name": "Komputery stacjonarne"
+            },
+            {
+                "name": "Laptopy"
+            },
+            {
+                "name": "Tablety"
+            }
+        ]
+    }, {
+        "name": "Telefony",
+        "subcategories": [
+            {
+                "name": "Smartfony"
+            }
+        ]
+    },
+    {
+        "name": "Audio",
+        "subcategories": [
+            {
+                "name": "Słuchawki bezprzewodowe"
+            },
+            {
+                "name":  "Słuchawki douszne"
+            }
+        ]
+    }, 
+    {
+        "name": "Akcesoria",
+        "subcategories": [
+            {
+                "name": "Smartwatche"
+            },
+            {
+                "name": "Klawiatury"
+            }
+        ]
+                
+    }, 
+    {
+        "name": "Telewizory i monitory",
+        "subcategories": [
+            {
+                "name": "Telewizory OLED"
+            },
+            {
+                "name": "Telewizory LED"
+            },
+            {
+                "name": "Monitory"
+            }
+        ]
+    }
+]

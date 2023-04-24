@@ -1,8 +1,8 @@
 import { useState, useReducer, useEffect, ReactElement } from "react";
 import * as React from "react";
 import { shopReducer, ADD_PRODUCT, REMOVE_PRODUCT, ADD_LIKED, REMOVE_LIKED, REMOVE_PRODUCT_ALL } from "./reducers";
-import productsData from "../data/products.json";
-import categoriesData from "../data/categories.json"
+import productsData from "../data/products2.json";
+import categoriesData from "../data/categories2.json"
 
 export type Product = {
     id: string;
@@ -58,7 +58,7 @@ const GlobalState = ({ children }: Props) => {
   const[categories, setCategories] = useState<Category[]>([])
   const [cartState, dispatchCart] = useReducer(shopReducer, { cart: sessionStorage.getItem("cartItems") != null ? JSON.parse(sessionStorage.getItem("cartItems")) : []  });
   const [likedState, dispatchLiked] = useReducer(shopReducer, { liked: sessionStorage.getItem("likedItems") != null ? JSON.parse(sessionStorage.getItem("likedItems")) : [] });
-
+console.log(products)
   const translateProduct = (product: any) => {
     return {
       id: product.id,
@@ -67,7 +67,7 @@ const GlobalState = ({ children }: Props) => {
       category: product.category,
       subcategory: product.subcategory,
       description: product.description,
-      image: product.url
+      image: product.image
     }
   }
 
