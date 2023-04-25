@@ -10,7 +10,7 @@ import { AutoSuggest } from "../../autoSuggest/autoSuggest";
 import { Accordion, AccordionSection } from "../../accordionMenu/accordionMenu";
 import { Option } from "../header";
 import { Category, Subcategory } from "../../../contexts/GlobalState";
-import "./headerRightside.css";
+import "./headerSimple.css";
 
 type Props = {
     options: Option[];
@@ -23,7 +23,7 @@ type Props = {
     children?: React.ReactNode;
   };
   
-const HeaderRightside = ({ 
+const HeaderSimple = ({ 
     categories, 
     options, 
     groupedProducts, 
@@ -40,9 +40,9 @@ const HeaderRightside = ({
 
     const naviagateAndClose = (url: string) => {
          navigate(url);
-         setActive(false)
+        //  setActive(false)
     }
-
+    console.log(categories)
     const handleClickOutside = (event: any) => {
         if (menuRef.current 
             && !menuRef.current.contains(event.target) 
@@ -79,35 +79,28 @@ const HeaderRightside = ({
     ]
     
     return (
-        <header className={classNames("header--right")}>
+        <header className={classNames("header--simple")}>
 
             <div 
-                className={classNames("menu__toggler--right", active ? "active" : null)}
+                className={classNames("menu__toggler--simple", active ? "active" : null)}
                 onClick={() => setActive(!active)}
                 ref={togglerRef}
             >
                 <span></span>
             </div>
-            <div className={classNames("menu--right", active ? "active" : null)}
+            <div className={classNames("menu--simple", active ? "active" : null)}
                 ref={menuRef}> 
             <div className="menu__important">
                 <MenuItem className="menu__important_item" onClick={()=> naviagateAndClose("/ulubione")} showActive={false} header={<FaHeart/>}/>
                 <MenuItem className="menu__important_item" onClick={()=> naviagateAndClose("/koszyk")} showActive={false} header={<FaShoppingCart/>}/>
             </div>
             <Accordion>
+                    
                 {menuItems.concat(categories.map((item: Category) => {
                     return (!!groupedProducts[item.name] 
-                        ? <AccordionSection 
-                            className="item_name" 
-                            header={item.name} 
-                            onAdditionalClick={() => naviagateAndClose(`/produkty/${item.name}`)} 
-                            color="default">
-                                { item.subcategories.map(({ name }: Subcategory) => 
-                                <div 
-                                    onClick={()=> naviagateAndClose(`/produkty/${item.name}/${name}`)} 
-                                    className={"item_link"}>
-                                        {name}
-                                </div>)
+                        ? <AccordionSection className="item_name" header={item.name} onAdditionalClick={() => naviagateAndClose(`/produkty/${item.name}`)} color="default">{
+                            item.subcategories.map(({ name }: Subcategory) => 
+                                <div onClick={()=> naviagateAndClose(`/produkty/${item.name}/${name}`)} className={"item_link"}>{name}</div>)
                         }
                         </AccordionSection> 
                         : null)
@@ -117,12 +110,12 @@ const HeaderRightside = ({
             </div>
 
 
-            <span className={classNames("logo--right")}>
+            <span className={classNames("logo--simple")}>
                 <i className={classNames("logo_item")}>LOGO</i>
             </span>
 
             <AutoSuggest
-                className="search--right"
+                className="search--simple"
                 autoSuggestTerms={options}
                 value={value}
                 onChange={setValue}
@@ -142,14 +135,33 @@ const HeaderRightside = ({
             
             <hr className="header__hr"/>
 
-            <nav className={classNames("header_important--right")} role="navigation">
-            <MenuItem to="/" className="header_bar__item" header="strona główna"/>
-            <MenuItem to="/produkty" className="header_bar__item" header="Produkty"/>
-            <MenuItem to="/promocje" className="header_bar__item" header="promocje"/>
+            <nav className={classNames("header_important--simple")} role="navigation">
+            {/* <MenuItem to="/" className="header_bar__item">strona główna</MenuItem>
+            <MenuItem to="/produkty" className="header_bar__item">Produkty</MenuItem>
+            <MenuItem to="/promocje" className="header_bar__item">promocje</MenuItem> */}
+            {categories.map((item: Category) => {
+                
+                    return (!!groupedProducts[item.name] 
+                        ? <MenuItem 
+                        className="header_bar__item"
+                            onClick={() => naviagateAndClose(`/produkty/${item.name}`)} 
+                            icon={<i className={item.icon}/>}
+                            header={item.name}
+                            to={`/produkty/${item.name}`}
+                            options={item.subcategories.map(({ name }: Subcategory) => name)}
+                            onOptionSelect={(name)=> {
+                                console.log(`/produkty/${item.name}/${name}`)
+                                naviagateAndClose(`/produkty/${item.name}/${name}`)}
+                                }>
+                            {/* {item.name} */}
+                        </MenuItem> 
+                        : null)
+                    })
+             }
             </nav>
                 {children}
         </header>
     )
 }
 
-export default HeaderRightside;
+export default HeaderSimple;

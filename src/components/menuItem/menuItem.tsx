@@ -7,19 +7,27 @@ import "./menuItem.css"
 type MenuItemRole = "redirect" | "popup";
 
 type Props = {
+    header: string | React.ReactNode;
+    icon?: React.ReactNode;
     role?: MenuItemRole;
     to?: string;
+    showActive?: boolean;
     options?: string[];
     onOptionSelect?: (value: string) => void;
+    onClick?: () => void;
     children?: React.ReactNode;
     className?: string;
 }
 
-const MenuItem = ({ 
+const MenuItem = ({
+    header,
+    icon,
     to, 
     role = "redirect", 
+    showActive = true,
     options,
     onOptionSelect,
+    onClick, 
     children, 
     className,
     ...props 
@@ -29,20 +37,33 @@ const MenuItem = ({
     const navigate = useNavigate();
     const isActive = useMatch({ path: resolvedPath.pathname, end: true })
 
+
     return (
        <>
         { options && options.length > 1 
         ? <div 
             className={classnames("menuLink", className)} 
-            onClick={() => navigate(to)} 
+            
             onMouseEnter={() => setOpen(true)} 
             onMouseLeave={() => setOpen(false)}
             >
+                <div 
+                onClick={() => {
+                    navigate(to);
+                    onClick();
+                }}>
+                {icon}
+                <span >{header}</span>
+                </div>
+
                 {children}
+
                 <ul className={classnames("menuLink__listbox", {open: open})}>
                     {options.map(option => 
                         <li 
-                            onClick={() => onOptionSelect(option)}
+                            onClick={() => {
+                                console.log(option)
+                                onOptionSelect(option)}}
                             className={classnames("menuLink__listItem")}
                         >
                            {option}
@@ -50,7 +71,15 @@ const MenuItem = ({
                     )}
                 </ul>
             </div>
-        : <div onClick={() => navigate(to)} className={classnames("menuLink", isActive && "active", className )} {...props}>
+        : <div className={classnames("menuLink", showActive && isActive && "active", className )} {...props}>
+                <div 
+                onClick={() => {
+                    navigate(to);
+                    onClick();
+                }}>
+                {icon}
+                <span >{header}</span>
+                </div>
             {children}
         </div> 
         }

@@ -1,12 +1,11 @@
 import * as React from "react";
 import { useContext, useEffect, useState } from "react";
-import { FaHeart, FaShoppingCart, FaUser } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { Product, ProductContext } from "../../contexts/GlobalState";
-import MenuItem from "../menuItem/menuItem";
 import HeaderLeftside from "./leftside/headerLeftside";
 import categories from "../../data/categories.json"
 import HeaderRightside from "./rightside/headerRightside";
+import HeaderSimple from "./simple/headerSimple";
 
 export type Option = {
     value: string;
@@ -26,7 +25,7 @@ type Props = {
 const Header = ({  children }: Props) => {
     const context = useContext(ProductContext);
     const options = ["leftside", "simple", "extensive", "rightside"]
-    const [option, setOption] = useState(options[3])    
+    const [option, setOption] = useState(sessionStorage.getItem("header") != null ? sessionStorage.getItem("header") : options[0] )    
     const productOptions = context.products.map(({name, category, subcategory, id}: Product) => {
         return {
             value: id,
@@ -42,37 +41,30 @@ const Header = ({  children }: Props) => {
         return soFar;
         }, {});
 
-    const headerItems = [
-        <MenuItem to="/ulubione"><FaHeart/></MenuItem>,
-        <MenuItem to="/koszyk"><FaShoppingCart/></MenuItem>,
-        <MenuItem to="/konto"><FaUser/></MenuItem>
-    ]
-    
-    const menuItems = [
-        <MenuItem to="/produkty">Produkty</MenuItem>
-    ]
-    
+    const setHeaderOption = (newOption: string) => {
+        setOption(newOption)
+        sessionStorage.setItem("header", newOption)
+    }    
 
     return (
         <>
         {
-            
             option === "leftside" 
             ? <HeaderLeftside
                 categories={context.categories} 
                 options={productOptions} 
                 groupedProducts={groupedProducts}
                 settingOptions={options}
-                onSettingOptionSelect={setOption}
+                onSettingOptionSelect={setHeaderOption}
             />
             : 
             option === "simple" 
-            ? <HeaderLeftside
+            ? <HeaderSimple
                 categories={context.categories} 
                 options={productOptions} 
                 groupedProducts={groupedProducts}
                 settingOptions={options}
-                onSettingOptionSelect={setOption}
+                onSettingOptionSelect={setHeaderOption}
                 /> : 
             option === "extensive" 
             ? <HeaderLeftside
@@ -80,14 +72,14 @@ const Header = ({  children }: Props) => {
                 options={productOptions} 
                 groupedProducts={groupedProducts}
                 settingOptions={options}
-                onSettingOptionSelect={setOption}
+                onSettingOptionSelect={setHeaderOption}
             /> : 
             <HeaderRightside
                 categories={context.categories} 
                 options={productOptions} 
                 groupedProducts={groupedProducts}
                 settingOptions={options}
-                onSettingOptionSelect={setOption}
+                onSettingOptionSelect={setHeaderOption}
             />
         }
         

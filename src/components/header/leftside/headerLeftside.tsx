@@ -61,10 +61,10 @@ const HeaderLeftside = ({
     }, []);
 
     const headerItems = [
-        <MenuItem role="popup" options={settingOptions} onOptionSelect={onSettingOptionSelect}><IoSettings className="header_bar__icon"/></MenuItem>,
-        <MenuItem to="/ulubione"><FaHeart className="header_bar__icon"/></MenuItem>,
-        <MenuItem to="/koszyk"><FaShoppingCart className="header_bar__icon"/></MenuItem>,
-        <MenuItem to="/konto"><FaUser className="header_bar__icon"/></MenuItem>
+        <MenuItem role="popup" options={settingOptions} onOptionSelect={onSettingOptionSelect} header={<IoSettings className="header_bar__icon"/>}/>,
+        <MenuItem to="/ulubione" header={<FaHeart className="header_bar__icon"/>}/>,
+        <MenuItem to="/koszyk" header={<FaShoppingCart className="header_bar__icon"/>}/>,
+        <MenuItem to="/konto" header={<FaUser className="header_bar__icon"/>}/>
     ]
     
     const menuItems = [
@@ -82,14 +82,23 @@ const HeaderLeftside = ({
             >
                 <span></span>
             </div>
-            <div className={classNames("menu", active ? "active" : null)}
+            <div 
+                className={classNames("menu", active ? "active" : null)}
                 ref={menuRef}> 
             <Accordion>
                 {menuItems.concat(categories.map((item: Category) => {
                     return (!!groupedProducts[item.name] 
-                        ? <AccordionSection className="item_name" header={item.name} onAdditionalClick={() => naviagateAndClose(`/produkty/${item.name}`)} color="default">{
-                            item.subcategories.map(({ name }: Subcategory) => 
-                                <div onClick={()=> naviagateAndClose(`/produkty/${item.name}/${name}`)} className={"item_link"}>{name}</div>)
+                        ? <AccordionSection 
+                            className="item_name" 
+                            header={item.name} 
+                            onAdditionalClick={() => naviagateAndClose(`/produkty/${item.name}`)} 
+                            color="default">
+                                { item.subcategories.map(({ name }: Subcategory) => 
+                                <div 
+                                    onClick={() => naviagateAndClose(`/produkty/${item.name}/${name}`)} 
+                                    className={"item_link"}>
+                                        {name}
+                                </div>)
                         }
                         </AccordionSection> 
                         : null)

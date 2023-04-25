@@ -87,7 +87,6 @@ const BuyPage =( props: any) => {
           validateOnChange={true}
           validateOnBlur={true}
           onSubmit={(values: any, { resetForm }: any) => {
-            console.log("ok")
             sumUp()
             resetForm({});
           }}

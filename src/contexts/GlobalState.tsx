@@ -18,6 +18,7 @@ export type Product = {
 
 export type Category = {
   name: string;
+  icon:  string;
   subcategories: Subcategory[];
 }
 
@@ -58,7 +59,7 @@ const GlobalState = ({ children }: Props) => {
   const[categories, setCategories] = useState<Category[]>([])
   const [cartState, dispatchCart] = useReducer(shopReducer, { cart: sessionStorage.getItem("cartItems") != null ? JSON.parse(sessionStorage.getItem("cartItems")) : []  });
   const [likedState, dispatchLiked] = useReducer(shopReducer, { liked: sessionStorage.getItem("likedItems") != null ? JSON.parse(sessionStorage.getItem("likedItems")) : [] });
-console.log(products)
+
   const translateProduct = (product: any) => {
     return {
       id: product.id,
@@ -75,6 +76,7 @@ console.log(products)
   const translateCategory = (category: any) => {
     return {
       name: category.name,
+      icon: category.icon,
       subcategories: category.subcategories//(subcategory => subcategory.name)
     }
   }

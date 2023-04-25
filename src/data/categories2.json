@@ -1,6 +1,7 @@
 [
     {
         "name": "Komputery i tablety",
+        "icon":  "fas fa-computer",
         "subcategories": [
             {
                 "name": "Komputery stacjonarne"
@@ -14,6 +15,7 @@
         ]
     }, {
         "name": "Telefony",
+        "icon": "fas fa-mobile",
         "subcategories": [
             {
                 "name": "Smartfony"
@@ -22,6 +24,7 @@
     },
     {
         "name": "Audio",
+        "icon": "fas fa-headphones",
         "subcategories": [
             {
                 "name": "Słuchawki bezprzewodowe"
@@ -33,6 +36,7 @@
     }, 
     {
         "name": "Akcesoria",
+        "icon": "fas fa-keyboard",
         "subcategories": [
             {
                 "name": "Smartwatche"
@@ -45,6 +49,7 @@
     }, 
     {
         "name": "Telewizory i monitory",
+        "icon": "fas fa-tv",
         "subcategories": [
             {
                 "name": "Telewizory OLED"
