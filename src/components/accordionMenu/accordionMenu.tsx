@@ -6,6 +6,7 @@ import "./accordionMenu.css"
 
 type SectionProps = {
   header: string;
+  icon?: React.ReactNode;
   subHeader?: string;
   children?: React.ReactNode;
   expanded?: boolean;
@@ -34,6 +35,7 @@ function AccordionSection({
   onClick,
   onAdditionalClick,
   header,
+  icon,
   children,
   subHeader,
   expandable = true,
@@ -51,6 +53,7 @@ function AccordionSection({
         aria-expanded={expandable && expanded}
         onClick={onClick}
       >
+        {icon}
         <h4 
           onClick={(event) => {
             if(event.target == event.currentTarget)
@@ -71,7 +74,7 @@ function AccordionSection({
           style={{
             visibility: expanded ? "visible" : "hidden",
             height: expanded ? "auto" : "0px",
-            backgroundColor: props.color == "default" ? "rgb(240, 252, 250)" : props.color,
+            backgroundColor: props.color &&  props.color == "default" ? "rgb(240, 252, 250)" : props.color,
           }}
         >
           {subHeader && <h5>{subHeader}</h5>}

@@ -90,6 +90,7 @@ const HeaderLeftside = ({
                     return (!!groupedProducts[item.name] 
                         ? <AccordionSection 
                             className="item_name" 
+                            icon={<i className={item.icon}/>}
                             header={item.name} 
                             onAdditionalClick={() => naviagateAndClose(`/produkty/${item.name}`)} 
                             color="default">

@@ -11,6 +11,13 @@
     cursor: pointer;
 }
 
+.menuLink_header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+}
+
 .active {
     color: var(--secondary);
 }

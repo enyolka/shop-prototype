@@ -6,6 +6,7 @@ import HeaderLeftside from "./leftside/headerLeftside";
 import categories from "../../data/categories.json"
 import HeaderRightside from "./rightside/headerRightside";
 import HeaderSimple from "./simple/headerSimple";
+import HeaderExtensive from "./extensive/headerExtensive";
 
 export type Option = {
     value: string;
@@ -67,7 +68,7 @@ const Header = ({  children }: Props) => {
                 onSettingOptionSelect={setHeaderOption}
                 /> : 
             option === "extensive" 
-            ? <HeaderLeftside
+            ? <HeaderExtensive
                 categories={context.categories} 
                 options={productOptions} 
                 groupedProducts={groupedProducts}

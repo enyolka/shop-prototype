@@ -101,7 +101,7 @@ const HeaderRightside = ({
                             className="item_name" 
                             header={item.name} 
                             onAdditionalClick={() => naviagateAndClose(`/produkty/${item.name}`)} 
-                            color="default">
+                            >
                                 { item.subcategories.map(({ name }: Subcategory) => 
                                 <div 
                                     onClick={()=> naviagateAndClose(`/produkty/${item.name}/${name}`)} 

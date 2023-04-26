@@ -48,15 +48,14 @@ const MenuItem = ({
             onMouseLeave={() => setOpen(false)}
             >
                 <div 
-                onClick={() => {
-                    navigate(to);
-                    onClick();
+                    className="menuLink_header"
+                    onClick={() => {
+                        navigate(to);
+                        onClick();
                 }}>
-                {icon}
-                <span >{header}</span>
+                    {icon}
+                    <span >{header}</span>
                 </div>
-
-                {children}
 
                 <ul className={classnames("menuLink__listbox", {open: open})}>
                     {options.map(option => 
@@ -73,14 +72,14 @@ const MenuItem = ({
             </div>
         : <div className={classnames("menuLink", showActive && isActive && "active", className )} {...props}>
                 <div 
-                onClick={() => {
-                    navigate(to);
-                    onClick();
+                    className="menuLink_header"
+                    onClick={() => {
+                        navigate(to);
+                        onClick();
                 }}>
-                {icon}
-                <span >{header}</span>
+                    {icon}
+                    <span >{header}</span>
                 </div>
-            {children}
         </div> 
         }
         </>

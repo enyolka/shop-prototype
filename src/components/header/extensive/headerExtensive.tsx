@@ -10,7 +10,7 @@ import { AutoSuggest } from "../../autoSuggest/autoSuggest";
 import { Accordion, AccordionSection } from "../../accordionMenu/accordionMenu";
 import { Option } from "../header";
 import { Category, Subcategory } from "../../../contexts/GlobalState";
-import "./headerSimple.css";
+import "./headerExtensive.css";
 
 type Props = {
     options: Option[];
@@ -23,7 +23,7 @@ type Props = {
     children?: React.ReactNode;
   };
   
-const HeaderSimple = ({ 
+const HeaderExtensive = ({ 
     categories, 
     options, 
     groupedProducts, 
@@ -66,12 +66,10 @@ const HeaderSimple = ({
             options={settingOptions} 
             onOptionSelect={onSettingOptionSelect}
             className="header_bar__item"
-            header="ustawienia"
-            icon={<IoSettings className="header_bar__icon"/>}
-        />,
-        <MenuItem to="/ulubione" className="header_bar__item"  header="polubione"  icon={<FaHeart className="header_bar__icon"/>}/>,
-        <MenuItem to="/koszyk" className="header_bar__item" header="koszyk (0)" icon={<FaShoppingCart className="header_bar__icon"/>}/>,
-        <MenuItem to="/konto" className="header_bar__item" header="konto" icon={<FaUser className="header_bar__icon"/>}/>
+            header="ustawienia"/>,
+        <MenuItem to="/ulubione" className="header_bar__item"  header="polubione"/>,
+        <MenuItem to="/koszyk" className="header_bar__item" header="koszyk (0)"/>,
+        <MenuItem to="/konto" className="header_bar__item" header="konto"/>
     ]
     
     const menuItems = [
@@ -81,16 +79,16 @@ const HeaderSimple = ({
     ]
     
     return (
-        <header className={classNames("header--simple")}>
+        <header className={classNames("header--extensive")}>
 
             <div 
-                className={classNames("menu__toggler--simple", active ? "active" : null)}
+                className={classNames("menu__toggler--extensive", active ? "active" : null)}
                 onClick={() => setActive(!active)}
                 ref={togglerRef}
             >
                 <span></span>
             </div>
-            <div className={classNames("menu--simple", active ? "active" : null)}
+            <div className={classNames("menu--extensive", active ? "active" : null)}
                 ref={menuRef}> 
             <div className="menu__horizontalMenu">
                 <MenuItem className="menu__horizontalMenu_item" onClick={()=> naviagateAndClose("/ulubione")} showActive={false} header={<FaHeart/>}/>
@@ -112,12 +110,12 @@ const HeaderSimple = ({
             </div>
 
 
-            <span className={classNames("logo--simple")}>
+            <span className={classNames("logo--extensive")}>
                 <i className={classNames("logo_item")}>LOGO</i>
             </span>
 
             <AutoSuggest
-                className="search--simple"
+                className="search--extensive"
                 autoSuggestTerms={options}
                 value={value}
                 onChange={setValue}
@@ -128,6 +126,12 @@ const HeaderSimple = ({
                 label=""
                 placeholder="Szukaj..."
             />
+            <nav className={classNames("header_horizontalMenu--extensive", "header_important--extensive")}>
+                
+            <MenuItem to="/" className="header_bar__item" header="strona główna"/>
+            <MenuItem to="/produkty" className="header_bar__item" header="Produkty"/>
+            <MenuItem to="/promocje" className="header_bar__item" header="promocje"/>
+            </nav>
 
             <nav className={classNames("header_bar--text")} role="navigation">
                 {/* <div className={classNames("bar_menu")}> */}
@@ -137,17 +141,13 @@ const HeaderSimple = ({
             
             <hr className="header__hr"/>
 
-            <nav className={classNames("header_horizontalMenu--simple")} role="navigation">
-            {/* <MenuItem to="/" className="header_bar__item" header="strona główna"/>
-            <MenuItem to="/produkty" className="header_bar__item" header="Produkty"/>
-            <MenuItem to="/promocje" className="header_bar__item" header="promocje"/> */}
+            <nav className={classNames("header_horizontalMenu--extensive")} role="navigation">
             {categories.map((item: Category) => {
                 
                     return (!!groupedProducts[item.name] 
                         ? <MenuItem 
                             className="header_bar__item"
                             onClick={() => naviagateAndClose(`/produkty/${item.name}`)} 
-                            icon={<i className={item.icon}/>}
                             header={item.name}
                             to={`/produkty/${item.name}`}
                             options={item.subcategories.map(({ name }: Subcategory) => name)}
@@ -166,4 +166,4 @@ const HeaderSimple = ({
     )
 }
 
-export default HeaderSimple;
+export default HeaderExtensive;
