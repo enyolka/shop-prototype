@@ -15,7 +15,6 @@ export interface FieldProps<V = any> {
   meta: FieldMetaProps<V>;
 }
 export type ClientFormModel = {
-  id: number;
   name: string;
   phone?: string;
   email?: string;
@@ -49,7 +48,6 @@ const BuyPage =( props: any) => {
 
     // const { suppliersState, customersState } = useState();
     const initialModel: ClientFormModel = {
-      id: 0,
       name: "",
       city: "",
       street: "",

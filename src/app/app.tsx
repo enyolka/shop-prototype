@@ -34,6 +34,8 @@ const App = () => {
               <Route path="/realizuj-zamowienie" element={<BuyPage/>} />
               <Route path="/podsumowanie" element={<SummaryPage/>} />
               <Route path="/konto" element={<AccountPage/>} />
+              {/* <Route path="/konto/rejestracja" element={<AccountPage/>} />
+              <Route path="/konto/logowanie" element={<AccountPage/>} /> */}
               <Route path="/*" element={<ErrorPage/>} />
             </Routes>
         </main>

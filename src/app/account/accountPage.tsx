@@ -4,15 +4,29 @@ import { Link } from "react-router-dom";
 import Button from "../../components/button/button";
 import { Product, ProductContext } from "../../contexts/GlobalState";
 import AccountDetailsPage from "./accountDetailsPage";
+import "./accountPage.css"
+import LoginForm from "./loginForm";
+import Toggle from "../../components/toggle/toggle";
 
 const AccountPage =( props: any) => {
     const context = useContext(ProductContext);
-    const [logged, setLogged] = useState(!!sessionStorage.getItem('logged'));
-    const [login, setLogin] = useState("");
-    const [password, setPassword] = useState("")
+    const [logged, setLogged] = useState(sessionStorage.getItem('logged') === "true");
+    const [value, setValue] = useState("login");
 
-    useEffect(() => 
-    sessionStorage.setItem('logged', JSON.stringify(logged)), [logged])
+    const options = [
+      {
+        value: "login",
+        label: "Zaloguj się"
+      },
+      {
+        value: "register",
+        label: "Zarejestruj się"
+      }
+    ]
+
+    useEffect(() => {
+    console.log(JSON.stringify(logged)) 
+    sessionStorage.setItem('logged', JSON.stringify(logged))}, [logged])
 
     return (
       <>
@@ -21,20 +35,17 @@ const AccountPage =( props: any) => {
           ? <>
             <h3>Witaj!</h3>
             <AccountDetailsPage/>
+            <Button onClick={() =>  setLogged(false)}>Wyloguj się</Button>
           </>
           : <>
-            <h3>Zaloguj się</h3>
-            <form>
-              <label htmlFor="login">Login</label>
-              <input type="text" required name="login" className="form_input" value={login} onChange={e => setLogin(e.target.value)}/>
-              <label htmlFor="password">Hasło</label>
-              <input type="password" required name="password" className="form_input" value={password} onChange={e => setPassword(e.target.value)}/>
-              <Button onClick={() => {
-                if (login === "admin" && password === "admin") setLogged(true)
-                else console.log("Błędne logowanie")
-              }
-              }>Zaloguj się</Button>
-            </form>
+          <Toggle
+              options={options} 
+              value={value}      
+              onChange={setValue}    
+            />
+          { value === "login" 
+          ? <LoginForm setLogged={setLogged} /> 
+          :  null}
           </>
         }
         </article>

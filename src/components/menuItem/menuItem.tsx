@@ -1,6 +1,6 @@
 import * as classnames from "classnames";
 import * as React from "react";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link, useMatch, useNavigate, useResolvedPath } from "react-router-dom";
 import "./menuItem.css"
 
@@ -33,31 +33,60 @@ const MenuItem = ({
     ...props 
 }: Props) => {
     const [open, setOpen] = useState(false);
+    const [moved, setMoved] = useState({});
+    const [x, setX] = useState(0);
+    const [y, setY] = useState(0);
+    const ref = useRef(null);
     const resolvedPath = useResolvedPath(to)
     const navigate = useNavigate();
     const isActive = useMatch({ path: resolvedPath.pathname, end: true })
 
 
+    const detectMousePosition =() => {
+    
+    const handleMouseMove = React.useCallback((event: any) => {
+        if ( ref?.current?.clientWidth && event.clientX + ref.current.clientWidth > screen.width )
+            setX(event.clientX + ref.current.clientWidth - screen.width + 20)
+        if (ref?.current?.clientHeight && event.clientY + ref.current.clientHeight > screen.height) 
+            setY(event.clientY + ref.current.clientHeight - screen.height + 20)
+        event.stopPropagation();
+        event.preventDefault();
+    }, []);  
+
+      window.addEventListener('mousemove', handleMouseMove);
+      return () => {
+      window.removeEventListener('mousemove', handleMouseMove);}
+    }
+
     return (
        <>
         { options && options.length > 1 
         ? <div 
-            className={classnames("menuLink", className)} 
-            
-            onMouseEnter={() => setOpen(true)} 
-            onMouseLeave={() => setOpen(false)}
+            className={classnames("menuLink", className)}             
+            onMouseEnter={() => {
+                () => detectMousePosition();
+                // setOpen(true)
+            }} 
+            onMouseOver={() => setOpen(true)}
+            onMouseLeave={() => {
+                setOpen(false)
+            }}
             >
                 <div 
                     className="menuLink_header"
                     onClick={() => {
-                        navigate(to);
+                        // navigate(to);
                         onClick();
                 }}>
                     {icon}
                     <span >{header}</span>
                 </div>
 
-                <ul className={classnames("menuLink__listbox", {open: open})}>
+                <ul 
+                    ref={ref} 
+                    className={classnames("menuLink__listbox", {open: open})}
+                    style={{top: ref?.current?.clientHeight + ref?.current?.clientX + y, right: ref?.current?.clientWidth + ref?.current?.clientY + x}}
+                >
                     {options.map(option => 
                         <li 
                             onClick={() => {

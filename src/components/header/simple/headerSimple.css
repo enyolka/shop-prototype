@@ -41,7 +41,7 @@
 }
 
 .header_bar__item {
-  font-size: 11px;
+  font-size: 12px;
   text-transform: uppercase;
 }
 
@@ -153,7 +153,7 @@
 .header_horizontalMenu--simple {
   display: none;
   align-items: center;
-  margin: 0 10vw 0;
+  margin: 8px 10vw 8px;
   justify-content: space-between;
   min-width: 700px;
   max-width: 1200px;
@@ -163,7 +163,7 @@
 
 .header_horizontalMenu--simple > .header_bar__item {
   font-size: 14px;
-
+  max-width: 220px;
 }
 
 /* .header_important--simple > .header_bar__item::after  {
@@ -191,10 +191,14 @@
 
 @media only screen and (min-width: 600px) {
   .header--simple {
-    grid-template-columns: 120px auto 340px;  
+    grid-template-columns: 120px auto 380px;  
     grid-template-rows: auto 10px auto;
     padding: 35px 40px 10px;
     gap: 5px;
+  }
+
+  .logo--simple {
+    grid-row: 1/4;
   }
 
   .header__hr {

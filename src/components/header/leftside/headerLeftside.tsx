@@ -16,6 +16,7 @@ type Props = {
     options: Option[];
     categories: Category[];
     groupedProducts: any;
+    accountOptions: string[];
     settingOptions: string[];
     onSettingOptionSelect: (value: string) => void;
     className?: string;
@@ -25,6 +26,7 @@ type Props = {
   
 const HeaderLeftside = ({ 
     categories, 
+    accountOptions,
     options, 
     groupedProducts, 
     settingOptions, 
@@ -61,10 +63,30 @@ const HeaderLeftside = ({
     }, []);
 
     const headerItems = [
-        <MenuItem role="popup" options={settingOptions} onOptionSelect={onSettingOptionSelect} header={<IoSettings className="header_bar__icon"/>}/>,
-        <MenuItem to="/ulubione" header={<FaHeart className="header_bar__icon"/>}/>,
-        <MenuItem to="/koszyk" header={<FaShoppingCart className="header_bar__icon"/>}/>,
-        <MenuItem to="/konto" header={<FaUser className="header_bar__icon"/>}/>
+        <MenuItem 
+            role="popup" 
+            options={settingOptions} 
+            onOptionSelect={onSettingOptionSelect}  
+            // header="ustawienia"
+            header={<IoSettings className="header_bar__icon"/>}
+        />,
+        <MenuItem 
+            to="/ulubione" 
+            // header="polubione" 
+            header={<FaHeart className="header_bar__icon"/>}
+        />,
+        <MenuItem 
+            to="/koszyk" 
+            // header="koszyk (0)" 
+            header={<FaShoppingCart className="header_bar__icon"/>}
+        />,
+        <MenuItem 
+            to="/konto" 
+            // options={accountOptions}
+            // onOptionSelect={(option) => navigate(`/konto/${option}`)}
+            // header="konto" 
+            header={<FaUser className="header_bar__icon"/>}
+        />
     ]
     
     const menuItems = [

@@ -133,7 +133,7 @@
   .header {
     grid-template-columns: 2fr 2fr 1fr 140px;  
     grid-template-rows: 1fr;
-    padding: 35px 30px 30px;
+    padding: 35px 60px 30px 30px;
   }
   .menu { 
     width: 350px;

@@ -26,6 +26,7 @@ type Props = {
 const Header = ({  children }: Props) => {
     const context = useContext(ProductContext);
     const options = ["leftside", "simple", "extensive", "rightside"]
+    const accountOptions = ["logowanie", "rejestracja"]
     const [option, setOption] = useState(sessionStorage.getItem("header") != null ? sessionStorage.getItem("header") : options[0] )    
     const productOptions = context.products.map(({name, category, subcategory, id}: Product) => {
         return {
@@ -57,6 +58,7 @@ const Header = ({  children }: Props) => {
                 groupedProducts={groupedProducts}
                 settingOptions={options}
                 onSettingOptionSelect={setHeaderOption}
+                accountOptions={accountOptions}
             />
             : 
             option === "simple" 
