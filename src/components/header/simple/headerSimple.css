@@ -183,10 +183,10 @@
   border-top: 1px solid var(--main-light-semimax);
   margin: 8px 0 16px;
 }
-.small {
+/* .small {
   width: 15px;
   height: 15px;
-}
+} */
 
 
 @media only screen and (min-width: 600px) {

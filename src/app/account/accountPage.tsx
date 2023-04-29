@@ -7,6 +7,15 @@ import AccountDetailsPage from "./accountDetailsPage";
 import "./accountPage.css"
 import LoginForm from "./loginForm";
 import Toggle from "../../components/toggle/toggle";
+import bg from "/public/bg-light2.png";
+import RegisterForm from "./registerForm";
+
+
+export type AccountData = {
+  name: string;
+  email: string;
+  password: string;
+}
 
 const AccountPage =( props: any) => {
     const context = useContext(ProductContext);
@@ -37,16 +46,17 @@ const AccountPage =( props: any) => {
             <AccountDetailsPage/>
             <Button onClick={() =>  setLogged(false)}>Wyloguj się</Button>
           </>
-          : <>
+          : <div className="account_forms" /*style={{backgroundImage: `url(${bg})`}}*/>
           <Toggle
+              className="login_toggle"
               options={options} 
               value={value}      
               onChange={setValue}    
             />
           { value === "login" 
           ? <LoginForm setLogged={setLogged} /> 
-          :  null}
-          </>
+          :  <RegisterForm setLogged={setLogged}/>}
+          </div>
         }
         </article>
       </>

@@ -5,15 +5,71 @@
     align-items: center;
 }
 
-.login_form {
+.account_forms {
+    padding: 30px;
+    width: 90vw;
+    height: 400px;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    border-radius: 10px;
+    background-color: var(--main-light-semimax);
+    box-shadow: 0 0 6px 2px var(--shadow-light);
+}
+
+.login_toggle {
+    margin-bottom: 30px !important;
+}
+
+.account_form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     gap: 12px;
     width: 300px;
-
 }
 
 .login_item {
     display: flex;
     flex-direction: column;
+}
+
+.register_item {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.register_item > label {
+    margin: 2px 0;
+}
+
+.error_message {
+    position: absolute;
+    right: -8px;
+    top: 14px;
+    width: auto;
+    transform: translateX(100%);
+    background-color: rgb(94, 94, 94) !important;
+    color: white !important;
+    border: 1px solid rgb(80, 80, 80) !important; 
+}
+
+.error_message::after {
+    content: " ";
+    position: absolute;
+    top: 50%;
+    right: 100%; /* To the left of the tooltip */
+    margin-top: -6px;
+    border-width: 6px;
+    border-style: solid;
+    border-color: transparent rgb(94, 94, 94) transparent transparent;
+  }
+  
+
+@media only screen and (min-width: 700px) {
+    .account_forms {
+        width: 600px;
+    }
+
 }

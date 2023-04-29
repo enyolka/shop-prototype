@@ -14,6 +14,7 @@ export interface FieldProps<V = any> {
   form: FormikProps<V>;
   meta: FieldMetaProps<V>;
 }
+
 export type ClientFormModel = {
   name: string;
   phone?: string;

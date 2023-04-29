@@ -1,17 +1,27 @@
 import * as React from "react";
 import { useState } from "react";
 import Button from "../../components/button/button";
+import { AccountData } from "./accountPage";
+import Message from "../../components/message/message";
 
 type Props = {
     setLogged: (value: boolean) => void;
 }
 
 const LoginForm = ({setLogged}: Props) => {
-    const [login, setLogin] = useState("");
-    const [password, setPassword] = useState("")
+  const accounts = [{
+    name: "admin",
+    password: "admin",
+    email: "admin"
+  }].concat(JSON.parse(localStorage.getItem("accounts")))
+
+  const [login, setLogin] = useState("");
+  const [password, setPassword] = useState("")
+  const [failed, setFailed] = useState(false)
+  console.log(accounts)
 
  return (
-    <form className="login_form">
+    <form className="account_form">
       <div  className="login_item">
         <label htmlFor="login">Login</label>
         <input type="text" required name="login" className="form_input" value={login} onChange={e => setLogin(e.target.value)}/>
@@ -24,11 +34,23 @@ const LoginForm = ({setLogged}: Props) => {
       
        <Button 
         className="login_button"
-        onClick={() => {
-          if (login === "admin" && password === "admin") setLogged(true)
-          else console.log("Błędne logowanie")
+        onClick={(event) => {
+          event.preventDefault()
+          const selected = accounts.find((account: AccountData) => account.name === login)
+          if (selected && selected.password === password) {
+            setLogged(true)
+            setFailed(false)
+          } else setFailed(true)
         }
       }>Zaloguj się</Button>
+      {failed && 
+        <Message 
+          type="error" 
+          wrapped
+        >
+          Logowanie nie powiodło się. Niepoprawny login i/lub hasło.
+        </Message>
+      }
     </form>
     )
 }
