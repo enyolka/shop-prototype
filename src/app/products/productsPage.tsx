@@ -28,6 +28,8 @@ const ProductsPage = ({  children }: Props) => {
     return {name: item, link: linked }})
   
   breadcrumbs.unshift({name: "produkty", link: "/produkty/"});
+  console.log(context.cart)
+  console.log(sessionStorage.getItem('cartItems'))
 
   return (
     <ScrollToTop className={"products"}>

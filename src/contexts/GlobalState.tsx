@@ -1,6 +1,6 @@
 import { useState, useReducer, useEffect, ReactElement } from "react";
 import * as React from "react";
-import { shopReducer, ADD_PRODUCT, REMOVE_PRODUCT, ADD_LIKED, REMOVE_LIKED, REMOVE_PRODUCT_ALL } from "./reducers";
+import { shopReducer, ADD_PRODUCT, REMOVE_PRODUCT, ADD_LIKED, REMOVE_LIKED, REMOVE_PRODUCT_ALL, REMOVE_ALL } from "./reducers";
 import productsData from "../data/products2.json";
 import categoriesData from "../data/categories2.json"
 
@@ -34,6 +34,7 @@ interface ProductContextInterface {
   addProductToCart(product: Product): void,
   removeProductFromCart(id: string): void,
   removeAllProductFromCart(id: string): void,
+  removeAllProductsFromCart: () => void,
   addProductToLiked(product: Product): void,
   removeProductFromLiked(id: string): void,
 }
@@ -50,6 +51,7 @@ export const ProductContext =  React.createContext<ProductContextInterface>({
   addProductToCart: (product: Product) => {},
   removeProductFromCart: (productId: string) => {},
   removeAllProductFromCart: (productId: string) => {},
+  removeAllProductsFromCart: () => {},
   addProductToLiked: (product: Product) => {},
   removeProductFromLiked: (productId: string) => {},
 });
@@ -98,6 +100,7 @@ const GlobalState = ({ children }: Props) => {
     addProductToCart: (product: Product) => dispatchCart({ type: ADD_PRODUCT, product: product }),
     removeProductFromCart: (productId: string) => dispatchCart({ type: REMOVE_PRODUCT, productId: productId }),
     removeAllProductFromCart: (productId: string) => dispatchCart({ type: REMOVE_PRODUCT_ALL, productId: productId }),
+    removeAllProductsFromCart: () => dispatchCart({type: REMOVE_ALL}),
     addProductToLiked: (product: Product) => dispatchLiked({ type: ADD_LIKED, product: product }),
     removeProductFromLiked: (productId: string) => dispatchLiked({ type: REMOVE_LIKED, productId: productId }),
   }

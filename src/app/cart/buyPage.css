@@ -22,7 +22,8 @@
     display: flex;
     gap: 2px;
     width: 100%;
-    flex-direction: column !important;
+    flex-direction: column !important;   
+    position: relative;
   }
   
   .submit_button {

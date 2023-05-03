@@ -8,6 +8,7 @@ import { Product, ProductContext } from "../../contexts/GlobalState";
 import placeholder from "/public/placeholder.png";
 import Message from "../../components/message/message";
 import "./buyPage.css"
+import { AccountFormModel } from "../account/accountPage";
 
 export interface FieldProps<V = any> {
   field: FieldInputProps<V>;
@@ -15,10 +16,14 @@ export interface FieldProps<V = any> {
   meta: FieldMetaProps<V>;
 }
 
+type Props = {
+  onNext: (idx: number) => void;
+}
+
 export type ClientFormModel = {
   name: string;
-  phone?: string;
-  email?: string;
+  phone: string;
+  email: string;
   city: string;
   street: string;
   zipCode: string;
@@ -26,36 +31,26 @@ export type ClientFormModel = {
 
 
 const MyInput = ({ field, form, ...props }: FieldProps) => {
-  return <input className="form_input" style={{ marginRight: 10 }} {...field} {...props} />;
+  return <input className="form_input" {...field} {...props} />;
   
 };
 
-const BuyPage =( props: any) => {
+const DeliveryPage =({ onNext }: Props) => {
+    const [data, setData] = useState((JSON.parse(localStorage.getItem("accounts")) || []).find(((account: AccountFormModel) => JSON.parse(sessionStorage.getItem("account")).name === account.name)));
+    const [initialModel, setInitialModel] = useState<ClientFormModel>();
+    const [editable, setEditable] = useState(false)
     const context = useContext(ProductContext);
-    const [cost, setCost] = useState(0);
     const navigate = useNavigate();
-    
+
     useEffect(() => {
-      let sum = 0
-      context.cart.forEach(({price, quantity}: Product) => sum += price * quantity)
-      setCost(sum)
-    }, [context.cart]) 
-
-    const sumUp = () => {
-      context.cart = []
-      sessionStorage.setItem('cartItems', JSON.stringify([]))
-      navigate("/podsumowanie");
-    }
-
-    // const { suppliersState, customersState } = useState();
-    const initialModel: ClientFormModel = {
-      name: "",
-      city: "",
-      street: "",
-      zipCode: "",
-      phone: "",
-      email: "",
-    };
+      setInitialModel({
+      name: data?.deliveryData?.name || "",
+      city: data?.deliveryData?.city || "",
+      street: data?.deliveryData?.street || "",
+      zipCode: data?.deliveryData?.zipCode || "",
+      phone: data?.phone || "",
+      email: data?.email|| "",
+    });}, [])
   
     const phoneRegExp =
       /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
@@ -79,19 +74,29 @@ const BuyPage =( props: any) => {
 
     return (
       <>
-        <article className="buy">
-          <Formik<ClientFormModel>
-          initialValues={props.initialValues ?? initialModel}
+      <Button onClick={() => setEditable(true)}>Edytuj dane</Button>
+      {!editable && <div>
+        <span>Imię i nazwisko: {initialModel?.name}</span>
+        <span>Telefon: {initialModel?.phone}</span>
+        <span>E-mail: {initialModel?.email}</span>
+        <span>Ulica: {initialModel?.street}</span>
+        <span>Kod pocztowy: {initialModel?.zipCode}</span>
+        <span>Miasto: {initialModel?.city}</span>
+      </div>
+}
+         {editable && <Formik<ClientFormModel>
+          initialValues={initialModel}
           enableReinitialize={true}
           validateOnChange={true}
           validateOnBlur={true}
           onSubmit={(values: any, { resetForm }: any) => {
-            sumUp()
-            resetForm({});
+            setInitialModel({...values})
+            setEditable(false)
+            // onNext(1);
           }}
           validationSchema={validationSchema}
         >
-          {({ errors, touched } : any) => (
+          {({ errors, touched, } : any) => (
             <Form className="form_cart">
               <div className="form_cart_items">
                 <div className={"field"}>
@@ -185,39 +190,26 @@ const BuyPage =( props: any) => {
                     </ErrorMessage>
                   </div>
                 </div>
-
-                </div>
                 
-                <div className="summary">
-                  <h3>Podsumowanie zamówienia</h3>
-                  <ul className="summary_list">
-                    {context.cart.map(cartItem => (
-                      <li key={cartItem.id} className="summary_item">
-                          <img alt="" src={placeholder} className="summary_item__img"/>
-                          <Link to={`/${cartItem.id}`} className="summary_item__link">{cartItem.name}</Link>
-                          <p className="summary_item__price">{(cartItem.price * cartItem.quantity).toFixed(2)}$</p>
-                      </li>
-                    ))}
-                  </ul>
-                  <div >
-                    <p className="summary_cost">Do zapłaty: {cost.toFixed(2)}$</p>
-                  </div>
                 </div>
 
-                <div className={"submit_button"}>
-                  <Button role="secondary">
-                    Potwierdź
-                  </Button>
-                </div>
+                <Button type="submit">
+                  Potwierdź
+                </Button>
             </Form>
           )}
-        </Formik>
-
-
-
-        </article>
+        </Formik>}
+                        
+        <div className={"submit_button"}>
+          <Button role="default" onClick={() => navigate("/koszyk")}>
+            Poprzedni
+          </Button>
+          <Button role="secondary" onClick={() => onNext(1)}>
+            Dalej
+          </Button>
+        </div>
       </>
     );
   };
 
-export default BuyPage;
+export default DeliveryPage;

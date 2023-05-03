@@ -5,7 +5,8 @@
     grid-template-columns: auto 1fr;
     align-items: center;
     gap: 4px;
-    padding: 4px 0;
+    padding: 4px;
+    z-index: 102;
 }
 
 .message_icon {

@@ -42,7 +42,7 @@ const HeaderSimple = ({
          navigate(url);
         //  setActive(false)
     }
-    console.log(categories)
+    
     const handleClickOutside = (event: any) => {
         if (menuRef.current 
             && !menuRef.current.contains(event.target) 

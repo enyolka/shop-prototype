@@ -1,14 +1,16 @@
 import * as React from "react";
 import { useState } from "react";
-import Button from "../../components/button/button";
-import { AccountData } from "./accountPage";
-import Message from "../../components/message/message";
+import Button from "../../../components/button/button";
+import { AccountFormModel } from "../accountPage";
+import Message from "../../../components/message/message";
+import { ClientFormModel } from "../../cart/buyPage";
 
 type Props = {
     setLogged: (value: boolean) => void;
+    // setAccount: (account: AccountFormModel) => void;
 }
 
-const LoginForm = ({setLogged}: Props) => {
+const LoginForm = ({ setLogged }: Props) => {
   const accounts = [{
     name: "admin",
     password: "admin",
@@ -36,9 +38,11 @@ const LoginForm = ({setLogged}: Props) => {
         className="login_button"
         onClick={(event) => {
           event.preventDefault()
-          const selected = accounts.find((account: AccountData) => account.name === login)
+          const selected = accounts.find((account: AccountFormModel) => account.name === login)
           if (selected && selected.password === password) {
             setLogged(true)
+            // setAccount(selected)
+            sessionStorage.setItem("account", JSON.stringify(selected))
             setFailed(false)
           } else setFailed(true)
         }

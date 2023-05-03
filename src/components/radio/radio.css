@@ -1,0 +1,8 @@
+.radio_group {
+    display: flex;
+    gap: 4px;
+}
+
+.radio_button {
+    accent-color: var(--secondary);
+}

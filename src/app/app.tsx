@@ -11,10 +11,10 @@ import ProductsPage from "./products/productsPage";
 import CartPage from "./cart/cartPage";
 import LikedPage from "./liked/likedPage";
 import "./app.css"
-import BuyPage from "./cart/buyPageo";
-import SummaryPage from "./cart/summaryPage";
+import BuyPage from "./cart/buyPage";
 import AccountPage from "./account/accountPage";
 import PromotionsPage from "./products/promotionsPage";
+import EndPage from "./cart/endPage";
 
 const App = () => {
   return (
@@ -32,7 +32,7 @@ const App = () => {
               <Route path="/ulubione" element={<LikedPage/>} />
               <Route path="/koszyk" element={<CartPage/>} />
               <Route path="/realizuj-zamowienie" element={<BuyPage/>} />
-              <Route path="/podsumowanie" element={<SummaryPage/>} />
+              <Route path="/podsumowanie" element={<EndPage/>} />
               <Route path="/konto" element={<AccountPage/>} />
               {/* <Route path="/konto/rejestracja" element={<AccountPage/>} />
               <Route path="/konto/logowanie" element={<AccountPage/>} /> */}

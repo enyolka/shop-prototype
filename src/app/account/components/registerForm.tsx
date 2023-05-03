@@ -1,10 +1,10 @@
 import * as React from "react";
 import * as Yup from "yup";
 import { useEffect, useState } from "react";
-import Button from "../../components/button/button";
-import Message from "../../components/message/message";
+import Button from "../../../components/button/button";
+import Message from "../../../components/message/message";
 import { ErrorMessage, Field, FieldInputProps, FieldMetaProps, Form, Formik, FormikProps } from "formik";
-import { AccountData } from "./accountPage";
+import { AccountFormModel } from "../accountPage";
 
 
 export interface FieldProps<V = any> {
@@ -21,18 +21,15 @@ type Props = {
 
 const RegisterForm = ({}: Props) => {
   const [list, setList] = useState(JSON.parse(localStorage.getItem("accounts")) || [])
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("")
   const [registered, setRegistered] = useState(false)
-  const [password, setPassword] = useState("")
   const [tried, setTried] = useState(false)
 
   useEffect(() => setTried(false),[])
 
-  const initialModel: AccountData = {
+  const initialModel: AccountFormModel = {
     name: "",
     email: "",
-    password: "",
+    password: ""
   };
 
   const passRegExp = /^(?=.*[^A-Za-z0-9]).+$/;
@@ -41,7 +38,12 @@ const RegisterForm = ({}: Props) => {
     name: Yup.string()
       .max(30, "Must be 30 characters or less")
       .required("Required"),
-    password: Yup.string().matches(passRegExp, "Hasło musi zawierać znaki specjalne")
+    password: Yup.string()
+    .required('Please Enter your password')
+    .matches(
+      /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/,
+      "Must Contain 8 Characters, One Uppercase, One Lowercase, One Number and One Special Case Character"
+    )
     .required("Required"),
     email: Yup.string().email("Email is not valid")
     .required("Required"),
@@ -49,7 +51,7 @@ const RegisterForm = ({}: Props) => {
   });
 
  return (
-  <Formik<AccountData>
+  <Formik<AccountFormModel>
   initialValues={initialModel}
   enableReinitialize={true}
   validateOnChange={true}
@@ -72,11 +74,11 @@ const RegisterForm = ({}: Props) => {
             name="name"
             type="text"
             component={MyInput}
-            error={errors.name && touched.name}
+            // error={errors.name && touched.name}
           />
-          <ErrorMessage name="name">
-            {(msg: string) => <Message  type="error" wrapped size="small" className={"error_message"}>{msg}</Message>}
-          </ErrorMessage>
+         {errors.name && touched.name ? <ErrorMessage name="name">
+            {(msg: string) => <Message  type="error" wrapped size="small" className={"error_message--float"}>{msg}</Message>}
+          </ErrorMessage> : null}
         </div>
 
         <div className={"register_item"}>
@@ -86,13 +88,13 @@ const RegisterForm = ({}: Props) => {
             name="email"
             type="text"
             component={MyInput}
-            error={errors.email && touched.email}
+            // error={errors.email && touched.email}
           />
-          <ErrorMessage name="email">
+          {errors.email && touched.email ? <ErrorMessage name="email">
             {(msg: string) => (
-              <Message  type="error" size="small" wrapped className={"error_message"}>{msg}</Message>
+              <Message  type="error" size="small" wrapped className={"error_message--float"}>{msg}</Message>
             )}
-          </ErrorMessage>
+          </ErrorMessage> : null}
         </div>
         
         <div className={"register_item"}>
@@ -102,13 +104,13 @@ const RegisterForm = ({}: Props) => {
             name="password"
             type="password"
             component={MyInput}
-            error={errors.phone && touched.phone}
+            // error={errors.password && touched.password}
           />
-          <ErrorMessage name="password">
+          {errors.password && touched.password ? <ErrorMessage name="password">
             {(msg: string) => (
-              <Message  type="error" size="small"  wrapped className={"error_message"}>{msg}</Message>
+              <Message  type="error" size="small"  wrapped className={"error_message--float"}>{msg}</Message>
             )}
-          </ErrorMessage>
+          </ErrorMessage> : null}
         </div>
        <Button 
         className="login_button">Zarejestruj się</Button>

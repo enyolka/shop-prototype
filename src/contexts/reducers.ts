@@ -3,6 +3,7 @@ import { Product } from "./GlobalState";
 export const ADD_PRODUCT = "ADD_PRODUCT";
 export const REMOVE_PRODUCT = "REMOVE_PRODUCT";
 export const REMOVE_PRODUCT_ALL = "REMOVE_PRODUCT_ALL";
+export const REMOVE_ALL = "REMOVE_ALL";
 export const ADD_LIKED = "ADD_LIKED";
 export const REMOVE_LIKED = "REMOVE_LIKED";
 
@@ -22,6 +23,7 @@ const addProductToCart = (product: Product, state: any) => {
     updatedCart[updatedItemIndex] = updatedItem;
   }
   sessionStorage.setItem('cartItems', JSON.stringify(updatedCart))
+  console.log(updatedCart)
   
   return { ...state, cart: updatedCart };
 };
@@ -40,6 +42,7 @@ const removeProductFromCart = (productId: string, state: any) => {
     updatedCart[updatedItemIndex] = updatedItem;
   }
   sessionStorage.setItem('cartItems', JSON.stringify(updatedCart))
+  console.log(updatedCart)
 
   return { ...state, cart: updatedCart };
 };
@@ -52,6 +55,12 @@ const removeAllProductFromCart = (productId: string, state: any) => {
   sessionStorage.setItem('cartItems', JSON.stringify(updatedCart))
 
   return { ...state, cart: updatedCart };
+};
+
+const removeAllProductsFromCart = (state: any) => {
+  sessionStorage.setItem('cartItems', JSON.stringify([]))
+
+  return { ...state, cart: [] };
 };
 
 const addProductToLiked = (product: Product, state: any) => {
@@ -91,6 +100,8 @@ export const shopReducer = (state: any, action: any) => {
       return removeProductFromCart(action.productId, state);
     case REMOVE_PRODUCT_ALL:
       return removeAllProductFromCart(action.productId, state);
+    case REMOVE_ALL:
+      return removeAllProductsFromCart(state);
     case ADD_LIKED:
       return addProductToLiked(action.product, state);
     case REMOVE_LIKED:

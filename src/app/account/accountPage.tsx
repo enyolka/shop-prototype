@@ -1,20 +1,22 @@
 import * as React from "react";
 import { useContext, useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import Button from "../../components/button/button";
 import { Product, ProductContext } from "../../contexts/GlobalState";
 import AccountDetailsPage from "./accountDetailsPage";
 import "./accountPage.css"
-import LoginForm from "./loginForm";
+import LoginForm from "./components/loginForm";
 import Toggle from "../../components/toggle/toggle";
 import bg from "/public/bg-light2.png";
-import RegisterForm from "./registerForm";
+import RegisterForm from "./components/registerForm";
+import { DeliveryFormModel } from "./components/deliveryData";
 
 
-export type AccountData = {
+export type AccountFormModel = {
   name: string;
   email: string;
   password: string;
+  phone?: string;
+  deliverytData?: DeliveryFormModel;
 }
 
 const AccountPage =( props: any) => {
@@ -34,17 +36,18 @@ const AccountPage =( props: any) => {
     ]
 
     useEffect(() => {
-    console.log(JSON.stringify(logged)) 
-    sessionStorage.setItem('logged', JSON.stringify(logged))}, [logged])
+      console.log(JSON.stringify(logged)) 
+      sessionStorage.setItem('logged', JSON.stringify(logged))
+      console.log(sessionStorage.getItem("account"))
+    }, [logged])
 
     return (
       <>
         <article className="account">
           {logged 
           ? <>
-            <h3>Witaj!</h3>
+            <Button className="button_logout" onClick={() =>  setLogged(false)}>Wyloguj się</Button>
             <AccountDetailsPage/>
-            <Button onClick={() =>  setLogged(false)}>Wyloguj się</Button>
           </>
           : <div className="account_forms" /*style={{backgroundImage: `url(${bg})`}}*/>
           <Toggle
@@ -54,7 +57,10 @@ const AccountPage =( props: any) => {
               onChange={setValue}    
             />
           { value === "login" 
-          ? <LoginForm setLogged={setLogged} /> 
+          ? <LoginForm 
+              setLogged={setLogged} 
+              // setAccount={() => setAccount}
+            /> 
           :  <RegisterForm setLogged={setLogged}/>}
           </div>
         }

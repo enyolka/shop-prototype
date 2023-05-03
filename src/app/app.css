@@ -20,6 +20,8 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
 }
 
 .container {
@@ -27,6 +29,12 @@
     min-width: 250px;
     max-width: 1400px;
     padding: 20px;
+}
+
+.card {
+    box-shadow: 0 0 8px 1px var(--shadow-light);
+    border-radius: 4px;
+    padding: 10px;
 }
 
 

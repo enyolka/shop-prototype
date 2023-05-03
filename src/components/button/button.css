@@ -22,6 +22,18 @@
     color: white;
 }
 
+.button:disabled {
+    background-color: var(--gray-light);
+}
+
+.button:disabled {
+    filter: none;
+}
+
+.button:disabled:hover {
+    cursor: default;
+    filter:initial;
+}
 
 .button:hover {
     cursor: pointer;
