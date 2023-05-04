@@ -1,0 +1,6 @@
+.modal_newsletter {
+    background-color: rgb(242, 242, 242);
+    max-width: 500px;
+    min-width: 250px;
+    transform: translateY(200px);
+}

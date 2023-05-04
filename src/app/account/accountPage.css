@@ -18,7 +18,7 @@
     align-self: center;
     border-radius: 10px;
     background-color: var(--main-light-semimax);
-    box-shadow: 0 0 6px 2px var(--shadow-light);
+    box-shadow: 0 0 6px 2px var(--shadow);
 }
 
 .login_toggle {

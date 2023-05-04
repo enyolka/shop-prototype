@@ -15,6 +15,7 @@ import BuyPage from "./cart/buyPage";
 import AccountPage from "./account/accountPage";
 import PromotionsPage from "./products/promotionsPage";
 import EndPage from "./cart/endPage";
+import HomePage from "./home/homePage";
 
 const App = () => {
   return (
@@ -23,7 +24,7 @@ const App = () => {
         <Header/>
         <main className={"container"}>
             <Routes>
-              <Route path="/" element={<Home />} />
+              <Route path="/" element={<HomePage/>} />
               <Route path="/produkty" element={<ProductsPage/>} />
               <Route path="/promocje" element={<PromotionsPage/>} />
               <Route path={`/:id`} element={<ProductInfo/>} />
@@ -43,11 +44,4 @@ const App = () => {
     </GlobalState>
   );   
 }
-
-export const Cart = () => <h3>Its the UI-Router hello world app!</h3>;
-
-function Home() {
-  return <h1>Home</h1>
-}
-
 export default App;

@@ -46,7 +46,15 @@ const AccountPage =( props: any) => {
         <article className="account">
           {logged 
           ? <>
-            <Button className="button_logout" onClick={() =>  setLogged(false)}>Wyloguj się</Button>
+            <Button 
+              className="button_logout" 
+              onClick={() => {
+                setLogged(false)
+                sessionStorage.removeItem("account")
+              }}
+            >
+              Wyloguj się
+            </Button>
             <AccountDetailsPage/>
           </>
           : <div className="account_forms" /*style={{backgroundImage: `url(${bg})`}}*/>

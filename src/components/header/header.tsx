@@ -7,6 +7,7 @@ import categories from "../../data/categories.json"
 import HeaderRightside from "./rightside/headerRightside";
 import HeaderSimple from "./simple/headerSimple";
 import HeaderExtensive from "./extensive/headerExtensive";
+import Button from "../button/button";
 
 export type Option = {
     value: string;

@@ -1,0 +1,26 @@
+.modal {
+    top: 50%;
+    bottom: auto;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: rgb(255, 255, 255);
+    padding: 2rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 0 .5rem .3rem var(--shadow);
+}
+
+.modal_close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+}
+
+.modal_close:hover {
+    cursor: pointer;
+}
+
+.modal_close--icon {
+    font-size: 1.7rem;
+    color: rgb(85, 84, 84);
+  }
+  

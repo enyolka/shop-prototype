@@ -6,9 +6,9 @@ import "./link.css"
 
 
 type Props = {
-    to?: string;
+    to: string;
     children?: React.ReactNode;
-    className: string;
+    className?: string;
 }
 
 const Link = ({ 

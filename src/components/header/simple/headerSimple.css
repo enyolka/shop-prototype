@@ -153,7 +153,7 @@
 .header_horizontalMenu--simple {
   display: none;
   align-items: center;
-  margin: 8px 10vw 8px;
+  margin: 8px 10% 8px;
   justify-content: space-between;
   min-width: 700px;
   max-width: 1200px;
@@ -189,7 +189,7 @@
 } */
 
 
-@media only screen and (min-width: 600px) {
+@media only screen and (min-width: 800px) {
   .header--simple {
     grid-template-columns: 120px auto 380px;  
     grid-template-rows: auto 10px auto;

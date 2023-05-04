@@ -11,6 +11,7 @@ import { Accordion, AccordionSection } from "../../accordionMenu/accordionMenu";
 import { Option } from "../header";
 import { Category, Subcategory } from "../../../contexts/GlobalState";
 import "./headerSimple.css";
+import Button from "../../button/button";
 
 type Props = {
     options: Option[];
@@ -82,6 +83,7 @@ const HeaderSimple = ({
     
     return (
         <header className={classNames("header--simple")}>
+        {/* <Button onClick={() => document.documentElement.style.setProperty('--main-light-max', 'red')}>change color</Button> */}
 
             <div 
                 className={classNames("menu__toggler--simple", active ? "active" : null)}

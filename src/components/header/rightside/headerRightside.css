@@ -182,7 +182,7 @@
 }
 
 
-@media only screen and (min-width: 600px) {
+@media only screen and (min-width: 800px) {
   .header--right {
     grid-template-columns: minmax(80px, 400px) auto 280px 40px;  
     grid-template-rows: auto 10px auto;

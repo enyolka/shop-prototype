@@ -36,12 +36,13 @@ const MyInput = ({ field, form, ...props }: FieldProps) => {
 };
 
 const DeliveryPage =({ onNext }: Props) => {
-    const [data, setData] = useState((JSON.parse(localStorage.getItem("accounts")) || []).find(((account: AccountFormModel) => JSON.parse(sessionStorage.getItem("account")).name === account.name)));
+    const [data, setData] = useState((JSON.parse(localStorage.getItem("accounts")) || []).find(((account: AccountFormModel) => JSON.parse(sessionStorage.getItem("account"))?.name === account.name)));
     const [initialModel, setInitialModel] = useState<ClientFormModel>();
     const [editable, setEditable] = useState(false)
     const context = useContext(ProductContext);
     const navigate = useNavigate();
 
+    console.log(sessionStorage.getItem("account"))
     useEffect(() => {
       setInitialModel({
       name: data?.deliveryData?.name || "",
@@ -74,17 +75,17 @@ const DeliveryPage =({ onNext }: Props) => {
 
     return (
       <>
-      <Button onClick={() => setEditable(true)}>Edytuj dane</Button>
-      {!editable && <div>
-        <span>Imię i nazwisko: {initialModel?.name}</span>
-        <span>Telefon: {initialModel?.phone}</span>
-        <span>E-mail: {initialModel?.email}</span>
-        <span>Ulica: {initialModel?.street}</span>
-        <span>Kod pocztowy: {initialModel?.zipCode}</span>
-        <span>Miasto: {initialModel?.city}</span>
-      </div>
+     {!editable && !!data
+        && <div className="card"> 
+          <Button onClick={() => setEditable(true)}>Edytuj dane</Button>
+          <p>{initialModel?.name}</p>
+          <p>{initialModel?.phone}</p>
+          <p>{initialModel?.email}</p>
+          <p>{initialModel?.street}</p>
+          <p>{initialModel?.zipCode} {initialModel?.city}</p>
+        </div>
 }
-         {editable && <Formik<ClientFormModel>
+         {(editable || !data) && <Formik<ClientFormModel>
           initialValues={initialModel}
           enableReinitialize={true}
           validateOnChange={true}
@@ -97,7 +98,7 @@ const DeliveryPage =({ onNext }: Props) => {
           validationSchema={validationSchema}
         >
           {({ errors, touched, } : any) => (
-            <Form className="form_cart">
+            <Form className="form_cart card">
               <div className="form_cart_items">
                 <div className={"field"}>
                   <label htmlFor="name">Imię i nazwisko</label>

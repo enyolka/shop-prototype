@@ -57,7 +57,7 @@
   flex-direction: column;
   position: fixed;
   background-color: white;
-  box-shadow: 0 2px 6px 6px var(--shadow-light);
+  box-shadow: 0 2px 6px 6px var(--shadow);
   bottom: 32px;
   height: 110px;
   width: 260px;

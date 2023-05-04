@@ -8,7 +8,7 @@
   --main-light-semimax: rgb(170, 219, 219);
   --main-medium: rgb(65, 164, 177);
   --focus-text: rgb(178, 122, 24);
-  --shadow-light: rgb(0, 0, 0, 0.1);
+  --shadow: rgb(0, 0, 0, 0.1);
   --error-red: rgb(196, 2, 2);
   --important: rgb(255, 158, 72);
   --important-hover: rgb(208, 133, 66);
@@ -32,7 +32,7 @@
 }
 
 .card {
-    box-shadow: 0 0 8px 1px var(--shadow-light);
+    box-shadow: 0 0 8px 1px var(--shadow);
     border-radius: 4px;
     padding: 10px;
 }
@@ -46,7 +46,7 @@
 
 .form_input {
   padding: 6px 8px;
-  border: 0.1px solid var(--shadow-light);
+  border: 0.1px solid var(--shadow);
   border-radius: 6px;
-  box-shadow: 0 1px 2px 1px var(--shadow-light);
+  box-shadow: 0 1px 2px 1px var(--shadow);
 }

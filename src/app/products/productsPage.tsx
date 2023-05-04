@@ -1,7 +1,7 @@
 import * as React from "react";
 import placeholder from "/public/placeholder.png";
 import "./productsPage.css";
-import { Link, Params, useNavigate, useParams } from "react-router-dom";
+import { Params, useNavigate, useParams } from "react-router-dom";
 import { ProductContext } from "../../contexts/GlobalState";
 import { ScrollToTop } from "../../components/scroll/scroll";
 import Breadcrumbs from "../../components/breadcrumbs/breadcrumbs";
@@ -9,6 +9,7 @@ import Button from "../../components/button/button";
 import { RiCloseCircleLine } from "react-icons/ri";
 import { useState } from "react";
 import * as classNames from "classnames";
+import Link from "../../components/link/link";
 
 type Props = {
   className?: string;
@@ -27,7 +28,7 @@ const ProductsPage = ({  children }: Props) => {
     linked += item + "/"
     return {name: item, link: linked }})
   
-  breadcrumbs.unshift({name: "produkty", link: "/produkty/"});
+  breadcrumbs.unshift({name: "Produkty", link: "/produkty/"});
   console.log(context.cart)
   console.log(sessionStorage.getItem('cartItems'))
 
@@ -58,6 +59,12 @@ const ProductsPage = ({  children }: Props) => {
             >
                 Sprawdź tutaj
             </Button>
+{/* 
+            <Link
+              to={`/${context.products[Math.floor(Math.random()*context.products.length)].id}`}
+            >
+                Sprawdź tutaj
+            </Link> */}
           </div>
           </div> : null}
       </div>

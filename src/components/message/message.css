@@ -39,7 +39,7 @@
 }
 
 .message.wrapped {
-    /* box-shadow: 0 0 8px 2px var(--shadow-light); */
+    /* box-shadow: 0 0 8px 2px var(--shadow); */
     background-color: var(--gray-light);
     border: 1px solid var(--gray);
     border-radius: 4px;

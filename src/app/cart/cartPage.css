@@ -20,7 +20,7 @@
 
 .cart_item {
     width: 100%;
-    box-shadow: 0 0 8px 1px var(--shadow-light);
+    box-shadow: 0 0 8px 1px var(--shadow);
     padding: 10px;
     display: grid;
     grid-template-columns: 120px 2fr 1fr;
@@ -52,8 +52,8 @@
 .button_remove {
     background-color: white;
     outline: none;
-    border: 0.5px solid var(--shadow-light);
-    box-shadow: 0 0 2px 0.5px var(--shadow-light);
+    border: 0.5px solid var(--shadow);
+    box-shadow: 0 0 2px 0.5px var(--shadow);
     height: 30px;
     width: 30px;
     display: flex;
@@ -66,7 +66,7 @@
 }
 
 .button_remove:hover {
-    box-shadow: 0 0 4px 0.5px var(--shadow-light);
+    box-shadow: 0 0 4px 0.5px var(--shadow);
 }
 
 .button_remove:hover > .button_remove__icon {

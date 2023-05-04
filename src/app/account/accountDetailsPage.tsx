@@ -16,9 +16,6 @@ const AccountDetailsPage =( props: any) => {
   const menu = ["accountData", "deliveryData", "loyalty", "settings", "contact"]
     const [menuOption, setMenuOption] = useState(menu[0])
 
-    const context = useContext(ProductContext);
-    const navigate = useNavigate();
-
     return (
       <article className="accountDetails">
       <nav className="accountDetails_menu">

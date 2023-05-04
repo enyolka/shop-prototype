@@ -26,26 +26,28 @@ const SummaryPage =( { onNext }: Props) => {
     }, [context.cart]) 
 
   
-    return (           
-      <div className="summary">
-        <h3>Podsumowanie zamówienia</h3>
-        <ul className="summary_list">
-          {context.cart.map(cartItem => (
-            <li key={cartItem.id} className="summary_item">
-                <img alt="" src={placeholder} className="summary_item__img"/>
-                <Link to={`/${cartItem.id}`} className="summary_item__link">{cartItem.name}</Link>
-                <p className="summary_item__price">{(cartItem.price * cartItem.quantity).toFixed(2)}$</p>
-            </li>
-          ))}
-        </ul>
-        <div >
-          <p className="summary_cost">Do zapłaty: {cost.toFixed(2)}$</p>
+    return (   
+      <>
+        <div className="card">
+          <h3>Podsumowanie zamówienia</h3>
+          <ul className="summary_list">
+            {context.cart.map(cartItem => (
+              <li key={cartItem.id} className="summary_item">
+                  <img alt="" src={placeholder} className="summary_item__img"/>
+                  <Link to={`/${cartItem.id}`} className="summary_item__link">{cartItem.name}</Link>
+                  <p className="summary_item__price">{(cartItem.price * cartItem.quantity).toFixed(2)}$</p>
+              </li>
+            ))}
+          </ul>
+          <div >
+            <p className="summary_cost">Do zapłaty: {cost.toFixed(2)}$</p>
+          </div>
         </div>
           <Button role="default" onClick={() => onNext(1)}>
               Poprzedni
           </Button>
           <Button role="important" onClick={() => sumUp()}>Potwierdź</Button>
-      </div>
+      </>        
     );
   };
 

@@ -162,7 +162,6 @@
   display: none;
   align-items: center;
   justify-content: left;
-  min-width: 700px;
   max-width: 1200px;
   grid-row: 3;
   grid-column: 2/4;
@@ -192,9 +191,9 @@
   margin: 8px 0 16px;
 }
 
-@media only screen and (min-width: 600px) {
+@media only screen and (min-width: 800px) {
   .header--extensive {
-    grid-template-columns: 120px minmax(400px, auto) 300px;  
+    grid-template-columns: 120px minmax(300px, auto) 300px;  
     grid-template-rows: auto 10px auto ;
     padding: 35px 40px 10px;
     gap: 5px;
