@@ -9,6 +9,11 @@
     box-shadow: 0 0 .5rem .3rem var(--shadow);
 }
 
+
+.modal:focus-visible {
+    outline: 0.5px solid gray;
+}
+
 .modal_close {
     position: absolute;
     top: 1rem;
@@ -18,6 +23,7 @@
 .modal_close:hover {
     cursor: pointer;
 }
+
 
 .modal_close--icon {
     font-size: 1.7rem;

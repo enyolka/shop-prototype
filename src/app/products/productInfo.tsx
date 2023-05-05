@@ -45,6 +45,7 @@ const ProductInfo = ({ children }: Props) => {
             </Button>
             <Button
               role="secondary"
+              effect={true}
               onClick={() => context.addProductToCart(product)}
             >
               Add to Cart

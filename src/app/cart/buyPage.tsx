@@ -1,7 +1,7 @@
 import * as React from "react";
 import { useContext, useEffect, useState } from "react";
 import "./buyPage.css"
-import { StepIndicator } from "../../components/steps/stepIndicator";
+import { Steps } from "../../components/steps/steps";
 import DeliveryPage from "./deliveryFormPage";
 import DeliveryOptionPage from "./deliveryOptionPage";
 import SummaryPage from "./summaryPage";
@@ -17,23 +17,20 @@ export type ClientFormModel = {
 }
 
 const BuyPage =( props: any) => {
-    const [activeStepIdx, setActiveStepIdx] = useState(0)
+    const [activeStepIdx, setActiveStepIdx] = useState(1)
 
     return (
       <>
         <article className="buy">
-        <StepIndicator
+        <Steps
           activeStepIdx={activeStepIdx}
-          ariaLabel={{
-            completed: "Completed",
-            current: "Current",
-          }}
+          ariaLabelCompleted="Completed"
+          ariaLabelCurrent="Current"
           steps={[
             { label: "Adres dostwy" },
             { label: "Forma dostawy" },
             { label: "Podsumowanie" }
           ]}
-          size="md"
         />
 
         {activeStepIdx === 0 && <DeliveryPage onNext={setActiveStepIdx}/>}
