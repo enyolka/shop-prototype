@@ -5,7 +5,7 @@ import Button from "../../../components/button/button";
 import Message from "../../../components/message/message";
 import { ErrorMessage, Field, FieldInputProps, FieldMetaProps, Form, Formik, FormikProps } from "formik";
 import { AccountFormModel } from "../accountPage";
-import bg from "/public/img/test.png"
+import bg from "/public/images/test.png"
 
 export interface FieldProps<V = any> {
   field: FieldInputProps<V>;

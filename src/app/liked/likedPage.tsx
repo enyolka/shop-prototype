@@ -7,7 +7,7 @@ import { ProductContext } from "../../contexts/GlobalState";
 import placeholder from "/public/placeholder.png";
 import { IoTrashBinSharp } from "react-icons/io5";
 import "./likedPage.css"
-import liked from "/public/img/loved.png"
+import liked from "/public/images/loved.png"
 
 const LikedPage =( props: any) => {
     const context = useContext(ProductContext);

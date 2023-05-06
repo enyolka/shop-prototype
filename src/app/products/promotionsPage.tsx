@@ -4,7 +4,7 @@ import "./productsPage.css";
 import { Link, Params, useNavigate, useParams } from "react-router-dom";
 import { ProductContext } from "../../contexts/GlobalState";
 import { ScrollToTop } from "../../components/scroll/scroll";
-import bg from "/public/img/sale2.png"
+import bg from "/public/images/sale2.png"
 
 type Props = {
   className?: string;

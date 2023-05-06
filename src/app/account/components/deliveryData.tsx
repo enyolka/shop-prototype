@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import Button from "../../../components/button/button";
 import Message from "../../../components/message/message";
 import { AccountFormModel } from "../accountPage";
-import bg from "/public/img/test.png"
+import bg from "/public/imgages/test.png"
 
 export interface FieldProps<V = any> {
   field: FieldInputProps<V>;
