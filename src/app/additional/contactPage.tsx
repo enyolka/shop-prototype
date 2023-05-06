@@ -5,7 +5,7 @@ import { ProductContext } from "../../contexts/GlobalState";
 import { BsTelephoneFill } from "react-icons/bs";
 import { FaMapMarkerAlt } from "react-icons/fa";
 import "./contactPage.css"
-import bg from "/public/img/contact2.png"
+import bg from "/public/images/contact2.png"
 
 const ContactPage =( props: any) => {
 

@@ -1,7 +1,7 @@
 import * as React from "react";
 import Button from "../../../components/button/button";
 import "./loyalty.css"
-import loyalty from "/public/img/loyalty.png"
+import loyalty from "/public/images/loyalty.png"
 
 const Loyalty = ( props: any) => {
     return (
