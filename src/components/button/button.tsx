@@ -29,6 +29,7 @@ const Button = ({ role = "default", className, effect, children, ...props}: Prop
 
       useEffect(() => {
         const bubbles = document.getElementsByClassName("button--effect");
+        console.log(bubbles)
 
         for (let i = 0; i < bubbles.length; i++) {
           bubbles[i].addEventListener('click', animateButton, false);

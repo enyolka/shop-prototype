@@ -5,13 +5,11 @@ import * as classNames from "classnames";
 import { FaHeart, FaShoppingCart, FaUser } from "react-icons/fa";
 import { IoSettings } from "react-icons/io5";
 import MenuItem from "../../menuItem/menuItem";
-import { ReactComponent } from "@uirouter/react";
 import { AutoSuggest } from "../../autoSuggest/autoSuggest";
 import { Accordion, AccordionSection } from "../../accordionMenu/accordionMenu";
 import { Option } from "../header";
 import { Category, Subcategory } from "../../../contexts/GlobalState";
 import "./headerSimple.css";
-import Button from "../../button/button";
 
 type Props = {
     options: Option[];
@@ -35,13 +33,22 @@ const HeaderSimple = ({
     const [active, setActive] = useState(false)
     const [grouped, setGrouped] = useState(groupedProducts)
     const [value, setValue] = useState<string | any>("");
+    const [logged, setLogged] = useState(sessionStorage.getItem('logged') === "true");
+
+    const toggleLogged = (x: string) => {
+        setLogged(false)
+        sessionStorage.removeItem("account")
+        sessionStorage.setItem('logged', JSON.stringify(false))
+        window.location.reload()
+    }
+
     const navigate = useNavigate();
     const menuRef = useRef(null);
     const togglerRef = useRef(null);
 
-    const naviagateAndClose = (url: string) => {
+    const navigateAndClose = (url: string) => {
          navigate(url);
-        //  setActive(false)
+         setActive(false)
     }
     
     const handleClickOutside = (event: any) => {
@@ -70,15 +77,33 @@ const HeaderSimple = ({
             header="ustawienia"
             icon={<IoSettings className="header_bar__icon"/>}
         />,
-        <MenuItem to="/ulubione" className="header_bar__item"  header="polubione"  icon={<FaHeart className="header_bar__icon"/>}/>,
-        <MenuItem to="/koszyk" className="header_bar__item" header="koszyk (0)" icon={<FaShoppingCart className="header_bar__icon"/>}/>,
-        <MenuItem to="/konto" className="header_bar__item" header="konto" icon={<FaUser className="header_bar__icon"/>}/>
+        <MenuItem 
+            to="/ulubione" 
+            className="header_bar__item"  
+            header="polubione"  
+            icon={<FaHeart className="header_bar__icon"/>}
+        />,
+        <MenuItem 
+            to="/koszyk" 
+            className="header_bar__item" 
+            header="koszyk (0)" 
+            icon={<FaShoppingCart className="header_bar__icon"/>}
+        />,
+        <MenuItem 
+            to="/konto" 
+            options={logged ? ["Wyloguj"] : null}
+            onClick={() => navigate(`/konto`)} 
+            onOptionSelect={toggleLogged}
+            className="header_bar__item" 
+            header="konto" 
+            icon={<FaUser className="header_bar__icon"/>}
+        />
     ]
     
     const menuItems = [
-        <AccordionSection header={"Strona główna"} onAdditionalClick={() => naviagateAndClose(`/`)} expandable={false}/>,
-        <AccordionSection header={"Wszystkie produkty"} onAdditionalClick={() => naviagateAndClose(`/produkty`)} expandable={false}/>,
-        <AccordionSection header={"Promocje"} onAdditionalClick={() => naviagateAndClose(`/promocje`)} expandable={false}/>
+        <AccordionSection header={"Strona główna"} onAdditionalClick={() => navigateAndClose(`/`)} expandable={false}/>,
+        <AccordionSection header={"Wszystkie produkty"} onAdditionalClick={() => navigateAndClose(`/produkty`)} expandable={false}/>,
+        <AccordionSection header={"Promocje"} onAdditionalClick={() => navigateAndClose(`/promocje`)} expandable={false}/>
     ]
     
     return (
@@ -95,16 +120,16 @@ const HeaderSimple = ({
             <div className={classNames("menu--simple", active ? "active" : null)}
                 ref={menuRef}> 
             <div className="menu__horizontalMenu">
-                <MenuItem className="menu__horizontalMenu_item" onClick={()=> naviagateAndClose("/ulubione")} showActive={false} header={<FaHeart/>}/>
-                <MenuItem className="menu__horizontalMenu_item" onClick={()=> naviagateAndClose("/koszyk")} showActive={false} header={<FaShoppingCart/>}/>
+                <MenuItem className="menu__horizontalMenu_item" onClick={()=> navigateAndClose("/ulubione")} showActive={false} header={<FaHeart/>}/>
+                <MenuItem className="menu__horizontalMenu_item" onClick={()=> navigateAndClose("/koszyk")} showActive={false} header={<FaShoppingCart/>}/>
             </div>
             <Accordion>
                     
                 {menuItems.concat(categories.map((item: Category) => {
                     return (!!groupedProducts[item.name] 
-                        ? <AccordionSection className="item_name" header={item.name} onAdditionalClick={() => naviagateAndClose(`/produkty/${item.name}`)} color="default">{
+                        ? <AccordionSection className="item_name" header={item.name} onAdditionalClick={() => navigateAndClose(`/produkty/${item.name}`)} color="default">{
                             item.subcategories.map(({ name }: Subcategory) => 
-                                <div onClick={()=> naviagateAndClose(`/produkty/${item.name}/${name}`)} className={"item_link"}>{name}</div>)
+                                <div onClick={()=> navigateAndClose(`/produkty/${item.name}/${name}`)} className={"item_link"}>{name}</div>)
                         }
                         </AccordionSection> 
                         : null)
@@ -148,14 +173,14 @@ const HeaderSimple = ({
                     return (!!groupedProducts[item.name] 
                         ? <MenuItem 
                             className="header_bar__item"
-                            onClick={() => naviagateAndClose(`/produkty/${item.name}`)} 
+                            onClick={() => navigate(`/produkty/${item.name}`)} 
                             icon={<i className={item.icon}/>}
                             header={item.name}
                             to={`/produkty/${item.name}`}
                             options={item.subcategories.map(({ name }: Subcategory) => name)}
                             onOptionSelect={(name)=> {
                                 console.log(`/produkty/${item.name}/${name}`)
-                                naviagateAndClose(`/produkty/${item.name}/${name}`)}
+                                navigateAndClose(`/produkty/${item.name}/${name}`)}
                                 }>
                             {/* {item.name} */}
                         </MenuItem> 

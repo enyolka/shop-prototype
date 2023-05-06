@@ -20,9 +20,11 @@ const HomePage = () => {
                 Darmowe dostawy
             </div>
 
-            <Modal isOpen={isOpen} setIsOpen={setIsOpen} className="modal_newsletter">
-                <Newsletter/>
-            </Modal>
+            {Math.floor(Math.random()*4) > 2  ? (
+                <Modal isOpen={isOpen} setIsOpen={setIsOpen} className="modal_newsletter">
+                    <Newsletter/>
+                </Modal>
+            ) : null}
 
         </>
     )

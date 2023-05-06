@@ -24,7 +24,7 @@ const Steps = ({
 }: Props) => {
 
   return (
-    <div className="steps__list">\
+    <div className="steps__list">
           {steps.map(({ label, subLabel, disabled }, idx) => (
             <Step
               key={idx}

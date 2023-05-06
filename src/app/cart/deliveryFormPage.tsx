@@ -38,11 +38,10 @@ const MyInput = ({ field, form, ...props }: FieldProps) => {
 const DeliveryPage =({ onNext }: Props) => {
     const [data, setData] = useState((JSON.parse(localStorage.getItem("accounts")) || []).find(((account: AccountFormModel) => JSON.parse(sessionStorage.getItem("account"))?.name === account.name)));
     const [initialModel, setInitialModel] = useState<ClientFormModel>();
+    const [submitted, setSubmitted] = useState(false)
     const [editable, setEditable] = useState(false)
-    const context = useContext(ProductContext);
     const navigate = useNavigate();
 
-    console.log(sessionStorage.getItem("account"))
     useEffect(() => {
       setInitialModel({
       name: data?.deliveryData?.name || "",
@@ -52,6 +51,10 @@ const DeliveryPage =({ onNext }: Props) => {
       phone: data?.phone || "",
       email: data?.email|| "",
     });}, [])
+
+    useEffect(() => {
+      setSubmitted(initialModel && (Object.values(initialModel).filter(item => item != '').length === 6))
+    }, [initialModel])
   
     const phoneRegExp =
       /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
@@ -93,6 +96,7 @@ const DeliveryPage =({ onNext }: Props) => {
           onSubmit={(values: any, { resetForm }: any) => {
             setInitialModel({...values})
             setEditable(false)
+            setSubmitted(true)
             // onNext(1);
           }}
           validationSchema={validationSchema}
@@ -205,7 +209,7 @@ const DeliveryPage =({ onNext }: Props) => {
           <Button role="default" onClick={() => navigate("/koszyk")}>
             Poprzedni
           </Button>
-          <Button role="secondary" onClick={() => onNext(1)}>
+          <Button role="secondary" onClick={() => onNext(1)} disabled={!submitted}>
             Dalej
           </Button>
         </div>

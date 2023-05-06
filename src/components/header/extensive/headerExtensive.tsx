@@ -38,7 +38,7 @@ const HeaderExtensive = ({
     const menuRef = useRef(null);
     const togglerRef = useRef(null);
 
-    const naviagateAndClose = (url: string) => {
+    const navigateAndClose = (url: string) => {
          navigate(url);
         //  setActive(false)
     }
@@ -73,9 +73,9 @@ const HeaderExtensive = ({
     ]
     
     const menuItems = [
-        <AccordionSection header={"Strona główna"} onAdditionalClick={() => naviagateAndClose(`/`)} expandable={false}/>,
-        <AccordionSection header={"Wszystkie produkty"} onAdditionalClick={() => naviagateAndClose(`/produkty`)} expandable={false}/>,
-        <AccordionSection header={"Promocje"} onAdditionalClick={() => naviagateAndClose(`/promocje`)} expandable={false}/>
+        <AccordionSection header={"Strona główna"} onAdditionalClick={() => navigateAndClose(`/`)} expandable={false}/>,
+        <AccordionSection header={"Wszystkie produkty"} onAdditionalClick={() => navigateAndClose(`/produkty`)} expandable={false}/>,
+        <AccordionSection header={"Promocje"} onAdditionalClick={() => navigateAndClose(`/promocje`)} expandable={false}/>
     ]
     
     return (
@@ -91,16 +91,16 @@ const HeaderExtensive = ({
             <div className={classNames("menu--extensive", active ? "active" : null)}
                 ref={menuRef}> 
             <div className="menu__horizontalMenu">
-                <MenuItem className="menu__horizontalMenu_item" onClick={()=> naviagateAndClose("/ulubione")} showActive={false} header={<FaHeart/>}/>
-                <MenuItem className="menu__horizontalMenu_item" onClick={()=> naviagateAndClose("/koszyk")} showActive={false} header={<FaShoppingCart/>}/>
+                <MenuItem className="menu__horizontalMenu_item" onClick={()=> navigateAndClose("/ulubione")} showActive={false} header={<FaHeart/>}/>
+                <MenuItem className="menu__horizontalMenu_item" onClick={()=> navigateAndClose("/koszyk")} showActive={false} header={<FaShoppingCart/>}/>
             </div>
             <Accordion>
                     
                 {menuItems.concat(categories.map((item: Category) => {
                     return (!!groupedProducts[item.name] 
-                        ? <AccordionSection className="item_name" header={item.name} onAdditionalClick={() => naviagateAndClose(`/produkty/${item.name}`)} color="default">{
+                        ? <AccordionSection className="item_name" header={item.name} onAdditionalClick={() => navigateAndClose(`/produkty/${item.name}`)} color="default">{
                             item.subcategories.map(({ name }: Subcategory) => 
-                                <div onClick={()=> naviagateAndClose(`/produkty/${item.name}/${name}`)} className={"item_link"}>{name}</div>)
+                                <div onClick={()=> navigateAndClose(`/produkty/${item.name}/${name}`)} className={"item_link"}>{name}</div>)
                         }
                         </AccordionSection> 
                         : null)
@@ -147,13 +147,13 @@ const HeaderExtensive = ({
                     return (!!groupedProducts[item.name] 
                         ? <MenuItem 
                             className="header_bar__item"
-                            onClick={() => naviagateAndClose(`/produkty/${item.name}`)} 
+                            onClick={() => navigateAndClose(`/produkty/${item.name}`)} 
                             header={item.name}
                             to={`/produkty/${item.name}`}
                             options={item.subcategories.map(({ name }: Subcategory) => name)}
                             onOptionSelect={(name)=> {
                                 console.log(`/produkty/${item.name}/${name}`)
-                                naviagateAndClose(`/produkty/${item.name}/${name}`)}
+                                navigateAndClose(`/produkty/${item.name}/${name}`)}
                                 }>
                             {/* {item.name} */}
                         </MenuItem> 

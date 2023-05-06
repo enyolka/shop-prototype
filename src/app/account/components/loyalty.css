@@ -4,6 +4,15 @@
     gap: 1rem;
 }
 
+.loyalty_header {
+    color: var(--main);
+    padding: 1rem;
+    margin: 0 0 1.5rem;
+    height: 500px;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
 .loyalty_programs {
     display: flex;
     flex-direction: column;

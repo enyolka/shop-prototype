@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import Button from "../../../components/button/button";
 import Message from "../../../components/message/message";
 import { AccountFormModel } from "../accountPage";
+import bg from "/public/img/test.png"
 
 export interface FieldProps<V = any> {
   field: FieldInputProps<V>;
@@ -26,11 +27,11 @@ const MyInput = ({ field, form, ...props }: FieldProps) => {
 
 const DeliveryData =( props: any) => {
     const [list, setList] = useState(JSON.parse(localStorage.getItem("accounts")) || [])
-    const [idx, setIdx] = useState(list.findIndex((account: AccountFormModel) => JSON.parse(sessionStorage.getItem("account")).name === account.name) || 0)
+    const [idx, setIdx] = useState(list.findIndex((account: AccountFormModel) => JSON.parse(sessionStorage.getItem("account"))?.name === account?.name) || null)
   //  const [initialModel, setInitialModel] = useState<DeliveryFormModel>()
 
     useEffect(() => {
-      setIdx(list.findIndex((account: AccountFormModel) => JSON.parse(sessionStorage.getItem("account")).name === account.name))
+      setIdx(list.findIndex((account: AccountFormModel) => JSON.parse(sessionStorage.getItem("account"))?.name === account?.name) || null)
     },[JSON.parse(localStorage.getItem("accounts"))])
 
     // useEffect(() => {
@@ -78,7 +79,12 @@ const DeliveryData =( props: any) => {
     }
   
     return (
-      <>
+      <article className="accountDetails_form">
+      <div 
+      className="bg-image" 
+      style={{
+        backgroundImage: `url(${bg})`, 
+      }}></div>
        <Formik<DeliveryFormModel>
           initialValues={initialModel}
           enableReinitialize={true}
@@ -160,7 +166,7 @@ const DeliveryData =( props: any) => {
           </Form>)}
       
       </Formik> 
-      </>
+      </article>
     );
   };
 

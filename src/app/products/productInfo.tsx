@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { ProductContext } from "../../contexts/GlobalState";
 import Button from "../../components/button/button";
 import "./productInfo.css"
+import * as classNames from "classnames";
 
 type Props = {
     className?: string;
@@ -29,19 +30,25 @@ const ProductInfo = ({ children }: Props) => {
     <>
       { product != null 
       ? <article className="itemInfo">
+        
           <h2 className="itemInfo_header">{product.name}</h2> 
           <hr className="itemInfo_header__hr"/>
           <img alt="" src={placeholder} className="itemInfo_img"/>
+
           <div className="itemInfo_info">
             <p className="itemInfo_info__price">{product.price}$</p>
             <p className="itemInfo_info__description">{product.description}</p>
           </div>
+
           <div className="itemInfo_buttons">
             <Button
+              className={classNames({"dislike": isLiked})}
+              effect={true}
               onClick={() => {
                 isLiked ? context.removeProductFromLiked(product.id) : context.addProductToLiked(product)}}
             >
               {isLiked ? "Remove from liked" : "Add to Liked"}
+              <span></span>
             </Button>
             <Button
               role="secondary"

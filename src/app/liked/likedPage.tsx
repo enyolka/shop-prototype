@@ -7,6 +7,7 @@ import { ProductContext } from "../../contexts/GlobalState";
 import placeholder from "/public/placeholder.png";
 import { IoTrashBinSharp } from "react-icons/io5";
 import "./likedPage.css"
+import liked from "/public/img/loved.png"
 
 const LikedPage =( props: any) => {
     const context = useContext(ProductContext);
@@ -14,7 +15,7 @@ const LikedPage =( props: any) => {
     return (
       <>
         <article className="liked">
-          <h2 className="liked_header">Polubione produkty</h2>
+          <h2 className="liked_header"  style={{backgroundImage: `url(${liked})`}}>Polubione produkty</h2>
           {context.liked.length <= 0 && (
               <>
                 <Message type="info">Brak elementów w sekcji ulubionych.</Message>

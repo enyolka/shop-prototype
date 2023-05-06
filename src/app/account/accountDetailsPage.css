@@ -6,7 +6,6 @@
     grid-template-rows: 200px minmax(400px, 700px); */
 }
 
-
 .accountDetails_menu {
     /* border-right: 1px solid var(--main-medium); */
     border-bottom: 1px solid var(--main-medium); 
@@ -26,9 +25,10 @@
 .form_account {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 1.5rem;
     padding: 0.7rem 1rem;
     max-width: 800px;
+    width: 100%;
 }
 
 .form_account_items {
@@ -40,7 +40,7 @@
 .deliveryOptionsForm {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 1.5rem;
     padding: 1rem;
     font-size: 1.2rem;
 }
@@ -79,6 +79,20 @@
     border-width: 6px;
     border-style: solid;
     border-color:  var(--main-light) transparent transparent transparent;
+  }
+
+  .accountDetails_form {
+    display: flex;
+    width: 100%;
+    gap: 1rem;
+  }
+
+  .accountDetails_form > .bg-image {
+    width: 100%;
+    background-position: 40% 40%;
+    background-repeat: no-repeat;
+    height: 500px;
+    margin: none;
   }
 
 

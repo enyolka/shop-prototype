@@ -6,14 +6,14 @@ import { ProductContext } from "../../contexts/GlobalState";
 import "./accountDetailsPage.css";
 import AccountData from "./components/accountData";
 import MenuItem from "../../components/menuItem/menuItem";
-import ContactForm from "../additional/ContactForm";
 import SettingsPage from "../additional/Settings";
 import Loyalty from "./components/loyalty";
 import DeliveryData from "./components/deliveryData";
+import ContactPage from "../additional/contactPage";
 
 
 const AccountDetailsPage =( props: any) => {
-  const menu = ["accountData", "deliveryData", "loyalty", "settings", "contact"]
+  const menu = ["accountData", "deliveryData", "loyalty", "contact", "settings",]
     const [menuOption, setMenuOption] = useState(menu[0])
 
     return (
@@ -35,6 +35,7 @@ const AccountDetailsPage =( props: any) => {
             onClick={() => setMenuOption("loyalty")}
           />
           <MenuItem 
+            // to="/kontakt"
             header="Kontakt i pomoc" 
             className="accountDetails_menuItem"
             onClick={() => setMenuOption("contact")}
@@ -43,7 +44,7 @@ const AccountDetailsPage =( props: any) => {
         {menuOption === "accountData" && <AccountData/>}
         {menuOption === "deliveryData" && <DeliveryData/>}
         {menuOption === "loyalty" && <Loyalty/>}
-        {menuOption === "contact" && <ContactForm/>}
+        {menuOption === "contact" && <ContactPage/>}
      </article>
     );
   };

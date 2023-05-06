@@ -38,7 +38,7 @@ const HeaderRightside = ({
     const menuRef = useRef(null);
     const togglerRef = useRef(null);
 
-    const naviagateAndClose = (url: string) => {
+    const navigateAndClose = (url: string) => {
          navigate(url);
          setActive(false)
     }
@@ -73,9 +73,9 @@ const HeaderRightside = ({
     ]
     
     const menuItems = [
-        <AccordionSection header={"Strona główna"} onAdditionalClick={() => naviagateAndClose(`/`)} expandable={false}/>,
-        <AccordionSection header={"Wszystkie produkty"} onAdditionalClick={() => naviagateAndClose(`/produkty`)} expandable={false}/>,
-        <AccordionSection header={"Promocje"} onAdditionalClick={() => naviagateAndClose(`/promocje`)} expandable={false}/>
+        <AccordionSection header={"Strona główna"} onAdditionalClick={() => navigateAndClose(`/`)} expandable={false}/>,
+        <AccordionSection header={"Wszystkie produkty"} onAdditionalClick={() => navigateAndClose(`/produkty`)} expandable={false}/>,
+        <AccordionSection header={"Promocje"} onAdditionalClick={() => navigateAndClose(`/promocje`)} expandable={false}/>
     ]
     
     return (
@@ -91,8 +91,8 @@ const HeaderRightside = ({
             <div className={classNames("menu--right", active ? "active" : null)}
                 ref={menuRef}> 
             <div className="menu__important">
-                <MenuItem className="menu__important_item" onClick={()=> naviagateAndClose("/ulubione")} showActive={false} header={<FaHeart/>}/>
-                <MenuItem className="menu__important_item" onClick={()=> naviagateAndClose("/koszyk")} showActive={false} header={<FaShoppingCart/>}/>
+                <MenuItem className="menu__important_item" onClick={()=> navigateAndClose("/ulubione")} showActive={false} header={<FaHeart/>}/>
+                <MenuItem className="menu__important_item" onClick={()=> navigateAndClose("/koszyk")} showActive={false} header={<FaShoppingCart/>}/>
             </div>
             <Accordion>
                 {menuItems.concat(categories.map((item: Category) => {
@@ -100,11 +100,11 @@ const HeaderRightside = ({
                         ? <AccordionSection 
                             className="item_name" 
                             header={item.name} 
-                            onAdditionalClick={() => naviagateAndClose(`/produkty/${item.name}`)} 
+                            onAdditionalClick={() => navigateAndClose(`/produkty/${item.name}`)} 
                             >
                                 { item.subcategories.map(({ name }: Subcategory) => 
                                 <div 
-                                    onClick={()=> naviagateAndClose(`/produkty/${item.name}/${name}`)} 
+                                    onClick={()=> navigateAndClose(`/produkty/${item.name}/${name}`)} 
                                     className={"item_link"}>
                                         {name}
                                 </div>)

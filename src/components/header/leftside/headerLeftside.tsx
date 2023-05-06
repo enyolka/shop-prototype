@@ -40,7 +40,7 @@ const HeaderLeftside = ({
     const menuRef = useRef(null);
     const togglerRef = useRef(null);
 
-    const naviagateAndClose = (url: string) => {
+    const navigateAndClose = (url: string) => {
          navigate(url);
          setActive(false)
     }
@@ -90,8 +90,8 @@ const HeaderLeftside = ({
     ]
     
     const menuItems = [
-        <AccordionSection header={"Strona główna"} onAdditionalClick={() => naviagateAndClose(`/`)} expandable={false}/>,
-        <AccordionSection header={"Wszystkie produkty"} onAdditionalClick={() => naviagateAndClose(`/produkty`)} expandable={false}/>
+        <AccordionSection header={"Strona główna"} onAdditionalClick={() => navigateAndClose(`/`)} expandable={false}/>,
+        <AccordionSection header={"Wszystkie produkty"} onAdditionalClick={() => navigateAndClose(`/produkty`)} expandable={false}/>
     ]
     
     return (
@@ -114,11 +114,11 @@ const HeaderLeftside = ({
                             className="item_name" 
                             icon={<i className={item.icon}/>}
                             header={item.name} 
-                            onAdditionalClick={() => naviagateAndClose(`/produkty/${item.name}`)} 
+                            onAdditionalClick={() => navigateAndClose(`/produkty/${item.name}`)} 
                             color="default">
                                 { item.subcategories.map(({ name }: Subcategory) => 
                                 <div 
-                                    onClick={() => naviagateAndClose(`/produkty/${item.name}/${name}`)} 
+                                    onClick={() => navigateAndClose(`/produkty/${item.name}/${name}`)} 
                                     className={"item_link"}>
                                         {name}
                                 </div>)

@@ -25,23 +25,23 @@
 }
 
 .container {
-    margin: 140px auto;
+    margin: 140px auto 20px;
     min-width: 250px;
     max-width: 1400px;
-    padding: 20px;
+    padding: 2rem; 
+    min-height: calc(100vh - 200px);
+}
+
+@media only screen and (min-width: 600px) {
+  .container {
+    margin: 150px auto 20px; 
+  }
 }
 
 .card {
     box-shadow: 0 0 8px 1px var(--shadow);
     border-radius: 4px;
     padding: 10px;
-}
-
-
-@media only screen and (min-width: 600px) {
-  .container {
-    margin: 150px auto; 
-  }
 }
 
 .form_input {

@@ -1,10 +1,15 @@
 import * as React from "react";
 import Button from "../../components/button/button";
 import "./newsletter.css";
+import * as classNames from "classnames";
 
-const Newsletter = () => {
+type Props = {
+    size?: "small" | "default";
+}
+
+const Newsletter = ({ size }: Props) => {
     return ( 
-        <div className="newsletter">
+        <div className={classNames("newsletter", size)}>
             <h3>Newsletter</h3>
             <div className="newsletter_info">
                 <p>Nie przegap żadnej promocji, zdobywaj i korzystaj z kuponów rabatowych!</p>

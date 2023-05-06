@@ -196,19 +196,6 @@ function AutoSuggest<
         <span id={labelId} className="label">
           {label}
         </span>
-        {/* <button
-          type="button"
-          className={classNames(
-            "autoSuggest__clear-btn", "closIcon",
-            hasInput ? "visible" : "",
-          )}
-          aria-label="Clear contents"
-          onClick={() => {
-            onChange?.("");
-            inputRef.current?.focus();
-          }}
-          disabled={disabled}
-        >usuń</button> */}
           {(buttonIcon || button) ?
             <button 
             className={classNames(

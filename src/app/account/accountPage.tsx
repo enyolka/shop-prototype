@@ -21,9 +21,11 @@ export type AccountFormModel = {
 
 const AccountPage =( props: any) => {
     const context = useContext(ProductContext);
-    const [logged, setLogged] = useState(sessionStorage.getItem('logged') === "true");
+    const [logged, setLogged] = useState(sessionStorage.getItem('logged') === "true");    
+    const [list, setList] = useState(JSON.parse(localStorage.getItem("accounts")) || [])
+    const [idx, setIdx] = useState(list.findIndex((account: AccountFormModel) => JSON.parse(sessionStorage.getItem("account"))?.name === account?.name) || null)
     const [value, setValue] = useState("login");
-
+    //  const [initialModel, setInitialModel] = useState<DeliveryFormModel>()
     const options = [
       {
         value: "login",
@@ -41,10 +43,14 @@ const AccountPage =( props: any) => {
       console.log(sessionStorage.getItem("account"))
     }, [logged])
 
+    useEffect(() => {
+      setIdx(list.findIndex((account: AccountFormModel) => JSON.parse(sessionStorage.getItem("account"))?.name === account?.name) || null)
+    },[JSON.parse(localStorage.getItem("accounts"))])
+
     return (
       <>
         <article className="account">
-          {logged 
+          {logged && idx != null
           ? <>
             <Button 
               className="button_logout" 
@@ -55,7 +61,7 @@ const AccountPage =( props: any) => {
             >
               Wyloguj się
             </Button>
-            <AccountDetailsPage/>
+            <AccountDetailsPage />
           </>
           : <div className="account_forms" /*style={{backgroundImage: `url(${bg})`}}*/>
           <Toggle

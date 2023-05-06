@@ -4,11 +4,7 @@ import "./productsPage.css";
 import { Link, Params, useNavigate, useParams } from "react-router-dom";
 import { ProductContext } from "../../contexts/GlobalState";
 import { ScrollToTop } from "../../components/scroll/scroll";
-import Breadcrumbs from "../../components/breadcrumbs/breadcrumbs";
-import Button from "../../components/button/button";
-import { RiCloseCircleLine } from "react-icons/ri";
-import { useState } from "react";
-import * as classNames from "classnames";
+import bg from "/public/img/sale2.png"
 
 type Props = {
   className?: string;
@@ -21,6 +17,14 @@ const PromotionsPage = ({  children }: Props) => {
 
   return (
     <ScrollToTop className={"products"}>
+      <div 
+        className="bg-image" 
+        style={{
+          backgroundImage: `url(${bg})`, 
+          backgroundPosition: "40% 0%",
+          height: "250px",
+          margin: "4rem 0"
+        }}></div>
       <div className={"grid"}>
         {promotions.map((product, idx) => 
             <section key={idx} className={"grid_item"}>

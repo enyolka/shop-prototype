@@ -16,6 +16,8 @@ import AccountPage from "./account/accountPage";
 import PromotionsPage from "./products/promotionsPage";
 import EndPage from "./cart/endPage";
 import HomePage from "./home/homePage";
+import Footer from "../components/footer/footer";
+import ContactPage from "./additional/contactPage";
 
 const App = () => {
   return (
@@ -35,11 +37,13 @@ const App = () => {
               <Route path="/realizuj-zamowienie" element={<BuyPage/>} />
               <Route path="/podsumowanie" element={<EndPage/>} />
               <Route path="/konto" element={<AccountPage/>} />
+              <Route path="/kontakt" element={<ContactPage/>} />
               {/* <Route path="/konto/rejestracja" element={<AccountPage/>} />
               <Route path="/konto/logowanie" element={<AccountPage/>} /> */}
               <Route path="/*" element={<ErrorPage/>} />
             </Routes>
         </main>
+        <Footer/>
       </BrowserRouter>
     </GlobalState>
   );   

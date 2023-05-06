@@ -13,7 +13,7 @@ type Props = {
     to?: string;
     showActive?: boolean;
     options?: string[];
-    onOptionSelect?: (value: string) => void;
+    onOptionSelect?: (value: string | boolean) => void;
     onClick?: () => void;
     children?: React.ReactNode;
     className?: string;
@@ -60,7 +60,7 @@ const MenuItem = ({
 
     return (
        <>
-        { options && options.length > 1 
+        { options && options.length > 0 
         ? <div 
             className={classnames("menuLink", className)}             
             onMouseEnter={() => {
@@ -75,7 +75,7 @@ const MenuItem = ({
                 <div 
                     className="menuLink_header"
                     onClick={() => {
-                        // navigate(to);
+                        navigate(to);
                         onClick();
                 }}>
                     {icon}

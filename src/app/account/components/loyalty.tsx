@@ -1,14 +1,14 @@
 import * as React from "react";
-import { useContext, useState} from "react";
-import { useNavigate } from "react-router-dom";
 import Button from "../../../components/button/button";
 import "./loyalty.css"
-
+import loyalty from "/public/img/loyalty.png"
 
 const Loyalty = ( props: any) => {
     return (
       <article className="loyalty">
-        <h2>Programy zniżkowe i kupony</h2>
+        <div className="loyalty_header" style={{backgroundImage: `url(${loyalty})`}}>
+            <h2>Programy zniżkowe i kupony</h2>
+        </div>
         <div className="card loyalty_programs">
             <h3>Aktualne programy</h3>
             <span>Obecnie nie ma aktywowanych programów zniżkowych</span>

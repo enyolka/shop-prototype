@@ -24,10 +24,9 @@
 
 .button:disabled {
     background-color: var(--gray-light);
-}
-
-.button:disabled {
     filter: none;
+    color: gray;
+    cursor: not-allowed;
 }
 
 .button:disabled:hover {
@@ -58,7 +57,7 @@
     width: 80%;
     height: 100%;
     left: 10%;
-    z-index: -100;
+    z-index: -1000;
     transition: all ease-in-out 0.5s;
     background-repeat: no-repeat;
   }
@@ -103,7 +102,7 @@ background-position: 5% 90%, 10% 90%, 10% 90%, 15% 90%, 25% 90%, 25% 90%, 40% 90
       display: block;
       animation: topeffect ease-in-out 1s forwards;
     }
-    .button--effec.animate:after{
+    .button--effect.animate:after{
       display: block;
       animation: bottomeffect ease-in-out 1s forwards;
     }

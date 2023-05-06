@@ -41,6 +41,32 @@
     grid-template-columns: 2fr 3fr;
 }
 
+.button.dislike {
+    background-color: rgb(65, 65, 65);
+    color: white;
+}
+
+.button:active{
+    transform: scale(0.9);
+  }
+/* 
+.button.dislike > span {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    transform: translateY(150%);
+    border-radius: 50%;
+    left: 25%;
+    transition: 0.5s;
+    transition-delay: 0.2s;
+    z-index: -1;
+}
+
+.button.dislike  > span {
+    color: black;
+} */
+
 @media only screen and (min-width: 600px) {
     .itemInfo {
         grid-template-columns: minmax(300px, 600px) minmax(300px, 600px);
