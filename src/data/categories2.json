@@ -31,6 +31,9 @@
             },
             {
                 "name":  "Słuchawki douszne"
+            }, 
+            {
+                "name": "Głośniki"
             }
         ]
     }, 
@@ -52,10 +55,15 @@
         "icon": "fas fa-tv",
         "subcategories": [
             {
-                "name": "Telewizory OLED"
-            },
-            {
-                "name": "Telewizory LED"
+                "name": "Telewizory",
+                "subsubcategories": [
+                    {
+                        "name": "Telewizory OLED"
+                    },
+                    {
+                        "name": "Telewizory LED"
+                    }
+                ]
             },
             {
                 "name": "Monitory"

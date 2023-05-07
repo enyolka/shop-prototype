@@ -3,7 +3,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr;
-  padding: 20px;
+  padding: 20px 20px 0px;
   margin: 0;
   background-color: white;
   position: fixed;
@@ -19,6 +19,14 @@
 .logo {
   grid-column: 2;
   margin: auto;
+  height: 60px;
+  position: relative;
+}
+
+.logo > .logo_item {
+  position: absolute;
+  left: -30px;
+  height: 60px;
 }
 
 .search {
@@ -27,6 +35,7 @@
   width: 95%;
   margin-left: 70px;
   justify-self: right;
+  align-self: center;
 }
 
 .header_bar {
@@ -138,7 +147,6 @@
   .menu { 
     width: 350px;
     left: -350px;
-
   }
   .menu__toggler {
     top: 40px;

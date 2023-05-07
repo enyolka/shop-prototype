@@ -11,6 +11,7 @@ import { Accordion, AccordionSection } from "../../accordionMenu/accordionMenu";
 import { Option } from "../header";
 import { Category, Subcategory } from "../../../contexts/GlobalState";
 import "./headerExtensive.css";
+import logo from "/public/images/logo2-bg.png"
 
 type Props = {
     options: Option[];
@@ -110,8 +111,8 @@ const HeaderExtensive = ({
             </div>
 
 
-            <span className={classNames("logo--extensive")}>
-                <i className={classNames("logo_item")}>LOGO</i>
+            <span className={classNames("logo--extensive")} onClick={() => navigate("/")}>
+                <img alt="logo" src={logo} className={classNames("logo_item")}/>
             </span>
 
             <AutoSuggest

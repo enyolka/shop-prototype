@@ -7,61 +7,35 @@
         "name": "Smartfon Samsung Galaxy S21",
         "category": "Telefony",
         "subcategory": "Smartfony",
-        "image": "https://example.com/galaxy-s21.jpg",
+        "image": "https://image.ceneostatic.pl/data/products/101581863/i-samsung-galaxy-s21-5g-sm-g991-8-128gb-rozowy.jpg",
         "description": "Smartfon Samsung Galaxy S21 z ekranem 6,2 cala, procesorem Exynos 2100 i aparatem o rozdzielczości 64 Mpx.",
         "price": 3699
-      },
-      {
-        "id": "002",
-        "name": "Smartwatch Apple Watch Series 7",
-        "category": "Akcesoria",
-        "subcategory": "Smartwatche",
-        "image": "https://example.com/apple-watch-series-7.jpg",
-        "description": "Smartwatch Apple Watch Series 7 z ekranem Retina o rozdzielczości 324 x 394 pikseli i ochroną IPX7.",
-        "price": 1799
       },
       {
         "id": "003",
         "name": "Telewizor LG OLED65C1",
         "category": "Telewizory i monitory",
-        "subcategory": "Telewizory OLED",
-        "image": "https://example.com/lg-oled65c1.jpg",
+        "subcategory": "Telewizory",
+        "subsubcategory":  "Telewizory OLED",
+        "image": "https://www.lg.com/pl/images/telewizory/md07523611/gallery/medium01-new.jpg",
         "description": "Telewizor LG OLED65C1 z ekranem o przekątnej 65 cali, rozdzielczością 4K i technologią Dolby Vision IQ.",
         "price": 8999
-      },
-      {
-        "id": "004",
-        "name": "Konsola Sony PlayStation 5",
-        "category": "Gry i konsole",
-        "subcategory": "Konsole",
-        "image": "https://example.com/playstation-5.jpg",
-        "description": "Konsola Sony PlayStation 5 z dyskiem SSD 825 GB i procesorem AMD Zen 2.",
-        "price": 2599
       },
       {
         "id": "005",
         "name": "Słuchawki bezprzewodowe Sony WH-1000XM4",
         "category": "Audio",
         "subcategory": "Słuchawki bezprzewodowe",
-        "image": "https://example.com/wh-1000xm4.jpg",
+        "image": "https://image.ceneostatic.pl/data/products/96008086/i-sony-wh-1000xm4-srebrny.jpg",
         "description": "Słuchawki bezprzewodowe Sony WH-1000XM4 z technologią redukcji szumów i 30 godzinami pracy na baterii.",
         "price": 1599
-      },
-      {
-        "id": "006",
-        "name": "Aparat fotograficzny Canon EOS R6",
-        "category": "Aparaty fotograficzne",
-        "subcategory": "Lustrzanki cyfrowe",
-        "image": "https://example.com/canon-eos-r6.jpg",
-        "description": "Aparat fotograficzny Canon EOS R6 z matrycą CMOS o rozdzielczości 20,1 Mpx i systemem AF Dual Pixel CMOS.",
-        "price": 8499
       },
       {
         "id": "007",
         "name": "Laptop Dell XPS 13",
         "category": "Komputery i tablety",
         "subcategory": "Laptopy",
-        "image": "https://example.com/dell-xps-13.jpg",
+        "image": "https://i.dell.com/is/image/DellContent//content/dam/ss2/product-images/dell-client-products/notebooks/xps-notebooks/xps-13-9310/general/xps-13_black_standard.jpg?fmt=pjpg&pscan=auto&scl=1&hei=402&wid=559&qlt=100,1&resMode=sharp2&size=559,402&chrss=full",
         "description": "Laptop Dell XPS 13 z procesorem Intel Core i7-1165G7 i ekranem o przekątnej 13,4 cala.",
         "price": 5999
       },
@@ -70,7 +44,7 @@
         "name": "Smartfon Apple iPhone 13",
         "category": "Telefony",
         "subcategory": "Smartfony",
-        "image": "https://example.com/iphone-13.jpg",
+        "image": "https://vobis.pl/media/cache/gallery/rc/g5mxbbby/images/18/1899167/ip13czerwonybokiem.jpg",
         "description": "Smartfon Apple iPhone 13 z ekranem Super Retina XDR o przekątnej 6,1 cala i systemem iOS 15.",
         "price": 4599
       },
@@ -79,7 +53,7 @@
         "name": "Smartwatch Samsung Galaxy Watch 4",
         "category": "Akcesoria",
         "subcategory": "Smartwatche",
-        "image": "https://example.com/galaxy-watch-4.jpg",
+        "image": "https://image.ceneostatic.pl/data/products/112905096/eb8b52f8-a79e-47a8-b3f6-2b429ce4b4a3_i-samsung-galaxy-watch4-sm-r860-40mm-rozowe-zloto.jpg",
         "description": "Smartwatch Samsung Galaxy Watch 4 z ekranem AMOLED i możliwością monitorowania poziomu cukru we krwi.",
         "price": 1399
       },
@@ -87,26 +61,18 @@
         "id": "010",
         "name": "Telewizor Sony Bravia XR A90J",
         "category": "Telewizory i monitory",
-        "subcategory": "Telewizory LED",
-        "image": "https://example.com/sony-a90j.jpg",
+        "subcategory": "Telewizory",
+        "subsubcategory":  "Telewizory LED",
+        "image": "https://images.scentre.pl/images/65_A90J_blk_blk_edge2edge_btyI.jpg",
         "description": "Telewizor Sony Bravia XR A90J z ekranem OLED o przekątnej 55 cali i technologią Acoustic Surface Audio+.",
         "price": 10499
-      },
-      {
-        "id": "011",
-        "name": "Konsola Microsoft Xbox Series X",
-        "category": "Gry i konsole",
-        "subcategory": "Konsole",
-        "image": "https://example.com/xbox-series-x.jpg",
-        "description": "Konsola Microsoft Xbox Series X z dyskiem SSD 1 TB i procesorem AMD Zen 2.",
-        "price": 2299
       },
       {
         "id": "012",
         "name": "Słuchawki douszne Apple AirPods Pro",
         "category": "Audio",
         "subcategory": "Słuchawki douszne",
-        "image": "https://example.com/airpods-pro.jpg",
+        "image": "https://a.allegroimg.com/original/11907b/eff76be84e28936ecd5781eeb4fe/SLUCHAWKI-IPHONE-APPLE-AirPods-Pro-II-DOKANALOWE",
         "description": "Słuchawki douszne Apple AirPods Pro z technologią redukcji szumów i 4,5 godzinami pracy na baterii.",
         "price": 1099
       },
@@ -115,7 +81,7 @@
         "name": "Słuchawki douszne Samsung Galaxy Buds Pro",
         "category": "Audio",
         "subcategory": "Słuchawki douszne",
-        "image": "https://example.com/galaxy-buds-pro.jpg",
+        "image": "https://image.ceneostatic.pl/data/products/101582972/9719b8fe-afde-4593-b10a-a38be81acc97_i-samsung-galaxy-buds-pro-sm-r190-fioletowy.jpg",
         "description": "Słuchawki douszne Samsung Galaxy Buds Pro z redukcją szumów i baterią o pojemności 61 mAh.",
         "price": 799
       },
@@ -124,7 +90,7 @@
         "name": "Smartfon Xiaomi Mi 11",
         "category": "Telefony",
         "subcategory": "Smartfony",
-        "image": "https://example.com/xiaomi-mi-11.jpg",
+        "image": "https://image.ceneostatic.pl/data/products/107022929/i-xiaomi-mi-11-lite-5g-8-128gb-czarny.jpg",
         "description": "Smartfon Xiaomi Mi 11 z procesorem Snapdragon 888 i ekranem AMOLED o przekątnej 6,81 cala.",
         "price": 3199
       },
@@ -133,7 +99,7 @@
         "name": "Laptop Lenovo Legion 5",
         "category": "Komputery i tablety",
         "subcategory": "Laptopy",
-        "image": "https://example.com/lenovo-legion-5.jpg",
+        "image": "https://www.mediaexpert.pl/media/cache/resolve/gallery/images/34/3429204/Laptop-LENOVO-Legion-5-17ACH6-17.3-IPS-144Hz-R7-5800H-16GB-SSD-512GB-GeForce-RTX3050-Windows-10-Home-skos-lewy.jpg",
         "description": "Laptop Lenovo Legion 5 z procesorem AMD Ryzen 7 i kartą graficzną NVIDIA GeForce GTX 1650.",
         "price": 4699
       },
@@ -141,35 +107,18 @@
         "id": "017",
         "name": "Telewizor Sony KD-65A8",
         "category": "Telewizory i monitory",
-        "subcategory": "Telewizory OLED",
-        "image": "https://example.com/sony-kd-65a8.jpg",
+        "subcategory": "Telewizory",
+        "subsubcategory":  "Telewizory OLED",
+        "image": "https://image.ceneostatic.pl/data/products/93627815/i-sony-kd65a8.jpg",
         "description": "Telewizor Sony KD-65A8 z ekranem OLED o przekątnej 65 cali i rozdzielczości 4K.",
         "price": 7999
-      },
-      {
-        "id": "018",
-        "name": "Konsola Nintendo Switch OLED",
-        "category": "Gry i konsole",
-        "subcategory": "Konsole",
-        "image": "https://example.com/nintendo-switch-oled.jpg",
-        "description": "Konsola Nintendo Switch OLED z ekranem OLED o przekątnej 7 cali i wbudowaną pamięcią 64 GB.",
-        "price": 1899
-      },
-      {
-        "id": "019",
-        "name": "Smartwatch Samsung Galaxy Watch 4",
-        "category": "Akcesoria",
-        "subcategory": "Smartwatche",
-        "image": "https://example.com/galaxy-watch-4.jpg",
-        "description": "Smartwatch Samsung Galaxy Watch 4 z ekranem Super AMOLED o rozdzielczości 450 x 450 pikseli i czujnikiem tętna.",
-        "price": 1299
       },
       {
         "id": "022",
         "name": "Monitor Dell UltraSharp U2720Q",
         "category": "Telewizory i monitory",
         "subcategory": "Monitory",
-        "image": "https://example.com/dell-ultrasharp-u2720q.jpg",
+        "image": "https://image.ceneostatic.pl/data/article_picture/16/df/d297-5e4e-4da7-8e86-9e3951b5a0cd_large.png",
         "description": "Monitor Dell UltraSharp U2720Q z ekranem 4K o przekątnej 27 cali i obsługą HDR.",
         "price": 3299
       },
@@ -178,27 +127,349 @@
         "name": "Głośnik Sonos One",
         "category": "Audio",
         "subcategory": "Głośniki",
-        "image": "https://example.com/sonos-one.jpg",
+        "image": "https://image.ceneostatic.pl/data/products/85697717/i-sonos-one-sl-bialy.jpg",
         "description": "Głośnik Sonos One z obsługą Amazon Alexa i asystentem Google Assistant.",
         "price": 1399
-      },
-      {
-        "id": "021",
-        "name": "Dron DJI Mavic Air 2",
-        "category": "Drony",
-        "subcategory": "DJI Mavic",
-        "image": "https://example.com/dji-mavic-air-2.jpg",
-        "description": "Dron DJI Mavic Air 2 z kamerą 4K i możliwością lotu na odległość do 10 km.",
-        "price": 4499
       },
       {
         "id": "024",
         "name": "Tablet Samsung Galaxy Tab S7",
         "category": "Komputery i tablety",
         "subcategory": "Tablety",
-        "image": "https://example.com/galaxy-tab-s7.jpg",
+        "image": "https://allegro.stati.pl/AllegroIMG/PRODUCENCI/SAMSUNG/Book-Cover-Keyboard/Galaxy-Tab-S7%2B-S7FE-czarny/a1-samsung-book-cover-keybord-s7%2B-s7fe-czarny.jpg",
         "description": "Tablet Samsung Galaxy Tab S7 z ekranem 11 cali i procesorem Qualcomm Snapdragon 865+.",
         "price": 2999
+      },
+      {
+        "id": "029",
+        "name": "Laptop ASUS ZenBook Pro Duo 15 OLED",
+        "category": "Komputery i tablety",
+        "subcategory": "Laptopy",
+        "image": "https://cdn.x-kom.pl/i/setup/images/prod/big/product-new-big,,2021/6/pr_2021_6_4_14_37_51_22_03.jpg",
+        "description": "Laptop ASUS ZenBook Pro Duo 15 OLED z ekranem OLED i drugim ekranem ScreenPad Plus.",
+        "price": 12499
+      },
+      {
+        "id": "030",
+        "name": "Monitor LG UltraGear 27GN950",
+        "category": "Telewizory i monitory",
+        "subcategory": "Monitory",
+        "image": "https://a.allegroimg.com/s1024/0cd790/6e8c64394e1c9113c461b9e8023f",
+        "description": "Monitor LG UltraGear 27GN950 z ekranem Nano IPS i częstotliwością odświeżania 144 Hz.",
+        "price": 3499
+      },
+      {
+        "id": "xq1",
+        "name": "Laptop Dell XPS 13",
+        "category": "Komputery",
+        "subcategory": "Laptopy",
+        "image": "https://cdn.x-kom.pl/i/setup/images/prod/big/product-new-big,,2022/5/pr_2022_5_17_12_20_15_932_03.jpg",
+        "description": "Laptop z ekranem 13,4 cala, procesorem Intel Core i7, 16 GB pamięci RAM i dyskiem SSD 512 GB.",
+        "price": 6999
+      },
+      {
+        "id": "as2",
+        "name": "Smartfon Samsung Galaxy S21 Ultra",
+        "category": "Telefony",
+        "subcategory": "Smartfony",
+        "image": "https://m.media-amazon.com/images/I/81DHIyU0SpL._AC_UF1000,1000_QL80_.jpg",
+        "description": "Smartfon z ekranem 6,2 cala, procesorem Exynos 2100, 8 GB pamięci RAM i 128 GB pamięci wewnętrznej.",
+        "price": 3299
+      },
+      {
+        "id": "ux3",
+        "name": "Telewizor LG OLED CX",
+        "category": "Telewizory i monitory",
+        "subcategory": "Telewizory",
+        "subsubcategory":  "Telewizory OLED",
+        "image": "https://image.ceneostatic.pl/data/products/92747382/fefa12a6-ef48-4dba-82c7-e2b176dec6d4_i-lg-oled65cx3la.jpg",
+        "description": "Telewizor OLED z przekątną ekranu 55 cali, rozdzielczością 4K Ultra HD, HDR, AI Picture, AI Sound i Smart TV.",
+        "price": 6499
+      },
+      {
+        "id": "oi5",
+        "name": "Słuchawki Apple AirPods Pro Max",
+        "category": "Audio",
+        "subcategory": "Słuchawki bezprzewodowe",
+        "image": "https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/airpods-max-select-skyblue-202011_FV1_FMT_WHH?wid=940&hei=800&fmt=jpeg&qlt=90&.v=1604776025000",
+        "description": "Bezprzewodowe słuchawki z aktywnym tłumieniem hałasu, trybem przezroczystym i odpornością na wodę i pot.",
+        "price": 1099
+      },
+      {
+      "id": "a02",
+      "name": "Laptop Apple MacBook Pro 16",
+      "category": "Komputery i tablety",
+      "subcategory": "Laptopy",
+      "image": "https://www.mediaexpert.pl/media/cache/resolve/gallery/images/33/3301073/MacBook_Pro_16.jpg",
+      "description": "Laptop Apple MacBook Pro 16 z procesorem Intel Core i9, ekranem Retina o przekątnej 16 cali i kartą graficzną AMD Radeon Pro 5500M.",
+      "price": 12499
+      },
+      {
+      "id": "x03",
+      "name": "Telewizor LG OLED65G13LA",
+      "category": "Telewizory i monitory",
+      "subcategory": "Telewizory",
+      "subsubcategory":  "Telewizory OLED",
+      "image": "https://satysfakcja.stati.pl/allegro_new/RTV/video//LG/OLED65G13LA/f1.jpg",
+      "description": "Telewizor LG OLED65C1 z ekranem OLED o przekątnej 65 cali, rozdzielczością 4K i systemem dźwiękowym Dolby Atmos.",
+      "price": 8999
+      },
+      {
+        "id": "a28",
+        "name": "Nokia 5.4",
+        "category": "Telefony",
+        "subcategory": "Smartfony",
+        "image": "https://cdn.x-kom.pl/i/setup/images/prod/big/product-new-big,,2021/1/pr_2021_1_27_8_1_24_315_05.jpg",
+        "description": "Nokia 5.4 to smartfon z ekranem 6.39 cala, procesorem Snapdragon 662, 4 GB RAM i poczwórnym aparatem 48 MP.",
+        "price": 799
+      },
+      {
+        "id": "x27",
+        "name": "OnePlus 9 Pro",
+        "category": "Telefony",
+        "subcategory": "Smartfony",
+        "image": "https://image.ceneostatic.pl/data/products/105093839/i-oneplus-9-pro-12-256gb-zielony.jpg",
+        "description": "OnePlus 9 Pro to flagowy smartfon z ekranem 6.7 cala, procesorem Snapdragon 888, 12 GB RAM i potrójnym aparatem 48 MP.",
+        "price": 4299
+      },
+      {
+        "id": "aa6",
+        "name": "Xiaomi Redmi Note 10 Pro",
+        "category": "Telefony",
+        "subcategory": "Smartfony",
+        "image": "https://m.media-amazon.com/images/I/51UyTHwP6wL._AC_UF1000,1000_QL80_.jpg",
+        "description": "Xiaomi Redmi Note 10 Pro to smartfon z ekranem 6.67 cala, procesorem Snapdragon 732G, 6 GB RAM i poczwórnym aparatem 64 MP.",
+        "price": 1499
+      },
+      {
+        "id": "m25",
+        "name": "iPhone 12 mini",
+        "category": "Telefony",
+        "subcategory": "Smartfony",
+        "image": "https://cdn.x-kom.pl/i/setup/images/prod/big/product-new-big,,2022/9/pr_2022_9_23_9_56_33_892_05.jpg",
+        "description": "iPhone 12 mini to niewielki, ale potężny smartfon Apple z ekranem OLED 5.4 cala, procesorem A14 Bionic i podwójnym aparatem 12 MP.",
+        "price": 3199
+      },
+      {
+        "id": "y25",
+        "name": "iPhone 13",
+        "category": "Telefony",
+        "subcategory": "Smartfony",
+        "image": "https://cdn.x-kom.pl/i/setup/images/prod/big/product-new-big,,2022/9/pr_2022_9_22_21_33_47_746_08.jpg",
+        "description": "Najnowszy smartfon Apple z ekranem Super Retina XDR o przekątnej 6.1 cala, procesorem A15 Bionic i podwójnym aparatem o rozdzielczości 12 MP.",
+        "price": 4399
+      },
+      {
+        "id": "y26",
+        "name": "Xiaomi Mi 11 Lite",
+        "category": "Telefony",
+        "subcategory": "Smartfony",
+        "image": "https://m.media-amazon.com/images/I/61cJw9jl-0S._AC_UF1000,1000_QL80_.jpg",
+        "description": "Smartfon Xiaomi z ekranem AMOLED o przekątnej 6.55 cala, 6 GB pamięci RAM oraz potrójnym aparatem o rozdzielczości 64 MP.",
+        "price": 1499
+      },
+      {
+        "id": "y27",
+        "name": "OnePlus 9 Pro",
+        "category": "Telefony",
+        "subcategory": "Smartfony",
+        "image": "https://image.ceneostatic.pl/data/products/105093839/i-oneplus-9-pro-12-256gb-zielony.jpg",
+        "description": "Smartfon OnePlus z ekranem Fluid AMOLED o przekątnej 6.7 cala, 12 GB pamięci RAM oraz potrójnym aparatem o rozdzielczości 48 MP.",
+        "price": 3899
+      },
+      {
+        "id": "y28",
+        "name": "Sony Xperia 5 III",
+        "category": "Telefony",
+        "subcategory": "Smartfony",
+        "image": "https://prod-api.mediaexpert.pl/api/images/gallery_500_500/thumbnails/images/30/3049848/Smartfon-SONY-Xperia-5-III-5G-Zielony-tyl-front.jpg",
+        "description": "Smartfon Sony z ekranem OLED o przekątnej 6.1 cala, 8 GB pamięci RAM oraz potrójnym aparatem o rozdzielczości 12 MP.",
+        "price": 4199
+      },
+      {
+        "id": "y26",
+        "name": "Laptop Acer Aspire 5",
+        "category": "Komputery i tablety",
+        "subcategory": "Laptopy",
+        "image": "https://image.ceneostatic.pl/data/products/114214848/i-acer-aspire-5-15-6-i5-8gb-512gb-win10-nx-a18ep-005.jpg",
+        "description": "Laptop Acer Aspire 5 z procesorem Intel Core i5 11gen, kartą graficzną NVIDIA GeForce MX350 i dyskiem SSD o pojemności 512 GB.",
+        "price": 3699
+        },
+        {
+        "id": "m27",
+        "name": "Laptop Lenovo Legion 5 Pro",
+        "category": "Komputery i tablety",
+        "subcategory": "Laptopy",
+        "image": "https://cdn.x-kom.pl/i/setup/images/prod/big/product-new-big,,2022/9/pr_2022_9_22_10_22_54_927_06.jpg",
+        "description": "Laptop Lenovo Legion 5 z procesorem AMD Ryzen 7 5800H, kartą graficzną NVIDIA GeForce RTX 3060 i dyskiem SSD o pojemności 1 TB.",
+        "price": 6399
+        },
+        {
+        "id": "m28",
+        "name": "Laptop HP Pavilion x360",
+        "category": "Komputery i tablety",
+        "subcategory": "Laptopy",
+        "image": "https://www.mediaexpert.pl/media/cache/resolve/gallery/images/42/4279476/Laptop-HP-Pavilion-x360-14-EK0023NW-1.jpg",
+        "description": "Laptop HP Pavilion x360 z procesorem Intel Core i7 11gen, kartą graficzną Intel Iris Xe i dyskiem SSD o pojemności 512 GB.",
+        "price": 4299
+        },
+        {
+        "id": "m29",
+        "name": "Laptop Asus ZenBook Pro Duo",
+        "category": "Komputery i tablety",
+        "subcategory": "Laptopy",
+        "image": "https://a.allegroimg.com/original/11d672/16d2166a44248d02400c8cfe6993/ASUS-Zenbook-Pro-Duo-i9-1290-32-1TB-RTX3070Ti-W11P",
+        "description": "Laptop Asus ZenBook Pro Duo z procesorem Intel Core i9 10gen, kartą graficzną NVIDIA GeForce RTX 3070 i dwoma ekranami: dotykowym o przekątnej 15.6 cala i drugim o przekątnej 14 cali.",
+        "price": 10999
+        },
+        {
+        "id": "p30",
+        "name": "Laptop Dell XPS 17",
+        "category": "Komputery i tablety",
+        "subcategory": "Laptopy",
+        "image": "https://komputerymarkowe.pl/23368-thickbox_default/dell-xps-17-9720-17-uhd-i9-12900hk-32gb-1tb-ssd-rtx3060-fpr-bk-w11p-3ybwos-srebrny.jpg",
+        "description": "Laptop Dell XPS 13 z procesorem Intel Core i7 11gen, kartą graficzną Intel Iris Xe i dyskiem SSD o pojemności 1 TB.",
+        "price": 7499
+        },
+        {
+        "id": "z26",
+        "name": "Komputer stacjonarny HP Pavilion",
+        "category": "Komputery i tablety",
+        "subcategory": "Komputery stacjonarne",
+        "image": "https://prod-api.mediamarkt.pl/api/images/gallery_545_400/thumbnails/images/21/21238640/pavilion-gaming-tg01-1.jpg",
+        "description": "Komputer stacjonarny HP Pavilion z procesorem Intel Core i5, 8 GB pamięci RAM i dyskiem twardym o pojemności 512 GB.",
+        "price": 2999
+        },
+        {
+        "id": "z27",
+        "name": "G4M3R ELITE i7",
+        "category": "Komputery i tablety",
+        "subcategory": "Komputery stacjonarne",
+        "image": "https://cdn.x-kom.pl/i/setup/images/prod/big/product-new-big,,2021/11/pr_2021_11_16_10_16_11_194_00.jpg",
+        "description": "Oferuje wysoką wydajność w grach, jest funkcjonalny, z dobrze dobranymi komponentami. Wyraźnie widać, że firmie x-kom chodzi nie tylko o oferowanie klientom składaków, ale stworzenie rozpoznawalnej marki komputerów.",
+        "price": 3499
+        },
+        {
+        "id": "z28",
+        "name": "Komputer All-in-One Lenovo IdeaCentre",
+        "category": "Komputery i tablety",
+        "subcategory": "Komputery stacjonarne",
+        "image": "https://prod-api.mediamarkt.pl/api/images/gallery_545_400/thumbnails/images/22/22758063/lenovo-ideacentre-aio-3-24itl6-bialy-1.jpg",
+        "description": "Komputer All-in-One Lenovo IdeaCentre z ekranem o przekątnej 23.8 cala, procesorem Intel Core i7, 16 GB pamięci RAM i dyskiem twardym o pojemności 1 TB.",
+        "price": 4499
+        },
+        {
+        "id": "z29",
+        "name": "Komputer mini PC ASUS PN50",
+        "category": "Komputery i tablety",
+        "subcategory": "Komputery stacjonarne",
+        "image": "https://cdn.x-kom.pl/i/setup/images/prod/big/product-new-big,,2020/9/pr_2020_9_29_14_1_53_106_04.jpg",
+        "description": "Komputer mini PC ASUS PN50 z procesorem AMD Ryzen 7, 16 GB pamięci RAM i dyskiem SSD o pojemności 512 GB.",
+        "price": 2499
+        },
+        {
+        "id": "z30",
+        "name": "Komputer Apple iMac 27",
+        "category": "Komputery i tablety",
+        "subcategory": "Komputery stacjonarne",
+        "image": "https://image.ceneostatic.pl/data/products/98004071/i-apple-imac-27-i5-3-1ghz-8gb-256gb-macos-mxwt2zea.jpg",
+        "description": "Komputer Apple iMac 27 z ekranem Retina 5K o przekątnej 27 cali, procesorem Intel Core i5, 16 GB pamięci RAM i dyskiem Fusion Drive o pojemności 1 TB.",
+        "price": 9999
+        },
+        {
+        "id": "p31",
+        "name": "Apple iPad Pro 11\" (2021)",
+        "category": "Komputery i tablety",
+        "subcategory": "Tablety",
+        "sekcja": "Tablety z systemem iOS",
+        "image": "https://image.ceneostatic.pl/data/products/106847993/i-apple-ipad-pro-2021-11-m1-128gb-lte-gwiezdna-szarosc-mhw53fda.jpg",
+        "description": "Tablet Apple iPad Pro 11\" (2021) z wyświetlaczem Retina XDR, procesorem M1, 5G i 128 GB pamięci.",
+        "price": 4799
+        },
+        {
+        "id": "p32",
+        "name": "Samsung Galaxy Tab S7 FE",
+        "category": "Komputery i tablety",
+        "subcategory": "Tablety",
+        "sekcja": "Tablety z systemem Android",
+        "image": "https://f00.esfr.pl/foto/7/89969566737/68535e497d9b69041dda9769c21b5791/samsung-tablet-s7-fe-12-4-6gb-128gb-wifi-black-sm-t733,89969566737_3.jpg",
+        "description": "Tablet Samsung Galaxy Tab S7 FE z wyświetlaczem 12,4\" i 64 GB pamięci.",
+        "price": 1999
+        },
+        {
+        "id": "p33",
+        "name": "Microsoft Surface Go 3",
+        "category": "Komputery i tablety",
+        "subcategory": "Tablety",
+        "sekcja": "Tablety z systemem Windows",
+        "image": "https://cdn.x-kom.pl/i/setup/images/prod/big/product-new-big,,2023/2/pr_2023_2_21_10_29_19_325_04.jpg",
+        "description": "Tablet Microsoft Surface Go 3 z procesorem Intel Core i3, 4 GB RAM i 64 GB pamięci.",
+        "price": 2099
+        },
+        {
+        "id": "p34",
+        "name": "Lenovo Tab P11 Pro",
+        "category": "Komputery i tablety",
+        "subcategory": "Tablety",
+        "sekcja": "Tablety z systemem Android",
+        "image": "https://cdn.x-kom.pl/i/setup/images/prod/big/product-new-big,,2023/2/pr_2023_2_23_15_58_5_344_00.jpg",
+        "description": "Tablet Lenovo Tab P11 Pro z wyświetlaczem OLED, procesorem Qualcomm Snapdragon 730G i 128 GB pamięci.",
+        "price": 1899
+        },
+        {
+        "id": "p35",
+        "name": "Huawei MatePad Pro 12.6",
+        "category": "Komputery i tablety",
+        "subcategory": "Tablety",
+        "sekcja": "Tablety z systemem Android",
+        "image": "https://www.tabletowo.pl/wp-content/uploads/2021/06/Huawei-MatePad-Pro-12.6-zrodlo-Huawei-1.jpg",
+        "description": "Tablet Huawei MatePad Pro 12.6 z wyświetlaczem OLED, procesorem Kirin 9000E i 256 GB pamięci.",
+        "price": 3599
+        },
+      {
+      "id": "ab4",
+      "name": "Kamera Sony Alpha A7R IV",
+      "category": "Fotografia",
+      "subcategory": "Aparaty cyfrowe",
+      "image": "https://example.com/sony-alpha-a7r-iv.jpg",
+      "description": "Aparat Sony Alpha A7R IV z matrycą o rozdzielczości 61 MP, autofokusem z 567 punktami i możliwością nagrywania wideo 4K.",
+      "price": 13499
+      },
+      {
+        "id": "0a4",
+        "name": "Kamera GoPro HERO9 Black",
+        "category": "Foto i video",
+        "subcategory": "Kamery sportowe",
+        "image": "https://shop.gopro.com/on/demandware.static/-/Sites-shop-masthead-catalog/default/dw39d320c5/hero9-black/dw-gopro-hero9-black-camera-01.jpg",
+        "description": "Kamera sportowa z możliwością nagrywania w rozdzielczości 5K, stabilizacją obrazu HyperSmooth 3.0 i funkcją LiveBurst.",
+        "price": 1999
+      },
+      {
+        "id": "032",
+        "name": "Klawiatura mechaniczna Logitech G915",
+        "category": "Akcesoria",
+        "subcategory": "Klawiatury",
+        "image": "https://example.com/logitech-g915.jpg",
+        "description": "Klawiatura mechaniczna logitech",
+        "price": 230
+      },
+      {
+        "id": "031",
+        "name": "Konsola Sony PlayStation 5",
+        "category": "Konsole",
+        "subcategory": "Sony PlayStation",
+        "image": "https://example.com/sony-playstation-5.jpg",
+        "description": "Konsola Sony PlayStation 5 z dyskiem SSD i trybem 4K dla gier.",
+        "price": 2299
+      },
+      {
+        "id": "028",
+        "name": "Kamera GoPro HERO9 Black",
+        "category": "Kamery",
+        "subcategory": "GoPro HERO",
+        "image": "https://example.com/gopro-hero9-black.jpg",
+        "description": "Kamera GoPro HERO9 Black z możliwością nagrywania wideo w rozdzielczości 5K i fotografowania w rozdzielczości 20 MP.",
+        "price": 1799
       },
       {
         "id": "026",
@@ -219,337 +490,194 @@
         "price": 1299
       },
       {
-        "id": "028",
-        "name": "Kamera GoPro HERO9 Black",
-        "category": "Kamery",
-        "subcategory": "GoPro HERO",
-        "image": "https://example.com/gopro-hero9-black.jpg",
-        "description": "Kamera GoPro HERO9 Black z możliwością nagrywania wideo w rozdzielczości 5K i fotografowania w rozdzielczości 20 MP.",
-        "price": 1799
+        "id": "021",
+        "name": "Dron DJI Mavic Air 2",
+        "category": "Drony",
+        "subcategory": "DJI Mavic",
+        "image": "https://example.com/dji-mavic-air-2.jpg",
+        "description": "Dron DJI Mavic Air 2 z kamerą 4K i możliwością lotu na odległość do 10 km.",
+        "price": 4499
       },
       {
-        "id": "029",
-        "name": "Laptop ASUS ZenBook Pro Duo 15 OLED",
-        "category": "Komputery i tablety",
-        "subcategory": "Laptopy",
-        "image": "https://example.com/asus-zenbook-pro-duo-15-oled.jpg",
-        "description": "Laptop ASUS ZenBook Pro Duo 15 OLED z ekranem OLED i drugim ekranem ScreenPad Plus.",
-        "price": 12499
+        "id": "019",
+        "name": "Smartwatch Samsung Galaxy Watch 4",
+        "category": "Akcesoria",
+        "subcategory": "Smartwatche",
+        "image": "https://example.com/galaxy-watch-4.jpg",
+        "description": "Smartwatch Samsung Galaxy Watch 4 z ekranem Super AMOLED o rozdzielczości 450 x 450 pikseli i czujnikiem tętna.",
+        "price": 1299
       },
       {
-        "id": "030",
-        "name": "Monitor LG UltraGear 27GN950",
-        "category": "Telewizory i monitory",
-        "subcategory": "Monitory",
-        "image": "https://example.com/lg-ultragear-27gn950.jpg",
-        "description": "Monitor LG UltraGear 27GN950 z ekranem Nano IPS i częstotliwością odświeżania 144 Hz.",
-        "price": 3499
+        "id": "018",
+        "name": "Konsola Nintendo Switch OLED",
+        "category": "Gry i konsole",
+        "subcategory": "Konsole",
+        "image": "https://example.com/nintendo-switch-oled.jpg",
+        "description": "Konsola Nintendo Switch OLED z ekranem OLED o przekątnej 7 cali i wbudowaną pamięcią 64 GB.",
+        "price": 1899
       },
       {
-        "id": "031",
-        "name": "Konsola Sony PlayStation 5",
-        "category": "Konsole",
-        "subcategory": "Sony PlayStation",
-        "image": "https://example.com/sony-playstation-5.jpg",
-        "description": "Konsola Sony PlayStation 5 z dyskiem SSD i trybem 4K dla gier.",
+        "id": "011",
+        "name": "Konsola Microsoft Xbox Series X",
+        "category": "Gry i konsole",
+        "subcategory": "Konsole",
+        "image": "https://example.com/xbox-series-x.jpg",
+        "description": "Konsola Microsoft Xbox Series X z dyskiem SSD 1 TB i procesorem AMD Zen 2.",
         "price": 2299
       },
       {
-        "id": "032",
-        "name": "Klawiatura mechaniczna Logitech G915",
+        "id": "006",
+        "name": "Aparat fotograficzny Canon EOS R6",
+        "category": "Aparaty fotograficzne",
+        "subcategory": "Lustrzanki cyfrowe",
+        "image": "https://example.com/canon-eos-r6.jpg",
+        "description": "Aparat fotograficzny Canon EOS R6 z matrycą CMOS o rozdzielczości 20,1 Mpx i systemem AF Dual Pixel CMOS.",
+        "price": 8499
+      },
+      {
+        "id": "004",
+        "name": "Konsola Sony PlayStation 5",
+        "category": "Gry i konsole",
+        "subcategory": "Konsole",
+        "image": "https://example.com/playstation-5.jpg",
+        "description": "Konsola Sony PlayStation 5 z dyskiem SSD 825 GB i procesorem AMD Zen 2.",
+        "price": 2599
+      },
+      {
+        "id": "002",
+        "name": "Smartwatch Apple Watch Series 7",
         "category": "Akcesoria",
-        "subcategory": "Klawiatury",
-        "image": "https://example.com/logitech-g915.jpg",
-        "description": "Klawiatura mechaniczna logitech",
-        "price": 230
+        "subcategory": "Smartwatche",
+        "image": "https://example.com/apple-watch-series-7.jpg",
+        "description": "Smartwatch Apple Watch Series 7 z ekranem Retina o rozdzielczości 324 x 394 pikseli i ochroną IPX7.",
+        "price": 1799
       },
+      
       {
-        "id": "xq1",
-        "name": "Laptop Dell XPS 13",
-        "category": "Komputery",
-        "subcategory": "Laptopy",
-        "image": "https://www.dell.com/images/global/products/xps-13-9300-2-in-1-hero.png",
-        "description": "Laptop z ekranem 13,4 cala, procesorem Intel Core i7, 16 GB pamięci RAM i dyskiem SSD 512 GB.",
-        "price": 6999
-      },
-      {
-        "id": "as2",
-        "name": "Smartfon Samsung Galaxy S21",
-        "category": "Telefony",
-        "subcategory": "Smartfony",
-        "image": "https://images.samsung.com/is/image/samsung/assets/uk/smartphones/galaxy-s21/buy/01-gs21-5g-img-mo-720.jpg",
-        "description": "Smartfon z ekranem 6,2 cala, procesorem Exynos 2100, 8 GB pamięci RAM i 128 GB pamięci wewnętrznej.",
-        "price": 3299
-      },
-      {
-        "id": "ux3",
-        "name": "Telewizor LG OLED CX",
-        "category": "Telewizory i monitory",
-        "subcategory": "Telewizory OLED",
-        "image": "https://www.lg.com/pl/images/tv/md07522559/gallery/medium01.jpg",
-        "description": "Telewizor OLED z przekątną ekranu 55 cali, rozdzielczością 4K Ultra HD, HDR, AI Picture, AI Sound i Smart TV.",
-        "price": 6499
-      },
-      {
-        "id": "0a4",
-        "name": "Kamera GoPro HERO9 Black",
-        "category": "Foto i video",
-        "subcategory": "Kamery sportowe",
-        "image": "https://shop.gopro.com/on/demandware.static/-/Sites-shop-masthead-catalog/default/dw39d320c5/hero9-black/dw-gopro-hero9-black-camera-01.jpg",
-        "description": "Kamera sportowa z możliwością nagrywania w rozdzielczości 5K, stabilizacją obrazu HyperSmooth 3.0 i funkcją LiveBurst.",
-        "price": 1999
-      },
-      {
-        "id": "oi5",
-        "name": "Słuchawki Apple AirPods Pro",
-        "category": "Audio",
-        "subcategory": "Słuchawki bezprzewodowe",
-        "image": "https://www.apple.com/v/airpods-pro/x/images/overview/hero__yilokx0hdd6y_large_2x.jpg",
-        "description": "Bezprzewodowe słuchawki z aktywnym tłumieniem hałasu, trybem przezroczystym i odpornością na wodę i pot.",
-        "price": 1099
-      },
-      {
-      "id": "a02",
-      "name": "Laptop Apple MacBook Pro 16",
-      "category": "Komputery i tablety",
-      "subcategory": "Laptopy",
-      "image": "https://example.com/apple-macbook-pro-16.jpg",
-      "description": "Laptop Apple MacBook Pro 16 z procesorem Intel Core i9, ekranem Retina o przekątnej 16 cali i kartą graficzną AMD Radeon Pro 5500M.",
-      "price": 12499
-      },
-      {
-      "id": "x03",
-      "name": "Telewizor LG OLED65C1",
-      "category": "Telewizory i monitory",
-      "subcategory": "OLED",
-      "image": "https://example.com/lg-oled65c1.jpg",
-      "description": "Telewizor LG OLED65C1 z ekranem OLED o przekątnej 65 cali, rozdzielczością 4K i systemem dźwiękowym Dolby Atmos.",
-      "price": 8999
-      },
-      {
-      "id": "ab4",
-      "name": "Kamera Sony Alpha A7R IV",
-      "category": "Fotografia",
-      "subcategory": "Aparaty cyfrowe",
-      "image": "https://example.com/sony-alpha-a7r-iv.jpg",
-      "description": "Aparat Sony Alpha A7R IV z matrycą o rozdzielczości 61 MP, autofokusem z 567 punktami i możliwością nagrywania wideo 4K.",
-      "price": 13499
-      },
-      {
-        "id": "a28",
-        "name": "Nokia 5.4",
-        "category": "Telefony",
-        "subcategory": "Smartfony",
-        "image": "https://example.com/nokia-5-4.jpg",
-        "description": "Nokia 5.4 to smartfon z ekranem 6.39 cala, procesorem Snapdragon 662, 4 GB RAM i poczwórnym aparatem 48 MP.",
-        "price": 799
-      },
-      {
-        "id": "x27",
-        "name": "OnePlus 9 Pro",
-        "category": "Telefony",
-        "subcategory": "Smartfony",
-        "image": "https://example.com/oneplus-9-pro.jpg",
-        "description": "OnePlus 9 Pro to flagowy smartfon z ekranem 6.7 cala, procesorem Snapdragon 888, 12 GB RAM i potrójnym aparatem 48 MP.",
-        "price": 4299
-      },
-      {
-        "id": "aa6",
-        "name": "Xiaomi Redmi Note 10 Pro",
-        "category": "Telefony",
-        "subcategory": "Smartfony",
-        "image": "https://example.com/xiaomi-redmi-note-10-pro.jpg",
-        "description": "Xiaomi Redmi Note 10 Pro to smartfon z ekranem 6.67 cala, procesorem Snapdragon 732G, 6 GB RAM i poczwórnym aparatem 64 MP.",
-        "price": 1499
-      },
-      {
-        "id": "m25",
-        "name": "iPhone 12 mini",
-        "category": "Telefony",
-        "subcategory": "Smartfony",
-        "image": "https://example.com/iphone-12-mini.jpg",
-        "description": "iPhone 12 mini to niewielki, ale potężny smartfon Apple z ekranem OLED 5.4 cala, procesorem A14 Bionic i podwójnym aparatem 12 MP.",
-        "price": 3199
-      },
-      {
-        "id": "y25",
-        "name": "iPhone 13",
-        "category": "Telefony",
-        "subcategory": "Smartfony",
-        "image": "https://example.com/iphone-13.jpg",
-        "description": "Najnowszy smartfon Apple z ekranem Super Retina XDR o przekątnej 6.1 cala, procesorem A15 Bionic i podwójnym aparatem o rozdzielczości 12 MP.",
-        "price": 4399
-      },
-      {
-        "id": "y26",
-        "name": "Xiaomi Mi 11 Lite",
-        "category": "Telefony",
-        "subcategory": "Smartfony",
-        "image": "https://example.com/xiaomi-mi-11-lite.jpg",
-        "description": "Smartfon Xiaomi z ekranem AMOLED o przekątnej 6.55 cala, 6 GB pamięci RAM oraz potrójnym aparatem o rozdzielczości 64 MP.",
-        "price": 1499
-      },
-      {
-        "id": "y27",
-        "name": "OnePlus 9 Pro",
-        "category": "Telefony",
-        "subcategory": "Smartfony",
-        "image": "https://example.com/oneplus-9-pro.jpg",
-        "description": "Smartfon OnePlus z ekranem Fluid AMOLED o przekątnej 6.7 cala, 12 GB pamięci RAM oraz potrójnym aparatem o rozdzielczości 48 MP.",
-        "price": 3899
-      },
-      {
-        "id": "y28",
-        "name": "Sony Xperia 5 III",
-        "category": "Telefony",
-        "subcategory": "Smartfony",
-        "image": "https://example.com/sony-xperia-5-iii.jpg",
-        "description": "Smartfon Sony z ekranem OLED o przekątnej 6.1 cala, 8 GB pamięci RAM oraz potrójnym aparatem o rozdzielczości 12 MP.",
-        "price": 4199
-      },
-      {
-        "id": "y26",
-        "name": "Laptop Acer Aspire 5",
-        "category": "Komputery i tablety",
-        "subcategory": "Laptopy",
-        "image": "https://example.com/acer-aspire-5.jpg",
-        "description": "Laptop Acer Aspire 5 z procesorem Intel Core i5 11gen, kartą graficzną NVIDIA GeForce MX350 i dyskiem SSD o pojemności 512 GB.",
-        "price": 3699
+        "id": "ab4",
+        "name": "Kamera Sony Alpha A7R IV",
+        "category": "Fotografia",
+        "subcategory": "Aparaty cyfrowe",
+        "image": "https://example.com/sony-alpha-a7r-iv.jpg",
+        "description": "Aparat Sony Alpha A7R IV z matrycą o rozdzielczości 61 MP, autofokusem z 567 punktami i możliwością nagrywania wideo 4K.",
+        "price": 13499
         },
         {
-        "id": "m27",
-        "name": "Laptop Lenovo Legion 5",
-        "category": "Komputery i tablety",
-        "subcategory": "Laptopy",
-        "image": "https://example.com/lenovo-legion-5.jpg",
-        "description": "Laptop Lenovo Legion 5 z procesorem AMD Ryzen 7 5800H, kartą graficzną NVIDIA GeForce RTX 3060 i dyskiem SSD o pojemności 1 TB.",
-        "price": 6399
+          "id": "0a4",
+          "name": "Kamera GoPro HERO9 Black",
+          "category": "Foto i video",
+          "subcategory": "Kamery sportowe",
+          "image": "https://shop.gopro.com/on/demandware.static/-/Sites-shop-masthead-catalog/default/dw39d320c5/hero9-black/dw-gopro-hero9-black-camera-01.jpg",
+          "description": "Kamera sportowa z możliwością nagrywania w rozdzielczości 5K, stabilizacją obrazu HyperSmooth 3.0 i funkcją LiveBurst.",
+          "price": 1999
         },
         {
-        "id": "m28",
-        "name": "Laptop HP Pavilion x360",
-        "category": "Komputery i tablety",
-        "subcategory": "Laptopy",
-        "image": "https://example.com/hp-pavilion-x360.jpg",
-        "description": "Laptop HP Pavilion x360 z procesorem Intel Core i7 11gen, kartą graficzną Intel Iris Xe i dyskiem SSD o pojemności 512 GB.",
-        "price": 4299
+          "id": "032",
+          "name": "Klawiatura mechaniczna Logitech G915",
+          "category": "Akcesoria",
+          "subcategory": "Klawiatury",
+          "image": "https://example.com/logitech-g915.jpg",
+          "description": "Klawiatura mechaniczna logitech",
+          "price": 230
         },
         {
-        "id": "m29",
-        "name": "Laptop Asus ZenBook Pro Duo",
-        "category": "Komputery i tablety",
-        "subcategory": "Laptopy",
-        "image": "https://example.com/asus-zenbook-pro-duo.jpg",
-        "description": "Laptop Asus ZenBook Pro Duo z procesorem Intel Core i9 10gen, kartą graficzną NVIDIA GeForce RTX 3070 i dwoma ekranami: dotykowym o przekątnej 15.6 cala i drugim o przekątnej 14 cali.",
-        "price": 10999
+          "id": "031",
+          "name": "Konsola Sony PlayStation 5",
+          "category": "Gry i konsole",
+          "subcategory": "Sony PlayStation",
+          "image": "https://example.com/sony-playstation-5.jpg",
+          "description": "Konsola Sony PlayStation 5 z dyskiem SSD i trybem 4K dla gier.",
+          "price": 2299
         },
         {
-        "id": "p30",
-        "name": "Laptop Dell XPS 13",
-        "category": "Komputery i tablety",
-        "subcategory": "Laptopy",
-        "image": "https://example.com/dell-xps-13.jpg",
-        "description": "Laptop Dell XPS 13 z procesorem Intel Core i7 11gen, kartą graficzną Intel Iris Xe i dyskiem SSD o pojemności 1 TB.",
-        "price": 7499
+          "id": "028",
+          "name": "Kamera GoPro HERO9 Black",
+          "category": "Kamery",
+          "subcategory": "GoPro HERO",
+          "image": "https://example.com/gopro-hero9-black.jpg",
+          "description": "Kamera GoPro HERO9 Black z możliwością nagrywania wideo w rozdzielczości 5K i fotografowania w rozdzielczości 20 MP.",
+          "price": 1799
         },
         {
-        "id": "z26",
-        "name": "Komputer stacjonarny HP Pavilion",
-        "category": "Komputery i tablety",
-        "subcategory": "Komputery stacjonarne",
-        "image": "https://example.com/komputer-hp.jpg",
-        "description": "Komputer stacjonarny HP Pavilion z procesorem Intel Core i5, 8 GB pamięci RAM i dyskiem twardym o pojemności 512 GB.",
-        "price": 2999
+          "id": "026",
+          "name": "Konsola Xbox Series X",
+          "category": "Gry i konsole",
+          "subcategory": "Xbox",
+          "image": "https://example.com/xbox-series-x.jpg",
+          "description": "Konsola Xbox Series X z procesorem AMD Zen 2 i możliwością grania w gry w rozdzielczości 4K i 120 klatek na sekundę.",
+          "price": 2499
         },
         {
-        "id": "z27",
-        "name": "Laptop Dell Inspiron",
-        "category": "Komputery i tablety",
-        "subcategory": "Komputery stacjonarne",
-        "image": "https://example.com/laptop-dell.jpg",
-        "description": "Laptop Dell Inspiron z procesorem AMD Ryzen 5, 16 GB pamięci RAM i dyskiem SSD o pojemności 512 GB.",
-        "price": 3499
+          "id": "027",
+          "name": "Router ASUS RT-AX88U",
+          "category": "Sieci",
+          "subcategory": "Routery",
+          "image": "https://example.com/asus-rt-ax88u.jpg",
+          "description": "Router ASUS RT-AX88U z obsługą standardu Wi-Fi 6 i 8 portami LAN.",
+          "price": 1299
         },
         {
-        "id": "z28",
-        "name": "Komputer All-in-One Lenovo IdeaCentre",
-        "category": "Komputery i tablety",
-        "subcategory": "Komputery stacjonarne",
-        "image": "https://example.com/komputer-lenovo.jpg",
-        "description": "Komputer All-in-One Lenovo IdeaCentre z ekranem o przekątnej 23.8 cala, procesorem Intel Core i7, 16 GB pamięci RAM i dyskiem twardym o pojemności 1 TB.",
-        "price": 4499
+          "id": "021",
+          "name": "Dron DJI Mavic Air 2",
+          "category": "Drony",
+          "subcategory": "DJI Mavic",
+          "image": "https://example.com/dji-mavic-air-2.jpg",
+          "description": "Dron DJI Mavic Air 2 z kamerą 4K i możliwością lotu na odległość do 10 km.",
+          "price": 4499
         },
         {
-        "id": "z29",
-        "name": "Komputer mini PC ASUS PN50",
-        "category": "Komputery i tablety",
-        "subcategory": "Komputery stacjonarne",
-        "image": "https://example.com/mini-pc-asus.jpg",
-        "description": "Komputer mini PC ASUS PN50 z procesorem AMD Ryzen 7, 16 GB pamięci RAM i dyskiem SSD o pojemności 512 GB.",
-        "price": 2499
+          "id": "019",
+          "name": "Smartwatch Samsung Galaxy Watch 4",
+          "category": "Akcesoria",
+          "subcategory": "Smartwatche",
+          "image": "https://example.com/galaxy-watch-4.jpg",
+          "description": "Smartwatch Samsung Galaxy Watch 4 z ekranem Super AMOLED o rozdzielczości 450 x 450 pikseli i czujnikiem tętna.",
+          "price": 1299
         },
         {
-        "id": "z30",
-        "name": "Komputer Apple iMac 27",
-        "category": "Komputery i tablety",
-        "subcategory": "Komputery stacjonarne",
-        "image": "https://example.com/komputer-apple.jpg",
-        "description": "Komputer Apple iMac 27 z ekranem Retina 5K o przekątnej 27 cali, procesorem Intel Core i5, 16 GB pamięci RAM i dyskiem Fusion Drive o pojemności 1 TB.",
-        "price": 9999
+          "id": "018",
+          "name": "Konsola Nintendo Switch OLED",
+          "category": "Gry i konsole",
+          "subcategory": "Konsole",
+          "image": "https://example.com/nintendo-switch-oled.jpg",
+          "description": "Konsola Nintendo Switch OLED z ekranem OLED o przekątnej 7 cali i wbudowaną pamięcią 64 GB.",
+          "price": 1899
         },
         {
-        "id": "p31",
-        "name": "Apple iPad Pro 11\" (2021)",
-        "category": "Komputery i tablety",
-        "subcategory": "Tablety",
-        "sekcja": "Tablety z systemem iOS",
-        "image": "https://example.com/ipad-pro-11.jpg",
-        "description": "Tablet Apple iPad Pro 11\" (2021) z wyświetlaczem Retina XDR, procesorem M1, 5G i 128 GB pamięci.",
-        "price": 4799
+          "id": "011",
+          "name": "Konsola Microsoft Xbox Series X",
+          "category": "Gry i konsole",
+          "subcategory": "Konsole",
+          "image": "https://example.com/xbox-series-x.jpg",
+          "description": "Konsola Microsoft Xbox Series X z dyskiem SSD 1 TB i procesorem AMD Zen 2.",
+          "price": 2299
         },
         {
-        "id": "p32",
-        "name": "Samsung Galaxy Tab S7 FE",
-        "category": "Komputery i tablety",
-        "subcategory": "Tablety",
-        "sekcja": "Tablety z systemem Android",
-        "image": "https://example.com/galaxy-tab-s7-fe.jpg",
-        "description": "Tablet Samsung Galaxy Tab S7 FE z wyświetlaczem 12,4\" i 64 GB pamięci.",
-        "price": 1999
+          "id": "006",
+          "name": "Aparat fotograficzny Canon EOS R6",
+          "category": "Aparaty fotograficzne",
+          "subcategory": "Lustrzanki cyfrowe",
+          "image": "https://example.com/canon-eos-r6.jpg",
+          "description": "Aparat fotograficzny Canon EOS R6 z matrycą CMOS o rozdzielczości 20,1 Mpx i systemem AF Dual Pixel CMOS.",
+          "price": 8499
         },
         {
-        "id": "p33",
-        "name": "Microsoft Surface Go 3",
-        "category": "Komputery i tablety",
-        "subcategory": "Tablety",
-        "sekcja": "Tablety z systemem Windows",
-        "image": "https://example.com/surface-go-3.jpg",
-        "description": "Tablet Microsoft Surface Go 3 z procesorem Intel Core i3, 4 GB RAM i 64 GB pamięci.",
-        "price": 2099
+          "id": "004",
+          "name": "Konsola Sony PlayStation 5",
+          "category": "Gry i konsole",
+          "subcategory": "Konsole",
+          "image": "https://example.com/playstation-5.jpg",
+          "description": "Konsola Sony PlayStation 5 z dyskiem SSD 825 GB i procesorem AMD Zen 2.",
+          "price": 2599
         },
         {
-        "id": "p34",
-        "name": "Lenovo Tab P11 Pro",
-        "category": "Komputery i tablety",
-        "subcategory": "Tablety",
-        "sekcja": "Tablety z systemem Android",
-        "image": "https://example.com/tab-p11-pro.jpg",
-        "description": "Tablet Lenovo Tab P11 Pro z wyświetlaczem OLED, procesorem Qualcomm Snapdragon 730G i 128 GB pamięci.",
-        "price": 1899
-        },
-        {
-        "id": "p35",
-        "name": "Huawei MatePad Pro 12.6",
-        "category": "Komputery i tablety",
-        "subcategory": "Tablety",
-        "sekcja": "Tablety z systemem Android",
-        "image": "https://example.com/matepad-pro.jpg",
-        "description": "Tablet Huawei MatePad Pro 12.6 z wyświetlaczem OLED, procesorem Kirin 9000E i 256 GB pamięci.",
-        "price": 3599
-        }
-        
-        
-        
-        
+          "id": "002",
+          "name": "Smartwatch Apple Watch Series 7",
+          "category": "Akcesoria",
+          "subcategory": "Smartwatche",
+          "image": "https://example.com/apple-watch-series-7.jpg",
+          "description": "Smartwatch Apple Watch Series 7 z ekranem Retina o rozdzielczości 324 x 394 pikseli i ochroną IPX7.",
+          "price": 1799
+        }        
     ]
 }}}

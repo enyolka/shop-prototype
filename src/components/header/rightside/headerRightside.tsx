@@ -11,6 +11,7 @@ import { Accordion, AccordionSection } from "../../accordionMenu/accordionMenu";
 import { Option } from "../header";
 import { Category, Subcategory } from "../../../contexts/GlobalState";
 import "./headerRightside.css";
+import logo from "/public/images/logo2-bg.png"
 
 type Props = {
     options: Option[];
@@ -117,8 +118,8 @@ const HeaderRightside = ({
             </div>
 
 
-            <span className={classNames("logo--right")}>
-                <i className={classNames("logo_item")}>LOGO</i>
+            <span className={classNames("logo--right")} onClick={() => navigate("/")}>
+                <img alt="logo" src={logo} className={classNames("logo_item")}/>
             </span>
 
             <AutoSuggest
@@ -140,7 +141,7 @@ const HeaderRightside = ({
                 {/* </div> */}
             </nav>
             
-            <hr className="header__hr"/>
+            <hr className="header__hr--right"/>
 
             <nav className={classNames("header_important--right")} role="navigation">
             <MenuItem to="/" className="header_bar__item" header="strona główna"/>

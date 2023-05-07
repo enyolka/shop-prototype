@@ -2,7 +2,7 @@
   /* background-color: rgb(215, 215, 215); */
   display: grid;
   grid-template-columns: 100px 1fr 40px;
-  grid-template-rows: auto 5px auto 1fr;
+  grid-template-rows: 40px 5px auto 1fr;
   padding: 20px 22px 8px;
   margin: 0;
   background-color: white;
@@ -63,7 +63,7 @@
   position: absolute;
   display: flex;
   align-items: center;
-  top: 15px;
+  top: 25px;
   right: 40px;
   z-index: 101;
   height: 28px;

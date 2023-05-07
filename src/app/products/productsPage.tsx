@@ -40,7 +40,7 @@ const ProductsPage = ({  children }: Props) => {
           !!params.category ? !!params.subcategory ? subcategory == params.subcategory : category == params.category : true)
           .map((product, idx) => 
             <section key={idx} className={"grid_item"}>
-                <img alt="" src={placeholder} className={"item_img"}/>
+                <img alt="" src={product.image} className={"item_img"}/>
                 <div className={"item_info"}>
                   <Link to={`/${product.id}`} className={"item_link"}>{product.name}</Link>
                   <p className={"item_price"}>{product.price}$</p>

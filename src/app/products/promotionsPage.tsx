@@ -22,13 +22,13 @@ const PromotionsPage = ({  children }: Props) => {
         style={{
           backgroundImage: `url(${bg})`, 
           backgroundPosition: "40% 0%",
-          height: "250px",
-          margin: "4rem 0"
+          height: "200px",
+          margin: "2rem 0"
         }}></div>
       <div className={"grid"}>
         {promotions.map((product, idx) => 
             <section key={idx} className={"grid_item"}>
-                <img alt="" src={placeholder} className={"item_img"}/>
+                <img alt="" src={product.image} className={"item_img"}/>
                 <div className={"item_info"}>
                   <Link to={`/${product.id}`} className={"item_link"}>{product.name}</Link>
                   <p className={"item_price"}>{product.price}$</p>

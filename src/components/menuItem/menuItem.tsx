@@ -5,6 +5,10 @@ import { Link, useMatch, useNavigate, useResolvedPath } from "react-router-dom";
 import "./menuItem.css"
 
 type MenuItemRole = "redirect" | "popup";
+type MenuItemOption = {
+    name: string;
+    suboptions?: string[];
+}
 
 type Props = {
     header: string | React.ReactNode;
@@ -12,7 +16,7 @@ type Props = {
     role?: MenuItemRole;
     to?: string;
     showActive?: boolean;
-    options?: string[];
+    options?: string[];//MenuItemOption[];
     onOptionSelect?: (value: string | boolean) => void;
     onClick?: () => void;
     children?: React.ReactNode;
@@ -95,6 +99,21 @@ const MenuItem = ({
                             className={classnames("menuLink__listItem")}
                         >
                            {option}
+                           {/* {option.suboptions.length > 0 && (
+                            <ul 
+                                ref={ref} 
+                                className={classnames("menuLink__listbox", {open: open})}
+                                style={{top: ref?.current?.clientHeight + ref?.current?.clientX + y, right: ref?.current?.clientWidth + ref?.current?.clientY + x}}
+                            >
+                                {option.suboptions.map(suboption => 
+                                    <li 
+                                        onClick={() => {
+                                            console.log(suboption)
+                                            onOptionSelect(suboption)}}
+                                        className={classnames("menuLink__listItem")}
+                                    >
+                                    {suboption}</li>)}</ul>
+                           )} */}
                         </li>
                     )}
                 </ul>
