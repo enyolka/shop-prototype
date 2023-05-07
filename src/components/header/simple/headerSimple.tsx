@@ -8,7 +8,7 @@ import MenuItem from "../../menuItem/menuItem";
 import { AutoSuggest } from "../../autoSuggest/autoSuggest";
 import { Accordion, AccordionSection } from "../../accordionMenu/accordionMenu";
 import { Option } from "../header";
-import { Category, Subcategory } from "../../../contexts/GlobalState";
+import { Category, ProductContext, Subcategory } from "../../../contexts/GlobalState";
 import "./headerSimple.css";
 import logo from "/public/images/logo2-bg.png"
 
@@ -34,8 +34,10 @@ const HeaderSimple = ({
     const [active, setActive] = useState(false)
     const [grouped, setGrouped] = useState(groupedProducts)
     const [value, setValue] = useState<string | any>("");
-    const [logged, setLogged] = useState(sessionStorage.getItem('logged') === "true");
+    const [logged, setLogged] = useState(sessionStorage.getItem('account') != null);
 
+    const context = React.useContext(ProductContext)
+    
     const toggleLogged = (x: string) => {
         setLogged(false)
         sessionStorage.removeItem("account")
@@ -51,7 +53,7 @@ const HeaderSimple = ({
          navigate(url);
          setActive(false)
     }
-    
+    console.log(sessionStorage.getItem('account'))
     const handleClickOutside = (event: any) => {
         if (menuRef.current 
             && !menuRef.current.contains(event.target) 
@@ -86,13 +88,13 @@ const HeaderSimple = ({
         />,
         <MenuItem 
             to="/koszyk" 
-            className="header_bar__item" 
-            header="koszyk (0)" 
+            className={classNames("header_bar__item", {"header_bar__item--dot": context.cart.length > 0})}
+            header="koszyk" 
             icon={<FaShoppingCart className="header_bar__icon"/>}
         />,
         <MenuItem 
             to="/konto" 
-            options={logged ? ["Wyloguj"] : null}
+            options={sessionStorage.getItem('account') != null? ["Wyloguj"] : null}
             onClick={() => navigate(`/konto`)} 
             onOptionSelect={toggleLogged}
             className="header_bar__item" 

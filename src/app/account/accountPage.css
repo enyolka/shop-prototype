@@ -36,6 +36,7 @@
 .login_item {
     display: flex;
     flex-direction: column;
+    margin-bottom: 0.7rem;
 }
 
 .register_item {
@@ -46,6 +47,12 @@
 
 .register_item > label {
     margin: 2px 0;
+}
+
+.account_forms__img {
+    margin: auto;
+    max-width: 800px;
+    width: 90%;
 }
 
 .error_message--float {
@@ -62,19 +69,20 @@
 .error_message--float::after {
     content: " ";
     position: absolute;
-    top: 50%;
-    right: 100%; /* To the left of the tooltip */
+    top: 7px;
+    right: 100%; 
     margin-top: -6px;
     border-width: 6px;
     border-style: solid;
     border-color: transparent rgb(94, 94, 94) transparent transparent;
-  }
+}
 
 .error_message--float {
     position: absolute;
-    right: auto;
-    top: -24px;
+    /* right: auto;
+    top: -24px; */
 }
+
 .error_message--float.bottom::after {
     top: 100%; 
     left: 50%;

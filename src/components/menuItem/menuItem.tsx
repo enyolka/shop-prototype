@@ -5,6 +5,7 @@ import { Link, useMatch, useNavigate, useResolvedPath } from "react-router-dom";
 import "./menuItem.css"
 
 type MenuItemRole = "redirect" | "popup";
+
 type MenuItemOption = {
     name: string;
     suboptions?: string[];
@@ -37,7 +38,6 @@ const MenuItem = ({
     ...props 
 }: Props) => {
     const [open, setOpen] = useState(false);
-    const [moved, setMoved] = useState({});
     const [x, setX] = useState(0);
     const [y, setY] = useState(0);
     const ref = useRef(null);
@@ -94,7 +94,6 @@ const MenuItem = ({
                     {options.map(option => 
                         <li 
                             onClick={() => {
-                                console.log(option)
                                 onOptionSelect(option)}}
                             className={classnames("menuLink__listItem")}
                         >

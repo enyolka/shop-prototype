@@ -24,16 +24,16 @@ const CartPage =( props: any) => {
       <>
         <article className="cart">
           <h2 className="cart_header">Twój koszyk</h2>
-          {context.cart.length <= 0 && (
+          {context.cart.length <= 0 ? (
               <>
-                <Message type="info" size="big" wrapped>Brak elementów w koszyku.</Message>
-                <Link to={`/produkty`} className="cart_link">Przeglądaj produkty i dodawaj do swojej listy zakupowej.</Link>
+                <Message type="info" size="big" wrapped className="cart__message">Brak elementów w koszyku.</Message>
+                <Link to={`/produkty`} className="cart__link">Przeglądaj produkty i dodawaj do swojej listy zakupowej.</Link>
               </>
-            )}
-          <ul className="cart_list">
+            ) :
+          (<ul className="cart_list">
             {context.cart.map(cartItem => (
               <li key={cartItem.id} className="cart_item">
-                <img alt="" src={placeholder} className="cart_item__img"/>
+                <img alt="" src={cartItem.image} className="cart_item__img"/>
                 <Link to={`/${cartItem.id}`} className="cart_item__link">{cartItem.name}</Link>
                 
                 <Button
@@ -59,11 +59,19 @@ const CartPage =( props: any) => {
                 <p className="cart_item__price">{(cartItem.price * cartItem.quantity).toFixed(2)}$</p>
               </li>
             ))}
-          </ul>
-          { context.cart.length > 0 ? <div className="cart_summary">
+          </ul>)}
+          { context.cart.length > 0 ? (
+          <div className=" cart_summary">
             <p>Do zapłaty: {cost.toFixed(2)}$</p>
-            <Button onClick={() => navigate("/realizuj-zamowienie")} disabled={context.cart.length == 0}>Przejdź do kasy</Button>
-          </div> : null}
+            <Button 
+              onClick={() => navigate("/realizuj-zamowienie")} 
+              disabled={context.cart.length == 0}
+              role="important"
+              className="cart_summary__button"
+            >
+              Przejdź do kasy
+            </Button>
+          </div>) : null}
         </article>
       </>
     );

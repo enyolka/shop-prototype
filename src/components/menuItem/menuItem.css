@@ -20,6 +20,7 @@
 
 .active {
     color: var(--secondary);
+    text-decoration: underline;
 }
 
 .active:hover {

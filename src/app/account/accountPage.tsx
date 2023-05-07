@@ -9,7 +9,7 @@ import Toggle from "../../components/toggle/toggle";
 import bg from "/public/bg-light2.png";
 import RegisterForm from "./components/registerForm";
 import { DeliveryFormModel } from "./components/deliveryData";
-
+import trust from "/public/images/trust.png"
 
 export type AccountFormModel = {
   name: string;
@@ -25,7 +25,7 @@ const AccountPage =( props: any) => {
     const [list, setList] = useState(JSON.parse(localStorage.getItem("accounts")) || [])
     const [idx, setIdx] = useState(list.findIndex((account: AccountFormModel) => JSON.parse(sessionStorage.getItem("account"))?.name === account?.name) || null)
     const [value, setValue] = useState("login");
-    //  const [initialModel, setInitialModel] = useState<DeliveryFormModel>()
+    
     const options = [
       {
         value: "login",
@@ -38,9 +38,7 @@ const AccountPage =( props: any) => {
     ]
 
     useEffect(() => {
-      console.log(JSON.stringify(logged)) 
       sessionStorage.setItem('logged', JSON.stringify(logged))
-      console.log(sessionStorage.getItem("account"))
     }, [logged])
 
     useEffect(() => {
@@ -63,20 +61,22 @@ const AccountPage =( props: any) => {
             </Button>
             <AccountDetailsPage />
           </>
-          : <div className="account_forms" /*style={{backgroundImage: `url(${bg})`}}*/>
-          <Toggle
-              className="login_toggle"
-              options={options} 
-              value={value}      
-              onChange={setValue}    
-            />
-          { value === "login" 
-          ? <LoginForm 
-              setLogged={setLogged} 
-              // setAccount={() => setAccount}
-            /> 
-          :  <RegisterForm setLogged={setLogged}/>}
-          </div>
+          : <>
+            <div className="account_forms" /*style={{backgroundImage: `url(${bg})`}}*/>
+            <Toggle
+                className="login_toggle"
+                options={options} 
+                value={value}      
+                onChange={setValue}    
+              />
+            { value === "login" 
+            ? <LoginForm 
+                setLogged={setLogged} 
+              /> 
+            :  <RegisterForm setLogged={setLogged}/>}
+            </div>
+            <img alt="loginPage-image" src={trust} className="account_forms__img"/>
+          </>
         }
         </article>
       </>

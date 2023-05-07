@@ -69,7 +69,7 @@ const HeaderExtensive = ({
             className="header_bar__item"
             header="ustawienia"/>,
         <MenuItem to="/ulubione" className="header_bar__item"  header="polubione"/>,
-        <MenuItem to="/koszyk" className="header_bar__item" header="koszyk (0)"/>,
+        <MenuItem to="/koszyk" className="header_bar__item" header="koszyk"/>,
         <MenuItem to="/konto" className="header_bar__item" header="konto"/>
     ]
     

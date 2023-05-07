@@ -2,8 +2,10 @@
     display: flex;
     flex-direction: column;
     margin: auto;
-    gap: 1rem;
-    max-width: 1200px;
+    gap: 2rem;
+    max-width: 1000px;
+    width: 90vw;
+    align-items: center;
 }
 
 .form_cart {
@@ -11,6 +13,7 @@
     grid-template-columns: 100%;
     gap: 0.8rem;
     padding: 1rem;
+    width: 100%;
 }
 
 .form_cart_items {
@@ -25,49 +28,98 @@
     grid-template-columns: 1fr;
     gap: 4px;
     width: 100%;
-  }
-  
-  .field {
+}
+
+.field {
     display: flex;
     gap: 2px;
     width: 100%;
     flex-direction: column !important;   
     position: relative;
-  }
-  
-  .submit_button {
-    margin: 0.5em 0.5em  0.5em auto;
+}
+
+.submit_button {
+    /* margin: 0.5em 0.5em  0.5em auto; */
     height: 40px;
-  }
-  
-  .error_message {
+}
+
+.error_message {
     color: rgb(196, 2, 2);
     font-size: 0.8em;
-  }
+}
+
+.delivery_options__form {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem 0;
+    font-size: 1.2rem;
+    width: 100%;
+}
+
+.delivery_option {
+    display: grid;
+    grid-template-columns: auto 10rem;
+    gap: 1rem;
+    padding: 1rem 2rem;
+    font-size: small;
+}
+
+.delivery_option--active {
+    background-color: var(--gray-light);
+}
+
+.delivery_option:hover {
+    cursor: pointer;
+}
+
+.delivery_option.disabled, .delivery_option.disabled > .delivery_option_price {
+    color: var(--gray) !important;
+    position: relative;
+}
+
+.delivery_option_info {
+    grid-column: 2;
+    grid-row: 1;
+    justify-self: end;
+}
+
+.delivery_option_price {
+    grid-column: 2;
+    grid-row: 2;
+    justify-self: end;
+    color: var(--important-text);
+    font-weight: 600;
+}
 
 .summary {
     width: 100%;
-    background-color: rgb(232, 242, 242);
+    display: flex;
+    flex-direction: column;
     /* box-shadow: 0 0 8px 1px rgb(216, 216, 216); */
     padding: 16px 10px;
-    display: grid;
-    gap: 16px;
+    gap: 2rem;
+}
+
+.summary_header {
+    color: var(--main);
+    padding: 0.5rem;
 }
 
 .summary_list {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 1rem;
     list-style: none;
+    padding: .5rem 0;
 }
 
 .summary_item {
     width: 100%;
-    border-bottom: 0.2px solid gray;
-    padding: 16px 10px;
+    /* border-bottom: 0.2px solid gray; */
+    padding: 1rem .5rem;
     display: grid;
     grid-template-columns: 100px 3fr 1fr;
-    gap: 8px;
+    gap: 0.5rem;
 }
 
 .summary_item__img {
@@ -91,8 +143,8 @@
 
 .summary_cost {
     display: flex;
-    justify-self: right;
-    padding: 4px 10px;
+    justify-content: right;
+    padding: 1rem 0;
 }
 
 .submit_button {
@@ -106,8 +158,36 @@
 .submit_button > button {
     width: 100%;
 }
+
+
+.message--float {
+    position: absolute;
+    font-size: 0.8rem;
+    padding: 0.5rem;
+    top: -2.5rem;
+    width: auto;
+    transform: translateX(100%);
+    background-color: var(--main-light)  !important;
+    color: white !important;
+    border: 1px solid var(--main-light)  !important; 
+}
+
+.message--float::after {
+    content: " ";
+    position: absolute;
+    top: 100%; 
+    left: 50%;
+    margin-left: -6px;
+    border-width: 6px;
+    border-style: solid;
+    border-color:  var(--main-light) transparent transparent transparent;
+  }
+
   
 @media only screen and (min-width: 700px) {
+    .form_cart {
+        padding: 2rem 3rem;
+    }
     .fields_row {
         display: grid;
         grid-template-columns: 1fr 2fr;
@@ -115,7 +195,20 @@
     .submit_button {
         grid-column: 2/3;
     }
-    
+    .delivery_option {
+        grid-template-columns: auto 10rem 8rem;
+    }
+    .delivery_options__form, .submit_button--delivery {
+        width: 80vw;
+        max-width: 100%;
+    }
+    .delivery_option {
+        font-size: medium;
+    }
+    .delivery_option_price {
+        grid-column: 3;
+        grid-row: 1;
+    }
   }
   
 

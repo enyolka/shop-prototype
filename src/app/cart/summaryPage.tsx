@@ -27,9 +27,9 @@ const SummaryPage =( { onNext }: Props) => {
 
   
     return (   
-      <>
+      <div className="summary">
         <div className="card">
-          <h3>Podsumowanie zamówienia</h3>
+          <h3 className="summary_header">Podsumowanie zamówienia</h3>
           <ul className="summary_list">
             {context.cart.map(cartItem => (
               <li key={cartItem.id} className="summary_item">
@@ -39,15 +39,18 @@ const SummaryPage =( { onNext }: Props) => {
               </li>
             ))}
           </ul>
-          <div >
-            <p className="summary_cost">Do zapłaty: {cost.toFixed(2)}$</p>
+          <hr/>
+          <div className="summary_cost">
+            <p>Do zapłaty: {cost.toFixed(2)}$</p>
           </div>
         </div>
+        <div className="submit_button" >
           <Button role="default" onClick={() => onNext(1)}>
               Poprzedni
           </Button>
           <Button role="important" onClick={() => sumUp()}>Potwierdź</Button>
-      </>        
+        </div>
+      </div>        
     );
   };
 

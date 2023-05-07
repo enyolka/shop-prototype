@@ -23,22 +23,26 @@ const AccountDetailsPage =( props: any) => {
             header="Dane konta" 
             className="accountDetails_menuItem"
             onClick={() => setMenuOption("accountData")}
+            showActive={menuOption === "accountData"}
           />
           <MenuItem 
             header="Dane adresowe do wysyłki" 
             className="accountDetails_menuItem"
             onClick={() => setMenuOption("deliveryData")}
+            showActive={menuOption === "deliveryData"}
           />
           <MenuItem 
             header="Programy lojalnościowe" 
             className="accountDetails_menuItem"
             onClick={() => setMenuOption("loyalty")}
+            showActive={menuOption === "loyalty"}
           />
           <MenuItem 
             // to="/kontakt"
             header="Kontakt i pomoc" 
             className="accountDetails_menuItem"
             onClick={() => setMenuOption("contact")}
+            showActive={menuOption === "contact"}
             />
       </nav>
         {menuOption === "accountData" && <AccountData/>}

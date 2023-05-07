@@ -17,7 +17,7 @@ export type ClientFormModel = {
 }
 
 const BuyPage =( props: any) => {
-    const [activeStepIdx, setActiveStepIdx] = useState(0)
+    const [activeStepIdx, setActiveStepIdx] = useState(2)
 
     return (
       <>

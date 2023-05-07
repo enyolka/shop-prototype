@@ -33,7 +33,7 @@ const ProductInfo = ({ children }: Props) => {
         
           <h2 className="itemInfo_header">{product.name}</h2> 
           <hr className="itemInfo_header__hr"/>
-          <img alt="" src={placeholder} className="itemInfo_img"/>
+          <img alt="" src={product.image} className="itemInfo_img"/>
 
           <div className="itemInfo_info">
             <p className="itemInfo_info__price">{product.price}$</p>
