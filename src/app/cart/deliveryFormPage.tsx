@@ -79,13 +79,14 @@ const DeliveryPage =({ onNext }: Props) => {
     return (
       <>
      {!editable && !!data
-        && <div className="card"> 
-          <Button onClick={() => setEditable(true)}>Edytuj dane</Button>
-          <p>{initialModel?.name}</p>
-          <p>{initialModel?.phone}</p>
-          <p>{initialModel?.email}</p>
-          <p>{initialModel?.street}</p>
-          <p>{initialModel?.zipCode} {initialModel?.city}</p>
+        && <div className="form_cart__actual card"> 
+          <div className="form_cart__info">
+            <p>{initialModel?.name}</p>
+            <p>{initialModel?.phone}</p>
+            <p>{initialModel?.email}</p>
+            <p>{initialModel?.street}, {initialModel?.zipCode} {initialModel?.city}</p>
+          </div>
+          <Button onClick={() => setEditable(true)} className="form_cart__button">Edytuj dane</Button>
         </div>
 }
          {(editable || !data) && <Formik<ClientFormModel>

@@ -39,6 +39,7 @@ const ProductInfo = ({ children }: Props) => {
           <div className="itemInfo_info">
             <p className="itemInfo_info__price">{product.price}$</p>
             <p className="itemInfo_info__description">{product.description}</p>
+            <p className="itemInfo_info__description">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloremque molestiae vitae odit repellat impedit enim aliquam, doloribus corporis! Similique obcaecati accusamus quam vitae non eum, voluptatum veniam repellendus odio sit consequuntur. Ipsam fugiat reiciendis quam ex ad eos quidem libero accusantium, cum atque provident pariatur corporis, nostrum obcaecati animi voluptatem.</p>
           </div>
 
           <div className="itemInfo_buttons">

@@ -40,8 +40,8 @@ const LoginForm = ({ setLogged }: Props) => {
           event.preventDefault()
           const selected = accounts.find((account: AccountFormModel) => account.name === login)
           if (selected && selected.password === password) {
+            console.log(selected)
             setLogged(true)
-            // setAccount(selected)
             sessionStorage.setItem("account", JSON.stringify(selected))
             setFailed(false)
           } else setFailed(true)

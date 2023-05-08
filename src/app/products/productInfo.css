@@ -14,12 +14,12 @@
 }
 
 .itemInfo_img {
-    width: 100%;
     max-width: 600px;
+    max-height: 600px;
+    justify-self: center;
 }
 
 .itemInfo_info__ {
-
 }
 
 .itemInfo_info__price {
@@ -32,7 +32,7 @@
 .itemInfo_info__description {
     margin: 16px 0 24px;
     font-size: 18px;
-
+    text-align: justify;
 }
 
 .itemInfo_buttons {

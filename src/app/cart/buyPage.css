@@ -8,6 +8,23 @@
     align-items: center;
 }
 
+.form_cart__actual {
+    display: grid;
+    grid-template-columns: auto 120px;
+    width: 100%;
+    padding: 2rem;
+}
+
+.form_cart__info {
+    display: grid;
+    gap: 0.5rem;
+}
+
+.form_cart__button {
+    height:fit-content;
+    align-self: flex-end;
+}
+
 .form_cart {
     display: grid;
     grid-template-columns: 100%;
@@ -159,6 +176,24 @@
     width: 100%;
 }
 
+.ending {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 2rem;
+    gap: 1rem;
+    align-items: center;
+}
+
+.ending__header {
+    color: var(--main);
+    font-size: 1.2rem;
+}
+
+.ending__img {
+    max-width: 800px;
+    width: 100%;
+}
 
 .message--float {
     position: absolute;
@@ -208,6 +243,10 @@
     .delivery_option_price {
         grid-column: 3;
         grid-row: 1;
+    }
+
+    .ending__header {
+        font-size: 1.8rem;
     }
   }
   

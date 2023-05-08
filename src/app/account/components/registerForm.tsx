@@ -23,6 +23,7 @@ const RegisterForm = ({}: Props) => {
   const [list, setList] = useState(JSON.parse(localStorage.getItem("accounts")) || [])
   const [registered, setRegistered] = useState(false)
   const [tried, setTried] = useState(false)
+  const validatedNames = [...list.map((account: AccountFormModel) => account.name)]
 
   useEffect(() => setTried(false),[])
 
@@ -37,6 +38,7 @@ const RegisterForm = ({}: Props) => {
   const validationSchema = Yup.object({
     name: Yup.string()
       .max(30, "Must be 30 characters or less")
+      .notOneOf(validatedNames, "This name already exist")
       .required("Required"),
     password: Yup.string()
     .required('Please Enter your password')
@@ -65,7 +67,7 @@ const RegisterForm = ({}: Props) => {
   }}
   validationSchema={validationSchema}
 >
-  {({ errors, touched } : any) => (
+  {({ errors, touched, values } : any) => (
     <Form className="account_form">
         <div className={"register_item"}>
           <label htmlFor="name">Nazwa</label>
