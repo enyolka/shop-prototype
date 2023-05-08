@@ -138,6 +138,23 @@
   cursor: pointer;
 }
 
+
+.header_bar__item--icon {
+  position: relative;
+}
+
+.header_bar__item--icon.dot::after {
+  content: '';
+  display: inline-block;
+  position: absolute;
+  width: 0.7rem;
+  height: 0.7rem;
+  border-radius: 1rem;
+  background-color: var(--important);
+  top: 1.2rem;
+  right: -0.2rem;
+}
+
 @media only screen and (min-width: 800px) {
   .header {
     grid-template-columns: 2fr 2fr 1fr 140px;  

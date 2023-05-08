@@ -65,6 +65,18 @@ height: 60px;
   text-decoration: underline;
 }
 
+.txt--dot::after {
+  content: '';
+  display: inline-block;
+  position: absolute;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 1rem;
+  background-color: var(--important);
+  top: .8rem;
+  right: -0.2rem;
+}
+
 .menu__toggler--right {
   grid-column: 3;
   outline: none;

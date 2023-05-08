@@ -6,6 +6,8 @@ import Button from "../../../components/button/button";
 import Message from "../../../components/message/message";
 import { AccountFormModel } from "../accountPage";
 import bg from "/public/images/test.png"
+import Spinner from "../../../components/spinner/spinner";
+import { BsCheckCircle } from "react-icons/bs";
 
 export interface FieldProps<V = any> {
   field: FieldInputProps<V>;
@@ -28,19 +30,13 @@ const MyInput = ({ field, form, ...props }: FieldProps) => {
 const DeliveryData =( props: any) => {
     const [list, setList] = useState(JSON.parse(localStorage.getItem("accounts")) || [])
     const [idx, setIdx] = useState(list.findIndex((account: AccountFormModel) => JSON.parse(sessionStorage.getItem("account"))?.name === account?.name) || null)
-  //  const [initialModel, setInitialModel] = useState<DeliveryFormModel>()
+    const [valid, setValid] = useState(false)
+    const [component, setComponent] = useState(null)
 
     useEffect(() => {
       setIdx(list.findIndex((account: AccountFormModel) => JSON.parse(sessionStorage.getItem("account"))?.name === account?.name) || null)
     },[JSON.parse(localStorage.getItem("accounts"))])
 
-    // useEffect(() => {
-    //   setInitialModel({
-    //     name: list[idx]?.deliveryData?.name || "",
-    //     city: list[idx]?.deliveryData?.city || "",
-    //     street: list[idx]?.deliveryData?.street || "",
-    //     zipCode: list[idx]?.deliveryData?.zipCode || ""
-    //   })},[list])
     const initialModel = {
       name: list[idx]?.deliveryData?.name || "",
       city: list[idx]?.deliveryData?.city || "",
@@ -75,8 +71,13 @@ const DeliveryData =( props: any) => {
 
       list[idx] = updatedItem;
       localStorage.setItem("accounts", JSON.stringify(list))
-      console.log(localStorage.getItem("accounts"))
+      setValid(true)
     }
+
+    useEffect(() => {
+      setComponent(<Spinner size="big"/>)
+      setTimeout(() => setComponent(<BsCheckCircle />), 3000) 
+    }, [valid])
   
     return (
       <article className="accountDetails_form">
@@ -159,8 +160,13 @@ const DeliveryData =( props: any) => {
                 </div>
                 
                 <div className={"submit_button"}>
-                  <Button role="secondary">
+                <Button 
+                    type="submit" 
+                    role="secondary"
+                    className="button--check"
+                  >
                     Potwierdź
+                    {valid && component}
                   </Button>
                 </div>
           </Form>)}

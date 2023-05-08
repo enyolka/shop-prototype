@@ -8,7 +8,8 @@
 .contact__header {
     display: flex;
     padding: 2rem 4rem;
-    height: 500px;
+    height: 300px;
+    background-position: center;
 }
 
 .contact_cards {
@@ -47,5 +48,9 @@
 @media only screen and (min-width: 600px) {
     .contact_cards {
         flex-direction: row;
+    }
+    
+    .contact__header {
+        height: 500px;
     }
 }

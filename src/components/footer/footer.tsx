@@ -1,6 +1,6 @@
 import * as React from "react";
 import "./footer.css"
-import Newsletter from "../../app/home/newsletter";
+import Newsletter from "../../app/additional/newsletter";
 import Link from "../link/link";
 
 const Footer = () => {

@@ -9,7 +9,7 @@ import { ReactComponent } from "@uirouter/react";
 import { AutoSuggest } from "../../autoSuggest/autoSuggest";
 import { Accordion, AccordionSection } from "../../accordionMenu/accordionMenu";
 import { Option } from "../header";
-import { Category, Subcategory } from "../../../contexts/GlobalState";
+import { Category, ProductContext, Subcategory } from "../../../contexts/GlobalState";
 import "./headerLeftside.css";
 import logo from "/public/images/logo2-bg.png"
 
@@ -40,6 +40,7 @@ const HeaderLeftside = ({
     const navigate = useNavigate();
     const menuRef = useRef(null);
     const togglerRef = useRef(null);
+    const context = React.useContext(ProductContext)
 
     const navigateAndClose = (url: string) => {
          navigate(url);
@@ -53,6 +54,12 @@ const HeaderLeftside = ({
             setActive(false);
         }
     };
+    
+    const toggleLogged = (x: string) => {
+        sessionStorage.removeItem("account")
+        sessionStorage.setItem('logged', JSON.stringify(false))
+        window.location.reload()
+    }
 
     useEffect(() => setGrouped(groupedProducts),[groupedProducts])
 
@@ -78,15 +85,21 @@ const HeaderLeftside = ({
         />,
         <MenuItem 
             to="/koszyk" 
+            className={classNames("header_bar__item--icon", {"dot": context.cart.length > 0})}
             // header="koszyk (0)" 
-            header={<FaShoppingCart className="header_bar__icon"/>}
+            header={<FaShoppingCart className="header_bar__icon"/>
+        }
         />,
         <MenuItem 
             to="/konto" 
+            options={sessionStorage.getItem('account') != null? ["Wyloguj"] : null}
+            onOptionSelect={toggleLogged}
+            onClick={() => navigate(`/konto`)} 
             // options={accountOptions}
             // onOptionSelect={(option) => navigate(`/konto/${option}`)}
             // header="konto" 
-            header={<FaUser className="header_bar__icon"/>}
+            header={<FaUser className="header_bar__icon"
+            />}
         />
     ]
     

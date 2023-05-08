@@ -34,16 +34,8 @@ const HeaderSimple = ({
     const [active, setActive] = useState(false)
     const [grouped, setGrouped] = useState(groupedProducts)
     const [value, setValue] = useState<string | any>("");
-    const [logged, setLogged] = useState(sessionStorage.getItem('account') != null);
 
     const context = React.useContext(ProductContext)
-    
-    const toggleLogged = (x: string) => {
-        setLogged(false)
-        sessionStorage.removeItem("account")
-        sessionStorage.setItem('logged', JSON.stringify(false))
-        window.location.reload()
-    }
 
     const navigate = useNavigate();
     const menuRef = useRef(null);
@@ -53,7 +45,13 @@ const HeaderSimple = ({
          navigate(url);
          setActive(false)
     }
-    console.log(sessionStorage.getItem('account'))
+        
+    const toggleLogged = (x: string) => {
+        sessionStorage.removeItem("account")
+        sessionStorage.setItem('logged', JSON.stringify(false))
+        window.location.reload()
+    }
+
     const handleClickOutside = (event: any) => {
         if (menuRef.current 
             && !menuRef.current.contains(event.target) 
@@ -94,9 +92,9 @@ const HeaderSimple = ({
         />,
         <MenuItem 
             to="/konto" 
-            options={sessionStorage.getItem('account') != null? ["Wyloguj"] : null}
-            onClick={() => navigate(`/konto`)} 
+            options={sessionStorage.getItem('account') != null ? ["Wyloguj"] : null}
             onOptionSelect={toggleLogged}
+            onClick={() => navigate(`/konto`)} 
             className="header_bar__item" 
             header="konto" 
             icon={<FaUser className="header_bar__icon"/>}

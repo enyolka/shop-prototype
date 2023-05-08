@@ -1,7 +1,7 @@
 import * as React from "react";
 import Modal from "../../components/modal/modal";
 import { useState } from "react";
-import Newsletter from "./newsletter";
+import Newsletter from "../additional/newsletter";
 import "./homePage.css"
 import cash from "/public/images/cash.png"
 import guarantee from "/public/images/delivery.png"

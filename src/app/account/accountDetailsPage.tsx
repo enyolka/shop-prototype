@@ -6,7 +6,6 @@ import { ProductContext } from "../../contexts/GlobalState";
 import "./accountDetailsPage.css";
 import AccountData from "./components/accountData";
 import MenuItem from "../../components/menuItem/menuItem";
-import SettingsPage from "../additional/Settings";
 import Loyalty from "./components/loyalty";
 import DeliveryData from "./components/deliveryData";
 import ContactPage from "../additional/contactPage";

@@ -6,10 +6,10 @@ type Props = {
   size: "small" | "medium" | "big" 
 }
 
-const Toggle = ({size}: Props): React.ReactElement => {
+const Spinner = ({size}: Props): React.ReactElement => {
   return (
     <span className={classNames("loader", size)}></span>
   )
 }
 
-export default Toggle;
+export default Spinner;

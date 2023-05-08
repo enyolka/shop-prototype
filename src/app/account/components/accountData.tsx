@@ -6,6 +6,8 @@ import Message from "../../../components/message/message";
 import { ErrorMessage, Field, FieldInputProps, FieldMetaProps, Form, Formik, FormikProps } from "formik";
 import { AccountFormModel } from "../accountPage";
 import bg from "/public/images/test.png"
+import { BsCheckCircle } from "react-icons/bs";
+import Spinner from "../../../components/spinner/spinner";
 
 export interface FieldProps<V = any> {
   field: FieldInputProps<V>;
@@ -19,6 +21,8 @@ const MyInput = ({ field, form, ...props }: FieldProps) =>  <input className="fo
 const AccountData =( props: any) => {
   const [list, setList] = useState(JSON.parse(localStorage.getItem("accounts")) || [])
   const [idx, setIdx] = useState(list.findIndex((account: AccountFormModel) => JSON.parse(sessionStorage.getItem("account"))?.name === account?.name) || 0)
+  const [valid, setValid] = useState(false)
+  const [component, setComponent] = useState(null)
 
     // const { suppliersState, customersState } = useState();
     const initialModel: AccountFormModel = {
@@ -53,7 +57,13 @@ const AccountData =( props: any) => {
       list[idx] = updatedItem;
       localStorage.setItem("accounts", JSON.stringify(list))
       setList(list)
+      setValid(true)
     }
+
+    useEffect(() => {
+      setComponent(<Spinner size="big"/>)
+      setTimeout(() => setComponent(<BsCheckCircle />), 3000) 
+    }, [valid])
     
     return (
       <article className="accountDetails_form">
@@ -126,8 +136,13 @@ const AccountData =( props: any) => {
                 </div>
                 
                 <div className={"submit_button"}>
-                  <Button type="submit" role="secondary">
+                  <Button 
+                    type="submit" 
+                    role="secondary"
+                    className="button--check"
+                  >
                     Potwierdź
+                    {valid && component}
                   </Button>
                 </div>
           </Form>)}}

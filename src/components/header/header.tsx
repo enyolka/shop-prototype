@@ -20,15 +20,16 @@ export type Option = {
 }
 
 type Props = {
+    options: string[];
+    option: string;
+    setOption: (value: string) => void;
     className?: string;
     children?: React.ReactNode;
   };
   
-const Header = ({  children }: Props) => {
+const Header = ({ options, option ,setOption, children }: Props) => {
     const context = useContext(ProductContext);
-    const options = ["leftside", "simple", "extensive", "rightside"]
-    const accountOptions = ["logowanie", "rejestracja"]
-    const [option, setOption] = useState(sessionStorage.getItem("header") != null ? sessionStorage.getItem("header") : options[0] )    
+    const accountOptions = ["logowanie", "rejestracja"] 
     const productOptions = context.products.map(({name, category, subcategory, id}: Product) => {
         return {
             value: id,

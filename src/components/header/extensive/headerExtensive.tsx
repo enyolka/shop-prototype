@@ -9,7 +9,7 @@ import { ReactComponent } from "@uirouter/react";
 import { AutoSuggest } from "../../autoSuggest/autoSuggest";
 import { Accordion, AccordionSection } from "../../accordionMenu/accordionMenu";
 import { Option } from "../header";
-import { Category, Subcategory } from "../../../contexts/GlobalState";
+import { Category, ProductContext, Subcategory } from "../../../contexts/GlobalState";
 import "./headerExtensive.css";
 import logo from "/public/images/logo2-bg.png"
 
@@ -38,12 +38,22 @@ const HeaderExtensive = ({
     const navigate = useNavigate();
     const menuRef = useRef(null);
     const togglerRef = useRef(null);
+    const context = React.useContext(ProductContext)
+
+    let sum = 0
+    context.cart.forEach((a) => sum += a.quantity)
 
     const navigateAndClose = (url: string) => {
          navigate(url);
         //  setActive(false)
     }
-    
+        
+    const toggleLogged = (x: string) => {
+        sessionStorage.removeItem("account")
+        sessionStorage.setItem('logged', JSON.stringify(false))
+        window.location.reload()
+    }
+
     const handleClickOutside = (event: any) => {
         if (menuRef.current 
             && !menuRef.current.contains(event.target) 
@@ -63,14 +73,30 @@ const HeaderExtensive = ({
 
     const headerItems = [
         <MenuItem 
+            to="/ustawienia"
             role="popup" 
             options={settingOptions} 
             onOptionSelect={onSettingOptionSelect}
             className="header_bar__item"
             header="ustawienia"/>,
-        <MenuItem to="/ulubione" className="header_bar__item"  header="polubione"/>,
-        <MenuItem to="/koszyk" className="header_bar__item" header="koszyk"/>,
-        <MenuItem to="/konto" className="header_bar__item" header="konto"/>
+        <MenuItem 
+            to="/ulubione" 
+            className="header_bar__item"  
+            header="polubione"
+        />,
+        <MenuItem 
+            to="/koszyk" 
+            className={classNames("header_bar__item")}
+            header={`koszyk (${sum})`}
+        />,
+        <MenuItem 
+            to="/konto" 
+            options={sessionStorage.getItem('account') != null? ["Wyloguj"] : null}
+            onOptionSelect={toggleLogged}
+            onClick={() => navigate(`/konto`)} 
+            className="header_bar__item" 
+            header="konto"
+        />
     ]
     
     const menuItems = [
