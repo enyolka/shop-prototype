@@ -21,6 +21,9 @@
     justify-content: left;
     /* font-size: 18px; */
 }
+.accountDetails_menu > .active {
+    text-decoration: underline;
+}
 
 .form_account {
     display: flex;

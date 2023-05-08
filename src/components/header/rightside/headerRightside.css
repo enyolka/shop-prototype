@@ -48,6 +48,10 @@ height: 60px;
   gap: 2px;
 }
 
+.header_bar--text > .active {
+  text-decoration: underline;
+}
+
 .header_bar__item {
   font-size: 11px;
   text-transform: uppercase;

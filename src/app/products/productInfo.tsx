@@ -6,6 +6,7 @@ import { ProductContext } from "../../contexts/GlobalState";
 import Button from "../../components/button/button";
 import "./productInfo.css"
 import * as classNames from "classnames";
+import NotFound from "../additional/notFound";
 
 type Props = {
     className?: string;
@@ -59,7 +60,7 @@ const ProductInfo = ({ children }: Props) => {
             </Button>
           </div>
         </article>
-      : <p>loading product</p>
+      : <NotFound/>
       }
     </>
 

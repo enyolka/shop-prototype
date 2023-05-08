@@ -18,6 +18,7 @@ import EndPage from "./cart/endPage";
 import HomePage from "./home/homePage";
 import Footer from "../components/footer/footer";
 import ContactPage from "./additional/contactPage";
+import NotFound from "./additional/notFound";
 
 const App = () => {
   return (
@@ -26,6 +27,7 @@ const App = () => {
         <Header/>
         <main className={"container"}>
             <Routes>
+              <Route path='*' element={<NotFound />} />
               <Route path="/" element={<HomePage/>} />
               <Route path="/produkty" element={<ProductsPage/>} />
               <Route path="/promocje" element={<PromotionsPage/>} />

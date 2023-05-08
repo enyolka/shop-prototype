@@ -34,3 +34,15 @@
     height: 1.8rem;
     padding: 4px;
 }
+
+.button--check  {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 0.3rem;
+}
+
+.button--check > svg {
+    margin-top: 2px
+}
