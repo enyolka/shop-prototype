@@ -1,16 +1,11 @@
 import * as React from "react";
-import { useContext, useState} from "react";
-import { useNavigate } from "react-router-dom";
-import { ProductContext } from "../../contexts/GlobalState";
 import { BsTelephoneFill } from "react-icons/bs";
 import { FaMapMarkerAlt } from "react-icons/fa";
 import "./contactPage.css"
 import bg from "/public/images/contact2.png"
+import { Accordion, AccordionSection } from "../../components/accordionMenu/accordionMenu";
 
 const ContactPage =( props: any) => {
-
-    const context = useContext(ProductContext);
-    const navigate = useNavigate();
 
     return (
       <>
@@ -44,7 +39,19 @@ const ContactPage =( props: any) => {
           </div>
       </article>
       <article className="help">
-
+        <h2>Pomoc</h2>
+        <p>Szukasz pomocy? Sprawdź najczęsciej zadawane pytania lub skontaktuj się z nami!</p>
+        <Accordion>
+          <AccordionSection header={"Jakie są warunki dostawy?"}>
+            <p>Wszystkie dostawy są za darmo!</p>
+          </AccordionSection>
+          <AccordionSection header="Chcę zwrócić produkt. Czy to możliwe?">
+            <p>Oczywiście! Skontaktuj się z nami, a my omówimy Twoją sytuację i wskażemy najlepszą formę zwrotu.</p>
+          </AccordionSection>
+          <AccordionSection header="Programy lojalnościowe i kupony - komu przysługują?">
+            <p>Jedynie zlaogowani użytkownicy mają dostęp do programów lojalnościowych i kuponów. Pojawiają się one cyklicznie, użytkownicy otrzymują powiadomienie na ich temat</p>
+          </AccordionSection>
+        </Accordion>
       </article>
       </>
     );

@@ -13,7 +13,7 @@ type Props = {
 }
 
 const SettingsPage =({ headerOptions, headerOption, setHeaderOption, colorOptions, colorOption, setColorOption }: Props) => {
-    return (
+  return (
       <>
         <article className="settings">
               <img alt="settings" src={settings} className="settings_img"/>

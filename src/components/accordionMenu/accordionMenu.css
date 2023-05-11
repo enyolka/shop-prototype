@@ -1,5 +1,4 @@
-.accordion, .accordion--radio {
-  background: #b6bbbb;
+.accordion {
   border-radius: 1rem;
   list-style-type: none;
   margin: 0;
@@ -9,42 +8,16 @@
 
 .accordion__drawer {
   border: 0 none transparent;
-  /* border-bottom-width: 0; */
   border-collapse: collapse;
   list-style-type: none;
   margin: 0;
   padding: 0;
   position: relative; 
 }
-  /* .accordion__drawer:first-of-type {
-    border-top-left-radius: 1rem;
-    border-top-right-radius: 1rem; }
-    .accordion__drawer:first-of-type .accordion__header {
-      border-top-left-radius: 1rem;
-      border-top-right-radius: 1rem; }
-  .accordion__drawer:last-of-type {
-    border-bottom-left-radius: 1rem;
-    border-bottom-right-radius: 1rem;
-    border-bottom-width: 0; }
-    .accordion__drawer:last-of-type .accordion__header {
-      border-bottom-left-radius: 1rem;
-      border-bottom-right-radius: 1rem; }
-      .accordion__drawer:last-of-type .accordion__header[aria-expanded="true"] {
-        border-bottom-left-radius3 0;
-        border-bottom-right-radius: 0; }
-    .accordion__drawer:last-of-type .accordion__content {
-      border-bottom-left-radius: 1rem;
-      border-bottom-right-radius: 1rem; } 
-      .accordion__drawer:last-of-type .accordion__content::after {
-        background: #fff;
-        border-bottom-left-radius: 1rem;
-        border-bottom-right-radius: 1rem; 
-  }*/
   
 .accordion__header {
-  background-color: #fff;
+  background-color: rgb(246, 246, 246);
   color: rgb(99, 99, 99);
-  background: var(--main-light-max);
   cursor: pointer;
   outline: none;
   padding: 15px 45px 15px 15px;
@@ -55,6 +28,10 @@
   padding: 10px 30px;
   display: flex;
   gap: 4px
+}
+
+.accordion__header.colored {
+  background-color: var(--main-light-max);
 }
 
 .accordion__header h1, .accordion__header h2, .accordion__header h3, .accordion__header h4, .accordion__header h5, .accordion__header h6 {
@@ -78,10 +55,6 @@
   height: auto;
   opacity: 1;
   visibility: visible; }
-/* .accordion__header[aria-expanded="true"]::after {
-  transform: translateY(-50%) rotate(180.001deg); }
-[dir="rtl"] .accordion__header[aria-expanded="true"]::after {
-  transform: translateY(-50%) rotate(-180.001deg);  } */
 
 .accordion__header:hover {
   border-color: transparent;
@@ -102,46 +75,13 @@
   z-index: 2; 
 }
 
-/* :not(.accordion--radio) > .accordion__drawer > .accordion__header::after {
-  content: '\f10f';
-  display: block;
-  font-family: "icon-line";
-  font-size: 2rem;
-  height: 2rem;
-  line-height: 2rem;
-  position: absolute;
-  right: 15px;
-  top: 50%;
-  transform: translateY(-50%) rotate(0deg);
- 
-  transition: transform 250ms cubic-bezier(0.86, 0, 0.07, 1);
-  transition: transform 250ms cubic-bezier(0.86, 0, 0.07, 1); 
-  width: 2rem; 
-  } */
-
-/* :not(.accordion--radio) > .accordion__drawer > .accordion__header[aria-expanded="true"]::after {
-          transform: translateY(-50%) rotate(180.001deg); }
-
-[dir="rtl"]:not(.accordion--radio) > .accordion__drawer > .accordion__header,
-[dir="rtl"] :not(.accordion--radio) > .accordion__drawer > .accordion__header {
-  padding: 1.5rem 2rem 1.5rem 4.25rem; }
-  [dir="rtl"]:not(.accordion--radio) > .accordion__drawer > .accordion__header::after,
-  [dir="rtl"] :not(.accordion--radio) > .accordion__drawer > .accordion__header::after {
-    left: 1.75rem !important;
-    right: auto; }
-  [dir="rtl"]:not(.accordion--radio) > .accordion__drawer > .accordion__header[aria-expanded="true"]::after,
-  [dir="rtl"] :not(.accordion--radio) > .accordion__drawer > .accordion__header[aria-expanded="true"]::after {
-            transform: translateY(-50%) rotate(-180.001deg); } */
-
 .accordion__content {
-  background: var(--main-light-max);
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  background: rgb(251, 251, 251);
+  box-sizing: border-box;
   height: 0;
   overflow: hidden;
   padding: 0 2rem 0 3rem;
   position: relative;
-  transition: height 250ms cubic-bezier(0.86, 0, 0.07, 1) 0s, opacity 175ms ease-in 100ms;
   visibility: hidden; 
 }
 
@@ -156,7 +96,7 @@
 }
 
 .accordion__content.colored {
-  /* border-bottom: 1px solid #6d7178; */
+  background: var(--main-light-max);
 }
 
 .button-up,
@@ -202,7 +142,7 @@
   content: "";
   position: absolute;
   /* left: 17px; */
-  z-index: 11;
+  z-index: 9;
   display: block;
   width: 8px;
   height: 8px;

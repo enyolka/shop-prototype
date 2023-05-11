@@ -31,7 +31,7 @@
 .steps__item::after {
   content: '';
   position: absolute;
-  background-color: var(--main-light);
+  background-color: var(--main-medium);
   height: 1px;
   top: 30%;
   left: calc(50% + 3rem);

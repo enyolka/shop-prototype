@@ -200,7 +200,7 @@
   /* display: none; */
   grid-row: 2;
   grid-column: 1/4;
-  border-top: 1px solid var(--main-light-semimax);
+  border-top: 1px solid var(--main-light);
   margin: 8px 0 16px;
 }
 

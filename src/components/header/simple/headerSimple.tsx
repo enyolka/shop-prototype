@@ -102,9 +102,9 @@ const HeaderSimple = ({
     ]
     
     const menuItems = [
-        <AccordionSection header={"Strona główna"} onAdditionalClick={() => navigateAndClose(`/`)} expandable={false}/>,
-        <AccordionSection header={"Wszystkie produkty"} onAdditionalClick={() => navigateAndClose(`/produkty`)} expandable={false}/>,
-        <AccordionSection header={"Promocje"} onAdditionalClick={() => navigateAndClose(`/promocje`)} expandable={false}/>
+        <AccordionSection header={"Strona główna"} onAdditionalClick={() => navigateAndClose(`/`)} expandable={false} color="main" headerColor="main"/>,
+        <AccordionSection header={"Wszystkie produkty"} onAdditionalClick={() => navigateAndClose(`/produkty`)} expandable={false} color="main" headerColor="main"/>,
+        <AccordionSection header={"Promocje"} onAdditionalClick={() => navigateAndClose(`/promocje`)} expandable={false} color="main" headerColor="main"/>
     ]
     
     return (
@@ -128,7 +128,13 @@ const HeaderSimple = ({
                     
                 {menuItems.concat(categories.map((item: Category) => {
                     return (!!groupedProducts[item.name] 
-                        ? <AccordionSection className="item_name" header={item.name} onAdditionalClick={() => navigateAndClose(`/produkty/${item.name}`)} color="default">{
+                        ? <AccordionSection 
+                            className="item_name" 
+                            header={item.name} 
+                            onAdditionalClick={() => navigateAndClose(`/produkty/${item.name}`)} 
+                            color="main" 
+                            headerColor="main"
+                        >{
                             item.subcategories.map(({ name }: Subcategory) => 
                                 <div onClick={()=> navigateAndClose(`/produkty/${item.name}/${name}`)} className={"item_link"}>{name}</div>)
                         }

@@ -11,7 +11,8 @@ type SectionProps = {
   children?: React.ReactNode;
   expanded?: boolean;
   expandable?: boolean;
-  color?: "default" | string;
+  headerColor?: "default" | "main" | string;
+  color?: "default" | "main" | string;
   className?: string;
   onClick?: () => void;
   onAdditionalClick?:() => void;
@@ -39,10 +40,11 @@ function AccordionSection({
   children,
   subHeader,
   expandable = true,
+  headerColor="default",
+  color="default",
   className,
   ...props
 }: SectionProps): React.ReactElement {
-  const accordionSectionId =  0;//useUniqueId("accordionSection");
   
   return (
     <section className="accordion__drawer">
@@ -52,6 +54,9 @@ function AccordionSection({
         // aria-controls={accordionSectionId}
         aria-expanded={expandable && expanded}
         onClick={onClick}
+        style={{
+          backgroundColor: color &&  color == "default" ? "rgb(250, 250, 250)" : (color == "main" ? "var(--main-light-max)" : color),
+        }}
       >
         {icon}
         <h4 
@@ -66,15 +71,12 @@ function AccordionSection({
       </header>
       {children && expandable ?
         <div
-          className={classNames(
-            "accordion__content",{ 
-            colored:  !!props.color
-          })}
+          className="accordion__content"
           // id={accordionSectionId}
           style={{
             visibility: expanded ? "visible" : "hidden",
             height: expanded ? "auto" : "0px",
-            backgroundColor: props.color &&  props.color == "default" ? "rgb(240, 252, 250)" : props.color,
+            backgroundColor:  color === "default" ? "rgb(253, 253, 253)" : (color == "main" ? "rgb(240, 252, 250)" : color),
           }}
         >
           {subHeader && <h5>{subHeader}</h5>}

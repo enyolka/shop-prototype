@@ -11,6 +11,7 @@ const Footer = () => {
                 <Link to="/">O nas</Link>
                 <Link to="/">Regulamin</Link>
                 <Link to="/">Polityka prywatności</Link>
+                <Link to="/kontakt">Kontakt i pomoc</Link>
             </div>
             <div>
                 <h4>Kontakt</h4>

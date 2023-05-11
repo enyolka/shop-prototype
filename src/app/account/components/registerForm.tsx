@@ -23,7 +23,7 @@ const RegisterForm = ({}: Props) => {
   const [list, setList] = useState(JSON.parse(localStorage.getItem("accounts")) || [])
   const [registered, setRegistered] = useState(false)
   const [tried, setTried] = useState(false)
-  const validatedNames = [...list.map((account: AccountFormModel) => account.name)]
+  const validatedNames = [...list?.map((account: AccountFormModel) => account.name)]
 
   useEffect(() => setTried(false),[])
 
@@ -70,7 +70,7 @@ const RegisterForm = ({}: Props) => {
   {({ errors, touched, values } : any) => (
     <Form className="account_form">
         <div className={"register_item"}>
-          <label htmlFor="name">Nazwa</label>
+          <label htmlFor="name">Login</label>
           <Field
             label="Name"
             name="name"

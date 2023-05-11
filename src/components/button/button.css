@@ -1,5 +1,5 @@
 .button {
-    background-color: rgb(232, 242, 242);
+    background-color: var(--main-light-max);
     box-shadow: 0 1px 2px 1px var(--shadow);
     padding: 10px;
     border: 0.1px solid var(--shadow);
@@ -26,11 +26,10 @@
     background-color: var(--gray-light);
     filter: none;
     color: gray;
-    cursor: not-allowed;
 }
 
 .button:disabled:hover {
-    cursor: default;
+    cursor: not-allowed;
     filter:initial;
 }
 

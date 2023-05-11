@@ -45,10 +45,7 @@ const Header = ({ options, option ,setOption, children }: Props) => {
         return soFar;
         }, {});
 
-    const setHeaderOption = (newOption: string) => {
-        setOption(newOption)
-        sessionStorage.setItem("header", newOption)
-    }    
+
 
     return (
         <>
@@ -59,7 +56,7 @@ const Header = ({ options, option ,setOption, children }: Props) => {
                 options={productOptions} 
                 groupedProducts={groupedProducts}
                 settingOptions={options}
-                onSettingOptionSelect={setHeaderOption}
+                onSettingOptionSelect={setOption}
                 accountOptions={accountOptions}
             />
             : 
@@ -69,7 +66,7 @@ const Header = ({ options, option ,setOption, children }: Props) => {
                 options={productOptions} 
                 groupedProducts={groupedProducts}
                 settingOptions={options}
-                onSettingOptionSelect={setHeaderOption}
+                onSettingOptionSelect={setOption}
                 /> : 
             option === "extensive" 
             ? <HeaderExtensive
@@ -77,14 +74,14 @@ const Header = ({ options, option ,setOption, children }: Props) => {
                 options={productOptions} 
                 groupedProducts={groupedProducts}
                 settingOptions={options}
-                onSettingOptionSelect={setHeaderOption}
+                onSettingOptionSelect={setOption}
             /> : 
             <HeaderRightside
                 categories={context.categories} 
                 options={productOptions} 
                 groupedProducts={groupedProducts}
                 settingOptions={options}
-                onSettingOptionSelect={setHeaderOption}
+                onSettingOptionSelect={setOption}
             />
         }
         

@@ -25,11 +25,15 @@
     box-shadow: 0 0 8px 1px rgb(216, 216, 216);
     padding: 10px;
     display: grid;
-    grid-template-columns: 100px 2fr 1fr;
+    grid-template-columns: 120px 2fr 1fr;
 }
 
 .liked_item__img {
-    height: 70px;
+    max-height: 100px;
+    max-width: 120px;
+    display: flex;
+    align-self: center;
+    justify-self: center; 
 }
 
 .liked_item__link {

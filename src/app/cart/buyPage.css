@@ -199,12 +199,12 @@
     position: absolute;
     font-size: 0.8rem;
     padding: 0.5rem;
-    top: -2.5rem;
+    top: -1.5rem;
     width: auto;
     transform: translateX(100%);
-    background-color: var(--main-light)  !important;
+    background-color: var(--main-medium) !important;
     color: white !important;
-    border: 1px solid var(--main-light)  !important; 
+    border: 1px solid var(--main-medium) !important; 
 }
 
 .message--float::after {
@@ -215,7 +215,7 @@
     margin-left: -6px;
     border-width: 6px;
     border-style: solid;
-    border-color:  var(--main-light) transparent transparent transparent;
+    border-color:  var(--main-medium) transparent transparent transparent;
   }
 
   

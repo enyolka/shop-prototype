@@ -25,7 +25,7 @@ const LikedPage =( props: any) => {
           <ul className="liked_list">
             {context.liked.map(item => (
               <li key={item.id} className="liked_item">
-                  <img alt="" src={placeholder} className="liked_item__img"/>
+                  <img alt="" src={item.image} className="liked_item__img"/>
                   <Link to={`/${item.id}`} className="liked_item__link">{item.name}</Link>
                   <Button
                     onClick={() =>

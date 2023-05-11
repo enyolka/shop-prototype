@@ -4,16 +4,15 @@
   --gray: rgb(221, 221, 221);
   --main: rgb(41, 80, 98);
   --secondary: rgb(23, 116, 139);
-  --main-light: rgb(125, 171, 183);
-  --main-light-semimax: rgb(170, 219, 219);
+  --main-light: rgb(170, 219, 219);
   --main-medium: rgb(65, 164, 177);
-  --focus-text: rgb(178, 122, 24);
+  --main-light-max: rgb(232, 244, 244);
   --shadow: rgb(0, 0, 0, 0.1);
   --error-red: rgb(196, 2, 2);
   --important: rgb(255, 158, 72);
   --important-hover: rgb(208, 133, 66);
   --important-text: rgb(195, 136, 34);
-  --main-light-max: rgb(232, 244, 244);
+  --focus-text: rgb(178, 122, 24);
 }
 
 * {
@@ -25,7 +24,7 @@
 }
 
 .container {
-    margin: 140px auto 20px;
+    margin: 160px auto 20px;
     min-width: 250px;
     max-width: 1400px;
     padding: 2rem; 
@@ -34,7 +33,7 @@
 
 @media only screen and (min-width: 600px) {
   .container {
-    margin: 150px auto 20px; 
+    margin: 180px auto 20px; 
   }
 }
 
