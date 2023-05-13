@@ -20,7 +20,6 @@ export type AccountFormModel = {
 }
 
 const AccountPage =( props: any) => {
-    const context = useContext(ProductContext);
     const [logged, setLogged] = useState(sessionStorage.getItem('logged') === "true");    
     const [list, setList] = useState(JSON.parse(localStorage.getItem("accounts")) || [])
     const [idx, setIdx] = useState(list.findIndex((account: AccountFormModel) => JSON.parse(sessionStorage.getItem("account"))?.name === account?.name) || null)
@@ -43,14 +42,14 @@ const AccountPage =( props: any) => {
 
     useEffect(() => {
       setIdx(list.findIndex((account: AccountFormModel) => JSON.parse(sessionStorage.getItem("account"))?.name === account?.name) || null)
-    },[JSON.parse(localStorage.getItem("accounts"))])
+    }, [list])
 
     return (
       <>
         <article className="account">
           {logged && idx != null
           ? <>
-            <Button 
+            {/* <Button 
               className="button_logout" 
               onClick={() => {
                 setLogged(false)
@@ -58,7 +57,7 @@ const AccountPage =( props: any) => {
               }}
             >
               Wyloguj się
-            </Button>
+            </Button> */}
             <AccountDetailsPage />
           </>
           : <>

@@ -16,12 +16,10 @@ type Props = PropsButton &  React.ButtonHTMLAttributes<HTMLButtonElement>;
 
 const Button = ({ role = "default", className, effect, children, ...props}: Props) => {
     var animateButton = function(e:any) {
-
         e.preventDefault;
-        //reset animation
-        e.target.classList.remove('animate');
-        
+        // e.target.classList.remove('animate');
         e.target.classList.add('animate');
+
         setTimeout(function(){
           e.target.classList.remove('animate');
         },700);

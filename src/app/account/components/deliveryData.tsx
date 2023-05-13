@@ -46,15 +46,15 @@ const DeliveryData =( props: any) => {
 
     const validationSchema = Yup.object({
       name: Yup.string()
-      .max(30, "Must be 30 characters or less")
-      .required("Required"),
+      .max(40, "Musi składać się z co najwyżej 40 znaków")
+      .required("Pole wymagane"),
       street: Yup.string()
-        .max(20, "Must be 20 characters or less")
-        .required("Required"),
-      zipCode: Yup.string().required("Required"),
+        .max(40, "Musi składać się z co najwyżej 40 znaków")
+        .required("Pole wymagane"),
+      zipCode: Yup.string().required("Pole wymagane"),
       city: Yup.string()
-        .max(20, "Must be 20 characters or less")
-        .required("Required"),
+        .max(30, "Musi składać się z co najwyżej 30 znaków")
+        .required("Pole wymagane"),
     });
     
     const onSubmit = (values: any) => {

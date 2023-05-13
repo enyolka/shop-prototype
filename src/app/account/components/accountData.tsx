@@ -36,13 +36,14 @@ const AccountData =( props: any) => {
       /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
 
     const validationSchema = Yup.object({
-      phone: Yup.string().matches(phoneRegExp, "Phone number is not valid").required("Required"),
-      email: Yup.string().email("Email is not valid").required("Required"),
+      phone: Yup.string().matches(phoneRegExp, "Numer telefonu niepoprawny").required("Pole wymagane"),
+      email: Yup.string().email("Email niepoprawny").required("Pole wymagane"),
       password: Yup.string()
+      .required('pole wymagane')
       .matches(
         /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/,
-        "Must Contain 8 Characters, One Uppercase, One Lowercase, One Number and One Special Case Character"
-      ).required("Required"),
+        "Musi zawierać 8 znaków oraz przynajmniej jedną wielką i małą literę, liczbę i znak specjalny"
+      )
     });
 
     const onSubmit = (values: any) => {

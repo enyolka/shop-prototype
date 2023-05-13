@@ -30,7 +30,7 @@
 
 .button:disabled:hover {
     cursor: not-allowed;
-    filter:initial;
+    filter: initial;
 }
 
 .button:hover {

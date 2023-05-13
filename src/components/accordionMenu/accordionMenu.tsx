@@ -76,7 +76,7 @@ function AccordionSection({
           style={{
             visibility: expanded ? "visible" : "hidden",
             height: expanded ? "auto" : "0px",
-            backgroundColor:  color === "default" ? "rgb(253, 253, 253)" : (color == "main" ? "rgb(240, 252, 250)" : color),
+            backgroundColor:  color === "default" ? "rgb(253, 253, 253)" : (color == "main" ? "rgba(255,255,255, 0.5)"  : color),
           }}
         >
           {subHeader && <h5>{subHeader}</h5>}

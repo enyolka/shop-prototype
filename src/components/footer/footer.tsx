@@ -9,8 +9,9 @@ const Footer = () => {
             <Newsletter size="small"/>
             <div className="footer__menu">
                 <Link to="/">O nas</Link>
-                <Link to="/">Regulamin</Link>
-                <Link to="/">Polityka prywatności</Link>
+                <Link to="/produkty">Wszystkie produkty</Link>
+                <Link to="/promocje">Promocje</Link>
+                <Link to="/regulamin">Regulamin</Link>
                 <Link to="/kontakt">Kontakt i pomoc</Link>
             </div>
             <div>

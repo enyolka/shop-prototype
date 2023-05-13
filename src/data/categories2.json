@@ -23,21 +23,6 @@
         ]
     },
     {
-        "name": "Audio",
-        "icon": "fas fa-headphones",
-        "subcategories": [
-            {
-                "name": "Słuchawki bezprzewodowe"
-            },
-            {
-                "name":  "Słuchawki douszne"
-            }, 
-            {
-                "name": "Głośniki"
-            }
-        ]
-    }, 
-    {
         "name": "Akcesoria",
         "icon": "fas fa-keyboard",
         "subcategories": [
@@ -46,6 +31,12 @@
             },
             {
                 "name": "Klawiatury"
+            },
+            {
+                "name": "Słuchawki"
+            },
+            {
+                "name": "Głośniki"
             }
         ]
                 
@@ -67,6 +58,33 @@
             },
             {
                 "name": "Monitory"
+            }
+        ]
+    },
+    {
+        "name": "Kamery i foto",
+        "icon": "fas fa-camera",
+        "subcategories": [
+            {
+                "name": "Kamery"
+            },
+            {
+                "name": "Aparaty"
+            },
+            {
+                "name": "Drony"
+            }
+        ]
+    },
+    {
+        "name": "Gry i konsole",
+        "icon": "fas fa-gamepad",
+        "subcategories": [
+            {
+                "name": "Konsole"
+            },
+            {
+                "name": "Gry"
             }
         ]
     }

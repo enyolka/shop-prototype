@@ -17,6 +17,7 @@
 
 .form_cart__info {
     display: grid;
+    color: rgb(75, 75, 75);
     gap: 0.5rem;
 }
 

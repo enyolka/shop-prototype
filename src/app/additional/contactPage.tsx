@@ -49,7 +49,7 @@ const ContactPage =( props: any) => {
             <p>Oczywiście! Skontaktuj się z nami, a my omówimy Twoją sytuację i wskażemy najlepszą formę zwrotu.</p>
           </AccordionSection>
           <AccordionSection header="Programy lojalnościowe i kupony - komu przysługują?">
-            <p>Jedynie zlaogowani użytkownicy mają dostęp do programów lojalnościowych i kuponów. Pojawiają się one cyklicznie, użytkownicy otrzymują powiadomienie na ich temat</p>
+            <p>Jedynie zalogowani użytkownicy mają dostęp do programów lojalnościowych i kuponów. Pojawiają się one cyklicznie, użytkownicy otrzymują powiadomienie na ich temat</p>
           </AccordionSection>
         </Accordion>
       </article>

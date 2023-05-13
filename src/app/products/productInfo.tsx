@@ -49,7 +49,7 @@ const ProductInfo = ({ children }: Props) => {
               onClick={() => {
                 isLiked ? context.removeProductFromLiked(product.id) : context.addProductToLiked(product)}}
             >
-              {isLiked ? "Remove from liked" : "Add to Liked"}
+              {isLiked ? "Usuń z ulubionych" : "Dodaj do ulubionych"}
               <span></span>
             </Button>
             <Button
@@ -57,7 +57,7 @@ const ProductInfo = ({ children }: Props) => {
               effect={true}
               onClick={() => context.addProductToCart(product)}
             >
-              Add to Cart
+              Dodaj do koszyka
             </Button>
           </div>
         </article>

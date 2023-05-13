@@ -61,33 +61,35 @@ const DeliveryPage =({ onNext }: Props) => {
 
     const validationSchema = Yup.object({
       name: Yup.string()
-        .max(30, "Must be 30 characters or less")
-        .required("Required"),
-      phone: Yup.string().matches(phoneRegExp, "Phone number is not valid")
-      .required("Required"),
-      email: Yup.string().email("Email is not valid")
-      .required("Required"),
+      .max(40, "Musi składać się z co najwyżej 40 znaków")
+      .required("Pole wymagane"),
+      phone: Yup.string().matches(phoneRegExp, "Numer telefonu niepoprawmy")
+      .required("Pole wymagane"),
+      email: Yup.string().email("Email niepoprawny")
+      .required("Pole wymagane"),
       street: Yup.string()
-        .max(20, "Must be 20 characters or less")
-        .required("Required"),
-      zipCode: Yup.string().required("Required"),
+        .max(40, "Musi składać się z co najwyżej 40 znaków")
+        .required("Pole wymagane"),
+      zipCode: Yup.string().required("Pole wymagane"),
       city: Yup.string()
-        .max(20, "Must be 20 characters or less")
-        .required("Required"),
+        .max(30, "Musi składać się z co najwyżej 30 znaków")
     });
 
     return (
       <>
      {!editable && !!data
-        && <div className="form_cart__actual card"> 
+        && (
+        <div className="form_cart__actual card"> 
           <div className="form_cart__info">
-            <p>{initialModel?.name}</p>
-            <p>{initialModel?.phone}</p>
-            <p>{initialModel?.email}</p>
-            <p>{initialModel?.street}, {initialModel?.zipCode} {initialModel?.city}</p>
+            <p>Imię i nazwisko:  <b>{initialModel?.name || "-"}</b></p>
+            <p>Telefon:  <b>{initialModel?.phone || "-"}</b></p>
+            <p>Email:  <b>{initialModel?.email || "-"}</b></p>
+            <p>Ulica:  <b>{initialModel?.street || "-"}</b></p>
+            <p>Kod pocztowy:  <b>{initialModel?.zipCode || "-"}</b></p>
+            <p>Miejscowowść:   <b>{initialModel?.city || "-"}</b></p>
           </div>
           <Button onClick={() => setEditable(true)} className="form_cart__button">Edytuj dane</Button>
-        </div>
+        </div>)
 }
          {(editable || !data) && <Formik<ClientFormModel>
           initialValues={initialModel}

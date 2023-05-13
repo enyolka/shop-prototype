@@ -24,8 +24,8 @@
       {
         "id": "005",
         "name": "Słuchawki bezprzewodowe Sony WH-1000XM4",
-        "category": "Audio",
-        "subcategory": "Słuchawki bezprzewodowe",
+        "category": "Akcesoria",
+        "subcategory": "Słuchawki",
         "image": "https://image.ceneostatic.pl/data/products/96008086/i-sony-wh-1000xm4-srebrny.jpg",
         "description": "Słuchawki bezprzewodowe Sony WH-1000XM4 z technologią redukcji szumów i 30 godzinami pracy na baterii.",
         "price": 1599
@@ -70,8 +70,8 @@
       {
         "id": "012",
         "name": "Słuchawki douszne Apple AirPods Pro",
-        "category": "Audio",
-        "subcategory": "Słuchawki douszne",
+        "category": "Akcesoria",
+        "subcategory": "Słuchawki",
         "image": "https://a.allegroimg.com/original/11907b/eff76be84e28936ecd5781eeb4fe/SLUCHAWKI-IPHONE-APPLE-AirPods-Pro-II-DOKANALOWE",
         "description": "Słuchawki douszne Apple AirPods Pro z technologią redukcji szumów i 4,5 godzinami pracy na baterii.",
         "price": 1099
@@ -79,8 +79,8 @@
       {
         "id": "014",
         "name": "Słuchawki douszne Samsung Galaxy Buds Pro",
-        "category": "Audio",
-        "subcategory": "Słuchawki douszne",
+        "category": "Akcesoria",
+        "subcategory": "Słuchawki",
         "image": "https://image.ceneostatic.pl/data/products/101582972/9719b8fe-afde-4593-b10a-a38be81acc97_i-samsung-galaxy-buds-pro-sm-r190-fioletowy.jpg",
         "description": "Słuchawki douszne Samsung Galaxy Buds Pro z redukcją szumów i baterią o pojemności 61 mAh.",
         "price": 799
@@ -125,7 +125,7 @@
       {
         "id": "023",
         "name": "Głośnik Sonos One",
-        "category": "Audio",
+        "category": "Akcesoria",
         "subcategory": "Głośniki",
         "image": "https://image.ceneostatic.pl/data/products/85697717/i-sonos-one-sl-bialy.jpg",
         "description": "Głośnik Sonos One z obsługą Amazon Alexa i asystentem Google Assistant.",
@@ -190,7 +190,7 @@
         "id": "oi5",
         "name": "Słuchawki Apple AirPods Pro Max",
         "category": "Audio",
-        "subcategory": "Słuchawki bezprzewodowe",
+        "subcategory": "Słuchawki",
         "image": "https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/airpods-max-select-skyblue-202011_FV1_FMT_WHH?wid=940&hei=800&fmt=jpeg&qlt=90&.v=1604776025000",
         "description": "Bezprzewodowe słuchawki z aktywnym tłumieniem hałasu, trybem przezroczystym i odpornością na wodę i pot.",
         "price": 1099
@@ -429,108 +429,45 @@
       {
       "id": "ab4",
       "name": "Kamera Sony Alpha A7R IV",
-      "category": "Fotografia",
-      "subcategory": "Aparaty cyfrowe",
-      "image": "https://example.com/sony-alpha-a7r-iv.jpg",
+      "category": "Kamery i foto",
+      "subcategory": "Aparaty",
+      "image": "https://aabworld.com/media/catalog/product/cache/237ef60c9f2fe0eb30d3cc363694a887/1/6/1634813219_img_1627574.jpg",
       "description": "Aparat Sony Alpha A7R IV z matrycą o rozdzielczości 61 MP, autofokusem z 567 punktami i możliwością nagrywania wideo 4K.",
       "price": 13499
       },
       {
-        "id": "0a4",
-        "name": "Kamera GoPro HERO9 Black",
-        "category": "Foto i video",
-        "subcategory": "Kamery sportowe",
-        "image": "https://shop.gopro.com/on/demandware.static/-/Sites-shop-masthead-catalog/default/dw39d320c5/hero9-black/dw-gopro-hero9-black-camera-01.jpg",
+        "id": "aby",
+        "name": "Aparat SONY ZV-1F",
+        "category": "Kamery i foto",
+        "subcategory": "Aparaty",
+        "image": "https://image.ceneostatic.pl/data/products/141207849/i-sony-zv-1f-czarny.jpg",
+        "description": "Kiedy zaczynasz przygodę z vlogowaniem to sprzęt, na którym będziesz pracować musi być szybki i prosty w użyciu. Uchylny ekran, system AF, tryb prezentacji i przełącznik bokeh to jedne z licznych zalet SONY ZV-1F.",
+        "price": 13499
+        },
+        {
+          "id": "ab0",
+          "name": "Kamera SONY HDR-CX240EB",
+          "category": "Kamery i foto",
+          "subcategory": "Kamery",
+          "image": "https://www.kamera-express.nl/media/a3a4b23c-f17c-4a73-8f65-d85e936bb0a6/Sony_HDR_CX240_1.jpg",
+          "description": "Kamera SONY HDR-CX240E to świetny wybór dla osób, które chcą uwieczniać przyjemne życiowe momenty w wysokiej jakości. Przystępna cena i dobre parametry to jedne z kluczowych zalet tego urządzenia.",
+          "price": 13499
+        },
+      {
+        "id": "0c4",
+        "name": "Kamera sportowa DJI Osmo Action 3 Adventure Combo",
+        "category": "Kamery i foto",
+        "subcategory": "Kamery",
+        "image": "https://image.ceneostatic.pl/data/products/139395644/i-dji-osmo-action-3-adventure-combo.jpg",
         "description": "Kamera sportowa z możliwością nagrywania w rozdzielczości 5K, stabilizacją obrazu HyperSmooth 3.0 i funkcją LiveBurst.",
-        "price": 1999
-      },
-      {
-        "id": "032",
-        "name": "Klawiatura mechaniczna Logitech G915",
-        "category": "Akcesoria",
-        "subcategory": "Klawiatury",
-        "image": "https://example.com/logitech-g915.jpg",
-        "description": "Klawiatura mechaniczna logitech",
-        "price": 230
-      },
-      {
-        "id": "031",
-        "name": "Konsola Sony PlayStation 5",
-        "category": "Konsole",
-        "subcategory": "Sony PlayStation",
-        "image": "https://example.com/sony-playstation-5.jpg",
-        "description": "Konsola Sony PlayStation 5 z dyskiem SSD i trybem 4K dla gier.",
-        "price": 2299
-      },
-      {
-        "id": "028",
-        "name": "Kamera GoPro HERO9 Black",
-        "category": "Kamery",
-        "subcategory": "GoPro HERO",
-        "image": "https://example.com/gopro-hero9-black.jpg",
-        "description": "Kamera GoPro HERO9 Black z możliwością nagrywania wideo w rozdzielczości 5K i fotografowania w rozdzielczości 20 MP.",
-        "price": 1799
-      },
-      {
-        "id": "026",
-        "name": "Konsola Xbox Series X",
-        "category": "Konsole",
-        "subcategory": "Xbox",
-        "image": "https://example.com/xbox-series-x.jpg",
-        "description": "Konsola Xbox Series X z procesorem AMD Zen 2 i możliwością grania w gry w rozdzielczości 4K i 120 klatek na sekundę.",
-        "price": 2499
-      },
-      {
-        "id": "027",
-        "name": "Router ASUS RT-AX88U",
-        "category": "Sieci",
-        "subcategory": "Routery",
-        "image": "https://example.com/asus-rt-ax88u.jpg",
-        "description": "Router ASUS RT-AX88U z obsługą standardu Wi-Fi 6 i 8 portami LAN.",
-        "price": 1299
-      },
-      {
-        "id": "021",
-        "name": "Dron DJI Mavic Air 2",
-        "category": "Drony",
-        "subcategory": "DJI Mavic",
-        "image": "https://example.com/dji-mavic-air-2.jpg",
-        "description": "Dron DJI Mavic Air 2 z kamerą 4K i możliwością lotu na odległość do 10 km.",
-        "price": 4499
-      },
-      {
-        "id": "019",
-        "name": "Smartwatch Samsung Galaxy Watch 4",
-        "category": "Akcesoria",
-        "subcategory": "Smartwatche",
-        "image": "https://example.com/galaxy-watch-4.jpg",
-        "description": "Smartwatch Samsung Galaxy Watch 4 z ekranem Super AMOLED o rozdzielczości 450 x 450 pikseli i czujnikiem tętna.",
-        "price": 1299
-      },
-      {
-        "id": "018",
-        "name": "Konsola Nintendo Switch OLED",
-        "category": "Gry i konsole",
-        "subcategory": "Konsole",
-        "image": "https://example.com/nintendo-switch-oled.jpg",
-        "description": "Konsola Nintendo Switch OLED z ekranem OLED o przekątnej 7 cali i wbudowaną pamięcią 64 GB.",
-        "price": 1899
-      },
-      {
-        "id": "011",
-        "name": "Konsola Microsoft Xbox Series X",
-        "category": "Gry i konsole",
-        "subcategory": "Konsole",
-        "image": "https://example.com/xbox-series-x.jpg",
-        "description": "Konsola Microsoft Xbox Series X z dyskiem SSD 1 TB i procesorem AMD Zen 2.",
-        "price": 2299
+        "price": 1995
       },
       {
         "id": "006",
         "name": "Aparat fotograficzny Canon EOS R6",
-        "category": "Aparaty fotograficzne",
-        "subcategory": "Lustrzanki cyfrowe",
-        "image": "https://example.com/canon-eos-r6.jpg",
+        "category": "Kamery i foto",
+        "subcategory": "Aparaty",
+        "image": "https://i1.adis.ws/i/canon/eos-r6-24-105-front-on-gallery-pdp_ef934a7cb993443f8b823cc67db34012?$prod-gallery-1by1-jpg$",
         "description": "Aparat fotograficzny Canon EOS R6 z matrycą CMOS o rozdzielczości 20,1 Mpx i systemem AF Dual Pixel CMOS.",
         "price": 8499
       },
@@ -539,35 +476,16 @@
         "name": "Konsola Sony PlayStation 5",
         "category": "Gry i konsole",
         "subcategory": "Konsole",
-        "image": "https://example.com/playstation-5.jpg",
+        "image": "https://media.direct.playstation.com/is/image/psdglobal/PS5-console-front",
         "description": "Konsola Sony PlayStation 5 z dyskiem SSD 825 GB i procesorem AMD Zen 2.",
         "price": 2599
       },
-      {
-        "id": "002",
-        "name": "Smartwatch Apple Watch Series 7",
-        "category": "Akcesoria",
-        "subcategory": "Smartwatche",
-        "image": "https://example.com/apple-watch-series-7.jpg",
-        "description": "Smartwatch Apple Watch Series 7 z ekranem Retina o rozdzielczości 324 x 394 pikseli i ochroną IPX7.",
-        "price": 1799
-      },
-      
-      {
-        "id": "ab4",
-        "name": "Kamera Sony Alpha A7R IV",
-        "category": "Fotografia",
-        "subcategory": "Aparaty cyfrowe",
-        "image": "https://example.com/sony-alpha-a7r-iv.jpg",
-        "description": "Aparat Sony Alpha A7R IV z matrycą o rozdzielczości 61 MP, autofokusem z 567 punktami i możliwością nagrywania wideo 4K.",
-        "price": 13499
-        },
         {
-          "id": "0a4",
-          "name": "Kamera GoPro HERO9 Black",
-          "category": "Foto i video",
-          "subcategory": "Kamery sportowe",
-          "image": "https://shop.gopro.com/on/demandware.static/-/Sites-shop-masthead-catalog/default/dw39d320c5/hero9-black/dw-gopro-hero9-black-camera-01.jpg",
+          "id": "0a4a",
+          "name": "Kamera GoPro HERO8 Black",
+          "category": "Kamery i foto",
+          "subcategory": "Kamery",
+          "image": "https://www.mediaexpert.pl/media/cache/resolve/gallery/images/20/2000805/Kamera-sportowa-GOPRO-HERO8-BLACK-1.jpg",
           "description": "Kamera sportowa z możliwością nagrywania w rozdzielczości 5K, stabilizacją obrazu HyperSmooth 3.0 i funkcją LiveBurst.",
           "price": 1999
         },
@@ -576,62 +494,53 @@
           "name": "Klawiatura mechaniczna Logitech G915",
           "category": "Akcesoria",
           "subcategory": "Klawiatury",
-          "image": "https://example.com/logitech-g915.jpg",
+          "image": "https://www.alternate.nl/p/600x600/n/Logitech_G915_LIGHTSPEED_Wireless_RGB_Mechanical_Gaming_Keyboard@@ntzlzag1_30.jpg",
           "description": "Klawiatura mechaniczna logitech",
           "price": 230
         },
         {
+          "id": "0333",
+          "name": "Klawiatura Logitech K380",
+          "category": "Akcesoria",
+          "subcategory": "Klawiatury",
+          "image": "https://img.informatique.nl/750/20901401.jpg",
+          "description": "Klawiatura logitech K380 w kolorze różowym. Estetyczna, przyjemna w użytkowaniu.",
+          "price": 240
+        },
+        {
           "id": "031",
-          "name": "Konsola Sony PlayStation 5",
+          "name": "Konsola Sony PlayStation 4",
           "category": "Gry i konsole",
           "subcategory": "Sony PlayStation",
-          "image": "https://example.com/sony-playstation-5.jpg",
-          "description": "Konsola Sony PlayStation 5 z dyskiem SSD i trybem 4K dla gier.",
+          "image": "https://m.media-amazon.com/images/I/71iKdXqlx2L._AC_SX522_.jpg",
+          "description": "Konsola Sony PlayStation 4 z dyskiem SSD i trybem 4K dla gier.",
           "price": 2299
         },
         {
           "id": "028",
           "name": "Kamera GoPro HERO9 Black",
-          "category": "Kamery",
-          "subcategory": "GoPro HERO",
-          "image": "https://example.com/gopro-hero9-black.jpg",
+          "category": "Kamery i foto",
+          "subcategory": "Kamery",
+          "image": "https://www.gohero.pl/userdata/public/assets/GoPro9/gopro%209%20gohero.png",
           "description": "Kamera GoPro HERO9 Black z możliwością nagrywania wideo w rozdzielczości 5K i fotografowania w rozdzielczości 20 MP.",
           "price": 1799
         },
         {
-          "id": "026",
-          "name": "Konsola Xbox Series X",
-          "category": "Gry i konsole",
-          "subcategory": "Xbox",
-          "image": "https://example.com/xbox-series-x.jpg",
-          "description": "Konsola Xbox Series X z procesorem AMD Zen 2 i możliwością grania w gry w rozdzielczości 4K i 120 klatek na sekundę.",
-          "price": 2499
-        },
-        {
-          "id": "027",
-          "name": "Router ASUS RT-AX88U",
-          "category": "Sieci",
-          "subcategory": "Routery",
-          "image": "https://example.com/asus-rt-ax88u.jpg",
-          "description": "Router ASUS RT-AX88U z obsługą standardu Wi-Fi 6 i 8 portami LAN.",
-          "price": 1299
-        },
-        {
           "id": "021",
           "name": "Dron DJI Mavic Air 2",
-          "category": "Drony",
-          "subcategory": "DJI Mavic",
-          "image": "https://example.com/dji-mavic-air-2.jpg",
+          "category": "Kamery i foto",
+          "subcategory": "Drony",
+          "image": "https://m.media-amazon.com/images/I/81U7zKn3htL._AC_SY450_.jpg",
           "description": "Dron DJI Mavic Air 2 z kamerą 4K i możliwością lotu na odległość do 10 km.",
           "price": 4499
         },
         {
           "id": "019",
-          "name": "Smartwatch Samsung Galaxy Watch 4",
+          "name": "Smartwatch Samsung Galaxy Watch Active",
           "category": "Akcesoria",
           "subcategory": "Smartwatche",
-          "image": "https://example.com/galaxy-watch-4.jpg",
-          "description": "Smartwatch Samsung Galaxy Watch 4 z ekranem Super AMOLED o rozdzielczości 450 x 450 pikseli i czujnikiem tętna.",
+          "image": "https://tweakers.net/ext/i/2002524632.jpeg",
+          "description": "Smartwatch Samsung Galaxy Watch Active z ekranem Super AMOLED o rozdzielczości 450 x 450 pikseli i czujnikiem tętna.",
           "price": 1299
         },
         {
@@ -639,7 +548,7 @@
           "name": "Konsola Nintendo Switch OLED",
           "category": "Gry i konsole",
           "subcategory": "Konsole",
-          "image": "https://example.com/nintendo-switch-oled.jpg",
+          "image": "https://image.ceneostatic.pl/data/products/111261978/i-nintendo-switch-oled-white.jpg",
           "description": "Konsola Nintendo Switch OLED z ekranem OLED o przekątnej 7 cali i wbudowaną pamięcią 64 GB.",
           "price": 1899
         },
@@ -648,36 +557,27 @@
           "name": "Konsola Microsoft Xbox Series X",
           "category": "Gry i konsole",
           "subcategory": "Konsole",
-          "image": "https://example.com/xbox-series-x.jpg",
+          "image": "https://image.ceneostatic.pl/data/products/88072703/i-microsoft-xbox-series-x.jpg",
           "description": "Konsola Microsoft Xbox Series X z dyskiem SSD 1 TB i procesorem AMD Zen 2.",
           "price": 2299
-        },
-        {
-          "id": "006",
-          "name": "Aparat fotograficzny Canon EOS R6",
-          "category": "Aparaty fotograficzne",
-          "subcategory": "Lustrzanki cyfrowe",
-          "image": "https://example.com/canon-eos-r6.jpg",
-          "description": "Aparat fotograficzny Canon EOS R6 z matrycą CMOS o rozdzielczości 20,1 Mpx i systemem AF Dual Pixel CMOS.",
-          "price": 8499
-        },
-        {
-          "id": "004",
-          "name": "Konsola Sony PlayStation 5",
-          "category": "Gry i konsole",
-          "subcategory": "Konsole",
-          "image": "https://example.com/playstation-5.jpg",
-          "description": "Konsola Sony PlayStation 5 z dyskiem SSD 825 GB i procesorem AMD Zen 2.",
-          "price": 2599
         },
         {
           "id": "002",
           "name": "Smartwatch Apple Watch Series 7",
           "category": "Akcesoria",
           "subcategory": "Smartwatche",
-          "image": "https://example.com/apple-watch-series-7.jpg",
+          "image": "https://m.media-amazon.com/images/I/71teqM9Mh3L._AC_SX522_.jpg",
           "description": "Smartwatch Apple Watch Series 7 z ekranem Retina o rozdzielczości 324 x 394 pikseli i ochroną IPX7.",
           "price": 1799
-        }        
+        },
+        {
+          "id": "01m8",
+          "name": "FIFA 23 Gra PS5",
+          "category": "Gry i konsole",
+          "subcategory": "Gry",
+          "image": "https://media.s-bol.com/K7jAYExG41BM/8YQxlg/550x670.jpg",
+          "description": "Gra EA SPORTS™ FIFA 23 wnosi na boisko jeszcze więcej energii i realizmu piłki nożnej. Dzięki rozbudowie technologii HyperMotion2, uzyskanej dzięki dwa razy większej bazie motion capture, w każdym meczu zobaczysz więcej autentycznych animacji niż kiedykolwiek przedtem.",
+          "price": 199
+        }
     ]
 }}}

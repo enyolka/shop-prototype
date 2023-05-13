@@ -6,7 +6,6 @@ import Message from "../../../components/message/message";
 import { ErrorMessage, Field, FieldInputProps, FieldMetaProps, Form, Formik, FormikProps } from "formik";
 import { AccountFormModel } from "../accountPage";
 
-
 export interface FieldProps<V = any> {
   field: FieldInputProps<V>;
   form: FormikProps<V>;
@@ -23,9 +22,10 @@ const RegisterForm = ({}: Props) => {
   const [list, setList] = useState(JSON.parse(localStorage.getItem("accounts")) || [])
   const [registered, setRegistered] = useState(false)
   const [tried, setTried] = useState(false)
-  const validatedNames = [...list?.map((account: AccountFormModel) => account.name)]
-
+  const [validatedNames, setValidatedNames] = useState(list?.map((account: AccountFormModel) => account.name))
+  
   useEffect(() => setTried(false),[])
+  useEffect(() =>  setValidatedNames(list?.map((account: AccountFormModel) => account.name)), [list])
 
   const initialModel: AccountFormModel = {
     name: "",
@@ -33,22 +33,20 @@ const RegisterForm = ({}: Props) => {
     password: ""
   };
 
-  const passRegExp = /^(?=.*[^A-Za-z0-9]).+$/;
-
   const validationSchema = Yup.object({
     name: Yup.string()
-      .max(30, "Must be 30 characters or less")
-      .notOneOf(validatedNames, "This name already exist")
-      .required("Required"),
+      .max(30, "Musi zawierać co najwyżej 30 znaków")
+      .notOneOf(validatedNames, "Taki login już istnieje")
+      .required("Pole wymagane"),
     password: Yup.string()
-    .required('Please Enter your password')
+    .required('Wprowadź hasło')
     .matches(
       /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/,
-      "Must Contain 8 Characters, One Uppercase, One Lowercase, One Number and One Special Case Character"
+      "Musi zawierać 8 znaków oraz przynajmniej jedną wielką i małą literę, liczbę i znak specjalny."
     )
-    .required("Required"),
-    email: Yup.string().email("Email is not valid")
-    .required("Required"),
+    .required("Pole wymagane"),
+    email: Yup.string().email("Email niopoprawny")
+    .required("Pole wymagane"),
 
   });
 
@@ -59,7 +57,8 @@ const RegisterForm = ({}: Props) => {
   validateOnChange={true}
   validateOnBlur={true}
   onSubmit={(values: any, { resetForm }: any) => {
-    setList(list.push({name: values.name, email: values.email, password: values.password}))
+    list.push({name: values.name, email: values.email, password: values.password})
+    setList(list)
     localStorage.setItem("accounts", JSON.stringify(list))
     setTried(true)
     setRegistered(true) 
