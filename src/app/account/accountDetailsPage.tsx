@@ -10,34 +10,43 @@ import Loyalty from "./components/loyalty";
 import DeliveryData from "./components/deliveryData";
 import ContactPage from "../additional/contactPage";
 
+type Props = {
+  option?: "accountData" | "deliveryData" | "loyalty" | "contact";
+}
 
-const AccountDetailsPage =( props: any) => {
-  const menu = ["accountData", "deliveryData", "loyalty", "contact", "settings",]
-    const [menuOption, setMenuOption] = useState(menu[0])
+const AccountDetailsPage =({ option }: Props) => {
+  const menu = ["accountData", "deliveryData", "loyalty", "contact", "settings"]
+  const [menuOption, setMenuOption] = useState(option || menu[0])
+  console.log(menu)
+
+  React.useEffect(() => setMenuOption(option || menu[0]),[option])
 
     return (
       <article className="accountDetails">
       <nav className="accountDetails_menu">
         <MenuItem 
+            to="/konto/informacje"
             header="Dane konta" 
             className="accountDetails_menuItem"
             onClick={() => setMenuOption("accountData")}
-            showActive={menuOption === "accountData"}
+            showActive={menuOption == "accountData"}
           />
           <MenuItem 
+            to="/konto/adres"
             header="Dane adresowe do wysyłki" 
             className="accountDetails_menuItem"
             onClick={() => setMenuOption("deliveryData")}
             showActive={menuOption === "deliveryData"}
           />
           <MenuItem 
+            to="/konto/programy-lojalnosciowe"
             header="Programy lojalnościowe" 
             className="accountDetails_menuItem"
             onClick={() => setMenuOption("loyalty")}
             showActive={menuOption === "loyalty"}
           />
           <MenuItem 
-            // to="/kontakt"
+            to="/konto/kontakt"
             header="Kontakt i pomoc" 
             className="accountDetails_menuItem"
             onClick={() => setMenuOption("contact")}

@@ -19,7 +19,11 @@ export type AccountFormModel = {
   deliverytData?: DeliveryFormModel;
 }
 
-const AccountPage =( props: any) => {
+type Props = {
+  option?: "accountData" | "deliveryData" | "loyalty" | "contact";
+}
+
+const AccountPage =({option}: Props) => {
     const [logged, setLogged] = useState(sessionStorage.getItem('logged') === "true");    
     const [list, setList] = useState(JSON.parse(localStorage.getItem("accounts")) || [])
     const [idx, setIdx] = useState(list.findIndex((account: AccountFormModel) => JSON.parse(sessionStorage.getItem("account"))?.name === account?.name) || null)
@@ -58,7 +62,7 @@ const AccountPage =( props: any) => {
             >
               Wyloguj się
             </Button> */}
-            <AccountDetailsPage />
+            <AccountDetailsPage option={option}/>
           </>
           : <>
             <div className="account_forms" /*style={{backgroundImage: `url(${bg})`}}*/>

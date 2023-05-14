@@ -173,7 +173,7 @@
 .header_horizontalMenu--simple {
   display: none;
   align-items: center;
-  margin: 8px 10% 8px;
+  margin: 8px;
   justify-content: space-between;
   min-width: 700px;
   max-width: 1200px;
@@ -249,8 +249,10 @@
   }
 
   .header_horizontalMenu--simple {
+    grid-column: 2/4;
     display: flex;
     align-items: center;
+    gap: 4px;
   }
 }
 
