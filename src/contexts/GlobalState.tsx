@@ -104,8 +104,6 @@ const GlobalState = ({ children }: Props) => {
     const ungroupedProducts =
       productsData.products.data.items.map(translateProduct);
     setProducts(ungroupedProducts);
-    // const x = groupBy(ungroupedProducts, (product : Product) => product.category);
-    // console.log([... x.bags, ...x.office]);
   }, [productsData]);
 
   useEffect(

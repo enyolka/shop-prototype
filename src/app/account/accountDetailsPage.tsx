@@ -20,7 +20,6 @@ const AccountDetailsPage = ({ option }: Props) => {
     "settings",
   ];
   const [menuOption, setMenuOption] = useState(option || menu[0]);
-  console.log(menu);
 
   React.useEffect(() => setMenuOption(option || menu[0]), [option]);
 

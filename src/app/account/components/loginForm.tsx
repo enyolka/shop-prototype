@@ -20,7 +20,6 @@ const LoginForm = ({ setLogged }: Props) => {
   const [login, setLogin] = useState("");
   const [password, setPassword] = useState("");
   const [failed, setFailed] = useState(false);
-  console.log(accounts);
 
   return (
     <form className="account_form">
@@ -56,7 +55,6 @@ const LoginForm = ({ setLogged }: Props) => {
             (account: AccountFormModel) => account.name === login
           );
           if (selected && selected.password === password) {
-            console.log(selected);
             setLogged(true);
             sessionStorage.setItem("account", JSON.stringify(selected));
             setFailed(false);

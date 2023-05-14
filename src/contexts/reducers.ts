@@ -23,7 +23,6 @@ const addProductToCart = (product: Product, state: any) => {
     updatedCart[updatedItemIndex] = updatedItem;
   }
   sessionStorage.setItem("cartItems", JSON.stringify(updatedCart));
-  console.log(updatedCart);
 
   return { ...state, cart: updatedCart };
 };
@@ -44,7 +43,6 @@ const removeProductFromCart = (productId: string, state: any) => {
     updatedCart[updatedItemIndex] = updatedItem;
   }
   sessionStorage.setItem("cartItems", JSON.stringify(updatedCart));
-  console.log(updatedCart);
 
   return { ...state, cart: updatedCart };
 };

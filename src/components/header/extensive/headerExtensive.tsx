@@ -242,7 +242,6 @@ const HeaderExtensive = ({
               to={`/produkty/${item.name}`}
               options={item.subcategories.map(({ name }: Subcategory) => name)}
               onOptionSelect={(name) => {
-                console.log(`/produkty/${item.name}/${name}`);
                 navigateAndClose(`/produkty/${item.name}/${name}`);
               }}
             >
