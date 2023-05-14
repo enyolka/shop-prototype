@@ -75,7 +75,7 @@ const HomePage = () => {
             </section>
           ))}
         </article>
-        <Link to="/products" className="home_propositions__link">
+        <Link to="/promocje" className="home_propositions__link">
           Zobacz więcej...
         </Link>
       </div>

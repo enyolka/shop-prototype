@@ -248,6 +248,14 @@ const HeaderSimple = ({
             </MenuItem>
           ) : null;
         })}
+         <MenuItem
+              className="header_bar__item"
+              onClick={() => navigate(`/promocje`)}
+              icon={<i className="fa-percent" />}
+              header={"Promocje"}
+            >
+              {/* {item.name} */}
+            </MenuItem>
       </nav>
       {children}
     </header>

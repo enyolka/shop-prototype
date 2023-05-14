@@ -117,6 +117,13 @@ const HeaderLeftside = ({
       color="main"
       headerColor="main"
     />,
+    <AccordionSection
+      header={"Promocje"}
+      onAdditionalClick={() => navigateAndClose(`/promocje`)}
+      expandable={false}
+      color="main"
+      headerColor="main"
+    />,
   ];
 
   return (
