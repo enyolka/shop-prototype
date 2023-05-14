@@ -1,6 +1,6 @@
 import * as React from "react";
 import { useContext, useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Product, ProductContext } from "../../contexts/GlobalState";
 import HeaderLeftside from "./leftside/headerLeftside";
 import categories from "../../data/categories.json"
@@ -19,6 +19,11 @@ export type Option = {
     disabled?: boolean;
 }
 
+export type AccountMenuOption = {
+    name: string;
+    link: () => void;
+}
+
 type Props = {
     options: string[];
     option: string;
@@ -29,6 +34,8 @@ type Props = {
   
 const Header = ({ options, option ,setOption, children }: Props) => {
     const context = useContext(ProductContext);
+    const navigate = useNavigate();
+
     const accountOptions = ["logowanie", "rejestracja"] 
     const productOptions = context.products.map(({name, category, subcategory, id}: Product) => {
         return {
@@ -44,8 +51,35 @@ const Header = ({ options, option ,setOption, children }: Props) => {
         soFar[item.category].push(item);
         return soFar;
         }, {});
+    
+    const toggleLogged = () => {
+        sessionStorage.removeItem("account")
+        sessionStorage.setItem('logged', JSON.stringify(false))
+        window.location.reload()
+    }
 
-
+    const accountMenuOptions = [
+        {
+            name: "Informacje",
+            link: () => navigate("/konto/informacje"),
+        },
+        {
+            name: "Adres",
+            link: () => navigate("/konto/adres") ,
+        },
+        {
+            name: "Kupony",
+            link: () => navigate("/konto/programy-lojalnosciowe"),
+        },
+        {
+            name: "Kontakt i pomoc",
+            link: () => navigate("/konto/kontakt"),
+        },
+        {
+            name: "Wyloguj",
+            link: toggleLogged,
+        },
+    ]
 
     return (
         <>
@@ -58,6 +92,7 @@ const Header = ({ options, option ,setOption, children }: Props) => {
                 settingOptions={options}
                 onSettingOptionSelect={setOption}
                 accountOptions={accountOptions}
+                accountMenuOptions={accountMenuOptions}
             />
             : 
             option === "simple" 
@@ -67,6 +102,7 @@ const Header = ({ options, option ,setOption, children }: Props) => {
                 groupedProducts={groupedProducts}
                 settingOptions={options}
                 onSettingOptionSelect={setOption}
+                accountMenuOptions={accountMenuOptions}
                 /> : 
             option === "extensive" 
             ? <HeaderExtensive
@@ -75,6 +111,7 @@ const Header = ({ options, option ,setOption, children }: Props) => {
                 groupedProducts={groupedProducts}
                 settingOptions={options}
                 onSettingOptionSelect={setOption}
+                accountMenuOptions={accountMenuOptions}
             /> : 
             <HeaderRightside
                 categories={context.categories} 
@@ -82,6 +119,7 @@ const Header = ({ options, option ,setOption, children }: Props) => {
                 groupedProducts={groupedProducts}
                 settingOptions={options}
                 onSettingOptionSelect={setOption}
+                accountMenuOptions={accountMenuOptions}
             />
         }
         

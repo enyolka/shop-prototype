@@ -8,7 +8,7 @@ import MenuItem from "../../menuItem/menuItem";
 import { ReactComponent } from "@uirouter/react";
 import { AutoSuggest } from "../../autoSuggest/autoSuggest";
 import { Accordion, AccordionSection } from "../../accordionMenu/accordionMenu";
-import { Option } from "../header";
+import { AccountMenuOption, Option } from "../header";
 import { Category, ProductContext, Subcategory } from "../../../contexts/GlobalState";
 import "./headerExtensive.css";
 import logo from "/public/images/logo2-bg.png"
@@ -19,6 +19,7 @@ type Props = {
     groupedProducts: any;
     settingOptions: string[];
     onSettingOptionSelect: (value: string) => void;
+    accountMenuOptions: AccountMenuOption[];
     className?: string;
     menuItems?: React.ReactElement[];
     children?: React.ReactNode;
@@ -30,6 +31,7 @@ const HeaderExtensive = ({
     groupedProducts, 
     settingOptions, 
     onSettingOptionSelect,
+    accountMenuOptions,
     children
 }: Props) => {
     const [active, setActive] = useState(false)
@@ -45,13 +47,6 @@ const HeaderExtensive = ({
 
     const navigateAndClose = (url: string) => {
          navigate(url);
-        //  setActive(false)
-    }
-        
-    const toggleLogged = (x: string) => {
-        sessionStorage.removeItem("account")
-        sessionStorage.setItem('logged', JSON.stringify(false))
-        window.location.reload()
     }
 
     const handleClickOutside = (event: any) => {
@@ -90,9 +85,9 @@ const HeaderExtensive = ({
             header={`koszyk (${sum})`}
         />,
         <MenuItem 
-            to="/konto" 
-            options={sessionStorage.getItem('account') != null? ["Wyloguj"] : null}
-            onOptionSelect={toggleLogged}
+            to="/konto"  
+            options={sessionStorage.getItem('account') != null ? accountMenuOptions.map(item => item.name) : null}
+            onOptionSelect={(option) => accountMenuOptions.find(item => option == item.name).link()}
             onClick={() => navigate(`/konto`)} 
             className="header_bar__item" 
             header="konto"

@@ -8,7 +8,7 @@ import MenuItem from "../../menuItem/menuItem";
 import { ReactComponent } from "@uirouter/react";
 import { AutoSuggest } from "../../autoSuggest/autoSuggest";
 import { Accordion, AccordionSection } from "../../accordionMenu/accordionMenu";
-import { Option } from "../header";
+import { AccountMenuOption, Option } from "../header";
 import { Category, ProductContext, Subcategory } from "../../../contexts/GlobalState";
 import "./headerLeftside.css";
 import logo from "/public/images/logo2-bg.png"
@@ -20,6 +20,7 @@ type Props = {
     accountOptions: string[];
     settingOptions: string[];
     onSettingOptionSelect: (value: string) => void;
+    accountMenuOptions: AccountMenuOption[];
     className?: string;
     menuItems?: React.ReactElement[];
     children?: React.ReactNode;
@@ -32,6 +33,7 @@ const HeaderLeftside = ({
     groupedProducts, 
     settingOptions, 
     onSettingOptionSelect,
+    accountMenuOptions,
     children
 }: Props) => {
     const [active, setActive] = useState(false)
@@ -54,12 +56,6 @@ const HeaderLeftside = ({
             setActive(false);
         }
     };
-    
-    const toggleLogged = (x: string) => {
-        sessionStorage.removeItem("account")
-        sessionStorage.setItem('logged', JSON.stringify(false))
-        window.location.reload()
-    }
 
     useEffect(() => setGrouped(groupedProducts),[groupedProducts])
 
@@ -91,9 +87,9 @@ const HeaderLeftside = ({
         }
         />,
         <MenuItem 
-            to="/konto" 
-            options={sessionStorage.getItem('account') != null? ["Wyloguj"] : null}
-            onOptionSelect={toggleLogged}
+            to="/konto"  
+            options={sessionStorage.getItem('account') != null ? accountMenuOptions.map(item => item.name) : null}
+            onOptionSelect={(option) => accountMenuOptions.find(item => option == item.name).link()}
             onClick={() => navigate(`/konto`)} 
             // options={accountOptions}
             // onOptionSelect={(option) => navigate(`/konto/${option}`)}

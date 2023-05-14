@@ -7,7 +7,7 @@ import { IoSettings } from "react-icons/io5";
 import MenuItem from "../../menuItem/menuItem";
 import { AutoSuggest } from "../../autoSuggest/autoSuggest";
 import { Accordion, AccordionSection } from "../../accordionMenu/accordionMenu";
-import { Option } from "../header";
+import { AccountMenuOption, Option } from "../header";
 import { Category, ProductContext, Subcategory } from "../../../contexts/GlobalState";
 import "./headerSimple.css";
 import logo from "/public/images/logo2-bg.png"
@@ -18,6 +18,7 @@ type Props = {
     groupedProducts: any;
     settingOptions: string[];
     onSettingOptionSelect: (value: string) => void;
+    accountMenuOptions: AccountMenuOption[];
     className?: string;
     menuItems?: React.ReactElement[];
     children?: React.ReactNode;
@@ -29,6 +30,7 @@ const HeaderSimple = ({
     groupedProducts, 
     settingOptions, 
     onSettingOptionSelect,
+    accountMenuOptions,
     children
 }: Props) => {
     const [active, setActive] = useState(false)
@@ -44,12 +46,6 @@ const HeaderSimple = ({
          navigate(url);
          setActive(false)
     }
-        
-    const toggleLogged = (x?: string) => {
-        sessionStorage.removeItem("account")
-        sessionStorage.setItem('logged', JSON.stringify(false))
-        window.location.reload()
-    }
 
     const handleClickOutside = (event: any) => {
         if (menuRef.current 
@@ -59,28 +55,6 @@ const HeaderSimple = ({
         }
     };
 
-    const accountOptions = [
-        {
-            name: "Informacje",
-            link: () => navigate("/konto/informacje"),
-        },
-        {
-            name: "Adres",
-            link: () => navigate("/konto/adres") ,
-        },
-        {
-            name: "Kupony",
-            link: () => navigate("/konto/programy-lojalnosciowe"),
-        },
-        {
-            name: "Kontakt i pomoc",
-            link: () => navigate("/konto/kontakt"),
-        },
-        {
-            name: "Wyloguj",
-            link: toggleLogged,
-        },
-    ]
 // 
     useEffect(() => setGrouped(groupedProducts),[groupedProducts])
 
@@ -115,8 +89,8 @@ const HeaderSimple = ({
         />,
         <MenuItem 
             to="/konto" 
-            options={sessionStorage.getItem('account') != null ? accountOptions.map(item => item.name) : null}
-            onOptionSelect={(option) => accountOptions.find(item => option == item.name).link()}
+            options={sessionStorage.getItem('account') != null ? accountMenuOptions.map(item => item.name) : null}
+            onOptionSelect={(option) => accountMenuOptions.find(item => option == item.name).link()}
             // options={sessionStorage.getItem('account') != null ? ["Wyloguj"] : null}
             // onOptionSelect={toggleLogged}
             onClick={() => navigate(`/konto`)} 
