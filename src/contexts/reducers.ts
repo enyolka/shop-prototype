@@ -10,30 +10,32 @@ export const REMOVE_LIKED = "REMOVE_LIKED";
 const addProductToCart = (product: Product, state: any) => {
   const updatedCart = [...state.cart];
   const updatedItemIndex = updatedCart.findIndex(
-    item => item.id === product.id
+    (item) => item.id === product.id
   );
 
   if (updatedItemIndex < 0) {
     updatedCart.push({ ...product, quantity: 1 });
   } else {
     const updatedItem = {
-      ...updatedCart[updatedItemIndex]
+      ...updatedCart[updatedItemIndex],
     };
     updatedItem.quantity++;
     updatedCart[updatedItemIndex] = updatedItem;
   }
-  sessionStorage.setItem('cartItems', JSON.stringify(updatedCart))
-  console.log(updatedCart)
-  
+  sessionStorage.setItem("cartItems", JSON.stringify(updatedCart));
+  console.log(updatedCart);
+
   return { ...state, cart: updatedCart };
 };
 
 const removeProductFromCart = (productId: string, state: any) => {
   const updatedCart = [...state.cart];
-  const updatedItemIndex = updatedCart.findIndex(item => item.id === productId);
+  const updatedItemIndex = updatedCart.findIndex(
+    (item) => item.id === productId
+  );
 
   const updatedItem = {
-    ...updatedCart[updatedItemIndex]
+    ...updatedCart[updatedItemIndex],
   };
   updatedItem.quantity--;
   if (updatedItem.quantity <= 0) {
@@ -41,24 +43,26 @@ const removeProductFromCart = (productId: string, state: any) => {
   } else {
     updatedCart[updatedItemIndex] = updatedItem;
   }
-  sessionStorage.setItem('cartItems', JSON.stringify(updatedCart))
-  console.log(updatedCart)
+  sessionStorage.setItem("cartItems", JSON.stringify(updatedCart));
+  console.log(updatedCart);
 
   return { ...state, cart: updatedCart };
 };
 
 const removeAllProductFromCart = (productId: string, state: any) => {
   const updatedCart = [...state.cart];
-  const updatedItemIndex = updatedCart.findIndex(item => item.id === productId);
+  const updatedItemIndex = updatedCart.findIndex(
+    (item) => item.id === productId
+  );
   updatedCart.splice(updatedItemIndex, 1);
 
-  sessionStorage.setItem('cartItems', JSON.stringify(updatedCart))
+  sessionStorage.setItem("cartItems", JSON.stringify(updatedCart));
 
   return { ...state, cart: updatedCart };
 };
 
 const removeAllProductsFromCart = (state: any) => {
-  sessionStorage.setItem('cartItems', JSON.stringify([]))
+  sessionStorage.setItem("cartItems", JSON.stringify([]));
 
   return { ...state, cart: [] };
 };
@@ -66,28 +70,29 @@ const removeAllProductsFromCart = (state: any) => {
 const addProductToLiked = (product: Product, state: any) => {
   const updatedLiked = [...state.liked];
   const updatedItemIndex = updatedLiked.findIndex(
-    item => item.id === product.id
+    (item) => item.id === product.id
   );
 
-  if(updatedItemIndex < 0)
-    updatedLiked.push({ ...product, isLiked: true });
+  if (updatedItemIndex < 0) updatedLiked.push({ ...product, isLiked: true });
 
-  sessionStorage.setItem('likedItems', JSON.stringify(updatedLiked))
+  sessionStorage.setItem("likedItems", JSON.stringify(updatedLiked));
 
   return { ...state, liked: updatedLiked };
 };
 
 const removeProductFromLiked = (productId: string, state: any) => {
   const updatedLiked = [...state.liked];
-  const updatedItemIndex = updatedLiked.findIndex(item => item.id === productId);
+  const updatedItemIndex = updatedLiked.findIndex(
+    (item) => item.id === productId
+  );
 
   const updatedItem = {
-    ...updatedLiked[updatedItemIndex]
+    ...updatedLiked[updatedItemIndex],
   };
   updatedItem.isLiked = false;
   updatedLiked.splice(updatedItemIndex, 1);
 
-  sessionStorage.setItem('likedItems', JSON.stringify(updatedLiked))
+  sessionStorage.setItem("likedItems", JSON.stringify(updatedLiked));
 
   return { ...state, liked: updatedLiked };
 };

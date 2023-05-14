@@ -1,6 +1,6 @@
 import * as React from "react";
 import * as classNames from "classnames";
-import "./toggle.css"
+import "./toggle.css";
 
 export type Props = {
   className?: string;
@@ -22,7 +22,7 @@ export type Option = {
 };
 
 type Size = "default" | "condensed";
- 
+
 const Toggle = ({
   onChange,
   options,
@@ -44,7 +44,7 @@ const Toggle = ({
             {
               "toggle--xs": size === "condensed",
             },
-            className,
+            className
           )}
         >
           <input
@@ -62,6 +62,6 @@ const Toggle = ({
       ))}
     </div>
   );
-}
+};
 
 export default Toggle;

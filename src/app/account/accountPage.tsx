@@ -1,15 +1,13 @@
 import * as React from "react";
-import { useContext, useEffect, useState } from "react";
-import Button from "../../components/button/button";
-import { Product, ProductContext } from "../../contexts/GlobalState";
+import { useEffect, useState } from "react";
 import AccountDetailsPage from "./accountDetailsPage";
-import "./accountPage.css"
+import "./accountPage.css";
 import LoginForm from "./components/loginForm";
 import Toggle from "../../components/toggle/toggle";
 import bg from "/public/bg-light2.png";
 import RegisterForm from "./components/registerForm";
 import { DeliveryFormModel } from "./components/deliveryData";
-import trust from "/public/images/trust.png"
+import trust from "/public/images/trust.png";
 
 export type AccountFormModel = {
   name: string;
@@ -17,42 +15,56 @@ export type AccountFormModel = {
   password: string;
   phone?: string;
   deliverytData?: DeliveryFormModel;
-}
+};
 
 type Props = {
   option?: "accountData" | "deliveryData" | "loyalty" | "contact";
-}
+};
 
-const AccountPage =({option}: Props) => {
-    const [logged, setLogged] = useState(sessionStorage.getItem('logged') === "true");    
-    const [list, setList] = useState(JSON.parse(localStorage.getItem("accounts")) || [])
-    const [idx, setIdx] = useState(list.findIndex((account: AccountFormModel) => JSON.parse(sessionStorage.getItem("account"))?.name === account?.name) || null)
-    const [value, setValue] = useState("login");
-    
-    const options = [
-      {
-        value: "login",
-        label: "Zaloguj się"
-      },
-      {
-        value: "register",
-        label: "Zarejestruj się"
-      }
-    ]
+const AccountPage = ({ option }: Props) => {
+  const [logged, setLogged] = useState(
+    sessionStorage.getItem("logged") === "true"
+  );
+  const [list, setList] = useState(
+    JSON.parse(localStorage.getItem("accounts")) || []
+  );
+  const [idx, setIdx] = useState(
+    list.findIndex(
+      (account: AccountFormModel) =>
+        JSON.parse(sessionStorage.getItem("account"))?.name === account?.name
+    ) || null
+  );
+  const [value, setValue] = useState("login");
 
-    useEffect(() => {
-      sessionStorage.setItem('logged', JSON.stringify(logged))
-    }, [logged])
+  const options = [
+    {
+      value: "login",
+      label: "Zaloguj się",
+    },
+    {
+      value: "register",
+      label: "Zarejestruj się",
+    },
+  ];
 
-    useEffect(() => {
-      setIdx(list.findIndex((account: AccountFormModel) => JSON.parse(sessionStorage.getItem("account"))?.name === account?.name) || null)
-    }, [list])
+  useEffect(() => {
+    sessionStorage.setItem("logged", JSON.stringify(logged));
+  }, [logged]);
 
-    return (
-      <>
-        <article className="account">
-          {logged && idx != null
-          ? <>
+  useEffect(() => {
+    setIdx(
+      list.findIndex(
+        (account: AccountFormModel) =>
+          JSON.parse(sessionStorage.getItem("account"))?.name === account?.name
+      ) || null
+    );
+  }, [list]);
+
+  return (
+    <>
+      <article className="account">
+        {logged && idx != null ? (
+          <>
             {/* <Button 
               className="button_logout" 
               onClick={() => {
@@ -62,28 +74,35 @@ const AccountPage =({option}: Props) => {
             >
               Wyloguj się
             </Button> */}
-            <AccountDetailsPage option={option}/>
+            <AccountDetailsPage option={option} />
           </>
-          : <>
-            <div className="account_forms" /*style={{backgroundImage: `url(${bg})`}}*/>
-            <Toggle
+        ) : (
+          <>
+            <div
+              className="account_forms" /*style={{backgroundImage: `url(${bg})`}}*/
+            >
+              <Toggle
                 className="login_toggle"
-                options={options} 
-                value={value}      
-                onChange={setValue}    
+                options={options}
+                value={value}
+                onChange={setValue}
               />
-            { value === "login" 
-            ? <LoginForm 
-                setLogged={setLogged} 
-              /> 
-            :  <RegisterForm setLogged={setLogged}/>}
+              {value === "login" ? (
+                <LoginForm setLogged={setLogged} />
+              ) : (
+                <RegisterForm setLogged={setLogged} />
+              )}
             </div>
-            <img alt="loginPage-image" src={trust} className="account_forms__img"/>
+            <img
+              alt="loginPage-image"
+              src={trust}
+              className="account_forms__img"
+            />
           </>
-        }
-        </article>
-      </>
-    );
-  };
+        )}
+      </article>
+    </>
+  );
+};
 
 export default AccountPage;

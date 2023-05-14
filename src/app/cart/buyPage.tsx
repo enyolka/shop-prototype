@@ -1,11 +1,10 @@
 import * as React from "react";
-import { useContext, useEffect, useState } from "react";
-import "./buyPage.css"
+import { useState } from "react";
+import "./buyPage.css";
 import { Steps } from "../../components/steps/steps";
 import DeliveryPage from "./deliveryFormPage";
 import DeliveryOptionPage from "./deliveryOptionPage";
 import SummaryPage from "./summaryPage";
-
 
 export type ClientFormModel = {
   name: string;
@@ -14,14 +13,14 @@ export type ClientFormModel = {
   city: string;
   street: string;
   zipCode: string;
-}
+};
 
-const BuyPage =( props: any) => {
-    const [activeStepIdx, setActiveStepIdx] = useState(0)
+const BuyPage = (props: any) => {
+  const [activeStepIdx, setActiveStepIdx] = useState(0);
 
-    return (
-      <>
-        <article className="buy">
+  return (
+    <>
+      <article className="buy">
         <Steps
           activeStepIdx={activeStepIdx}
           ariaLabelCompleted="Completed"
@@ -29,18 +28,18 @@ const BuyPage =( props: any) => {
           steps={[
             { label: "Adres dostwy" },
             { label: "Forma dostawy" },
-            { label: "Podsumowanie" }
+            { label: "Podsumowanie" },
           ]}
         />
 
-        {activeStepIdx === 0 && <DeliveryPage onNext={setActiveStepIdx}/>}
-        {activeStepIdx === 1 && <DeliveryOptionPage onNext={setActiveStepIdx}/>}
-        {activeStepIdx === 2 && <SummaryPage onNext={setActiveStepIdx}/>}
-
-
-        </article>
-      </>
-    );
-  };  
+        {activeStepIdx === 0 && <DeliveryPage onNext={setActiveStepIdx} />}
+        {activeStepIdx === 1 && (
+          <DeliveryOptionPage onNext={setActiveStepIdx} />
+        )}
+        {activeStepIdx === 2 && <SummaryPage onNext={setActiveStepIdx} />}
+      </article>
+    </>
+  );
+};
 
 export default BuyPage;

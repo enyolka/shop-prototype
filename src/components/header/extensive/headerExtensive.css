@@ -1,5 +1,4 @@
 .header--extensive {
-  /* background-color: rgb(215, 215, 215); */
   display: grid;
   grid-template-columns: 100px 1fr 40px;
   grid-template-rows: 40px 5px auto 1fr;
@@ -43,7 +42,6 @@
   grid-column: 1/4;
   grid-row: 3;
   margin: auto;
-  /* display: none; */
   gap: 2px;
 }
 
@@ -75,12 +73,11 @@
   background-color: var(--main-light-max);
 }
 
-
 .menu__toggler--extensive > span,
 .menu__toggler--extensive > span::before,
 .menu__toggler--extensive > span::after {
   position: absolute;
-  content: '';
+  content: "";
   width: 28px;
   height: 3px;
   background: #2f2f2f;
@@ -96,21 +93,20 @@
   top: 8px;
 }
 
-.menu__toggler--extensive.active > span  {
+.menu__toggler--extensive.active > span {
   background: transparent;
 }
 
 .menu__toggler--extensive.active > span::before,
 .menu__toggler--extensive.active > span::after {
-  /* background: #005c9c; */
   top: 0px;
 }
 
-.menu__toggler--extensive.active > span::before  {
+.menu__toggler--extensive.active > span::before {
   transform: rotate(-225deg);
 }
 
-.menu__toggler--extensive.active > span::after  {
+.menu__toggler--extensive.active > span::after {
   transform: rotate(225deg);
 }
 
@@ -151,7 +147,6 @@
 
 .header_important--extensive {
   display: none;
-
 }
 
 .menu--extensive .item_link {
@@ -169,12 +164,11 @@
   max-width: 1200px;
   grid-row: 3;
   grid-column: 2/4;
-  gap: 24px
+  gap: 24px;
 }
 
 .header_horizontalMenu--extensive > .header_bar__item {
   font-size: 14px;
-
 }
 
 /* .header_important--extensive > .header_bar__item::after  {
@@ -197,8 +191,8 @@
 
 @media only screen and (min-width: 800px) {
   .header--extensive {
-    grid-template-columns: 120px minmax(300px, auto) 300px;  
-    grid-template-rows: auto 10px auto ;
+    grid-template-columns: 120px minmax(300px, auto) 300px;
+    grid-template-rows: auto 10px auto;
     padding: 35px 40px 10px;
     gap: 5px;
   }
@@ -214,10 +208,9 @@
     grid-column: 2;
     grid-row: 1;
   }
-  .menu--extensive { 
+  .menu--extensive {
     width: 350px;
     right: -350px;
-
   }
   .menu__toggler--extensive {
     top: 30px;
@@ -225,7 +218,7 @@
   }
   .search--extensive {
     /* grid-row: 4; */
-    grid-column: 1/4; 
+    grid-column: 1/4;
   }
   .header_bar--text {
     /* display: flex; */
@@ -237,5 +230,3 @@
     display: flex;
   }
 }
-
-  

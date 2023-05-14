@@ -1,71 +1,71 @@
 [
-    {
-        "name": "accessories",
-        "subcategories": [
-            {
-                "name": "accessories"
-            },
-            {
-                "name": "lifestyle"
-            }
-        ]
-    }, {
-        "name": "apparel",
-        "subcategories": [
-            {
-                "name": "apparel"
-            },
-            {
-                "name": "headgear"
-            },
-            {
-                "name": "kid's"
-            },
-            {
-                "name": "women's-T-Shirts"
-            },
-            {
-                "name": "apparel"
-            }
-        ]
-    },
-    {
-        "name": "bags",
-        "subcategories": [
-            {
-                "name": "bags"
-            }
-        ]
-    }, 
-    {
-        "name": "drinkware",
-        "subcategories": [
-            {
-                "name": "drinkware"
-            }
-        ]
-                
-    }, 
-    {
-        "name": "office",
-        "subcategories": [
-            {
-                "name": "notebooks & Journals"
-            },
-            {
-                "name": "office"
-            },
-            {
-                "name": "writing Instruments"
-            }
-        ]
-    }, 
-    {
-        "name": "brand",
-        "subcategories": [
-            {
-                "name": "brand"
-            }
-        ]                        
-    }
+  {
+    "name": "accessories",
+    "subcategories": [
+      {
+        "name": "accessories"
+      },
+      {
+        "name": "lifestyle"
+      }
+    ]
+  },
+  {
+    "name": "apparel",
+    "subcategories": [
+      {
+        "name": "apparel"
+      },
+      {
+        "name": "headgear"
+      },
+      {
+        "name": "kid's"
+      },
+      {
+        "name": "women's-T-Shirts"
+      },
+      {
+        "name": "apparel"
+      }
+    ]
+  },
+  {
+    "name": "bags",
+    "subcategories": [
+      {
+        "name": "bags"
+      }
+    ]
+  },
+  {
+    "name": "drinkware",
+    "subcategories": [
+      {
+        "name": "drinkware"
+      }
+    ]
+  },
+  {
+    "name": "office",
+    "subcategories": [
+      {
+        "name": "notebooks & Journals"
+      },
+      {
+        "name": "office"
+      },
+      {
+        "name": "writing Instruments"
+      }
+    ]
+  },
+  {
+    "name": "brand",
+    "subcategories": [
+      {
+        "name": "brand"
+      }
+    ]
+  }
 ]

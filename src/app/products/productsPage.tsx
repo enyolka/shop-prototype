@@ -1,7 +1,7 @@
 import * as React from "react";
 import placeholder from "/public/placeholder.png";
 import "./productsPage.css";
-import { Params, useNavigate, useParams } from "react-router-dom";
+import {  useNavigate, useParams } from "react-router-dom";
 import { ProductContext } from "../../contexts/GlobalState";
 import { ScrollToTop } from "../../components/scroll/scroll";
 import Breadcrumbs from "../../components/breadcrumbs/breadcrumbs";
@@ -14,62 +14,85 @@ import Link from "../../components/link/link";
 type Props = {
   className?: string;
   children?: React.ReactNode;
-};  
+};
 
-const ProductsPage = ({  children }: Props) => {
-  const context = React.useContext(ProductContext)
+const ProductsPage = ({ children }: Props) => {
+  const context = React.useContext(ProductContext);
   let params = useParams();
   const navigate = useNavigate();
 
-  const [popupDisplay, setPopupDisplay] = useState(true) 
-  
-  let linked = "/produkty/"
-  const breadcrumbs = Object.values(params).map(item => {
-    linked += item + "/"
-    return {name: item, link: linked }})
-  
-  breadcrumbs.unshift({name: "Produkty", link: "/produkty/"});
-  console.log(context.cart)
-  console.log(sessionStorage.getItem('cartItems'))
+  const [popupDisplay, setPopupDisplay] = useState(true);
+
+  let linked = "/produkty/";
+  const breadcrumbs = Object.values(params).map((item) => {
+    linked += item + "/";
+    return { name: item, link: linked };
+  });
+
+  breadcrumbs.unshift({ name: "Produkty", link: "/produkty/" });
+  console.log(context.cart);
+  console.log(sessionStorage.getItem("cartItems"));
 
   return (
     <ScrollToTop className={"products"}>
-      <Breadcrumbs className={"products_breadcrumbs"} navs={breadcrumbs}/>
+      <Breadcrumbs className={"products_breadcrumbs"} navs={breadcrumbs} />
       <div className={"grid"}>
-        {context.products.filter(({category, subcategory}) => 
-          !!params.category ? !!params.subcategory ? subcategory == params.subcategory : category == params.category : true)
-          .map((product, idx) => 
+        {context.products
+          .filter(({ category, subcategory }) =>
+            !!params.category
+              ? !!params.subcategory
+                ? subcategory == params.subcategory
+                : category == params.category
+              : true
+          )
+          .map((product, idx) => (
             <section key={idx} className={"grid_item"}>
-                <img alt="" src={product.image} className={"item_img"}/>
-                <div className={"item_info"}>
-                  <Link to={`/${product.id}`} className={"item_link"}>{product.name}</Link>
-                  <p className={"item_price"}>{product.price}$</p>
-                </div>
+              <img alt="" src={product.image} className={"item_img"} />
+              <div className={"item_info"}>
+                <Link to={`/${product.id}`} className={"item_link"}>
+                  {product.name}
+                </Link>
+                <p className={"item_price"}>{product.price}$</p>
+              </div>
             </section>
-        )}
-       {Math.floor(Math.random()*4) == 2  ? <div className={classNames("popup", {displayed: popupDisplay})} id="myForm">
-          <RiCloseCircleLine className="popup_closeIcon" onClick={() =>  setPopupDisplay(false)}/>
-          <div className="popup_info">
-            <p>Wyjątkowa okazja!</p>
-            <Button 
-              role="important" 
-              onClick={() => 
-                navigate(`/${context.products[Math.floor(Math.random()*context.products.length)].id}`)
-              }
-            >
+          ))}
+        {Math.floor(Math.random() * 4) == 2 ? (
+          <div
+            className={classNames("popup", { displayed: popupDisplay })}
+            id="myForm"
+          >
+            <RiCloseCircleLine
+              className="popup_closeIcon"
+              onClick={() => setPopupDisplay(false)}
+            />
+            <div className="popup_info">
+              <p>Wyjątkowa okazja!</p>
+              <Button
+                role="important"
+                onClick={() =>
+                  navigate(
+                    `/${
+                      context.products[
+                        Math.floor(Math.random() * context.products.length)
+                      ].id
+                    }`
+                  )
+                }
+              >
                 Sprawdź tutaj
-            </Button>
-{/* 
+              </Button>
+              {/* 
             <Link
               to={`/${context.products[Math.floor(Math.random()*context.products.length)].id}`}
             >
                 Sprawdź tutaj
             </Link> */}
+            </div>
           </div>
-          </div> : null}
+        ) : null}
       </div>
-  </ScrollToTop>
+    </ScrollToTop>
   );
-}
+};
 
 export default ProductsPage;

@@ -1,91 +1,91 @@
 [
-    {
-        "name": "Komputery i tablety",
-        "icon":  "fas fa-computer",
-        "subcategories": [
-            {
-                "name": "Komputery stacjonarne"
-            },
-            {
-                "name": "Laptopy"
-            },
-            {
-                "name": "Tablety"
-            }
+  {
+    "name": "Komputery i tablety",
+    "icon": "fas fa-computer",
+    "subcategories": [
+      {
+        "name": "Komputery stacjonarne"
+      },
+      {
+        "name": "Laptopy"
+      },
+      {
+        "name": "Tablety"
+      }
+    ]
+  },
+  {
+    "name": "Telefony",
+    "icon": "fas fa-mobile",
+    "subcategories": [
+      {
+        "name": "Smartfony"
+      }
+    ]
+  },
+  {
+    "name": "Akcesoria",
+    "icon": "fas fa-keyboard",
+    "subcategories": [
+      {
+        "name": "Smartwatche"
+      },
+      {
+        "name": "Klawiatury"
+      },
+      {
+        "name": "Słuchawki"
+      },
+      {
+        "name": "Głośniki"
+      }
+    ]
+  },
+  {
+    "name": "Telewizory i monitory",
+    "icon": "fas fa-tv",
+    "subcategories": [
+      {
+        "name": "Telewizory",
+        "subsubcategories": [
+          {
+            "name": "Telewizory OLED"
+          },
+          {
+            "name": "Telewizory LED"
+          }
         ]
-    }, {
-        "name": "Telefony",
-        "icon": "fas fa-mobile",
-        "subcategories": [
-            {
-                "name": "Smartfony"
-            }
-        ]
-    },
-    {
-        "name": "Akcesoria",
-        "icon": "fas fa-keyboard",
-        "subcategories": [
-            {
-                "name": "Smartwatche"
-            },
-            {
-                "name": "Klawiatury"
-            },
-            {
-                "name": "Słuchawki"
-            },
-            {
-                "name": "Głośniki"
-            }
-        ]
-                
-    }, 
-    {
-        "name": "Telewizory i monitory",
-        "icon": "fas fa-tv",
-        "subcategories": [
-            {
-                "name": "Telewizory",
-                "subsubcategories": [
-                    {
-                        "name": "Telewizory OLED"
-                    },
-                    {
-                        "name": "Telewizory LED"
-                    }
-                ]
-            },
-            {
-                "name": "Monitory"
-            }
-        ]
-    },
-    {
-        "name": "Kamery i foto",
-        "icon": "fas fa-camera",
-        "subcategories": [
-            {
-                "name": "Kamery"
-            },
-            {
-                "name": "Aparaty"
-            },
-            {
-                "name": "Drony"
-            }
-        ]
-    },
-    {
-        "name": "Gry i konsole",
-        "icon": "fas fa-gamepad",
-        "subcategories": [
-            {
-                "name": "Konsole"
-            },
-            {
-                "name": "Gry"
-            }
-        ]
-    }
+      },
+      {
+        "name": "Monitory"
+      }
+    ]
+  },
+  {
+    "name": "Kamery i foto",
+    "icon": "fas fa-camera",
+    "subcategories": [
+      {
+        "name": "Kamery"
+      },
+      {
+        "name": "Aparaty"
+      },
+      {
+        "name": "Drony"
+      }
+    ]
+  },
+  {
+    "name": "Gry i konsole",
+    "icon": "fas fa-gamepad",
+    "subcategories": [
+      {
+        "name": "Konsole"
+      },
+      {
+        "name": "Gry"
+      }
+    ]
+  }
 ]

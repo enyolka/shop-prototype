@@ -7,34 +7,38 @@ import { BsExclamationDiamond } from "react-icons/bs";
 type messageType = "default" | "important" | "info" | "error";
 
 type Props = {
-    type?: messageType;
-    size?: "small" | "medium" | "big";
-    wrapped?: boolean;
-    children?: React.ReactNode; 
-    className?: string;
-}
+  type?: messageType;
+  size?: "small" | "medium" | "big";
+  wrapped?: boolean;
+  children?: React.ReactNode;
+  className?: string;
+};
 
-const Message = ({ 
-    type,
-    size, 
-    wrapped=false, 
-    children, 
-    className 
+const Message = ({
+  type,
+  size,
+  wrapped = false,
+  children,
+  className,
 }: Props) => {
-    const icons = {
-        "default": <BiMessageAlt className="message_icon"/>,
-        "important": <BsExclamationDiamond className="message_icon"/>,
-        "info": <BiInfoCircle className="message_icon"/>,
-        "error": <BiErrorCircle  className="message_icon"/>
-    }
+  const icons = {
+    default: <BiMessageAlt className="message_icon" />,
+    important: <BsExclamationDiamond className="message_icon" />,
+    info: <BiInfoCircle className="message_icon" />,
+    error: <BiErrorCircle className="message_icon" />,
+  };
 
-    return (
-        <div className={classNames("message", type, size, className, {wrapped: wrapped})}>
-             {icons[type]}
-            <p   className="message_text">{children}</p>
-        
-        </div>
-    )
-}
+  return (
+    <div
+      className={classNames("message", type, size, className, {
+        wrapped: wrapped,
+      })}
+    >
+      {icons[type]}
+      <p className="message_text">{children}</p>
+    </div>
+  );
+};
 
-export default Message;""
+export default Message;
+("");

@@ -1,18 +1,18 @@
-import * as React from 'react';
+import * as React from "react";
 import { useEffect, useRef, useState } from "react";
 import * as classnames from "classnames";
-import styles from "./scroll.module.css"
+import styles from "./scroll.module.css";
 
 type Props = {
   label?: string;
-  className?: any; 
+  className?: any;
   children: React.ReactNode;
 };
 
 function ScrollToTop({
   label = "Back to top",
   children,
-  className
+  className,
 }: Props): React.ReactElement {
   const [visible, setVisible] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -59,12 +59,15 @@ function ScrollToTop({
   }, [containerRef.current, buttonRef.current]);
 
   return (
-    <div className={classnames(className)} style={{ position: "relative" }} ref={containerRef}>
+    <div
+      className={classnames(className)}
+      style={{ position: "relative" }}
+      ref={containerRef}
+    >
       {children}
       <button
         ref={buttonRef}
-        className={classnames(styles.scroll,
-          visible ? styles.visible : "")}
+        className={classnames(styles.scroll, visible ? styles.visible : "")}
         onClick={handleClick}
         aria-label={label}
       >

@@ -1,14 +1,14 @@
 .loader {
   border-radius: 50%;
   display: inline-block;
-  border-top: 4px solid #FFF;
+  border-top: 4px solid #fff;
   border-right: 4px solid transparent;
   box-sizing: border-box;
   animation: rotation 1s linear infinite;
 }
 
 .loader::after {
-  content: '';  
+  content: "";
   box-sizing: border-box;
   position: absolute;
   left: 0;
@@ -25,20 +25,24 @@
   100% {
     transform: rotate(360deg);
   }
-} 
+}
 
-.loader, .loader::after, .loader.medium, .loader::after.medium{
+.loader,
+.loader::after,
+.loader.medium,
+.loader::after.medium {
   height: 50px;
   width: 50px;
 }
 
-.loader.small,  .loader::after.small{
+.loader.small,
+.loader::after.small {
   height: 20px;
   width: 20px;
 }
 
-.loader.big, .loader::after.big  {
+.loader.big,
+.loader::after.big {
   height: 80px;
   width: 80px;
 }
-

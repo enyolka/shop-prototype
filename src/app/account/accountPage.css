@@ -1,103 +1,102 @@
 .account {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 1rem;
 }
 
 .button_logout {
-    align-self: flex-start;
+  align-self: flex-start;
 }
 
 .account_forms {
-    padding: 30px;
-    width: 90vw;
-    height: 400px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    align-self: center;
-    border-radius: 10px;
-    background-color: var(--main-light);
-    box-shadow: 0 0 6px 2px var(--shadow);
+  padding: 30px;
+  width: 90vw;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-self: center;
+  border-radius: 10px;
+  background-color: var(--main-light);
+  box-shadow: 0 0 6px 2px var(--shadow);
 }
 
 .login_toggle {
-    margin-bottom: 30px !important;
+  margin-bottom: 30px !important;
 }
 
 .account_form {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 12px;
-    width: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 12px;
+  width: 300px;
 }
 
 .login_item {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 0.7rem;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0.7rem;
 }
 
 .register_item {
-    display: flex;
-    flex-direction: column;
-    position: relative;
+  display: flex;
+  flex-direction: column;
+  position: relative;
 }
 
 .register_item > label {
-    margin: 2px 0;
+  margin: 2px 0;
 }
 
 .account_forms__img {
-    margin: auto;
-    max-width: 800px;
-    width: 90%;
+  margin: auto;
+  max-width: 800px;
+  width: 90%;
 }
 
 .error_message--float {
-    position: absolute;
-    right: -8px;
-    top: 14px;
-    width: auto;
-    transform: translateX(100%);
-    background-color: rgb(94, 94, 94) !important;
-    color: white !important;
-    border: 1px solid rgb(80, 80, 80) !important; 
+  position: absolute;
+  right: -8px;
+  top: 14px;
+  width: auto;
+  transform: translateX(100%);
+  background-color: rgb(94, 94, 94) !important;
+  color: white !important;
+  border: 1px solid rgb(80, 80, 80) !important;
 }
 
 .error_message--float::after {
-    content: " ";
-    position: absolute;
-    top: 7px;
-    right: 100%; 
-    margin-top: -6px;
-    border-width: 6px;
-    border-style: solid;
-    border-color: transparent rgb(94, 94, 94) transparent transparent;
+  content: " ";
+  position: absolute;
+  top: 7px;
+  right: 100%;
+  margin-top: -6px;
+  border-width: 6px;
+  border-style: solid;
+  border-color: transparent rgb(94, 94, 94) transparent transparent;
 }
 
 .error_message--float {
-    position: absolute;
-    /* right: auto;
+  position: absolute;
+  /* right: auto;
     top: -24px; */
 }
 
 .error_message--float.bottom::after {
-    top: 100%; 
-    left: 50%;
-    margin-left: -5px;
-    margin-top: auto;
-    border-color: rgb(94, 94, 94) transparent transparent transparent;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  margin-top: auto;
+  border-color: rgb(94, 94, 94) transparent transparent transparent;
 }
-  
 
 @media only screen and (min-width: 700px) {
-    .account_forms {
-        width: 600px;
-    }
-    .button_logout {
-        align-self: flex-end;
-    }
+  .account_forms {
+    width: 600px;
+  }
+  .button_logout {
+    align-self: flex-end;
+  }
 }

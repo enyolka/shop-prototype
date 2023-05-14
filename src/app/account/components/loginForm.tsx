@@ -3,60 +3,75 @@ import { useState } from "react";
 import Button from "../../../components/button/button";
 import { AccountFormModel } from "../accountPage";
 import Message from "../../../components/message/message";
-import { ClientFormModel } from "../../cart/buyPage";
 
 type Props = {
-    setLogged: (value: boolean) => void;
-    // setAccount: (account: AccountFormModel) => void;
-}
+  setLogged: (value: boolean) => void;
+};
 
 const LoginForm = ({ setLogged }: Props) => {
-  const accounts = [{
-    name: "admin",
-    password: "admin",
-    email: "admin"
-  }].concat(JSON.parse(localStorage.getItem("accounts")))
+  const accounts = [
+    {
+      name: "admin",
+      password: "admin",
+      email: "admin",
+    },
+  ].concat(JSON.parse(localStorage.getItem("accounts")));
 
   const [login, setLogin] = useState("");
-  const [password, setPassword] = useState("")
-  const [failed, setFailed] = useState(false)
-  console.log(accounts)
+  const [password, setPassword] = useState("");
+  const [failed, setFailed] = useState(false);
+  console.log(accounts);
 
- return (
+  return (
     <form className="account_form">
-      <div  className="login_item">
+      <div className="login_item">
         <label htmlFor="login">Login</label>
-        <input type="text" required name="login" className="form_input" value={login} onChange={e => setLogin(e.target.value)}/>
+        <input
+          type="text"
+          required
+          name="login"
+          className="form_input"
+          value={login}
+          onChange={(e) => setLogin(e.target.value)}
+        />
       </div>
-      
-      <div  className="login_item">
+
+      <div className="login_item">
         <label htmlFor="password">Hasło</label>
-        <input type="password" required name="password" className="form_input" value={password} onChange={e => setPassword(e.target.value)}/>
+        <input
+          type="password"
+          required
+          name="password"
+          className="form_input"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
       </div>
-      
-       <Button 
+
+      <Button
         className="login_button"
         onClick={(event) => {
-          event.preventDefault()
-          const selected = accounts.find((account: AccountFormModel) => account.name === login)
+          event.preventDefault();
+          const selected = accounts.find(
+            (account: AccountFormModel) => account.name === login
+          );
           if (selected && selected.password === password) {
-            console.log(selected)
-            setLogged(true)
-            sessionStorage.setItem("account", JSON.stringify(selected))
-            setFailed(false)
-          } else setFailed(true)
-        }
-      }>Zaloguj się</Button>
-      {failed && 
-        <Message 
-          type="error" 
-          wrapped
-        >
+            console.log(selected);
+            setLogged(true);
+            sessionStorage.setItem("account", JSON.stringify(selected));
+            setFailed(false);
+          } else setFailed(true);
+        }}
+      >
+        Zaloguj się
+      </Button>
+      {failed && (
+        <Message type="error" wrapped>
           Logowanie nie powiodło się. Niepoprawny login i/lub hasło.
         </Message>
-      }
+      )}
     </form>
-    )
-}
+  );
+};
 
 export default LoginForm;

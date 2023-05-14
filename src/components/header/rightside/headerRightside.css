@@ -27,11 +27,11 @@
   cursor: pointer;
 }
 
-.logo--right  > .logo_item {
-position: absolute;
-top: -40px;
-left: 10px;
-height: 60px;
+.logo--right > .logo_item {
+  position: absolute;
+  top: -40px;
+  left: 10px;
+  height: 60px;
 }
 
 .search--right {
@@ -70,14 +70,14 @@ height: 60px;
 }
 
 .txt--dot::after {
-  content: '';
+  content: "";
   display: inline-block;
   position: absolute;
   width: 0.5rem;
   height: 0.5rem;
   border-radius: 1rem;
   background-color: var(--important);
-  top: .8rem;
+  top: 0.8rem;
   right: -0.2rem;
 }
 
@@ -96,12 +96,11 @@ height: 60px;
   background-color: var(--main-light-max);
 }
 
-
 .menu__toggler--right > span,
 .menu__toggler--right > span::before,
 .menu__toggler--right > span::after {
   position: absolute;
-  content: '';
+  content: "";
   width: 28px;
   height: 3px;
   background: #2f2f2f;
@@ -117,7 +116,7 @@ height: 60px;
   top: 8px;
 }
 
-.menu__toggler--right.active > span  {
+.menu__toggler--right.active > span {
   background: transparent;
 }
 
@@ -127,11 +126,11 @@ height: 60px;
   top: 0px;
 }
 
-.menu__toggler--right.active > span::before  {
+.menu__toggler--right.active > span::before {
   transform: rotate(-225deg);
 }
 
-.menu__toggler--right.active > span::after  {
+.menu__toggler--right.active > span::after {
   transform: rotate(225deg);
 }
 
@@ -191,7 +190,7 @@ height: 60px;
   display: flex;
 }
 
-.header_important--right > .header_bar__item::after  {
+.header_important--right > .header_bar__item::after {
   content: "|";
   color: var(--secondary);
   padding-left: 1em;
@@ -209,10 +208,9 @@ height: 60px;
   margin: 8px 0 16px;
 }
 
-
 @media only screen and (min-width: 800px) {
   .header--right {
-    grid-template-columns: minmax(80px, 400px) auto 280px 40px;  
+    grid-template-columns: minmax(80px, 400px) auto 280px 40px;
     grid-template-rows: 40px 10px auto;
     padding: 35px 40px 10px;
     gap: 5px;
@@ -223,10 +221,9 @@ height: 60px;
     grid-column: 0/6;
   }
 
-  .menu--right { 
+  .menu--right {
     width: 350px;
     right: -350px;
-
   }
   .menu__toggler--right {
     top: 40px;
@@ -251,5 +248,3 @@ height: 60px;
     font-size: 14px;
   }
 }
-
-  

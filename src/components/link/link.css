@@ -1,11 +1,10 @@
 .link {
-    text-decoration: underline;
-    color: var(--focus-text);
-    padding: 4px 0;
+  text-decoration: underline;
+  color: var(--focus-text);
+  padding: 4px 0;
 }
 
 .link:hover {
-    color: var(--important-hover);
-    cursor: pointer;
+  color: var(--important-hover);
+  cursor: pointer;
 }
-

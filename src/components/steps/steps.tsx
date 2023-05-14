@@ -1,6 +1,6 @@
 import * as React from "react";
-import  * as classNames from "classnames";
-import "./steps.css"
+import * as classNames from "classnames";
+import "./steps.css";
 
 export type Step = {
   label: string;
@@ -20,34 +20,32 @@ const Steps = ({
   activeStepIdx,
   steps,
   ariaLabelCompleted,
-  ariaLabelCurrent
+  ariaLabelCurrent,
 }: Props) => {
-
   return (
     <div className="steps__list">
-          {steps.map(({ label, subLabel, disabled }, idx) => (
-            <Step
-              key={idx}
-              idx={idx}
-              label={label}
-              subLabel={subLabel}
-              completed={idx < activeStepIdx}
-              current={idx === activeStepIdx}
-              ariaLabelCompleted={ariaLabelCompleted}
-              ariaLabelCurrent={ariaLabelCurrent}
-              disabled={disabled}
-            />
-          ))}
+      {steps.map(({ label, subLabel, disabled }, idx) => (
+        <Step
+          key={idx}
+          idx={idx}
+          label={label}
+          subLabel={subLabel}
+          completed={idx < activeStepIdx}
+          current={idx === activeStepIdx}
+          ariaLabelCompleted={ariaLabelCompleted}
+          ariaLabelCurrent={ariaLabelCurrent}
+          disabled={disabled}
+        />
+      ))}
     </div>
   );
-}
-
+};
 
 type StepProps = {
   idx: number;
   label: string;
   subLabel?: string;
-  link?: string,
+  link?: string;
   completed?: boolean;
   current?: boolean;
   disabled?: boolean;
@@ -64,13 +62,13 @@ export const Step = ({
   current,
   disabled,
   ariaLabelCompleted,
-  ariaLabelCurrent
+  ariaLabelCurrent,
 }: StepProps) => {
   return (
     <a
       href={link ?? "#"}
       onClick={(e) => e.preventDefault()}
-      className={classNames("steps__item", {completed, current, disabled})}
+      className={classNames("steps__item", { completed, current, disabled })}
       tabIndex={disabled ? -1 : undefined}
     >
       <span
@@ -85,7 +83,6 @@ export const Step = ({
       </span>
     </a>
   );
-}
-
+};
 
 export { Steps };

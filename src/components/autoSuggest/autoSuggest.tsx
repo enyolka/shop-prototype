@@ -1,10 +1,10 @@
 import * as classNames from "classnames";
-import * as React from 'react';
+import * as React from "react";
 import { useEffect, useRef, useState } from "react";
 import { FaSearch } from "react-icons/fa";
-import "./autoSuggest.css"
+import "./autoSuggest.css";
 
-const useUniqueId = (x: string) => x
+const useUniqueId = (x: string) => x;
 
 type SuggestTerm = string | ObjectTerm;
 
@@ -39,9 +39,7 @@ export type Props<O extends SuggestTerm> = {
   required?: boolean;
 };
 
-function AutoSuggest<
-  O extends SuggestTerm
->({
+function AutoSuggest<O extends SuggestTerm>({
   className,
   label,
   autoSuggestTerms,
@@ -56,7 +54,7 @@ function AutoSuggest<
   disabled,
   buttonIcon,
   button = true,
-  ... props
+  ...props
 }: Props<O>): React.ReactElement {
   const labelId = useUniqueId("autosuggest-label");
   const listboxId = useUniqueId("autosuggest-listbox");
@@ -67,41 +65,46 @@ function AutoSuggest<
   const [activeTermIdx, setActiveTermIdx] = useState(-1);
   const [expanded, setExpanded] = useState(false);
   const [closeable, setCloseable] = useState(true);
-  const [termsToShow, setTermsToShow] = useState([])
+  const [termsToShow, setTermsToShow] = useState([]);
 
   const hasInput = !!value;
 
   const onBlur = (callback?: any) => {
     if (!!props.onBlur) {
       props.onBlur;
-    }
-    else if (closeable) {
+    } else if (closeable) {
       setExpanded(false);
       callback?.();
     }
-  }
+  };
 
   const onFocusOnChange = () => {
-    if (termsToShow.length > 0 && typeof value === "string" && value.length >= minLength){
+    if (
+      termsToShow.length > 0 &&
+      typeof value === "string" &&
+      value.length >= minLength
+    ) {
       setExpanded(true);
     }
     setCloseable(true);
-  }
+  };
 
   const onSelect = () => {
     setCloseable(true);
     setExpanded(false);
-  }
+  };
 
   useEffect(() => {
     setQuery(getQuery(value));
   }, [value]);
 
   useEffect(() => {
-    setTermsToShow(showAllTerms && !hasInput
-    ? autoSuggestTerms
-    : getFilteredTerms(value, minLength, autoSuggestTerms, maxSuggestions))}, 
-    [showAllTerms, hasInput, autoSuggestTerms, maxSuggestions, length, value])
+    setTermsToShow(
+      showAllTerms && !hasInput
+        ? autoSuggestTerms
+        : getFilteredTerms(value, minLength, autoSuggestTerms, maxSuggestions)
+    );
+  }, [showAllTerms, hasInput, autoSuggestTerms, maxSuggestions, length, value]);
 
   useEffect(() => {
     if (activeTermIdx === -1) {
@@ -119,18 +122,20 @@ function AutoSuggest<
   }, [termsToShow.length]);
 
   const onKeyDown: React.KeyboardEventHandler = (e) => {
-    if (
-      e.target !== inputRef.current && !e.shiftKey) {
+    if (e.target !== inputRef.current && !e.shiftKey) {
       inputRef.current?.focus();
-    } 
-    if (termsToShow.length < 1 ) {
+    }
+    if (termsToShow.length < 1) {
       () => setExpanded(false);
       return;
-    }
-    else if (e.key === "Enter" && e.target === inputRef.current && activeTermIdx !== -1) {
+    } else if (
+      e.key === "Enter" &&
+      e.target === inputRef.current &&
+      activeTermIdx !== -1
+    ) {
       onSelection?.(termsToShow[activeTermIdx]);
       onSelect();
-    } else  if (e.key === "Escape") {
+    } else if (e.key === "Escape") {
       setExpanded(false);
       inputRef.current?.blur();
     } else if (e.key === "ArrowUp") {
@@ -139,16 +144,12 @@ function AutoSuggest<
     } else if (e.key === "ArrowDown") {
       e.preventDefault();
       setActiveTermIdx((prev) => Math.min(prev + 1, termsToShow.length - 1));
-    } 
+    }
   };
 
   return (
     <div
-      className={classNames(
-        "autoSuggest",
-        hasInput ? "active" : "",
-        className,
-      )}
+      className={classNames("autoSuggest", hasInput ? "active" : "", className)}
       role="combobox"
       aria-expanded={expanded}
       aria-haspopup="listbox"
@@ -165,62 +166,65 @@ function AutoSuggest<
     >
       <label>
         <div className="autoSuggest__field">
-        <input
-          ref={inputRef}
-          className={classNames("autoSuggest__input", {
-            focus: focusedWithin,
-            borderRight: !!buttonIcon || button
-          })}
-          onFocus={() => {
-            onFocusOnChange();
-          }}
-          type="text"
-          autoComplete="off"
-          role="textbox"
-          aria-labelledby={labelId}
-          aria-autocomplete="list"
-          aria-controls={listboxId}
-          aria-activedescendant={
-            activeTermIdx === -1
-              ? undefined
-              : "autoSuggest__listItem"//__${activeTermIdx}
-          }
-          value={query}
-          onChange={(e) => {
-            onChange?.(e.target.value);
-            onFocusOnChange();
-          }}
-          disabled={disabled}
-          placeholder={props.placeholder}
-        />
-        <span id={labelId} className="label">
-          {label}
-        </span>
-          {(buttonIcon || button) ?
-            <button 
-            className={classNames(
-              "autoSuggest__searchButton" , {
-              focus: focusedWithin })}
-            onClick={() => activeTermIdx !== -1 && onSelection?.(termsToShow[activeTermIdx])}
+          <input
+            ref={inputRef}
+            className={classNames("autoSuggest__input", {
+              focus: focusedWithin,
+              borderRight: !!buttonIcon || button,
+            })}
+            onFocus={() => {
+              onFocusOnChange();
+            }}
+            type="text"
+            autoComplete="off"
+            role="textbox"
+            aria-labelledby={labelId}
+            aria-autocomplete="list"
+            aria-controls={listboxId}
+            aria-activedescendant={
+              activeTermIdx === -1 ? undefined : "autoSuggest__listItem" //__${activeTermIdx}
+            }
+            value={query}
+            onChange={(e) => {
+              onChange?.(e.target.value);
+              onFocusOnChange();
+            }}
             disabled={disabled}
+            placeholder={props.placeholder}
+          />
+          <span id={labelId} className="label">
+            {label}
+          </span>
+          {buttonIcon || button ? (
+            <button
+              className={classNames("autoSuggest__searchButton", {
+                focus: focusedWithin,
+              })}
+              onClick={() =>
+                activeTermIdx !== -1 &&
+                onSelection?.(termsToShow[activeTermIdx])
+              }
+              disabled={disabled}
             >
-              {buttonIcon != undefined ? buttonIcon : <FaSearch className="autoSuggest__buttonIcon"/>}
-            </button> : null}
+              {buttonIcon != undefined ? (
+                buttonIcon
+              ) : (
+                <FaSearch className="autoSuggest__buttonIcon" />
+              )}
+            </button>
+          ) : null}
         </div>
       </label>
       <ul
         id={listboxId}
-        className={classNames(
-          "autoSuggest__listbox", 
-          {
-            visible: expanded ,
-            show_all_terms: expanded && showAllTerms && !hasInput
-          }
-        )}
+        className={classNames("autoSuggest__listbox", {
+          visible: expanded,
+          show_all_terms: expanded && showAllTerms && !hasInput,
+        })}
         role="listbox"
         onMouseDown={() => setCloseable(false)}
       >
-        {expanded  &&
+        {expanded &&
           termsToShow.map((it, idx) => (
             <li
               key={idx}
@@ -255,7 +259,10 @@ function AutoSuggest<
           typeof value === "string" &&
           value.length >= minLength && (
             <li
-              className={classNames("autoSuggest__listItem", "autoSuggest__listItem__no_results")}
+              className={classNames(
+                "autoSuggest__listItem",
+                "autoSuggest__listItem__no_results"
+              )}
               role="presentation"
             >
               {noResultsFoundText}
@@ -270,11 +277,11 @@ function getQuery<O extends SuggestTerm>(value: string | O): string {
   return typeof value === "string" ? value : value.label ?? value.value;
 }
 
-function getFilteredTerms< O extends SuggestTerm>(
+function getFilteredTerms<O extends SuggestTerm>(
   value: string | O,
   minLength: number,
   autoSuggestTerms: O[],
-  maxSuggestions: number,
+  maxSuggestions: number
 ): O[] {
   if (typeof value !== "string") {
     autoSuggestTerms.find((it) => {
@@ -306,7 +313,7 @@ function getFilteredTerms< O extends SuggestTerm>(
 function getLabel<O extends SuggestTerm>(
   suggestTerm: SuggestTerm,
   value: string | O,
-  termIdx: number,
+  termIdx: number
 ): React.ReactNode {
   const term =
     typeof suggestTerm === "string"
@@ -320,10 +327,7 @@ function getLabel<O extends SuggestTerm>(
   const suffix = term.substring(idx + query.length);
 
   return (
-    <span
-      className={"autoSuggest__listItem__value"}
-      data-term-index={termIdx}
-    >
+    <span className={"autoSuggest__listItem__value"} data-term-index={termIdx}>
       {prefix}
       <mark>{middle}</mark>
       {suffix}

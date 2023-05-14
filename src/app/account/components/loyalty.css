@@ -1,48 +1,47 @@
 .loyalty {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
 .loyalty_header {
-    color: var(--main);
-    padding: 1rem;
-    margin: 0 0 1.5rem;
-    height: 500px;
-    background-position: center;
-    background-repeat: no-repeat;
+  color: var(--main);
+  padding: 1rem;
+  margin: 0 0 1.5rem;
+  height: 500px;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .loyalty_programs {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem;
 }
 
 .loyalty_vouchers {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
 .loyalty_vouchers > h3 {
-
 }
 
 .vouchers_list {
-    display: flex;
-    justify-items: flex-start;
-    gap: 1rem;
-    overflow-x: scroll;
-    padding: 1rem 0;
+  display: flex;
+  justify-items: flex-start;
+  gap: 1rem;
+  overflow-x: scroll;
+  padding: 1rem 0;
 }
 
 .voucher {
-    background-color: rgb(181, 201, 227);
-    font-size: 14px;
-    font-style: italic;
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
+  background-color: rgb(181, 201, 227);
+  font-size: 14px;
+  font-style: italic;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
 }
