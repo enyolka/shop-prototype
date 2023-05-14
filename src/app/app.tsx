@@ -75,6 +75,10 @@ const App = () => {
               <Route path="/realizuj-zamowienie" element={<BuyPage/>} />
               <Route path="/podsumowanie" element={<EndPage/>} />
               <Route path="/konto" element={<AccountPage/>} />
+              <Route path="/konto/informacje" element={<AccountPage option="accountData"/>} />
+              <Route path="/konto/adres" element={<AccountPage option="deliveryData"/>} />
+              <Route path="/konto/programy-lojalnosciowe" element={<AccountPage option="loyalty"/>} />
+              <Route path="/konto/kontakt" element={<AccountPage option="contact"/>} />
               <Route path="/kontakt" element={<ContactPage/>} />
               <Route path="/ustawienia" element={
                 <SettingsPage 

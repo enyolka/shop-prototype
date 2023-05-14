@@ -71,6 +71,7 @@ const HeaderRightside = ({
     const headerItems = [
         <MenuItem 
             role="popup" 
+            to="/ustawienia"
             options={settingOptions} 
             onOptionSelect={onSettingOptionSelect}
             className="header_bar__item"

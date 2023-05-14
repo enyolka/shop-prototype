@@ -73,9 +73,9 @@ const HeaderLeftside = ({
     const headerItems = [
         <MenuItem 
             role="popup" 
+            to="/ustawienia"
             options={settingOptions} 
             onOptionSelect={onSettingOptionSelect}  
-            // header="ustawienia"
             header={<IoSettings className="header_bar__icon"/>}
         />,
         <MenuItem 

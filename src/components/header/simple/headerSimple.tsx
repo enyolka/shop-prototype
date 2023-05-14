@@ -34,7 +34,6 @@ const HeaderSimple = ({
     const [active, setActive] = useState(false)
     const [grouped, setGrouped] = useState(groupedProducts)
     const [value, setValue] = useState<string | any>("");
-
     const context = React.useContext(ProductContext)
 
     const navigate = useNavigate();
@@ -60,6 +59,29 @@ const HeaderSimple = ({
         }
     };
 
+    const accountOptions = [
+        {
+            name: "Informacje",
+            link: console.log("/konto/informacje"),
+        },
+        {
+            name: "Adres",
+            link: navigate("/konto/adres"),
+        },
+        {
+            name: "Kupony",
+            link: navigate("/konto/programy-lojalnosciowe"),
+        },
+        {
+            name: "Kontakt i pomoc",
+            link: navigate("/konto/kontakt"),
+        },
+        {
+            name: "Wyloguj",
+            link: toggleLogged,
+        },
+    ]
+// 
     useEffect(() => setGrouped(groupedProducts),[groupedProducts])
 
     useEffect(() => {
@@ -72,6 +94,7 @@ const HeaderSimple = ({
     const headerItems = [
         <MenuItem 
             role="popup" 
+            to="/ustawienia"
             options={settingOptions} 
             onOptionSelect={onSettingOptionSelect}
             className="header_bar__item"
@@ -92,8 +115,10 @@ const HeaderSimple = ({
         />,
         <MenuItem 
             to="/konto" 
-            options={sessionStorage.getItem('account') != null ? ["Wyloguj"] : null}
-            onOptionSelect={toggleLogged}
+            options={sessionStorage.getItem('account') != null ? accountOptions.map(item => item.name) : null}
+            onOptionSelect={(option) => console.log(accountOptions.find(item => option == item.name).link)}
+            // options={sessionStorage.getItem('account') != null ? ["Wyloguj"] : null}
+            // onOptionSelect={toggleLogged}
             onClick={() => navigate(`/konto`)} 
             className="header_bar__item" 
             header="konto" 
