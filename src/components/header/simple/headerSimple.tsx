@@ -45,7 +45,7 @@ const HeaderSimple = ({
          setActive(false)
     }
         
-    const toggleLogged = (x: string) => {
+    const toggleLogged = (x?: string) => {
         sessionStorage.removeItem("account")
         sessionStorage.setItem('logged', JSON.stringify(false))
         window.location.reload()
@@ -62,19 +62,19 @@ const HeaderSimple = ({
     const accountOptions = [
         {
             name: "Informacje",
-            link: console.log("/konto/informacje"),
+            link: () => navigate("/konto/informacje"),
         },
         {
             name: "Adres",
-            link: navigate("/konto/adres"),
+            link: () => navigate("/konto/adres") ,
         },
         {
             name: "Kupony",
-            link: navigate("/konto/programy-lojalnosciowe"),
+            link: () => navigate("/konto/programy-lojalnosciowe"),
         },
         {
             name: "Kontakt i pomoc",
-            link: navigate("/konto/kontakt"),
+            link: () => navigate("/konto/kontakt"),
         },
         {
             name: "Wyloguj",
@@ -116,7 +116,7 @@ const HeaderSimple = ({
         <MenuItem 
             to="/konto" 
             options={sessionStorage.getItem('account') != null ? accountOptions.map(item => item.name) : null}
-            onOptionSelect={(option) => console.log(accountOptions.find(item => option == item.name).link)}
+            onOptionSelect={(option) => accountOptions.find(item => option == item.name).link()}
             // options={sessionStorage.getItem('account') != null ? ["Wyloguj"] : null}
             // onOptionSelect={toggleLogged}
             onClick={() => navigate(`/konto`)} 

@@ -17,6 +17,9 @@ type Props = {
 const AccountDetailsPage =({ option }: Props) => {
   const menu = ["accountData", "deliveryData", "loyalty", "contact", "settings"]
   const [menuOption, setMenuOption] = useState(option || menu[0])
+  console.log(menu)
+
+  React.useEffect(() => setMenuOption(option || menu[0]),[option])
 
     return (
       <article className="accountDetails">
@@ -26,7 +29,7 @@ const AccountDetailsPage =({ option }: Props) => {
             header="Dane konta" 
             className="accountDetails_menuItem"
             onClick={() => setMenuOption("accountData")}
-            showActive={menuOption === "accountData"}
+            showActive={menuOption == "accountData"}
           />
           <MenuItem 
             to="/konto/adres"
