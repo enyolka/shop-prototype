@@ -23,7 +23,7 @@ import SettingsPage from "./additional/settingsPage";
 
 const App = () => {
   const headers = ["leftside", "simple", "extensive", "rightside"];
-  const colors = ["mint", "blue"];
+  const colors = ["mint", "blue", "white"];
   const [header, setHeader] = useState(
     sessionStorage.getItem("header") != null
       ? sessionStorage.getItem("header")
@@ -65,8 +65,9 @@ const App = () => {
         "--secondary",
         "rgb(23, 116, 139)"
       );
-      document.documentElement.style.setProperty("--main", "rgb(41, 80, 98))");
+      document.documentElement.style.setProperty("--main", "rgb(41, 80, 98)");
     }
+
     if (color === "blue") {
       document.documentElement.style.setProperty(
         "--main-light-max",
@@ -85,6 +86,13 @@ const App = () => {
         "rgb(49, 120, 183)"
       );
       document.documentElement.style.setProperty("--main", "rgb(59, 99, 135)");
+    }
+
+    if (color === "white") {
+      document.documentElement.style.setProperty(
+        "--main-light-max",
+        "rgb(255 255 255)"
+      );
     }
   };
 

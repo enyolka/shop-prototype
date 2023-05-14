@@ -40,12 +40,13 @@
 }
 
 .menuLink__listItem {
-  font-size: 16px;
+  font-size: 15px;
   padding: 4px 1rem;
 }
 
 .menuLink__listItem:hover {
   background-color: var(--main-light-max);
+  font-weight: 500;
 }
 
 .menuLink__listbox.open {

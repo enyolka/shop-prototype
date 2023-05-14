@@ -86,7 +86,7 @@
   background-color: var(--gray-light);
 }
 
-.delivery_option:hover {
+.delivery_option:hover, .delivery_option > *:hover {
   cursor: pointer;
 }
 
