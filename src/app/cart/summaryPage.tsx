@@ -34,7 +34,7 @@ const SummaryPage = ({ onNext }: Props) => {
         <ul className="summary_list">
           {context.cart.map((cartItem) => (
             <li key={cartItem.id} className="summary_item">
-              <img alt="" src={placeholder} className="summary_item__img" />
+              <img alt="" src={cartItem.image} className="cart_item__img" />
               <Link to={`/${cartItem.id}`} className="summary_item__link">
                 {cartItem.name}
               </Link>
